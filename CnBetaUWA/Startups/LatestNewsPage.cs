@@ -11,12 +11,12 @@ namespace CnBetaUWA.Startups
 
         public static void ConfigLatestNews()
         {
-            ViewModelLocator<LatestNews_Model>
+            ViewModelLocator<LatestNewsPage_Model>
                 .Instance
                 .Register(context =>
-                    new LatestNews_Model())
+                    new LatestNewsPage_Model())
                 .GetViewMapper()
-                .MapToDefault<LatestNews>();
+                .MapToDefault<LatestNewsPage>();
 
         }
     }

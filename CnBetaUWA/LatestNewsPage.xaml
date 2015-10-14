@@ -1,6 +1,6 @@
 ﻿<mvvm:MVVMPage 
     x:Name="pageRoot"
-    x:Class="CnBetaUWA.LatestNews"
+    x:Class="CnBetaUWA.LatestNewsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CnBetaUWA"
@@ -14,7 +14,7 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
-        <vm:LatestNews_Model x:Key="DesignVM"/>
+        <vm:LatestNewsPage_Model x:Key="DesignVM"/>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" DataContext="{StaticResource DesignVM}">

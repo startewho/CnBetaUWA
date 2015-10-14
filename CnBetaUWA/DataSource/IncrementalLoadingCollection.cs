@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Core;
@@ -22,6 +24,13 @@ namespace CnBetaUWA.DataSource
         /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
         Task<IEnumerable<T>> GetPagedItems(string query, int pageIndex, int pageSize);
+
+
+        /// <summary>
+        /// 获得最新Items
+        /// </summary>
+        /// <param name="query">查询语句</param>
+        /// <returns></returns>
         Task<IEnumerable<T>> GetLastestItems(string query);
 
     }
@@ -63,49 +72,50 @@ namespace CnBetaUWA.DataSource
       
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
-          
-            var dispatcher = Window.Current.Dispatcher;
+          return AsyncInfo.Run((c) => LoadMoreItemsAsync(c, count));
+        }
 
-            return Task.Run(
-                async () =>
+        async Task<LoadMoreItemsResult> LoadMoreItemsAsync(CancellationToken c, uint count)
+        {
+            try
+            {
+                OnLoadMoreStarted?.Invoke(count);
+
+                uint resultCount = 0;
+
+                var result = await _source.GetPagedItems(_query, _currentPage++, _pageSize);
+
+                if (result != null &&  result.Any())
                 {
-                    // 加载开始事件
-                    OnLoadMoreStarted?.Invoke(count);
-                    
-                    uint resultCount = 0;
-                    
-                    var result = await _source.GetPagedItems(_query,_currentPage++, _pageSize);
-                   
-                    if (result != null && dispatcher != null && result.Any())
-                    {
-                        resultCount = (uint) result.Count();
-                      
-                        await dispatcher.RunAsync(
-                            CoreDispatcherPriority.High,
-                            () =>
-                            {
-                                foreach (I item in result)
-                                    Add(item);
-                                   
-                            });
-                        if (resultCount < _pageSize)
-                        {
-                            _hasMoreItems = false;
-                        }
-                    }
-                    else
+                    resultCount = (uint)result.Count();
+                
+                        foreach (I item in result)
+                            Add(item);
+
+                    if (resultCount < _pageSize)
                     {
                         _hasMoreItems = false;
                     }
+                }
+                else
+                {
+                    _hasMoreItems = false;
+                }
 
-                    // 加载完成事件
-                    OnLoadMoreStarted?.Invoke(resultCount);
+                // 加载完成事件
+                OnLoadMoreStarted?.Invoke(resultCount);
 
-                    Debug.WriteLine("Already Loading count{0},Everytime loading count:{1}",Items.Count, count);
-                    return new LoadMoreItemsResult { Count = resultCount };
+                Debug.WriteLine("Already Loading count{0},Everytime loading count:{1}", Items.Count, count);
+                return new LoadMoreItemsResult { Count = resultCount };
 
-                }).AsAsyncOperation();
+            }
+            finally
+            {
+              
+            }
         }
+
+
 
         public async Task<int> AttachToEnd()
         {
