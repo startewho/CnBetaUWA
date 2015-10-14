@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Startups;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -36,7 +37,7 @@ namespace CnBetaUWA
 
 		public static void InitNavigationConfigurationInThisAssembly()
 		{
-			MVVMSidekick.Startups.StartupFunctions.RunAllConfig();
+			StartupFunctions.RunAllConfig();
 		}
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

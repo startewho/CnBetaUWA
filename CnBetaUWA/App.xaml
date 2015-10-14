@@ -4,5 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CnBetaUWA"
     RequestedTheme="Light">
-
+    <Application.Resources>
+        <ResourceDictionary>
+          
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/CustomStylesResources.xaml" />
+                <ResourceDictionary Source="Themes/DataTemplateResources.xaml" />
+             </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        </Application.Resources>
 </Application>

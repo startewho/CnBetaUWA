@@ -12,7 +12,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
+using CnBetaUWA.Models;
+using MVVMSidekick.EventRouting;
+using MVVMSidekick.Utilities;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -25,91 +29,145 @@ namespace CnBetaUWA.ViewModels
 
         public MainPage_Model()
         {
-            if (IsInDesignMode )
+            IsSplitViewPaneOpen = !IsSplitViewPaneOpen;
+
+            _isLoaded = false;
+
+            MenuItems.Add(new MenuItem { Icon = "\uE10F", Title = "主页", PageType = typeof(LatestNews) });
+            MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(LatestNews) });
+            MenuItems.Add(new MenuItem { Icon = "\uE779", Title = "专栏", PageType = typeof(LatestNews) });
+            MenuItems.Add(new MenuItem { Icon = "\uE713", Title = "设置", PageType = typeof(LatestNews) });
+            SelectedMenuItem = MenuItems.First(item => item.Title == "主页");
+
+        }
+
+
+
+        private bool _isLoaded;
+
+
+        protected override Task OnBindedViewLoad(IView view)
+        {
+            if (_isLoaded) return base.OnBindedViewLoad(view);
+
+            SubscribeCommand();
+            _isLoaded = true;
+            return base.OnBindedViewLoad(view);
+        }
+
+        private void SubscribeCommand()
+        {
+            //EventRouter.Instance.GetEventChannel<Object>()
+            //    .Where(x => x.EventName == "NavToPostDetailByEventRouter")
+            //    .Subscribe(
+            //        async e =>
+            //        {
+            //            await TaskExHelper.Yield();
+            //            var item = e.EventData as PostDetail;
+            //            if (item != null)
+            //            {
+            //                await StageManager.DefaultStage.Show(new PostDetailPage_Model(item));
+
+            //                //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
+            //            }
+
+            //        }
+            //    ).DisposeWith(this);
+
+
+
+            //EventRouter.Instance.GetEventChannel<Object>()
+            //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")
+            //      .Subscribe(
+            //          async e =>
+            //          {
+            //              await TaskExHelper.Yield();
+            //              var item = e.EventData as Author;
+            //              if (item != null)
+            //              {
+            //                  item.AuthorPostList = new IncrementalLoadingCollection<AuthorPostSource, PostDetail>(item.Id.ToString(), AppStrings.PageSize);
+            //                  await StageManager.DefaultStage.Show(new AuthorPage_Model(item));
+
+            //                //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
+            //            }
+
+            //          }
+            //      ).DisposeWith(this);
+
+
+        }
+
+
+
+        private ObservableCollection<MenuItem> menuItems = new ObservableCollection<MenuItem>();
+
+
+
+        public bool IsSplitViewPaneOpen
+
+        {
+            get { return _IsSplitViewPaneOpenLocator(this).Value; }
+            set { _IsSplitViewPaneOpenLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property bool IsSplitViewPaneOpen Setup        
+        protected Property<bool> _IsSplitViewPaneOpen = new Property<bool> { LocatorFunc = _IsSplitViewPaneOpenLocator };
+        static Func<BindableBase, ValueContainer<bool>> _IsSplitViewPaneOpenLocator = RegisterContainerLocator("IsSplitViewPaneOpen", model => model.Initialize("IsSplitViewPaneOpen", ref model._IsSplitViewPaneOpen, ref _IsSplitViewPaneOpenLocator, _IsSplitViewPaneOpenDefaultValueFactory));
+        static Func<bool> _IsSplitViewPaneOpenDefaultValueFactory = () => default(bool);
+        #endregion
+
+
+        public MenuItem SelectedMenuItem
+        {
+            get { return _SelectedMenuItemLocator(this).Value; }
+            set
             {
-                Title = "Title is a little different in Design mode";
+                if (value != null)
+                {
+                    _SelectedMenuItemLocator(this).SetValueAndTryNotify(value);
+                    _IsSplitViewPaneOpenLocator(this).SetValueAndTryNotify(false);
+                    _SelectedPageTypeLocator(this).SetValueAndTryNotify(value.PageType);
+                }
+
+
+
             }
-            GetInit();
         }
-
-        private async void GetInit()
-        {
-          //  var timemiles = CnBetaHelper.GetNews("Article.Lists",null, 0);
-            var timemiles1 = CnBetaHelper.GetHotComments();
-
-        }
-
-        //propvm tab tab string tab Title
-        public String Title
-        {
-            get { return _TitleLocator(this).Value; }
-            set { _TitleLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property String Title Setup
-        protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<String> _TitleDefaultValueFactory = ()=>"Title is Here";
+        #region Property MenuItem SelectedMenuItem Setup        
+        protected Property<MenuItem> _SelectedMenuItem = new Property<MenuItem> { LocatorFunc = _SelectedMenuItemLocator };
+        static Func<BindableBase, ValueContainer<MenuItem>> _SelectedMenuItemLocator = RegisterContainerLocator("SelectedMenuItem", model => model.Initialize("SelectedMenuItem", ref model._SelectedMenuItem, ref _SelectedMenuItemLocator, _SelectedMenuItemDefaultValueFactory));
+        static Func<MenuItem> _SelectedMenuItemDefaultValueFactory = () => default(MenuItem);
         #endregion
 
 
-        
-        #region Life Time Event Handling
-    
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
+        public Type SelectedPageType
+        {
+            get
+            {
+                if (SelectedMenuItem != null)
+                {
+                    return SelectedMenuItem.PageType;
+                }
+                return null;
+            }
+            set
+            {
 
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
+                SelectedMenuItem = menuItems.FirstOrDefault(m => m.PageType == value);
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
-
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
-
+            }
+        }
+        #region Property Type SelectedPageType Setup        
+        protected Property<Type> _SelectedPageType = new Property<Type> { LocatorFunc = _SelectedPageTypeLocator };
+        static Func<BindableBase, ValueContainer<Type>> _SelectedPageTypeLocator = RegisterContainerLocator("SelectedPageType", model => model.Initialize("SelectedPageType", ref model._SelectedPageType, ref _SelectedPageTypeLocator, _SelectedPageTypeDefaultValueFactory));
+        static Func<Type> _SelectedPageTypeDefaultValueFactory = () => default(Type);
         #endregion
+
+
+        public ObservableCollection<MenuItem> MenuItems
+        {
+            get { return menuItems; }
+        }
 
 
     }

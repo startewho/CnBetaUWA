@@ -32,14 +32,14 @@ namespace CnBetaUWA.Helper
         public static async Task<string> GetNews(string type,Artiletype? todaytype ,int startSid,int endSid)
         {
             var query = "app_key=10000";
-            
-            query += "&format=json&method=" + type;
 
             if (startSid != 0)
-                query += "&end_id=" + startSid;
+                query += "&start_sid=" + startSid;
             if (endSid != 0)
-                query += "&end_id=" + endSid;
+                query += "&end_sid=" + endSid;
 
+            query += "&format=json&method=" + type;
+            
             query += "&timestamp="+ HttpHelper.ToTimestamp(DateTime.Now);
             if (todaytype != null)
             {
@@ -54,15 +54,42 @@ namespace CnBetaUWA.Helper
         }
 
 
+        public static async Task<string> GetLastestNews(string type, Artiletype? todaytype, int startSid, int endSid)
+        {
+            var query = "app_key=10000";
+
+        
+
+            query += "&format=json&method=" + type;
+
+            if (startSid != 0)
+                query += "&start_sid=" + startSid;
+            if (endSid != 0)
+                query += "&end_sid=" + endSid;
+
+            query += "&timestamp=" + HttpHelper.ToTimestamp(DateTime.Now);
+            if (todaytype != null)
+            {
+                query += "&type=" + todaytype;
+            }
+
+            query += "&v=1.0";
+            query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
+            var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
+            return contentjson;
+
+        }
+
+
         public static async Task<string> GetNewsByTopicId(string type, int topicid, int startSid, int endSid)
         {
             var query = "app_key=10000";
             query += "&format=json&method=" + type;
 
             if (startSid != 0)
-                query += "&end_id=" + startSid;
+                query += "&end_sid=" + startSid;
             if (endSid != 0)
-                query += "&end_id=" + endSid;
+                query += "&end_sid=" + endSid;
 
             query += "&timestamp=" + HttpHelper.ToTimestamp(DateTime.Now);
             query += "&type=" + topicid;

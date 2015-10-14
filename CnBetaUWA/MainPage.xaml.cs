@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.ViewModels;
 
@@ -32,6 +33,11 @@ namespace CnBetaUWA
                 StrongTypeViewModel = this.ViewModel as MainPage_Model;
             });
             StrongTypeViewModel = this.ViewModel as MainPage_Model;
+
+            var transitions = new TransitionCollection();
+            var transition = new NavigationThemeTransition();
+            transitions.Add(transition);
+            VMFrame.ContentTransitions = transitions;
         }
 
 
@@ -44,7 +50,33 @@ namespace CnBetaUWA
         public static readonly DependencyProperty StrongTypeViewModelProperty =
                     DependencyProperty.Register("StrongTypeViewModel", typeof(MainPage_Model), typeof(MainPage), new PropertyMetadata(null));
 
+      
 
+
+
+        public Frame RootFrame
+        {
+            get
+            {
+                return VMFrame;
+            }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+        }
+
+
+        private void VMFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+          //  RequestedTheme = AppSettings.Instance.CurrentTheme;
+        }
 
     }
 }

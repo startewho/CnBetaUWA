@@ -93,13 +93,31 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlankPage.xaml.cs">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MasterDetailView.cs" />
+    <Compile Include="Controls\SwipeableSplitView.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter .cs" />
+    <Compile Include="Converters\ListItemBackgroudConverter.cs" />
+    <Compile Include="Converters\ListViewItemStyleSelector.cs" />
+    <Compile Include="Converters\ObjectToMenuItemConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="DataSource\IncrementalLoadingCollection.cs" />
+    <Compile Include="DataSource\IncrementalNewsSource.cs" />
     <Compile Include="Extensions\WebViewExtensions.cs" />
     <Compile Include="Helper\AppViewHelper.cs" />
     <Compile Include="Helper\CnBetaHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
     <Compile Include="Helper\SerializerHelper.cs" />
+    <Compile Include="LatestNews.xaml.cs">
+      <DependentUpon>LatestNews.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Startups\LatestNews.cs" />
+    <Compile Include="ViewModels\LatestNews_Model.cs" />
     <Compile Include="ViewModels\MainPage_Model.cs" />
     <Compile Include="Startups\StartupFunctions.cs" />
     <Compile Include="App.xaml.cs">
@@ -131,7 +149,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BlankPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LatestNews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\CustomStylesResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\DataTemplateResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
