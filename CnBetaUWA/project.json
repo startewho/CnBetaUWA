@@ -8,12 +8,12 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MVVM-Sidekick": "1.6.6",
     "Newtonsoft.Json": "7.0.1",
-    "Rx-Core": "2.2.5",
+    "Rx-Core": "2.3.0-beta2",
     "Rx-Interfaces": "2.3.0-beta2",
-    "Rx-Linq": "2.2.5",
-    "Rx-Main": "2.2.5",
-    "Rx-PlatformServices": "2.2.5",
-    "Unity": "3.5.1405"
+    "Rx-Linq": "2.3.0-beta2",
+    "Rx-Main": "2.3.0-beta2",
+    "Rx-PlatformServices": "2.3.0-beta2",
+    "Unity": "4.0.1"
   },
   "frameworks": {
     "uap10.0": {}
