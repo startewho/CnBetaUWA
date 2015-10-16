@@ -18,7 +18,7 @@ namespace CnBetaUWA.Helper
     {
         private static readonly string UerAgent =
             "Mozilla/5.0 (Linux; U; Android 4.2.2; en-cn; MEmu Build/JDQ39E) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30";
-        private static readonly string HostName="http://www.cnbeta.com/";
+       // private static readonly string HostName="http://www.cnbeta.com/";
 
         private static void CreateHttpClient(ref HttpClient httpClient)
         {

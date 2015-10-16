@@ -63,6 +63,8 @@ namespace CnBetaUWA
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            StrongTypeViewModel= e.Parameter as NewsPage_Model;
+            this.DataContext=StrongTypeViewModel;
             base.OnNavigatedTo(e);
         }
 

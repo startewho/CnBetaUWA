@@ -57,22 +57,24 @@ namespace CnBetaUWA.ViewModels
 
         private void SubscribeCommand()
         {
-            //EventRouter.Instance.GetEventChannel<Object>()
-            //    .Where(x => x.EventName == "NavToPostDetailByEventRouter")
-            //    .Subscribe(
-            //        async e =>
-            //        {
-            //            await TaskExHelper.Yield();
-            //            var item = e.EventData as PostDetail;
-            //            if (item != null)
-            //            {
-            //                await StageManager.DefaultStage.Show(new PostDetailPage_Model(item));
+            EventRouter.Instance.GetEventChannel<Object>()
+                .Where(x => x.EventName == "NavToNewsDetailByEventRouter")
+                .Subscribe(
+                    async e =>
+                    {
+                        await TaskExHelper.Yield();
+                        var value = e.EventData as NewsModel;
+                        if (value != null)
+                        {
+                            var view = StageManager.CurrentBindingView;
+                            // var item=new NewsPage_Model(value);
+                            //await StageManager.DefaultStage.Show(item);
 
-            //                //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
-            //            }
+                            //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
+                        }
 
-            //        }
-            //    ).DisposeWith(this);
+                    }
+                ).DisposeWith(this);
 
 
 

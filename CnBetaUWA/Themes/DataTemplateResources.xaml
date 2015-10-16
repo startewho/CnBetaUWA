@@ -6,14 +6,16 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     <DataTemplate x:Key="NewsItemDataTemplate">
-        <StackPanel Orientation="Vertical" Height="100" Margin="10,2,0,2">
+        <Border>
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
-                    <behaviors:SendToEventRouterAction EventRoutingName="NavToPostDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
+                    <core:InvokeCommandAction Command="{Binding DataContext.CommandNaviToDetailContentPage,ElementName=rootGrid}" CommandParameter="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
-            <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />
-        </StackPanel>
+            <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2">
+           <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
+           <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />
+           </StackPanel>
+        </Border>
     </DataTemplate>
 </ResourceDictionary>

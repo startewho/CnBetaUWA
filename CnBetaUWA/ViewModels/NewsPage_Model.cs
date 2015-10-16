@@ -12,7 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
-
+using CnBetaUWA.Models;
+using CnBetaUWA.Helper;
 namespace CnBetaUWA.ViewModels
 {
 
@@ -21,6 +22,30 @@ namespace CnBetaUWA.ViewModels
     {
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
+
+        public NewsPage_Model()
+        {
+            
+        }
+        public NewsPage_Model(NewsModel model)
+        {
+            Vm = model;
+            GetContent(model.Sid);
+        }
+
+        public NewsModel Vm { get; set; }
+
+        private async void GetContent(int sid)
+        {
+            var content = await CnBetaHelper.GetNewsContent(sid);
+            if (content!=null)
+            {
+                Vm.NewsContent =ModelHelper.JsonToNewsContent(content);
+            }
+        }
+
+        
+       
 
         public String Title
         {

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Popups;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
@@ -27,12 +28,14 @@ namespace CnBetaUWA.ViewModels
 
         public LatestNewsPage_Model()
         {
+            Title = "最新资讯";
+           // PageType = typeof (BlankPage);
             DataSourceCollection=new IncrementalLoadingCollection<IncrementalNewsSource, NewsModel>(CnBetaHelper.TypeAll,20);
             DataSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
             PropScribe();
         }
 
-
+        
         private void PropScribe()
         {
             //GetValueContainer(vm => vm.DataSourceCollection.Count).GetNewValueObservable().Subscribe(e =>
@@ -44,9 +47,45 @@ namespace CnBetaUWA.ViewModels
 
         private async  void Reresh()
         {
-          var addedcount=await DataSourceCollection.AttachToEnd();
+            var addedcount=await DataSourceCollection.AttachToEnd();
+            Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
-        
+
+
+
+        public Type PageType
+        {
+            get
+            {
+             return _PageTypeLocator(this).Value;
+            }
+            set
+            {
+                if (value!=null)
+                {
+                    _PageTypeLocator(this).SetValueAndTryNotify(value);
+                }
+               
+            }
+        }
+        #region Property Type PageType Setup        
+        protected Property<Type> _PageType = new Property<Type> { LocatorFunc = _PageTypeLocator };
+        static Func<BindableBase, ValueContainer<Type>> _PageTypeLocator = RegisterContainerLocator<Type>("PageType", model => model.Initialize("PageType", ref model._PageType, ref _PageTypeLocator, _PageTypeDefaultValueFactory));
+        static Func<Type> _PageTypeDefaultValueFactory = () => default(Type);
+        #endregion
+
+
+        public string Message
+        {
+            get { return _MessageLocator(this).Value; }
+            set { _MessageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string Message Setup        
+        protected Property<string> _Message = new Property<string> { LocatorFunc = _MessageLocator };
+        static Func<BindableBase, ValueContainer<string>> _MessageLocator = RegisterContainerLocator<string>("Message", model => model.Initialize("Message", ref model._Message, ref _MessageLocator, _MessageDefaultValueFactory));
+        static Func<string> _MessageDefaultValueFactory = () => default(string);
+        #endregion
+
 
         private void DataSourceCollection_OnLoadMoreStarted(uint count)
         {
@@ -57,6 +96,7 @@ namespace CnBetaUWA.ViewModels
         {
             get { return _TitleLocator(this).Value; }
             set { _TitleLocator(this).SetValueAndTryNotify(value); }
+            
         }
         #region Property String Title Setup
         protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
@@ -65,7 +105,7 @@ namespace CnBetaUWA.ViewModels
         #endregion
 
 
-
+      
 
         public IncrementalLoadingCollection<IncrementalNewsSource,NewsModel> DataSourceCollection
         {
@@ -77,6 +117,54 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, ValueContainer<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>>> _DataSourceCollectionLocator = RegisterContainerLocator<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>>("DataSourceCollection", model => model.Initialize("DataSourceCollection", ref model._DataSourceCollection, ref _DataSourceCollectionLocator, _DataSourceCollectionDefaultValueFactory));
         static Func<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>> _DataSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>);
         #endregion
+
+
+
+
+        public CommandModel<ReactiveCommand, String> CommandNaviToDetailContentPage
+        {
+            get { return _CommandNaviToDetailContentPageLocator(this).Value; }
+            set { _CommandNaviToDetailContentPageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandNaviToDetailContentPage Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandNaviToDetailContentPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNaviToDetailContentPageLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNaviToDetailContentPageLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandNaviToDetailContentPage", model => model.Initialize("CommandNaviToDetailContentPage", ref model._CommandNaviToDetailContentPage, ref _CommandNaviToDetailContentPageLocator, _CommandNaviToDetailContentPageDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandNaviToDetailContentPageDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandNaviToDetailContentPage";           // Command resource  
+                var commandId = "CommandNaviToDetailContentPage";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var news = e.EventArgs.Parameter as NewsModel;
+                            if (news!=null)
+                            {
+                                var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
+                                view?.MasterDetail.DetailFrameNavigateTo(typeof (NewsPage),new NewsPage_Model(news));
+                            }
+                            //Todo: Add NaviToDetailContentPage logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
 
 
         public CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection

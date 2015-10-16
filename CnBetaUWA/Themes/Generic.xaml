@@ -498,12 +498,78 @@
                                           ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           ContentTransitions="{TemplateBinding ContentTransitions}"
                                           HorizontalContentAlignment="Stretch" 
-                                          VerticalContentAlignment="Stretch"/>
+                                          VerticalContentAlignment="Stretch" Grid.Column="0"/>
                         <Border Width="{TemplateBinding StrokeThickness}" Background="{TemplateBinding BorderBrush}" Grid.Column="1"/>
-                        <Border x:Name="DetailPresenter" Background="{TemplateBinding Background}"/>
+                        <Border x:Name="DetailPresenter" Background="{TemplateBinding Background}">
+                            <Frame x:Name="DetailFrame"/>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="controls:NotificationBar">
+     <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:NotificationBar">
+                    <Grid x:Name="mainGrid" Background="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" 
+                         Visibility="Collapsed">
+                        <Grid.RenderTransform>
+                            <TranslateTransform x:Name="GridTrans" Y="-60"></TranslateTransform>
+                        </Grid.RenderTransform>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" 
+                           x:Name="notifyTextblock">
+                        </TextBlock>
+                        <Grid.Resources>
+
+                            <Storyboard x:Name="storyBoard">
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="mainGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Visible</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="00:03:00">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <Visibility>Collapsed</Visibility>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridTrans"
+                                Storyboard.TargetProperty="Y"
+                                BeginTime="0:0:0">
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.00" Value="-60"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.10" Value="-38"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.20" Value="-22"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.30" Value="-10"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.40" Value="-3"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.50" Value="0"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.50" Value="0"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.60" Value="-3"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.70" Value="-10"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.80" Value="-22"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.90" Value="-38"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:03.00" Value="-60"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="mainGrid"
+                                Storyboard.TargetProperty="Opacity"
+                                BeginTime="0:0:0">
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.00" Value="0"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:00.50" Value="0.9"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:02.50" Value="0.9"/>
+                                    <SplineDoubleKeyFrame  KeyTime="00:00:03.00" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+
+                        </Grid.Resources>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

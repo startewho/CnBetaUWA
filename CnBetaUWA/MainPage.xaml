@@ -9,6 +9,7 @@
     xmlns:mvvm="using:MVVMSidekick.Views"
     xmlns:vm="using:CnBetaUWA.ViewModels"
     xmlns:models="using:CnBetaUWA.Models"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
@@ -16,7 +17,7 @@
         <vm:MainPage_Model x:Key="DesignVM"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        <controls:SwipeableSplitView x:Name="SplitView" DisplayMode="Overlay" IsSwipeablePaneOpen="{Binding IsSplitViewPaneOpen, Mode=TwoWay}">
+        <SplitView x:Name="SplitView" DisplayMode="CompactOverlay">
             <SplitView.Pane>
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
@@ -32,28 +33,9 @@
             <SplitView.Content>
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </SplitView.Content>
-        </controls:SwipeableSplitView>
+        </SplitView>
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="WindowStates">
-                <VisualState x:Name="WideState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SplitView.DisplayMode" Value="CompactOverlay" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="NarrowState">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SplitView.DisplayMode" Value="Overlay" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+   
 
     </Grid>
 </mvvm:MVVMPage>

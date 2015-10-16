@@ -11,6 +11,21 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        }
+      },
       "Microsoft.Bcl/1.1.10": {
         "dependencies": {
           "Microsoft.Bcl.Build": "[1.0.14, )"
@@ -1672,6 +1687,16 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -1681,6 +1706,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -3434,6 +3474,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -3443,6 +3496,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -5168,6 +5236,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -5177,6 +5258,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -6935,6 +7031,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -6944,6 +7053,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -8669,6 +8793,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -8678,6 +8815,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -10436,6 +10588,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -10445,6 +10610,21 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
+        }
+      },
+      "ImageLib.UWP/3.3.0": {
+        "dependencies": {
+          "Win2d.uwp": "[1.5.0, )"
+        },
+        "compile": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/ImageLib.Controls.dll": {},
+          "lib/uap10.0/ImageLib.dll": {},
+          "lib/uap10.0/ImageLib.Gif.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.10": {
@@ -12170,6 +12350,19 @@
           "lib/win8/Microsoft.Practices.Unity.dll": {},
           "lib/win8/Microsoft.Practices.Unity.RegistrationByConvention.dll": {}
         }
+      },
+      "Win2d.uwp/1.5.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {},
+          "lib/uap10.0/Workaround1200257.dll": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
       }
     }
   },
@@ -12187,6 +12380,30 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "package/services/metadata/core-properties/8a82b9e5a63a439481bfa8d4ec335002.psmdcp",
         "package/services/metadata/core-properties/99be0c88b2fd41c8b07c42071005ee47.psmdcp"
+      ]
+    },
+    "ImageLib.UWP/3.3.0": {
+      "sha512": "beHKYgLJyNLnFRbIGUdAse4X+ccEzxPnIPsZ5Q57QOq/od/PhLohM0dGK5E1Y6SBEMLeXZTAYUfHPNVWdPneOQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "ImageLib.UWP.nuspec",
+        "lib/uap10.0/ImageLib.Controls.dll",
+        "lib/uap10.0/ImageLib.Controls.pdb",
+        "lib/uap10.0/ImageLib.Controls.pri",
+        "lib/uap10.0/ImageLib.Controls/ImageLib.Controls.xr.xml",
+        "lib/uap10.0/ImageLib.Controls/ImageView.xbf",
+        "lib/uap10.0/ImageLib.Controls/Properties/ImageLib.Controls.rd.xml",
+        "lib/uap10.0/ImageLib.dll",
+        "lib/uap10.0/ImageLib.Gif.dll",
+        "lib/uap10.0/ImageLib.Gif.pdb",
+        "lib/uap10.0/ImageLib.Gif.pri",
+        "lib/uap10.0/ImageLib.Gif/Properties/ImageLib.Gif.rd.xml",
+        "lib/uap10.0/ImageLib.pdb",
+        "lib/uap10.0/ImageLib.pri",
+        "lib/uap10.0/ImageLib/Properties/ImageLib.rd.xml",
+        "package/services/metadata/core-properties/ede2d3db5b4e46aa9327b34e2f14324c.psmdcp"
       ]
     },
     "Microsoft.Bcl/1.1.10": {
@@ -15939,11 +16156,33 @@
         "Unity.nuspec",
         "UnityConfiguration30.xsd"
       ]
+    },
+    "Win2d.uwp/1.5.0": {
+      "sha512": "bGBM7KpZbTQPMdBWTPOlASqDzM7LU6JtMZSEcPgP25/avfaNyAK0DQTFb5H1UwNFUKs1kQ2TccIVUSXmBaN7OQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "build/native/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/en/Microsoft.Graphics.Canvas.xml",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "lib/uap10.0/Workaround1200257.dll",
+        "package/services/metadata/core-properties/cda54797c6a048d88540b08697ba96f6.psmdcp",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll",
+        "Win2d.githash.txt",
+        "Win2D.uwp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "CommonServiceLocator >= 1.3.0",
+      "ImageLib.UWP >= 3.3.0",
       "Microsoft.Bcl >= 1.1.10",
       "Microsoft.Bcl.Async >= 1.0.168",
       "Microsoft.Bcl.Build >= 1.0.21",

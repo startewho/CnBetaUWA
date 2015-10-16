@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -33,7 +34,7 @@ namespace CnBetaUWA
     /// </summary>
     public sealed partial class LatestNewsPage : MVVMPage
     {
-        public Frame DetailFrame { get; private set; }
+       
         public LatestNewsPage()
             : this(null)
         {
@@ -43,11 +44,15 @@ namespace CnBetaUWA
             : base(model)
         {
             this.InitializeComponent();
+
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
                 StrongTypeViewModel = this.ViewModel as LatestNewsPage_Model;
             });
             StrongTypeViewModel = this.ViewModel as LatestNewsPage_Model;
+
+          
+
         }
 
 
@@ -66,15 +71,16 @@ namespace CnBetaUWA
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (MasterDetail.DetailFrame == null)
-            {
-                MasterDetail.Initialize("Main");
-                DetailFrame = MasterDetail.DetailFrame;
-               // DetailFrame.Navigated += DetailFrame_Navigated;
+            
+            //if (MasterDetail.DetailFrame == null)
+            //{
+            //    MasterDetail.Initialize("Main");
+            //    DetailFrame = MasterDetail.DetailFrame;
+            //   // DetailFrame.Navigated += DetailFrame_Navigated;
 
-            }
+            //}
 
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            //SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -83,13 +89,15 @@ namespace CnBetaUWA
         }
 
 
-        private void OnBackRequested(object sender, BackRequestedEventArgs e)
-        {
-            if (MasterDetail.CurrentState == MasterDetailState.Narrow && DetailFrame.CanGoBack)
-            {
-                DetailFrame.GoBack();
-                e.Handled = true;
-            }
-        }
+        //private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        //{
+        //    if (MasterDetail.CurrentState == MasterDetailState.Narrow && DetailFrame.CanGoBack)
+        //    {
+        //        DetailFrame.GoBack();
+        //        e.Handled = true;
+        //    }
+        //}
+
+      
     }
 }

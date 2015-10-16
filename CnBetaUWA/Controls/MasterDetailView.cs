@@ -10,6 +10,7 @@ namespace CnBetaUWA.Controls
 {
     [TemplatePart(Name = "MasterPresenter", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "DetailPresenter", Type = typeof(Border))]
+    [TemplatePart(Name = "DetailFrame", Type = typeof(Frame))]
     [TemplateVisualState(GroupName = "AdaptiveStates", Name = "NarrowState")]
     [TemplateVisualState(GroupName = "AdaptiveStates", Name = "FilledState")]
     public sealed class MasterDetailView : ContentControl
@@ -19,9 +20,9 @@ namespace CnBetaUWA.Controls
         private VisualStateGroup AdaptiveStates;
         private bool IsMasterHidden;
         private const string NarrowState = "NarrowState";
+        private static Frame DetailFrame;
 
-        public Frame DetailFrame { get; private set; }
-       
+
 
         public MasterDetailView()
         {
@@ -29,6 +30,8 @@ namespace CnBetaUWA.Controls
             Loaded += OnLoaded;
             Unloaded += OnUnloaded;
         }
+
+        #region KeyActivated
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
@@ -52,17 +55,17 @@ namespace CnBetaUWA.Controls
 
         protected override void OnApplyTemplate()
         {
-            MasterPresenter = (ContentPresenter)GetTemplateChild("MasterFrame");
-            DetailPresenter = (Border)GetTemplateChild("DetailPresenter");
-            AdaptiveStates = (VisualStateGroup)GetTemplateChild("AdaptiveStates");
+            MasterPresenter = (ContentPresenter) GetTemplateChild("MasterFrame");
+            DetailPresenter = (Border) GetTemplateChild("DetailPresenter");
+            AdaptiveStates = (VisualStateGroup) GetTemplateChild("AdaptiveStates");
             AdaptiveStates.CurrentStateChanged += OnCurrentStateChanged;
+            DetailFrame = GetTemplateChild("DetailFrame") as Frame;
 
-            if (DetailFrame != null)
-            {
-                DetailFrame.Navigated += OnNavigated;
-                DetailPresenter.Child = DetailFrame;
 
-                if (DetailFrame.CurrentSourcePageType == null)
+            DetailPresenter.Child = DetailFrame;
+            DetailFrame.Navigated += OnNavigated;
+
+            if (DetailFrame.CurrentSourcePageType == null)
                 {
                     DetailFrame.Navigate(BlankPageType);
                 }
@@ -70,8 +73,11 @@ namespace CnBetaUWA.Controls
                 {
                     DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
                 }
-            }
+           
         }
+
+        #endregion
+
 
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
@@ -90,41 +96,54 @@ namespace CnBetaUWA.Controls
                 {
                     IsMasterHidden = true;
 
-                    var anim = new DrillInThemeAnimation
-                    {
-                        EntranceTarget = new Border(),
-                        ExitTarget = MasterPresenter
-                    };
-
-                    var board = new Storyboard();
-                    board.Children.Add(anim);
-                    board.Begin();
+                    SetAnimation();
                 }
                 else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
                 {
-                    IsMasterHidden = false;
+                    // IsMasterHidden = false;
 
-                    var anim = new DrillOutThemeAnimation
-                    {
-                        EntranceTarget = MasterPresenter,
-                        ExitTarget = new Border()
-                    };
-
-                    var board = new Storyboard();
-                    board.Children.Add(anim);
-                    board.Begin();
+                    SetAnimation();
                 }
             }
 
             SetBackButtonVisibility();
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
+
+        private void SetAnimation()
+        {
+            var anim = new DrillInThemeAnimation
+            {
+                EntranceTarget = DetailPresenter,
+                ExitTarget = new Border()
+            };
+
+            var board = new Storyboard();
+            board.Children.Add(anim);
+            board.Begin();
+        }
         private void SetBackButtonVisibility()
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
                 DetailFrame.CanGoBack && CurrentState == MasterDetailState.Narrow
                 ? AppViewBackButtonVisibility.Visible
                 : AppViewBackButtonVisibility.Collapsed;
+        }
+
+
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (CurrentState == MasterDetailState.Narrow && DetailFrame.CanGoBack)
+            {
+                DetailFrame.GoBack();
+                e.Handled = true;
+            }
+            if (IsMasterHidden)
+            {
+                MasterPresenter.Visibility=Visibility.Visible;
+            }
         }
         #region Initialize
         //public void Initialize(string frameId, BootStrapper.BackButton backButton, BootStrapper.ExistingContent existingContent)
@@ -158,30 +177,37 @@ namespace CnBetaUWA.Controls
             if (CurrentState == MasterDetailState.Filled && (IsAnimated || IsMasterHidden))
             {
                 IsMasterHidden = false;
-
-                var anim = new DrillOutThemeAnimation
-                {
-                    EntranceTarget = MasterPresenter,
-                    ExitTarget = new Border()
-                };
-
-                var board = new Storyboard();
-                board.Children.Add(anim);
-                board.Begin();
-            }
-
-            if (CurrentState == MasterDetailState.Narrow && DetailFrame.CurrentSourcePageType == BlankPageType)
-            {
-                DetailPresenter.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
                 DetailPresenter.Visibility = Visibility.Visible;
+                MasterPresenter.Visibility=Visibility.Visible;
+                SetAnimation();
             }
+
+            if (CurrentState==MasterDetailState.Narrow)
+            {
+                if (DetailFrame.CurrentSourcePageType != BlankPageType)
+                {
+                    if (DetailFrame.CurrentSourcePageType != null)
+                    {
+                        DetailPresenter.Visibility = Visibility.Visible;
+                        IsMasterHidden = true;
+                    }
+                }
+                else
+                {
+                    DetailPresenter.Visibility = Visibility.Collapsed;
+                }
+            }
+           
+            
 
             SetBackButtonVisibility();
         }
 
+
+        public void DetailFrameNavigateTo(Type pagType, object param)
+        {
+            DetailFrame.Navigate(pagType, param);
+        }
         public MasterDetailState CurrentState
         {
             get
@@ -191,6 +217,44 @@ namespace CnBetaUWA.Controls
         }
 
         public event EventHandler ViewStateChanged;
+
+
+
+        public Type PageType
+        {
+            get
+            {
+                if (PageTypeProperty!=null)
+                {
+                    return (Type)GetValue(PageTypeProperty);
+                }
+                return null;
+            }
+            set
+            {
+                if (value!=null)
+                {
+                    SetValue(PageTypeProperty, value);
+                }
+              
+            }
+        }
+
+        // Using a DependencyProperty as the backing store for PageType.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PageTypeProperty =
+            DependencyProperty.Register("PageType", typeof(Type), typeof(Page), new PropertyMetadata(null,OnPageTypeChanged));
+
+        private static void OnPageTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var pagetype = e.NewValue as Type;
+            if (pagetype!=null&&DetailFrame!=null)
+            {
+                DetailFrame.SourcePageType = pagetype;
+            }
+           
+        }
+
+
 
         #region BlankType
         public Type BlankPageType
