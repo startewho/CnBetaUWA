@@ -110,6 +110,7 @@
     <Compile Include="Helper\AppViewHelper.cs" />
     <Compile Include="Helper\CnBetaHelper.cs" />
     <Compile Include="Helper\HttpHelper.cs" />
+    <Compile Include="Helper\IOHelper.cs" />
     <Compile Include="Helper\ModelHelper.cs" />
     <Compile Include="Helper\SerializerHelper.cs" />
     <Compile Include="LatestNewsPage.xaml.cs">
@@ -144,6 +145,9 @@
     <None Include="CnBetaUWA_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Html\jquery.min.js" />
+    <Content Include="Html\ContentTemplate.html" />
+    <Content Include="Html\Styles.css" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -194,6 +198,7 @@
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -8,14 +8,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
+    xmlns:extension="using:CnBetaUWA.Extensions"
     mc:Ignorable="d">
 
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
       <vm:NewsPage_Model x:Key="DesignVM"/>
     </Page.Resources>
-    
-    <Grid Background="Brown" >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -27,6 +28,7 @@
         </Grid.ChildrenTransitions>
 
         <TextBlock Text="{Binding Vm.Title}"  Grid.Row="0"/>
-        <TextBlock Text="{Binding Vm.NewsContent.HomeText}" FontSize="50" Grid.Row="1"/>
+        <WebView extension:WebViewExtensions.HtmlText="{Binding TotalContent}" Grid.Row="1"/>
+       
     </Grid>
 </mvvm:MVVMPage>

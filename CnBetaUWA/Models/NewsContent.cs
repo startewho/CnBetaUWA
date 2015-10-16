@@ -15,4 +15,5 @@ namespace CnBetaUWA.Models
         public string HomeText { get; set; }
         public string Source { get; set; }
     }
+
 }

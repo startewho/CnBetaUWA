@@ -40,12 +40,28 @@ namespace CnBetaUWA.ViewModels
             var content = await CnBetaHelper.GetNewsContent(sid);
             if (content!=null)
             {
+                
                 Vm.NewsContent =ModelHelper.JsonToNewsContent(content);
+                var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
+                html = html.Replace("HomeText", Vm.NewsContent.HomeText);
+                html = html.Replace("BodyText", Vm.NewsContent.BodyText);
+                TotalContent = html;
             }
         }
 
-        
-       
+
+
+
+        public string TotalContent
+        {
+            get { return _TotalContentLocator(this).Value; }
+            set { _TotalContentLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string TotalContent Setup        
+        protected Property<string> _TotalContent = new Property<string> { LocatorFunc = _TotalContentLocator };
+        static Func<BindableBase, ValueContainer<string>> _TotalContentLocator = RegisterContainerLocator<string>("TotalContent", model => model.Initialize("TotalContent", ref model._TotalContent, ref _TotalContentLocator, _TotalContentDefaultValueFactory));
+        static Func<string> _TotalContentDefaultValueFactory = () => default(string);
+        #endregion
 
         public String Title
         {

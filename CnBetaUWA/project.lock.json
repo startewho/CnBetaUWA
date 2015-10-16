@@ -289,7 +289,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -2029,7 +2029,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -3805,7 +3805,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -5586,7 +5586,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -7362,7 +7362,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -9143,7 +9143,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -10919,7 +10919,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.2.5": {
+      "Rx-Interfaces/2.3.0-beta2": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -13310,8 +13310,8 @@
         "Rx-Core.nuspec"
       ]
     },
-    "Rx-Interfaces/2.2.5": {
-      "sha512": "FKtG2QfMIeUcfB7r3a89VoAiszX3DTvYETkpC6U0FzWpxRK/mcHyzYOsniDfag+NsDG0P1k1c8yNSefXKp3t2A==",
+    "Rx-Interfaces/2.3.0-beta2": {
+      "sha512": "YgUHTMj9qNKF2+zdXsAAkXy5cYvTHD/OSXG0PkVu/QDRDvHcINR+EsKqh3Dh9Tjssvsivs8cXuO3rV0GnSqMbg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13320,23 +13320,21 @@
         "lib/net40/System.Reactive.Interfaces.XML",
         "lib/net45/System.Reactive.Interfaces.dll",
         "lib/net45/System.Reactive.Interfaces.XML",
+        "lib/net46/System.Reactive.Interfaces.dll",
+        "lib/net46/System.Reactive.Interfaces.XML",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Interfaces.dll",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Interfaces.XML",
-        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Interfaces.dll",
-        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Interfaces.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Interfaces.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Interfaces.XML",
         "lib/portable-win81+wpa81/System.Reactive.Interfaces.dll",
         "lib/portable-win81+wpa81/System.Reactive.Interfaces.XML",
-        "lib/portable-windows8+net45+wp8/System.Reactive.Interfaces.dll",
-        "lib/portable-windows8+net45+wp8/System.Reactive.Interfaces.XML",
         "lib/sl5/System.Reactive.Interfaces.dll",
         "lib/sl5/System.Reactive.Interfaces.XML",
         "lib/windows8/System.Reactive.Interfaces.dll",
         "lib/windows8/System.Reactive.Interfaces.XML",
-        "lib/windowsphone71/System.Reactive.Interfaces.dll",
-        "lib/windowsphone71/System.Reactive.Interfaces.XML",
         "lib/windowsphone8/System.Reactive.Interfaces.dll",
         "lib/windowsphone8/System.Reactive.Interfaces.XML",
-        "package/services/metadata/core-properties/c34c0935638f4b7ea6c51ca968fd1a88.psmdcp",
+        "package/services/metadata/core-properties/03d381598db047d7a93bf54e424139cc.psmdcp",
         "Rx-Interfaces.nuspec"
       ]
     },
@@ -16190,7 +16188,7 @@
       "MVVM-Sidekick >= 1.6.6",
       "Newtonsoft.Json >= 7.0.1",
       "Rx-Core >= 2.2.5",
-      "Rx-Interfaces >= 2.2.5",
+      "Rx-Interfaces >= 2.3.0-beta2",
       "Rx-Linq >= 2.2.5",
       "Rx-Main >= 2.2.5",
       "Rx-PlatformServices >= 2.2.5",

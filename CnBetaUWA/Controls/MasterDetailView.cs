@@ -95,13 +95,11 @@ namespace CnBetaUWA.Controls
                 if (e.NavigationMode == NavigationMode.New && DetailFrame.BackStackDepth == 1)
                 {
                     IsMasterHidden = true;
-
                     SetAnimation();
                 }
                 else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
                 {
-                    // IsMasterHidden = false;
-
+                    IsMasterHidden = false;
                     SetAnimation();
                 }
             }
@@ -197,8 +195,7 @@ namespace CnBetaUWA.Controls
                     DetailPresenter.Visibility = Visibility.Collapsed;
                 }
             }
-           
-            
+          
 
             SetBackButtonVisibility();
         }
