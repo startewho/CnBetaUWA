@@ -270,6 +270,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -278,9 +297,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -289,7 +309,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -297,10 +317,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -309,18 +329,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -2010,6 +2030,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -2018,9 +2057,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -2029,7 +2069,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -2037,10 +2077,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -2049,18 +2089,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -3786,6 +3826,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -3794,9 +3853,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -3805,7 +3865,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -3813,10 +3873,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -3825,18 +3885,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -5567,6 +5627,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -5575,9 +5654,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -5586,7 +5666,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -5594,10 +5674,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -5606,18 +5686,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -7343,6 +7423,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -7351,9 +7450,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -7362,7 +7462,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -7370,10 +7470,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -7382,18 +7482,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -9124,6 +9224,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -9132,9 +9251,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -9143,7 +9263,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -9151,10 +9271,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -9163,18 +9283,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -10900,6 +11020,25 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
+      "MyToolkit/2.4.2": {
+        "compile": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
+        }
+      },
+      "MyToolkit.Extended/2.4.2": {
+        "dependencies": {
+          "MyToolkit": "[2.4.2, )"
+        },
+        "compile": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/MyToolkit.Extended.dll": {}
+        }
+      },
       "Newtonsoft.Json/7.0.1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -10908,9 +11047,10 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "Rx-Core/2.3.0-beta2": {
+      "RichTextBlock.Html2Xaml/1.2.0": {},
+      "Rx-Core/2.2.5": {
         "dependencies": {
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Core.dll": {}
@@ -10919,7 +11059,7 @@
           "lib/windows8/System.Reactive.Core.dll": {}
         }
       },
-      "Rx-Interfaces/2.3.0-beta2": {
+      "Rx-Interfaces/2.2.5": {
         "compile": {
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         },
@@ -10927,10 +11067,10 @@
           "lib/windows8/System.Reactive.Interfaces.dll": {}
         }
       },
-      "Rx-Linq/2.3.0-beta2": {
+      "Rx-Linq/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.Linq.dll": {}
@@ -10939,18 +11079,18 @@
           "lib/windows8/System.Reactive.Linq.dll": {}
         }
       },
-      "Rx-Main/2.3.0-beta2": {
+      "Rx-Main/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )",
-          "Rx-Linq": "[2.3.0-beta2, )",
-          "Rx-PlatformServices": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )",
+          "Rx-Linq": "[2.2.5, )",
+          "Rx-PlatformServices": "[2.2.5, )"
         }
       },
-      "Rx-PlatformServices/2.3.0-beta2": {
+      "Rx-PlatformServices/2.2.5": {
         "dependencies": {
-          "Rx-Core": "[2.3.0-beta2, )",
-          "Rx-Interfaces": "[2.3.0-beta2, )"
+          "Rx-Core": "[2.2.5, )",
+          "Rx-Interfaces": "[2.2.5, )"
         },
         "compile": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
@@ -13257,6 +13397,60 @@
         "tools/MVVM-Sidekick.snippet"
       ]
     },
+    "MyToolkit/2.4.2": {
+      "sha512": "cAzm2wgFl0g4hy3DwRrFA6Q005s+xovIDHVYwzKj9Zmfg4P4e4fhT3gNnPjUjE8hrxIq4Ebrn0MHsyq76QZ+Qw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-net45+wp8+win8+wpa81/CodeContracts/MyToolkit.Contracts.dll",
+        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll",
+        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.xml",
+        "lib/portable-sl5+wp71/MyToolkit.dll",
+        "lib/portable-sl5+wp71/MyToolkit.xml",
+        "MyToolkit.nuspec",
+        "package/services/metadata/core-properties/375ecb6bbd0146ee86658d56f46f3116.psmdcp"
+      ]
+    },
+    "MyToolkit.Extended/2.4.2": {
+      "sha512": "EEp/Jzjql/3EwkvpnGZ8gPfXpnWywACc5+LUD1QYKkKqsOqb3KYK1UIO8t7XQrCvayUgciZdJE4q99mmIY5RcA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/net40/MyToolkit.Extended.dll",
+        "lib/net40/MyToolkit.Extended.xml",
+        "lib/net45/MyToolkit.Extended.dll",
+        "lib/net45/MyToolkit.Extended.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.dll",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.pri",
+        "lib/portable-wpa81+win8/MyToolkit.Extended.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/DatePicker.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/TimePicker.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.pdb",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/Themes/Generic.xbf",
+        "lib/portable-wpa81+win8/MyToolkit.Extended/UI/Popups/ListPickerBox.xbf",
+        "lib/sl4-wp71/de/MyToolkit.Extended.resources.dll",
+        "lib/sl4-wp71/fr/MyToolkit.Extended.resources.dll",
+        "lib/sl4-wp71/MyToolkit.Extended.dll",
+        "lib/sl4-wp71/MyToolkit.Extended.xml",
+        "lib/sl50/MyToolkit.Extended.dll",
+        "lib/sl50/MyToolkit.Extended.xml",
+        "lib/uap10.0/MyToolkit.Extended.dll",
+        "lib/uap10.0/MyToolkit.Extended.pri",
+        "lib/uap10.0/MyToolkit.Extended.xml",
+        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.pdb",
+        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
+        "lib/uap10.0/MyToolkit.Extended/Themes/Generic.xbf",
+        "lib/wp80/de/MyToolkit.Extended.resources.dll",
+        "lib/wp80/fr/MyToolkit.Extended.resources.dll",
+        "lib/wp80/MyToolkit.Extended.dll",
+        "lib/wp80/MyToolkit.Extended.xml",
+        "MyToolkit.Extended.nuspec",
+        "package/services/metadata/core-properties/e07e4b402cf04a4fb260f5699c8518aa.psmdcp"
+      ]
+    },
     "Newtonsoft.Json/7.0.1": {
       "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "type": "Package",
@@ -13280,8 +13474,22 @@
         "tools/install.ps1"
       ]
     },
-    "Rx-Core/2.3.0-beta2": {
-      "sha512": "ufLvowEi6bzrCrRSEY3RS/gUbV6axNAT9uzsbGDWeAShcwSBbOSxlcioQsvlYCgzAAB15WK9dM1f0sUk4NTE6w==",
+    "RichTextBlock.Html2Xaml/1.2.0": {
+      "sha512": "355gchkpo+wTXPlvqiRiVTVt1RWy51cZ/KFFALMHoOfgjCPh00HiMyGFsw0XdfR5mz/9So1IARiAz5DAF+tJ7Q==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/Common/RichTextBlockHtml2Xaml.xslt",
+        "content/Common/RichTextBlockProperties.cs",
+        "package/services/metadata/core-properties/d7b6a2d1d5cd4b6d8817a0b1f1ac71af.psmdcp",
+        "Readme.txt",
+        "RichTextBlock.Html2Xaml.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "Rx-Core/2.2.5": {
+      "sha512": "DfWVTfW6tvRkkqpnRHKxPIvaRZyDJGADuqrE6J2nwejOQbLRWi0rNUwXkViDWz++25BGDy3iRE5OE6Dv8mJxYQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13290,26 +13498,28 @@
         "lib/net40/System.Reactive.Core.XML",
         "lib/net45/System.Reactive.Core.dll",
         "lib/net45/System.Reactive.Core.XML",
-        "lib/net46/System.Reactive.Core.dll",
-        "lib/net46/System.Reactive.Core.XML",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Core.dll",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Core.XML",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Core.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Core.XML",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Core.dll",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Core.XML",
         "lib/portable-win81+wpa81/System.Reactive.Core.dll",
         "lib/portable-win81+wpa81/System.Reactive.Core.XML",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Core.dll",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Core.XML",
         "lib/sl5/System.Reactive.Core.dll",
         "lib/sl5/System.Reactive.Core.XML",
         "lib/windows8/System.Reactive.Core.dll",
         "lib/windows8/System.Reactive.Core.XML",
+        "lib/windowsphone71/System.Reactive.Core.dll",
+        "lib/windowsphone71/System.Reactive.Core.XML",
         "lib/windowsphone8/System.Reactive.Core.dll",
         "lib/windowsphone8/System.Reactive.Core.XML",
-        "package/services/metadata/core-properties/adc0a55d0ca947dc98443cf265dc770a.psmdcp",
+        "package/services/metadata/core-properties/acd70acf6eca4cb38c21c68005176d93.psmdcp",
         "Rx-Core.nuspec"
       ]
     },
-    "Rx-Interfaces/2.3.0-beta2": {
-      "sha512": "YgUHTMj9qNKF2+zdXsAAkXy5cYvTHD/OSXG0PkVu/QDRDvHcINR+EsKqh3Dh9Tjssvsivs8cXuO3rV0GnSqMbg==",
+    "Rx-Interfaces/2.2.5": {
+      "sha512": "FKtG2QfMIeUcfB7r3a89VoAiszX3DTvYETkpC6U0FzWpxRK/mcHyzYOsniDfag+NsDG0P1k1c8yNSefXKp3t2A==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13318,26 +13528,28 @@
         "lib/net40/System.Reactive.Interfaces.XML",
         "lib/net45/System.Reactive.Interfaces.dll",
         "lib/net45/System.Reactive.Interfaces.XML",
-        "lib/net46/System.Reactive.Interfaces.dll",
-        "lib/net46/System.Reactive.Interfaces.XML",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Interfaces.dll",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Interfaces.XML",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Interfaces.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Interfaces.XML",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Interfaces.dll",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Interfaces.XML",
         "lib/portable-win81+wpa81/System.Reactive.Interfaces.dll",
         "lib/portable-win81+wpa81/System.Reactive.Interfaces.XML",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Interfaces.dll",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Interfaces.XML",
         "lib/sl5/System.Reactive.Interfaces.dll",
         "lib/sl5/System.Reactive.Interfaces.XML",
         "lib/windows8/System.Reactive.Interfaces.dll",
         "lib/windows8/System.Reactive.Interfaces.XML",
+        "lib/windowsphone71/System.Reactive.Interfaces.dll",
+        "lib/windowsphone71/System.Reactive.Interfaces.XML",
         "lib/windowsphone8/System.Reactive.Interfaces.dll",
         "lib/windowsphone8/System.Reactive.Interfaces.XML",
-        "package/services/metadata/core-properties/03d381598db047d7a93bf54e424139cc.psmdcp",
+        "package/services/metadata/core-properties/c34c0935638f4b7ea6c51ca968fd1a88.psmdcp",
         "Rx-Interfaces.nuspec"
       ]
     },
-    "Rx-Linq/2.3.0-beta2": {
-      "sha512": "3VTu/AvESi12ucOYWlpv4aZT3xkV7BYG4zUHV+IV3fj+mWx0C9M8jtn99oQ2AZsLx7wsWpYNqCiwyPeqwNmWHQ==",
+    "Rx-Linq/2.2.5": {
+      "sha512": "UTeCIu3cWPExxmTzdiVq7SalqTBhUaomBTaAC9LpYPoAopjlFwA3hjVWXoLkGlDc/44wqJemJuEwFP00KphiFg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13346,36 +13558,38 @@
         "lib/net40/System.Reactive.Linq.XML",
         "lib/net45/System.Reactive.Linq.dll",
         "lib/net45/System.Reactive.Linq.XML",
-        "lib/net46/System.Reactive.Linq.dll",
-        "lib/net46/System.Reactive.Linq.XML",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Linq.dll",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.Linq.XML",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Linq.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.Linq.XML",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Linq.dll",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.Linq.XML",
         "lib/portable-win81+wpa81/System.Reactive.Linq.dll",
         "lib/portable-win81+wpa81/System.Reactive.Linq.XML",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Linq.dll",
+        "lib/portable-windows8+net45+wp8/System.Reactive.Linq.XML",
         "lib/sl5/System.Reactive.Linq.dll",
         "lib/sl5/System.Reactive.Linq.XML",
         "lib/windows8/System.Reactive.Linq.dll",
         "lib/windows8/System.Reactive.Linq.XML",
+        "lib/windowsphone71/System.Reactive.Linq.dll",
+        "lib/windowsphone71/System.Reactive.Linq.XML",
         "lib/windowsphone8/System.Reactive.Linq.dll",
         "lib/windowsphone8/System.Reactive.Linq.XML",
-        "package/services/metadata/core-properties/1873dac86e1345578c7a81d48de747bd.psmdcp",
+        "package/services/metadata/core-properties/0b05bef9a8e34a3da5e4d5d41f320ee4.psmdcp",
         "Rx-Linq.nuspec"
       ]
     },
-    "Rx-Main/2.3.0-beta2": {
-      "sha512": "zss81QC+I0UiKJhNOnjDY6ildp0vR+QKZfxZh4E1wmUR7JivePlMf86Qashesywm+rCKVtLeHKj/eZk5gpeUaw==",
+    "Rx-Main/2.2.5": {
+      "sha512": "qdQ6qENEiLsp/LRdzZlLlodihWN8VDjwNfWa8c2ELjEHZgTdKzt1V4i61gkHVtFKZXe8Px6KupbMP3pZ+1tusQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "package/services/metadata/core-properties/f246d330e0de42999a69be97cae68958.psmdcp",
+        "package/services/metadata/core-properties/42be7976390b4c6f82065a7d2c011282.psmdcp",
         "Rx-Main.nuspec"
       ]
     },
-    "Rx-PlatformServices/2.3.0-beta2": {
-      "sha512": "AFDbK+gVGqd2rNBwsXjrWX+PwWIQ34IE8DnP2wnl+LT7menKe1mpjwUANTFN349zMZY3eTtr34N4vtdHgX65yw==",
+    "Rx-PlatformServices/2.2.5": {
+      "sha512": "pMnNEvJVjT+wuDib+W/bi5hhIYcre7dW5yxvKrJxnR4iKJ1VLA/dY2FTtjDriHGx7OeGn12lQewXlH2oHiWFPA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13384,21 +13598,23 @@
         "lib/net40/System.Reactive.PlatformServices.XML",
         "lib/net45/System.Reactive.PlatformServices.dll",
         "lib/net45/System.Reactive.PlatformServices.XML",
-        "lib/net46/System.Reactive.PlatformServices.dll",
-        "lib/net46/System.Reactive.PlatformServices.XML",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.PlatformServices.dll",
         "lib/portable-net40+sl5+win8+wp8/System.Reactive.PlatformServices.XML",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.PlatformServices.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Reactive.PlatformServices.XML",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.PlatformServices.dll",
+        "lib/portable-net45+winrt45+wp8+wpa81/System.Reactive.PlatformServices.XML",
         "lib/portable-win81+wpa81/System.Reactive.PlatformServices.dll",
         "lib/portable-win81+wpa81/System.Reactive.PlatformServices.XML",
+        "lib/portable-windows8+net45+wp8/System.Reactive.PlatformServices.dll",
+        "lib/portable-windows8+net45+wp8/System.Reactive.PlatformServices.XML",
         "lib/sl5/System.Reactive.PlatformServices.dll",
         "lib/sl5/System.Reactive.PlatformServices.XML",
         "lib/windows8/System.Reactive.PlatformServices.dll",
         "lib/windows8/System.Reactive.PlatformServices.XML",
+        "lib/windowsphone71/System.Reactive.PlatformServices.dll",
+        "lib/windowsphone71/System.Reactive.PlatformServices.XML",
         "lib/windowsphone8/System.Reactive.PlatformServices.dll",
         "lib/windowsphone8/System.Reactive.PlatformServices.XML",
-        "package/services/metadata/core-properties/2bc5ebdd432e48e1b205e44dd5f71350.psmdcp",
+        "package/services/metadata/core-properties/5087526007294f7d8e78a6a4a61c494a.psmdcp",
         "Rx-PlatformServices.nuspec"
       ]
     },
@@ -16180,12 +16396,14 @@
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MVVM-Sidekick >= 1.6.6",
+      "MyToolkit.Extended >= 2.4.2",
       "Newtonsoft.Json >= 7.0.1",
-      "Rx-Core >= 2.3.0-beta2",
-      "Rx-Interfaces >= 2.3.0-beta2",
-      "Rx-Linq >= 2.3.0-beta2",
-      "Rx-Main >= 2.3.0-beta2",
-      "Rx-PlatformServices >= 2.3.0-beta2",
+      "RichTextBlock.Html2Xaml >= 1.2.0",
+      "Rx-Core >= 2.2.5",
+      "Rx-Interfaces >= 2.2.5",
+      "Rx-Linq >= 2.2.5",
+      "Rx-Main >= 2.2.5",
+      "Rx-PlatformServices >= 2.2.5",
       "Unity >= 4.0.1"
     ],
     "UAP,Version=v10.0": []

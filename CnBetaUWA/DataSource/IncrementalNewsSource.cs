@@ -10,21 +10,21 @@ using CnBetaUWA.Models;
 
 namespace CnBetaUWA.DataSource
 {
-    public class IncrementalNewsSource : IIncrementalSource<NewsModel>
+    public class IncrementalNewsSource : IIncrementalSource<News>
     {
         private int StartSid { get; set; }
         private int EndSid { get; set; }
 
         private bool _firestLoad;
 
-        public async Task<IEnumerable<NewsModel>> GetPagedItems(string query, int pageIndex, int pageSize)
+        public async Task<IEnumerable<News>> GetPagedItems(string query, int pageIndex, int pageSize)
         {
             var jsontext = await CnBetaHelper.GetNews(query, null, 0, EndSid);
             if (jsontext != null)
             {
                 JObject postlist = JObject.Parse(jsontext);
                 var jsonList = postlist.SelectToken("result");
-                var list = jsonList?.Select(item => new NewsModel()
+                var list = jsonList?.Select(item => new News()
                 {
                     Sid = (int) item["sid"],
                     TopicId = (int) item["topic"],
@@ -52,7 +52,7 @@ namespace CnBetaUWA.DataSource
             return null;
         }
 
-        public async Task<IEnumerable<NewsModel>> GetLastestItems(string query)
+        public async Task<IEnumerable<News>> GetLastestItems(string query)
         {
             var jsontext = await CnBetaHelper.GetLastestNews(query, null, StartSid, 0);
 
@@ -61,7 +61,7 @@ namespace CnBetaUWA.DataSource
            
             if (jsonList.Any())
             {
-                var list = jsonList?.Select(item => new NewsModel()
+                var list = jsonList?.Select(item => new News()
                 {
                     Sid = (int)item["sid"],
                     TopicId = (int)item["topic"],

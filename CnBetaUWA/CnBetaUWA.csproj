@@ -96,9 +96,14 @@
     <Compile Include="BlankPage.xaml.cs">
       <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommentsPage.xaml.cs">
+      <DependentUpon>CommentsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MasterDetailView.cs" />
     <Compile Include="Controls\NotificationBar.cs" />
+    <Compile Include="Controls\LabelSlider.cs" />
     <Compile Include="Controls\SwipeableSplitView.cs" />
+    <Compile Include="Converters\SliderValueConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter .cs" />
     <Compile Include="Converters\ListItemBackgroudConverter.cs" />
     <Compile Include="Converters\ListViewItemStyleSelector.cs" />
@@ -113,19 +118,22 @@
     <Compile Include="Helper\IOHelper.cs" />
     <Compile Include="Helper\ModelHelper.cs" />
     <Compile Include="Helper\SerializerHelper.cs" />
+    <Compile Include="Extensions\VisualTreeHelperExtensions.cs" />
     <Compile Include="LatestNewsPage.xaml.cs">
       <DependentUpon>LatestNewsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\NewsComment.cs" />
     <Compile Include="Models\NewsContent.cs" />
-    <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\News.cs" />
     <Compile Include="NewsPage.xaml.cs">
       <DependentUpon>NewsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Startups\CommentsPage.cs" />
     <Compile Include="Startups\LatestNewsPage.cs" />
     <Compile Include="Startups\NewsPage.cs" />
+    <Compile Include="ViewModels\CommentsPage_Model.cs" />
     <Compile Include="ViewModels\LatestNewsPage_Model.cs" />
     <Compile Include="ViewModels\MainPage_Model.cs" />
     <Compile Include="Startups\StartupFunctions.cs" />
@@ -165,6 +173,10 @@
     <Page Include="BlankPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LatestNewsPage.xaml">
       <SubType>Designer</SubType>

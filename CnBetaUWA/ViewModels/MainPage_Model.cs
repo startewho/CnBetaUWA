@@ -63,7 +63,7 @@ namespace CnBetaUWA.ViewModels
                     async e =>
                     {
                         await TaskExHelper.Yield();
-                        var value = e.EventData as NewsModel;
+                        var value = e.EventData as News;
                         if (value != null)
                         {
                             var view = StageManager.CurrentBindingView;

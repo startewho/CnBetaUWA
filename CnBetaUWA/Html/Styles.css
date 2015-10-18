@@ -1,4 +1,5 @@
 body {
+	font-family: "Microsoft YaHei";
 	background:#f1f1f1;
 	font-size:14pt;
 }
@@ -14,20 +15,17 @@ body {
 	font-size:10pt;
 	padding-top:4pt;
 }
-
 #introduce {
-	clear:both;
-	background-color:#F1F1F1;
-	color:#444;
-	margin-top:5pt;
-	quotes:"\201C""\201D""\2018""\2019";
-	padding:13pt 5pt 8pt;
+	background: #fbfbfb none repeat scroll 0 0;
+    border-color: #e5e5e5;
+    border-width: 1px;
+   
 }
 
 #introduce:before {
 	color:#CCC;
 	content:open-quote;
-	font-size:4em;
+	font-size:1.5em;
 	line-height:.2em;
 	margin-right:.2em;
 	float:left;
@@ -42,7 +40,7 @@ body {
 }
 
 #introduce p {
-	line-height:16pt;
+	line-height:150%;
 	margin:0;
 }
 
@@ -56,7 +54,7 @@ body {
 
 #content p {
 	text-indent:2em;
-	line-height:16pt;
+	line-height:110%;
 }
 
 ol,ul,li {

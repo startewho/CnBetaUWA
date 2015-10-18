@@ -22,6 +22,7 @@ namespace CnBetaUWA.Controls
         private const string NarrowState = "NarrowState";
         private static Frame DetailFrame;
 
+        private bool _firestLoad;
 
 
         public MasterDetailView()
@@ -61,19 +62,21 @@ namespace CnBetaUWA.Controls
             AdaptiveStates.CurrentStateChanged += OnCurrentStateChanged;
             DetailFrame = GetTemplateChild("DetailFrame") as Frame;
 
+            if (DetailFrame == null) return;
+
+            DetailFrame.Name = "DetailFrame";
 
             DetailPresenter.Child = DetailFrame;
             DetailFrame.Navigated += OnNavigated;
-
+            
             if (DetailFrame.CurrentSourcePageType == null)
-                {
-                    DetailFrame.Navigate(BlankPageType);
-                }
-                else
-                {
-                    DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
-                }
-           
+            {
+                DetailFrame.Navigate(BlankPageType);
+            }
+            else
+            {
+                DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
+            }
         }
 
         #endregion
@@ -105,7 +108,12 @@ namespace CnBetaUWA.Controls
             }
 
             SetBackButtonVisibility();
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            if (!_firestLoad)
+            {
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+                _firestLoad = true;
+            }
+           
         }
 
 
@@ -143,30 +151,7 @@ namespace CnBetaUWA.Controls
                 MasterPresenter.Visibility=Visibility.Visible;
             }
         }
-        #region Initialize
-        //public void Initialize(string frameId, BootStrapper.BackButton backButton, BootStrapper.ExistingContent existingContent)
-        //{
-        //    var service = WindowWrapper.Current().NavigationServices.GetByFrameId(frameId);
-        //    if (service == null)
-        //    {
-        //        service = BootStrapper.Current.NavigationServiceFactory(backButton, existingContent);
-        //        service.FrameFacade.FrameId = frameId;
-        //    }
-
-        //    NavigationService = service as NavigationService;
-        //    DetailFrame = NavigationService.Frame;
-        //    DetailFrame.Name = nameof(DetailFrame);
-        //}
-        public void Initialize(string frameId)
-        {
-            if (DetailFrame==null)
-            {
-                DetailFrame=new Frame();
-                
-            }
-        }
-
-        #endregion
+    
 
         private void OnCurrentStateChanged(object sender, VisualStateChangedEventArgs e)
         {
@@ -201,9 +186,14 @@ namespace CnBetaUWA.Controls
         }
 
 
-        public void DetailFrameNavigateTo(Type pagType, object param)
+        public void DetailFrameNavigateTo(Type pagType, object param,bool clearFrame)
         {
-            DetailFrame.Navigate(pagType, param);
+            if (clearFrame)
+            {
+                DetailFrame.Navigate(pagType, param);
+                DetailFrame.BackStack.RemoveAt(1);
+            }
+           
         }
         public MasterDetailState CurrentState
         {

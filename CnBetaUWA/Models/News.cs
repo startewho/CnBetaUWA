@@ -4,7 +4,7 @@ using MVVMSidekick.ViewModels;
 
 namespace CnBetaUWA.Models
 {
-    public class NewsModel:ViewModelBase<NewsModel>
+    public class News:ViewModelBase<News>
     {
         public string Title { get; set; }
 

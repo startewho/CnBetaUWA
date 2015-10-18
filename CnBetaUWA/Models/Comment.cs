@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MVVMSidekick.ViewModels;
 namespace CnBetaUWA.Models
 {
-    public  class CommentModel:ViewModelBase<CommentModel>
+    public  class Comment:ViewModelBase<Comment>
     {
 
         public int AgainstCounter

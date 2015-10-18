@@ -1,19 +1,14 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
-using MVVMSidekick.ViewModels;
-using MVVMSidekick.Views;
-using MVVMSidekick.Reactive;
-using MVVMSidekick.Services;
-using MVVMSidekick.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+﻿using System;
 using System.Runtime.Serialization;
-using CnBetaUWA.Models;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
+using CnBetaUWA.Models;
+using MVVMSidekick.Reactive;
+using MVVMSidekick.Utilities;
+using MVVMSidekick.ViewModels;
+
 namespace CnBetaUWA.ViewModels
 {
 
@@ -27,13 +22,13 @@ namespace CnBetaUWA.ViewModels
         {
             
         }
-        public NewsPage_Model(NewsModel model)
+        public NewsPage_Model(News model)
         {
             Vm = model;
             GetContent(model.Sid);
         }
 
-        public NewsModel Vm { get; set; }
+        public News Vm { get; set; }
 
         private async void GetContent(int sid)
         {
@@ -52,17 +47,7 @@ namespace CnBetaUWA.ViewModels
 
 
 
-        public string TotalContent
-        {
-            get { return _TotalContentLocator(this).Value; }
-            set { _TotalContentLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property string TotalContent Setup        
-        protected Property<string> _TotalContent = new Property<string> { LocatorFunc = _TotalContentLocator };
-        static Func<BindableBase, ValueContainer<string>> _TotalContentLocator = RegisterContainerLocator<string>("TotalContent", model => model.Initialize("TotalContent", ref model._TotalContent, ref _TotalContentLocator, _TotalContentDefaultValueFactory));
-        static Func<string> _TotalContentDefaultValueFactory = () => default(string);
-        #endregion
-
+       
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -70,70 +55,290 @@ namespace CnBetaUWA.ViewModels
         }
         #region Property String Title Setup
         protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
+        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+        public string TotalContent
+        {
+            get { return _TotalContentLocator(this).Value; }
+            set { _TotalContentLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string TotalContent Setup        
+        protected Property<string> _TotalContent = new Property<string> { LocatorFunc = _TotalContentLocator };
+        static Func<BindableBase, ValueContainer<string>> _TotalContentLocator = RegisterContainerLocator("TotalContent", model => model.Initialize("TotalContent", ref model._TotalContent, ref _TotalContentLocator, _TotalContentDefaultValueFactory));
+        static Func<string> _TotalContentDefaultValueFactory = () => default(string);
+        #endregion
 
 
-        #region Life Time Event Handling
+        public CommandModel<ReactiveCommand, String> CommandChangeWebViewNightMode
+        {
+            get { return _CommandChangeWebViewNightModeLocator(this).Value; }
+            set { _CommandChangeWebViewNightModeLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandChangeWebViewNightMode Setup        
 
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeWebViewNightMode = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeWebViewNightModeLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeWebViewNightModeLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandChangeWebViewNightMode", model => model.Initialize("CommandChangeWebViewNightMode", ref model._CommandChangeWebViewNightMode, ref _CommandChangeWebViewNightModeLocator, _CommandChangeWebViewNightModeDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandChangeWebViewNightModeDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandChangeWebViewNightMode";           // Command resource  
+                var commandId = "CommandChangeWebViewNightMode";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
 
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as NewsPage;
+                            var webview = view.GetFirstDescendantOfType<WebView>();
+                            var isnightmode = e.EventArgs.Parameter is bool && (bool) e.EventArgs.Parameter;
+                            if (isnightmode)
+                            {
+                                await webview.InvokeScriptAsync("changeNigthMode", new[] { "true" });
+                            }
+                            else
+                            {
+                                await webview.InvokeScriptAsync("changeNigthMode", new[] { "" });
+                            }
+                            //Todo: Add ChangeWebViewNightMode logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
+                var cmdmdl = cmd.CreateCommandModel(resource);
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
-
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
 
         #endregion
 
+
+        public CommandModel<ReactiveCommand, String> CommandChangeWebViewFontSize
+        {
+            get { return _CommandChangeWebViewFontSizeLocator(this).Value; }
+            set { _CommandChangeWebViewFontSizeLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandChangeWebViewFontSize Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeWebViewFontSize = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeWebViewFontSizeLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeWebViewFontSizeLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandChangeWebViewFontSize", model => model.Initialize("CommandChangeWebViewFontSize", ref model._CommandChangeWebViewFontSize, ref _CommandChangeWebViewFontSizeLocator, _CommandChangeWebViewFontSizeDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandChangeWebViewFontSizeDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandChangeWebViewFontSize";           // Command resource  
+                var commandId = "CommandChangeWebViewFontSize";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as NewsPage;
+                            var webview = view.GetFirstDescendantOfType<WebView>();
+                            var args = e.EventArgs.Parameter as RangeBaseValueChangedEventArgs;
+                            if (args!=null)
+                            {
+                                await webview.InvokeScriptAsync("changeFontSize", new[] { string.Format("{0:0%}", args.NewValue * 0.5) });
+                            }
+                            
+                            //Todo: Add ChangeWebViewFontSize logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandChangeWebViewSettings
+        {
+            get { return _CommandChangeWebViewSettingsLocator(this).Value; }
+            set { _CommandChangeWebViewSettingsLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandChangeWebViewSettings Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeWebViewSettings = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeWebViewSettingsLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeWebViewSettingsLocator = RegisterContainerLocator("CommandChangeWebViewSettings", model => model.Initialize("CommandChangeWebViewSettings", ref model._CommandChangeWebViewSettings, ref _CommandChangeWebViewSettingsLocator, _CommandChangeWebViewSettingsDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandChangeWebViewSettingsDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandChangeWebViewSettings";           // Command resource  
+                var commandId = "CommandChangeWebViewSettings";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as NewsPage;
+                            var webview = view.GetFirstDescendantOfType<WebView>();
+                            var tag = e.EventArgs.Parameter as string;
+                            switch (tag)
+                            {
+                                case "NightMode":
+                                    await webview.InvokeScriptAsync("changeColor", new[] { "arg1", "arg2" });
+                                    break;
+                                case "FontSize":
+                                    await webview.InvokeScriptAsync("changeFontSize", new[] { "120%" });
+                                    break;
+                                default:
+                                    break;
+                            }
+                            //Todo: Add ChangeWebViewSettings logic here, or
+                            await TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(vm, false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandDetailBack
+        {
+            get { return _CommandDetailBackLocator(this).Value; }
+            set { _CommandDetailBackLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandDetailBack Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandDetailBack = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandDetailBackLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandDetailBackLocator = RegisterContainerLocator("CommandDetailBack", model => model.Initialize("CommandDetailBack", ref model._CommandDetailBack, ref _CommandDetailBackLocator, _CommandDetailBackDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandDetailBackDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandDetailBack";           // Command resource  
+                var commandId = "CommandDetailBack";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var stage = vm.StageManager.DefaultStage;
+                            if (stage.CanGoBack)
+                            {
+                                stage.Frame.GoBack();
+                            }
+                           
+                            //Todo: Add DetailBack logic here, or
+                            await TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(vm, false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+       
+
+        public CommandModel<ReactiveCommand, String> CommandNaviToCommentsPage
+        {
+            get { return _CommandNaviToCommentsPageLocator(this).Value; }
+            set { _CommandNaviToCommentsPageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandNaviToCommentsPage Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandNaviToCommentsPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNaviToCommentsPageLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNaviToCommentsPageLocator = RegisterContainerLocator("CommandNaviToCommentsPage", model => model.Initialize("CommandNaviToCommentsPage", ref model._CommandNaviToCommentsPage, ref _CommandNaviToCommentsPageLocator, _CommandNaviToCommentsPageDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandNaviToCommentsPageDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandNaviToCommentsPage";           // Command resource  
+                var commandId = "CommandNaviToCommentsPage";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
+                            await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
+                            //Todo: Add NaviToCommentsPage logic here, or
+                            await TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(vm, false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
+        public CommandModel<ReactiveCommand, String> CommandWebViewNavigate
+        {
+            get { return _CommandWebViewNavigateLocator(this).Value; }
+            set { _CommandWebViewNavigateLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandWebViewNavigate Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandWebViewNavigate = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandWebViewNavigateLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandWebViewNavigateLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandWebViewNavigate", model => model.Initialize("CommandWebViewNavigate", ref model._CommandWebViewNavigate, ref _CommandWebViewNavigateLocator, _CommandWebViewNavigateDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandWebViewNavigateDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandWebViewNavigate";           // Command resource  
+                var commandId = "CommandWebViewNavigate";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            //Todo: Add WebViewNavigate logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
 
 
 

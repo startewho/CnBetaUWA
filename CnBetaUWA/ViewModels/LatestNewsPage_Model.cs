@@ -30,7 +30,7 @@ namespace CnBetaUWA.ViewModels
         {
             Title = "最新资讯";
            // PageType = typeof (BlankPage);
-            DataSourceCollection=new IncrementalLoadingCollection<IncrementalNewsSource, NewsModel>(CnBetaHelper.TypeAll,20);
+            DataSourceCollection=new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll,20);
             DataSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
             PropScribe();
         }
@@ -107,15 +107,15 @@ namespace CnBetaUWA.ViewModels
 
       
 
-        public IncrementalLoadingCollection<IncrementalNewsSource,NewsModel> DataSourceCollection
+        public IncrementalLoadingCollection<IncrementalNewsSource,News> DataSourceCollection
         {
             get { return _DataSourceCollectionLocator(this).Value; }
             set { _DataSourceCollectionLocator(this).SetValueAndTryNotify(value); }
         }
         #region Property IncrementalLoadingCollection<NewIncrementalSource,NewsModel> DataSourceCollection Setup        
-        protected Property<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>> _DataSourceCollection = new Property<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>> { LocatorFunc = _DataSourceCollectionLocator };
-        static Func<BindableBase, ValueContainer<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>>> _DataSourceCollectionLocator = RegisterContainerLocator<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>>("DataSourceCollection", model => model.Initialize("DataSourceCollection", ref model._DataSourceCollection, ref _DataSourceCollectionLocator, _DataSourceCollectionDefaultValueFactory));
-        static Func<IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>> _DataSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,NewsModel>);
+        protected Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> _DataSourceCollection = new Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> { LocatorFunc = _DataSourceCollectionLocator };
+        static Func<BindableBase, ValueContainer<IncrementalLoadingCollection<IncrementalNewsSource,News>>> _DataSourceCollectionLocator = RegisterContainerLocator<IncrementalLoadingCollection<IncrementalNewsSource,News>>("DataSourceCollection", model => model.Initialize("DataSourceCollection", ref model._DataSourceCollection, ref _DataSourceCollectionLocator, _DataSourceCollectionDefaultValueFactory));
+        static Func<IncrementalLoadingCollection<IncrementalNewsSource,News>> _DataSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,News>);
         #endregion
 
 
@@ -142,11 +142,11 @@ namespace CnBetaUWA.ViewModels
                         vm,
                         async e =>
                         {
-                            var news = e.EventArgs.Parameter as NewsModel;
+                            var news = e.EventArgs.Parameter as News;
                             if (news!=null)
                             {
                                 var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
-                                view?.MasterDetail.DetailFrameNavigateTo(typeof (NewsPage),new NewsPage_Model(news));
+                                view?.MasterDetail.DetailFrameNavigateTo(typeof (NewsPage),new NewsPage_Model(news),true);
                             }
                             //Todo: Add NaviToDetailContentPage logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();

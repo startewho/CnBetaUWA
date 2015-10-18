@@ -17,4 +17,13 @@
            </StackPanel>
         </Border>
     </DataTemplate>
+
+    <DataTemplate x:Key="CommentItemDataTemplate">
+        <Border>
+          <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2">
+                <TextBlock Text="{Binding Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
+                <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />
+            </StackPanel>
+        </Border>
+    </DataTemplate>
 </ResourceDictionary>
