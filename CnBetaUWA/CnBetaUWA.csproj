@@ -119,6 +119,7 @@
     <Compile Include="Helper\ModelHelper.cs" />
     <Compile Include="Helper\SerializerHelper.cs" />
     <Compile Include="Extensions\VisualTreeHelperExtensions.cs" />
+    <Compile Include="Helper\WebViewHelper.cs" />
     <Compile Include="LatestNewsPage.xaml.cs">
       <DependentUpon>LatestNewsPage.xaml</DependentUpon>
     </Compile>

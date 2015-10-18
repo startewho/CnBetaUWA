@@ -40,12 +40,8 @@
             <Button Style="{StaticResource CommandButtonStyle}" Tag="FontSize" Content="&#xE185;">
                 <Button.Flyout>
                     <Flyout>
-                            <Grid>
-                              <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <controls:LabelSlider  Minimum="1"  Maximum="5" TickFrequency="1" TickPlacement="Outside" Grid.Row="0">
+                            <Grid Width="200" Height="50">
+                             <controls:LabelSlider  Minimum="1"  Maximum="5" TickFrequency="1" TickPlacement="Outside" Grid.Row="0">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="ValueChanged">
                                             <core:InvokeCommandAction Command="{Binding CommandChangeWebViewFontSize}" CommandParameter="{Binding Value,RelativeSource={RelativeSource Self}}"/>
