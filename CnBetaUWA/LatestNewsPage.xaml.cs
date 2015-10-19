@@ -86,6 +86,7 @@ namespace CnBetaUWA
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
+
         }
 
 
@@ -98,6 +99,10 @@ namespace CnBetaUWA
         //    }
         //}
 
-      
+
+        private void LatestNewsPage_OnUnloaded(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

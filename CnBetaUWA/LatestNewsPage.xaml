@@ -8,9 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
     xmlns:controls="using:CnBetaUWA.Controls"
-    NavigationCacheMode="Required"
     mc:Ignorable="d">
-
+   
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
@@ -32,7 +31,7 @@
                     </StackPanel>
                    
                 </Border>
-                <ListView ItemsSource="{Binding DataSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>
+                <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>
                 <controls:NotificationBar Message="{Binding Message}"  Grid.Row="0"/>
             </Grid>
         </controls:MasterDetailView>

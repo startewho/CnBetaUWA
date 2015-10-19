@@ -33,8 +33,8 @@ namespace CnBetaUWA.Helper
         {
             var query = "app_key=10000";
 
-            if (startSid != 0)
-                query += "&start_sid=" + startSid;
+            //if (startSid != 0)
+            //    query += "&start_sid=" + startSid;
             if (endSid != 0)
                 query += "&end_sid=" + endSid;
 
@@ -53,12 +53,17 @@ namespace CnBetaUWA.Helper
            
         }
 
-
+        /// <summary>
+        /// 取得最新News时,不需要endSid.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="todaytype"></param>
+        /// <param name="startSid"></param>
+        /// <param name="endSid"></param>
+        /// <returns></returns>
         public static async Task<string> GetLastestNews(string type, Artiletype? todaytype, int startSid, int endSid)
         {
             var query = "app_key=10000";
-
-        
 
             query += "&format=json&method=" + type;
 

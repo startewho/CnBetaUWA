@@ -16,7 +16,8 @@ using Windows.UI.Popups;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-
+using ImageLib.Helpers;
+using Q42.WinRT.Storage;
 namespace CnBetaUWA.ViewModels
 {
 
@@ -30,15 +31,55 @@ namespace CnBetaUWA.ViewModels
         {
             Title = "最新资讯";
            // PageType = typeof (BlankPage);
-            DataSourceCollection=new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll,20);
-            DataSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
+         
             PropScribe();
         }
 
-        
+        private bool _isLoaded;
+        private StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(StorageType.Local);
+        protected override Task OnBindedViewLoad(IView view)
+        {
+            if (_isLoaded) return base.OnBindedViewLoad(view);
+
+             LoadAction();
+            _isLoaded = true;
+            return base.OnBindedViewLoad(view);
+        }
+
+        protected override Task OnBindedViewUnload(IView view)
+        {
+            SaveAction();
+            return  base.OnBindedViewUnload(view);
+           
+        }
+
+        private async void SaveAction()
+        {
+          await _storageHelper.SaveAsync(NewsSourceCollection.Take(100), nameof(NewsSourceCollection));
+         
+       }
+
+
+        private async void LoadAction()
+        {
+            var cachenews=await _storageHelper.LoadAsync(nameof(NewsSourceCollection));
+            if (cachenews != null&&cachenews.Any())
+            {
+                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews.First().Sid,cachenews.Last().Sid);
+                NewsSourceCollection.AddRange(cachenews);
+                Reresh();
+            }
+            else
+            {
+                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, 0,0);
+                
+            }
+            NewsSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
+        }
+
         private void PropScribe()
         {
-            //GetValueContainer(vm => vm.DataSourceCollection.Count).GetNewValueObservable().Subscribe(e =>
+            //GetValueContainer(vm => vm.NewsSourceCollection.Count).GetNewValueObservable().Subscribe(e =>
             //{
             //    var count = e.EventArgs;
                
@@ -47,33 +88,13 @@ namespace CnBetaUWA.ViewModels
 
         private async  void Reresh()
         {
-            var addedcount=await DataSourceCollection.AttachToEnd();
+            var addedcount=await NewsSourceCollection.AttachToEnd();
             Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
 
 
 
-        public Type PageType
-        {
-            get
-            {
-             return _PageTypeLocator(this).Value;
-            }
-            set
-            {
-                if (value!=null)
-                {
-                    _PageTypeLocator(this).SetValueAndTryNotify(value);
-                }
-               
-            }
-        }
-        #region Property Type PageType Setup        
-        protected Property<Type> _PageType = new Property<Type> { LocatorFunc = _PageTypeLocator };
-        static Func<BindableBase, ValueContainer<Type>> _PageTypeLocator = RegisterContainerLocator<Type>("PageType", model => model.Initialize("PageType", ref model._PageType, ref _PageTypeLocator, _PageTypeDefaultValueFactory));
-        static Func<Type> _PageTypeDefaultValueFactory = () => default(Type);
-        #endregion
-
+      
 
         public string Message
         {
@@ -107,15 +128,15 @@ namespace CnBetaUWA.ViewModels
 
       
 
-        public IncrementalLoadingCollection<IncrementalNewsSource,News> DataSourceCollection
+        public IncrementalLoadingCollection<IncrementalNewsSource,News> NewsSourceCollection
         {
-            get { return _DataSourceCollectionLocator(this).Value; }
-            set { _DataSourceCollectionLocator(this).SetValueAndTryNotify(value); }
+            get { return _NewsSourceCollectionLocator(this).Value; }
+            set { _NewsSourceCollectionLocator(this).SetValueAndTryNotify(value); }
         }
-        #region Property IncrementalLoadingCollection<NewIncrementalSource,NewsModel> DataSourceCollection Setup        
-        protected Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> _DataSourceCollection = new Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> { LocatorFunc = _DataSourceCollectionLocator };
-        static Func<BindableBase, ValueContainer<IncrementalLoadingCollection<IncrementalNewsSource,News>>> _DataSourceCollectionLocator = RegisterContainerLocator<IncrementalLoadingCollection<IncrementalNewsSource,News>>("DataSourceCollection", model => model.Initialize("DataSourceCollection", ref model._DataSourceCollection, ref _DataSourceCollectionLocator, _DataSourceCollectionDefaultValueFactory));
-        static Func<IncrementalLoadingCollection<IncrementalNewsSource,News>> _DataSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,News>);
+        #region Property IncrementalLoadingCollection<NewIncrementalSource,NewsModel> NewsSourceCollection Setup        
+        protected Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> _NewsSourceCollection = new Property<IncrementalLoadingCollection<IncrementalNewsSource,News>> { LocatorFunc = _NewsSourceCollectionLocator };
+        static Func<BindableBase, ValueContainer<IncrementalLoadingCollection<IncrementalNewsSource,News>>> _NewsSourceCollectionLocator = RegisterContainerLocator<IncrementalLoadingCollection<IncrementalNewsSource,News>>("NewsSourceCollection", model => model.Initialize("NewsSourceCollection", ref model._NewsSourceCollection, ref _NewsSourceCollectionLocator, _NewsSourceCollectionDefaultValueFactory));
+        static Func<IncrementalLoadingCollection<IncrementalNewsSource,News>> _NewsSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,News>);
         #endregion
 
 

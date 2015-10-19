@@ -33,14 +33,13 @@ body {
 }
 
 #introduce img {
-	width:0;
-	height:0;
+	
 	visibility:hidden;
 	padding:0;
 }
 
 #introduce p {
-	line-height:150%;
+	line-height:120%;
 	margin:0;
 }
 
@@ -54,7 +53,7 @@ body {
 
 #content p {
 	text-indent:2em;
-	line-height:110%;
+	line-height:120%;
 }
 
 ol,ul,li {
@@ -94,9 +93,8 @@ ol,ul,li {
 }
 
 #content img {
+	max-width: 700px;
 	display:block;
-	max-width:100% !important;
-	height:auto !important;
 	margin:0 auto;
 }
 

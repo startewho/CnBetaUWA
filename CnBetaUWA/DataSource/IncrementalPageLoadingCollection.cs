@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Data;
 namespace CnBetaUWA.DataSource
 {
 
-    public interface IIncrementalSource<T>
+    public interface IIncrementalPageSource<T>
     {
         /// <summary>
         /// 数据源接口
@@ -24,28 +24,29 @@ namespace CnBetaUWA.DataSource
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetPagedItems(string query, int startindex, int endindex);
+        Task<IEnumerable<T>> GetPagedItems(string query, int pageIndex, int pageSize);
 
+       
 
         /// <summary>
         /// 获得最新Items
         /// </summary>
         /// <param name="query">查询语句</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetLastestItems(string query,int startindex);
+        Task<IEnumerable<T>> GetLastestItems(string query);
 
     }
 
-    public class IncrementalLoadingCollection<T, I> : ObservableCollection<I>,
+    public class IncrementalPageLoadingCollection<T, I> : ObservableCollection<I>,
         ISupportIncrementalLoading
-        where T : IIncrementalSource<I>, new()
+        where T : IIncrementalPageSource<I>, new()
     {
         private T _source;
-       // private int _pageSize;
+        private int _pageSize;
         private bool _hasMoreItems;
+        private int _currentPage;
         private string _query;
-        private int _startindex;
-        private int _endindex;
+
 
 
         #region 注册通知机制
@@ -58,11 +59,10 @@ namespace CnBetaUWA.DataSource
 
 
 
-        public IncrementalLoadingCollection(string query,int startindex,int endindex )
+        public IncrementalPageLoadingCollection(string query,int pageSize )
         {
             _source = new T();
-            _startindex = startindex;
-            _endindex = endindex;
+            this._pageSize = pageSize;
             _hasMoreItems = true;
             this._query = query;
         }
@@ -86,7 +86,7 @@ namespace CnBetaUWA.DataSource
 
                 uint resultCount = 0;
 
-                var result = await _source.GetPagedItems(_query, _startindex, _endindex);
+                var result = await _source.GetPagedItems(_query, _currentPage++, _pageSize);
 
                 if (result != null &&  result.Any())
                 {
@@ -95,10 +95,10 @@ namespace CnBetaUWA.DataSource
                         foreach (I item in result)
                             Add(item);
 
-                    //if (resultCount < _pageSize)
-                    //{
-                    //    _hasMoreItems = false;
-                    //}
+                    if (resultCount < _pageSize)
+                    {
+                        _hasMoreItems = false;
+                    }
                 }
                 else
                 {
@@ -107,8 +107,8 @@ namespace CnBetaUWA.DataSource
 
                 // 加载完成事件
                 OnLoadMoreStarted?.Invoke(resultCount);
-                Debug.WriteLine("Already Loading count{0},Everytime loading count:{1}", Items.Count, count);
 
+                Debug.WriteLine("Already Loading count{0},Everytime loading count:{1}", Items.Count, count);
                 return new LoadMoreItemsResult { Count = resultCount };
 
             }
@@ -122,7 +122,7 @@ namespace CnBetaUWA.DataSource
 
         public async Task<int> AttachToEnd()
         {
-            var newItems = await _source.GetLastestItems(_query, _startindex);
+            var newItems = await _source.GetLastestItems(_query);
 
             if (newItems == null) return 0;
 
