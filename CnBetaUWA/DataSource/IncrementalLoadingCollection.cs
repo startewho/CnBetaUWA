@@ -32,7 +32,9 @@ namespace CnBetaUWA.DataSource
         /// </summary>
         /// <param name="query">查询语句</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetLastestItems(string query,int startindex);
+        Task<IEnumerable<T>> GetUpItems(string query,int startindex);
+
+        void InitSouce(int startindex, int endindex, IEnumerable<T> caches);
 
     }
 
@@ -46,7 +48,7 @@ namespace CnBetaUWA.DataSource
         private string _query;
         private int _startindex;
         private int _endindex;
-
+        private IEnumerable<I> _caches;
 
         #region 注册通知机制
         public delegate void LoadMoreStarted(uint count);
@@ -58,13 +60,15 @@ namespace CnBetaUWA.DataSource
 
 
 
-        public IncrementalLoadingCollection(string query,int startindex,int endindex )
+        public IncrementalLoadingCollection(string query,int startindex,int endindex, IEnumerable<I> caches)
         {
             _source = new T();
             _startindex = startindex;
             _endindex = endindex;
+            _caches = caches;
             _hasMoreItems = true;
             this._query = query;
+            _source.InitSouce(_startindex,_endindex,caches);
         }
 
         public bool HasMoreItems
@@ -122,7 +126,7 @@ namespace CnBetaUWA.DataSource
 
         public async Task<int> AttachToEnd()
         {
-            var newItems = await _source.GetLastestItems(_query, _startindex);
+            var newItems = await _source.GetUpItems(_query, _startindex);
 
             if (newItems == null) return 0;
 

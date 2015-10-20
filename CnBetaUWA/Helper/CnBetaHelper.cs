@@ -29,7 +29,7 @@ namespace CnBetaUWA.Helper
             return url;
         }
 
-        public static async Task<string> GetNews(string type,Artiletype? todaytype ,int startSid,int endSid)
+        public static async Task<string> GetNews(string type,Artiletype? todaytype ,int endSid)
         {
             var query = "app_key=10000";
 

@@ -11,10 +11,17 @@
                     <core:InvokeCommandAction Command="{Binding DataContext.CommandNaviToDetailContentPage,ElementName=rootGrid}" CommandParameter="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2">
-           <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Sid, Mode=OneWay}" FontSize="20" Margin="{StaticResource AutoSuggestListMargin}" Grid.Column="0"/>
+                <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2" Grid.Column="1">
+             <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
            <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />
            </StackPanel>
+            </Grid>
         </Border>
     </DataTemplate>
 
