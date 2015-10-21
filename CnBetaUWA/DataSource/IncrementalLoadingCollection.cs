@@ -24,7 +24,7 @@ namespace CnBetaUWA.DataSource
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetPagedItems(string query, int startindex, int endindex);
+        Task<IEnumerable<T>> GetPagedItems(string query);
 
 
         /// <summary>
@@ -32,9 +32,9 @@ namespace CnBetaUWA.DataSource
         /// </summary>
         /// <param name="query">查询语句</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetUpItems(string query,int startindex);
+        Task<IEnumerable<T>> GetUpItems(string query);
 
-        void InitSouce(int startindex, int endindex, IEnumerable<T> caches);
+        void InitSouce( IEnumerable<T> caches);
 
     }
 
@@ -46,9 +46,7 @@ namespace CnBetaUWA.DataSource
        // private int _pageSize;
         private bool _hasMoreItems;
         private string _query;
-        private int _startindex;
-        private int _endindex;
-        private IEnumerable<I> _caches;
+       // private IEnumerable<I> _caches;
 
         #region 注册通知机制
         public delegate void LoadMoreStarted(uint count);
@@ -63,12 +61,14 @@ namespace CnBetaUWA.DataSource
         public IncrementalLoadingCollection(string query,int startindex,int endindex, IEnumerable<I> caches)
         {
             _source = new T();
-            _startindex = startindex;
-            _endindex = endindex;
-            _caches = caches;
+            if (caches!=null)
+            {
+                _source.InitSouce(caches);
+            }
+           
             _hasMoreItems = true;
             this._query = query;
-            _source.InitSouce(_startindex,_endindex,caches);
+            
         }
 
         public bool HasMoreItems
@@ -90,7 +90,7 @@ namespace CnBetaUWA.DataSource
 
                 uint resultCount = 0;
 
-                var result = await _source.GetPagedItems(_query, _startindex, _endindex);
+                var result = await _source.GetPagedItems(_query);
 
                 if (result != null &&  result.Any())
                 {
@@ -126,7 +126,7 @@ namespace CnBetaUWA.DataSource
 
         public async Task<int> AttachToEnd()
         {
-            var newItems = await _source.GetUpItems(_query, _startindex);
+            var newItems = await _source.GetUpItems(_query);
 
             if (newItems == null) return 0;
 

@@ -56,7 +56,7 @@
             <Button Style="{StaticResource CommandButtonStyle}" Tag="Comments" Content="&#xE206;" Command="{Binding CommandNaviToCommentsPage}" CommandParameter="{Binding Vm.Sid}"/>
         </StackPanel>
         </Grid>
-        <WebView extension:WebViewExtensions.HtmlText="{Binding TotalContent}" Grid.Row="1" >
+        <WebView extension:WebViewExtensions.UriSource="{Binding ContentPath}" Grid.Row="1" >
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="ScriptNotify">
                     <!-- ReSharper disable once Xaml.InvalidType -->

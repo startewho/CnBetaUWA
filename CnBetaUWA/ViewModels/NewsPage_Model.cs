@@ -41,7 +41,10 @@ namespace CnBetaUWA.ViewModels
                 html = html.Replace("HomeText", Vm.NewsContent.HomeText);
                 html = html.Replace("BodyText", Vm.NewsContent.BodyText);
                 TotalContent = html;
+                var finish=await IOHelper.WriteTextToLocalStorageFile("HtmlCache", Vm.Sid+ ".html", TotalContent);
+                ContentPath = "/local/HtmlCache/" + Vm.Sid + ".html";
             }
+            
         }
 
 
@@ -57,6 +60,19 @@ namespace CnBetaUWA.ViewModels
         protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
         static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
+        #endregion
+
+
+
+        public string ContentPath
+        {
+            get { return _ContentPathLocator(this).Value; }
+            set { _ContentPathLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string ContentPath Setup        
+        protected Property<string> _ContentPath = new Property<string> { LocatorFunc = _ContentPathLocator };
+        static Func<BindableBase, ValueContainer<string>> _ContentPathLocator = RegisterContainerLocator<string>("ContentPath", model => model.Initialize("ContentPath", ref model._ContentPath, ref _ContentPathLocator, _ContentPathDefaultValueFactory));
+        static Func<string> _ContentPathDefaultValueFactory = () => default(string);
         #endregion
 
         public string TotalContent

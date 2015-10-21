@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\NewsComment.cs" />
     <Compile Include="Models\NewsContent.cs" />
     <Compile Include="Models\News.cs" />

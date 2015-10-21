@@ -270,25 +270,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -320,7 +301,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -2053,25 +2033,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -2103,7 +2064,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -3872,25 +3832,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -3922,7 +3863,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -5696,25 +5636,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -5746,7 +5667,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -7515,25 +7435,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -7565,7 +7466,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -9339,25 +9239,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -9389,7 +9270,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -11158,25 +11038,6 @@
           "lib/win81/MVVMSidekick_Metro.dll": {}
         }
       },
-      "MyToolkit/2.4.2": {
-        "compile": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll": {}
-        }
-      },
-      "MyToolkit.Extended/2.4.2": {
-        "dependencies": {
-          "MyToolkit": "[2.4.2, )"
-        },
-        "compile": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/MyToolkit.Extended.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.1-beta1": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
@@ -11208,7 +11069,6 @@
           "lib/portable-win+net45+wp80/Q42.WinRT.Portable.dll": {}
         }
       },
-      "RichTextBlock.Html2Xaml/1.2.0": {},
       "Rx-Core/2.2.5": {
         "dependencies": {
           "Rx-Interfaces": "[2.2.5, )"
@@ -13558,60 +13418,6 @@
         "tools/MVVM-Sidekick.snippet"
       ]
     },
-    "MyToolkit/2.4.2": {
-      "sha512": "cAzm2wgFl0g4hy3DwRrFA6Q005s+xovIDHVYwzKj9Zmfg4P4e4fhT3gNnPjUjE8hrxIq4Ebrn0MHsyq76QZ+Qw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-net45+wp8+win8+wpa81/CodeContracts/MyToolkit.Contracts.dll",
-        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.dll",
-        "lib/portable-net45+wp8+win8+wpa81/MyToolkit.xml",
-        "lib/portable-sl5+wp71/MyToolkit.dll",
-        "lib/portable-sl5+wp71/MyToolkit.xml",
-        "MyToolkit.nuspec",
-        "package/services/metadata/core-properties/375ecb6bbd0146ee86658d56f46f3116.psmdcp"
-      ]
-    },
-    "MyToolkit.Extended/2.4.2": {
-      "sha512": "EEp/Jzjql/3EwkvpnGZ8gPfXpnWywACc5+LUD1QYKkKqsOqb3KYK1UIO8t7XQrCvayUgciZdJE4q99mmIY5RcA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/net40/MyToolkit.Extended.dll",
-        "lib/net40/MyToolkit.Extended.xml",
-        "lib/net45/MyToolkit.Extended.dll",
-        "lib/net45/MyToolkit.Extended.xml",
-        "lib/portable-wpa81+win8/MyToolkit.Extended.dll",
-        "lib/portable-wpa81+win8/MyToolkit.Extended.pri",
-        "lib/portable-wpa81+win8/MyToolkit.Extended.xml",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/DatePicker.xbf",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/Controls/TimePicker.xbf",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.pdb",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/Themes/Generic.xbf",
-        "lib/portable-wpa81+win8/MyToolkit.Extended/UI/Popups/ListPickerBox.xbf",
-        "lib/sl4-wp71/de/MyToolkit.Extended.resources.dll",
-        "lib/sl4-wp71/fr/MyToolkit.Extended.resources.dll",
-        "lib/sl4-wp71/MyToolkit.Extended.dll",
-        "lib/sl4-wp71/MyToolkit.Extended.xml",
-        "lib/sl50/MyToolkit.Extended.dll",
-        "lib/sl50/MyToolkit.Extended.xml",
-        "lib/uap10.0/MyToolkit.Extended.dll",
-        "lib/uap10.0/MyToolkit.Extended.pri",
-        "lib/uap10.0/MyToolkit.Extended.xml",
-        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.pdb",
-        "lib/uap10.0/MyToolkit.Extended/MyToolkit.Extended.xr.xml",
-        "lib/uap10.0/MyToolkit.Extended/Themes/Generic.xbf",
-        "lib/wp80/de/MyToolkit.Extended.resources.dll",
-        "lib/wp80/fr/MyToolkit.Extended.resources.dll",
-        "lib/wp80/MyToolkit.Extended.dll",
-        "lib/wp80/MyToolkit.Extended.xml",
-        "MyToolkit.Extended.nuspec",
-        "package/services/metadata/core-properties/e07e4b402cf04a4fb260f5699c8518aa.psmdcp"
-      ]
-    },
     "Newtonsoft.Json/8.0.1-beta1": {
       "sha512": "2SKuwiPQLrHLy0IbGVpj3KFmQereEKmfa+FGyulXUR9x6o+bWYjMfK0K5nqFbe4s/TGy/CPbuF7UfYdsrMhfYQ==",
       "type": "Package",
@@ -13659,20 +13465,6 @@
         "lib/portable-win+net45+wp80/Q42.WinRT.Portable.XML",
         "package/services/metadata/core-properties/52bc64bdb9af490fb635721c3fcefbca.psmdcp",
         "Q42.WinRT.Portable.nuspec"
-      ]
-    },
-    "RichTextBlock.Html2Xaml/1.2.0": {
-      "sha512": "355gchkpo+wTXPlvqiRiVTVt1RWy51cZ/KFFALMHoOfgjCPh00HiMyGFsw0XdfR5mz/9So1IARiAz5DAF+tJ7Q==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "content/Common/RichTextBlockHtml2Xaml.xslt",
-        "content/Common/RichTextBlockProperties.cs",
-        "package/services/metadata/core-properties/d7b6a2d1d5cd4b6d8817a0b1f1ac71af.psmdcp",
-        "Readme.txt",
-        "RichTextBlock.Html2Xaml.nuspec",
-        "tools/Install.ps1"
       ]
     },
     "Rx-Core/2.2.5": {
@@ -16583,10 +16375,8 @@
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "MVVM-Sidekick >= 1.6.6",
-      "MyToolkit.Extended >= 2.4.2",
       "Newtonsoft.Json >= 8.0.1-beta1",
       "Q42.WinRT >= 1.4.2.42",
-      "RichTextBlock.Html2Xaml >= 1.2.0",
       "Rx-Core >= 2.2.5",
       "Rx-Interfaces >= 2.2.5",
       "Rx-Linq >= 2.2.5",
