@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.Web;
 using Windows.Web.Http;
 using CnBetaUWA.Helper;
-
+using Q42.WinRT.Data;
 namespace CnBetaUWA.Extensions
 {
     public static class WebViewExtensions
@@ -43,9 +43,10 @@ namespace CnBetaUWA.Extensions
            
                 webView.Settings.IsJavaScriptEnabled = true;
                
-                Uri url = webView.BuildLocalStreamUri("contentIdentifier", e.NewValue.ToString());
+                Uri url = webView.BuildLocalStreamUri("NewsContent", e.NewValue.ToString());
 
-                webView.NavigateToLocalStreamUri(url,new StreamUriWinRTResolver());
+              
+                webView.NavigateToLocalStreamUri(url,new StreamUriWinRtResolver());
                
                 
             }
@@ -101,7 +102,7 @@ namespace CnBetaUWA.Extensions
 
     // 实现 IUriToStreamResolver 接口（用于将 url 以内容流的方式返回）
 
-    public sealed class StreamUriWinRTResolver : IUriToStreamResolver
+    public sealed class StreamUriWinRtResolver : IUriToStreamResolver
     {
         // IUriToStreamResolver 接口只有一个需要实现的方法
         // 根据 uri 返回对应的内容流
@@ -112,31 +113,30 @@ namespace CnBetaUWA.Extensions
         }
 
         // 根据 uri 返回对应的内容流
-        private async Task<IInputStream> GetContent(string path)
+        private static async Task<IInputStream> GetContent(string path)
         {
             string url;
+            if (path.StartsWith("/LocalCache/HtmlCache/"))
+            {
+                if (path.StartsWith("/LocalCache/HtmlCache/article/"))
+                {
+                    //缓存图片
+                    path = path.Replace("/LocalCache/HtmlCache/", "");
+                    path = string.Format("http://static.cnbetacdn.com/thumb/{0}", path);
+                    var webfile = await WebDataCache.GetAsync(new Uri(path));
+                    return await webfile.OpenAsync(FileAccessMode.Read);
+                }
 
-            // 按需求修改 url 引用
-            if (path.StartsWith("http"))
-            {
-                // http 方式获取内容数据
-                var client = new HttpClient();
-                var response = await client.GetAsync(new Uri(path), HttpCompletionOption.ResponseHeadersRead);
-                return (await response.Content.ReadAsInputStreamAsync());
-            }
-            else if (path.StartsWith("/local/HtmlCache/"))
-            {
+                // 获取本地数据
                 path = string.Format("ms-appdata://{0}", path);
-                // 获取本地数据
-                var fileRead = await StorageFile.GetFileFromApplicationUriAsync(new Uri(path));
-                return await fileRead.OpenAsync(FileAccessMode.Read);
+                var filedata = await StorageFile.GetFileFromApplicationUriAsync(new Uri(path));
+                return await filedata.OpenAsync(FileAccessMode.Read);
             }
-            else
-            {
-                // 获取本地数据
-                var fileRead = await StorageFile.GetFileFromApplicationUriAsync(new Uri(path, UriKind.Absolute));
-                return await fileRead.OpenAsync(FileAccessMode.Read);
-            }
+
+          
+
+            return null;
+
 
         }
     }

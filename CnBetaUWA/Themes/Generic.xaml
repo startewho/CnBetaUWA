@@ -572,9 +572,7 @@
         </Setter>
     </Style>
 
-  
-
-    <Style TargetType="controls:LabelSlider">
+   <Style TargetType="controls:LabelSlider">
         <Setter Property="Background" Value="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"/>
         <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}"/>
         <Setter Property="Foreground" Value="{ThemeResource SystemControlHighlightAccentBrush}"/>
@@ -714,6 +712,55 @@
                                 <Canvas x:Name="RightTicksCanvas" HorizontalAlignment="Right" Visibility="Collapsed" Grid.Row="0" Grid.Column="3" Grid.RowSpan="3"  />
                             </Grid>
                         </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:SwipeableControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SwipeableControl">
+                    <Grid  x:Name="contentGrid"
+                        Width="{TemplateBinding Width}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Margin="{TemplateBinding Margin}"
+                        ManipulationCompleted="CommentGridManipulationCompleted" 
+                        ManipulationDelta="CommentGridManipulationDelta" 
+                        ManipulationMode="TranslateX">
+                        <Grid.Resources>
+                            <Storyboard x:Name="OpenContent">
+                                <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ManipulationLayout" >
+                                    <DoubleAnimation.EasingFunction>
+                                        <ExponentialEase EasingMode="EaseIn" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="commentGrid">
+                                    <DoubleAnimation.EasingFunction>
+                                        <ExponentialEase EasingMode="EaseIn" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                            <Storyboard x:Name="CloseContent">
+                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ManipulationLayout">
+                                    <DoubleAnimation.EasingFunction>
+                                        <ExponentialEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="commentGrid">
+                                    <DoubleAnimation.EasingFunction>
+                                        <ExponentialEase EasingMode="EaseOut" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </Grid.Resources>
+                        <ContentPresenter x:Name="ContentControl" 
+                                          Content="{TemplateBinding Content}" 
+                                          HorizontalContentAlignment="Stretch" 
+                                          VerticalContentAlignment="Stretch"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

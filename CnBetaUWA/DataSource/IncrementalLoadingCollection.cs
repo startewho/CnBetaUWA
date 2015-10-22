@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Runtime.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 namespace CnBetaUWA.DataSource
@@ -32,7 +28,7 @@ namespace CnBetaUWA.DataSource
         /// </summary>
         /// <param name="query">查询语句</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetUpItems(string query);
+        Task<IEnumerable<T>> GetLastestItems(string query);
 
         void InitSouce( IEnumerable<T> caches);
 
@@ -96,7 +92,7 @@ namespace CnBetaUWA.DataSource
                 {
                     resultCount = (uint)result.Count();
                 
-                        foreach (I item in result)
+                        foreach (I item in result.ToList())
                             Add(item);
 
                     //if (resultCount < _pageSize)
@@ -126,14 +122,16 @@ namespace CnBetaUWA.DataSource
 
         public async Task<int> AttachToEnd()
         {
-            var newItems = await _source.GetUpItems(_query);
-
+            var newItems = await _source.GetLastestItems(_query);
+          
             if (newItems == null) return 0;
 
             var items = newItems as IList<I> ?? newItems.ToList();
+            _source.InitSouce(this);
+            Clear();
             foreach (I item in items.Reverse())
                 Insert(0, item);
-            return items.Count();
+            return items.Count;
         }
 
     }

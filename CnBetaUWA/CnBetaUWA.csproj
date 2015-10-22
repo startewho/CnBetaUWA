@@ -102,6 +102,7 @@
     <Compile Include="Controls\MasterDetailView.cs" />
     <Compile Include="Controls\NotificationBar.cs" />
     <Compile Include="Controls\LabelSlider.cs" />
+    <Compile Include="Controls\SwipeableControl.cs" />
     <Compile Include="Controls\SwipeableSplitView.cs" />
     <Compile Include="Converters\SliderValueConverter.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter .cs" />

@@ -32,7 +32,7 @@ namespace CnBetaUWA.Controls
         public static readonly DependencyProperty TickTemplateProperty =
             DependencyProperty.Register("TickTemplate", typeof(DataTemplate), typeof(LabelSlider), null);
 
-
+    
         public LabelSlider()
         {
             DefaultStyleKey = typeof(LabelSlider);

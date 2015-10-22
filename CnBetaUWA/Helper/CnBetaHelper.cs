@@ -21,7 +21,8 @@ namespace CnBetaUWA.Helper
         public static string TypeRealtime = "realtime";
         
         public static string ApiUrl { get; } = "http://api.cnbeta.com/capi?";
-
+        public static string HtmlPath = "/LocalCache/HtmlCache/{0}.html";
+        public static string HtmlFolder = "HtmlCache/";
         public static string GetRealTimeNewsUri()
         {
             var url = ApiUrl + "jsoncallback=jQuery18008753548712314047_" + HttpHelper.ToTimestamp(DateTime.Now)

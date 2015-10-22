@@ -25,7 +25,7 @@ namespace CnBetaUWA.DataSource
         {
             _startSid = caches.First().Sid;
             _endSid = caches.Last().Sid;
-            _cacheNewes = caches;
+            _cacheNewes = caches.ToList();
         }
 
         public async Task<IEnumerable<News>> GetPagedItems(string query)
@@ -40,29 +40,22 @@ namespace CnBetaUWA.DataSource
             }
 
             //加载刷新+缓存数据
-            else
+            _latestNewses = await GetLastestItems(query);//更改_endSid
+
+            var distance = _endSid - _cacheNewes.First().Sid;
+
+            //有新数据
+            if (distance>0)
             {
-             
-                _latestNewses = await GetUpItems(query);//更改_endSid
-
-                var distance = _endSid - _cacheNewes.First().Sid;
-                //有新数据
-                if (distance>0)
-                {
-                    var result = await GetCaches(query, distance);
-                    return result;
-                }
-
-                //没有得到新数据,
-                else
-                {
-                   // _endSid = _cacheNewes.Last().Sid;
-                    var newcache = _cacheNewes;
-                    _cacheNewes = null;
-                    return newcache;
-                }
-
+                var result = await GetCaches(query, distance);
+                return result;
             }
+
+            //没有得到新数据,
+            // _endSid = _cacheNewes.Last().Sid;
+            var newcache = _cacheNewes;
+            _cacheNewes = null;
+            return newcache;
         }
 
 
@@ -70,18 +63,17 @@ namespace CnBetaUWA.DataSource
         {
            var list = new List<News>();
            var latestpage = distance / pageSids;
-            
+
+            if (_latestNewses != null)
+            {
+                list.AddRange(_latestNewses);
+                _latestNewses = null;
+            }
+
             //不多于一页
             if (latestpage==0)
             {
                 var reuslt = await GetDownNewsFromNet(query, null, _endSid);
-                if (_latestNewses!=null)
-                {
-                    list.AddRange(_latestNewses);
-                    _latestNewses = null;
-                   
-                }
-               
                 list.AddRange(reuslt.Take(distance/ sidSpace-1));
                 list.AddRange(_cacheNewes);
                 _endSid = list.Last().Sid;
@@ -90,21 +82,11 @@ namespace CnBetaUWA.DataSource
             }
 
             //不小于1页
-            if (latestpage >= 1)
-            {
-                if (_latestNewses != null)
-                {
-                    list.AddRange(_latestNewses);
-                    _latestNewses = null;
-                  
-                }
+            var downnewses = await GetDownNewsFromNet(query, null, _endSid);
+            list.AddRange(downnewses);
+            return list;
 
-                var downnewses = await GetDownNewsFromNet(query, null, _endSid);
-                list.AddRange(downnewses);
-                return list;
-            }
-
-            return null;
+           
         }
 
 
@@ -133,6 +115,10 @@ namespace CnBetaUWA.DataSource
             return list;
         }
 
+        
+
+
+
 
     /// <summary>
         /// 加载刷新数据,如果有新数据
@@ -140,7 +126,7 @@ namespace CnBetaUWA.DataSource
         /// <param name="query"></param>
         /// <param name="startttindex"></param>
         /// <returns></returns>
-    public async Task<IEnumerable<News>> GetUpItems(string query)
+    public async Task<IEnumerable<News>> GetLastestItems(string query)
     {
         if (_firstLoad == false)
         {

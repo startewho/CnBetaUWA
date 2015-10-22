@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:imglibcontrol="using:ImageLib.Controls"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     <DataTemplate x:Key="NewsItemDataTemplate">
         <Border>
@@ -16,7 +17,7 @@
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding Sid, Mode=OneWay}" FontSize="20" Margin="{StaticResource AutoSuggestListMargin}" Grid.Column="0"/>
+                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
                 <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2" Grid.Column="1">
              <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
            <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />

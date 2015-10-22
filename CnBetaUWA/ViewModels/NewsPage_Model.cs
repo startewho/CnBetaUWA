@@ -30,19 +30,21 @@ namespace CnBetaUWA.ViewModels
 
         public News Vm { get; set; }
 
+
         private async void GetContent(int sid)
         {
             var content = await CnBetaHelper.GetNewsContent(sid);
-            if (content!=null)
+            if (content != null)
             {
-                
-                Vm.NewsContent =ModelHelper.JsonToNewsContent(content);
+
+                Vm.NewsContent = ModelHelper.JsonToNewsContent(content);
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
                 html = html.Replace("HomeText", Vm.NewsContent.HomeText);
                 html = html.Replace("BodyText", Vm.NewsContent.BodyText);
+                html = html.Replace("http://static.cnbetacdn.com/thumb/", "");
                 TotalContent = html;
-                var finish=await IOHelper.WriteTextToLocalStorageFile("HtmlCache", Vm.Sid+ ".html", TotalContent);
-                ContentPath = "/local/HtmlCache/" + Vm.Sid + ".html";
+                await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
+                ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
             }
             
         }

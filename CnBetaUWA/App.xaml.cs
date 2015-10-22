@@ -18,8 +18,11 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Startups;
 using ImageLib;
-
-
+using ImageLib.Cache.Memory.CacheImpl;
+using ImageLib.Cache.Storage;
+using ImageLib.Cache.Storage.CacheImpl;
+using ImageLib.Gif;
+using Q42.WinRT.Data;
 
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
@@ -45,13 +48,26 @@ namespace CnBetaUWA
 		{
 			StartupFunctions.RunAllConfig();
             InitImagLab();
+            InitQ42();
         }
 
-        private static void InitImagLab()
+        private  static void InitImagLab()
         {
-           
+         
+            ImageConfig.Initialize(new ImageConfig.Builder()
+            {
+                CacheMode = ImageLib.Cache.CacheMode.MemoryAndStorageCache,
+                IsLogEnabled = true,
+                MemoryCacheImpl = new WeakMemoryCache<string, IRandomAccessStream>(),
+                StorageCacheImpl = new LimitedStorageCache(ApplicationData.Current.LocalCacheFolder,
+              "ImagLabCache", new SHA1CacheGenerator(), 1024 * 1024 * 1024)
+            }.AddDecoder<GifDecoder>().Build());
         }
 
+        private async static void InitQ42()
+        {
+            await WebDataCache.Init();
+        }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

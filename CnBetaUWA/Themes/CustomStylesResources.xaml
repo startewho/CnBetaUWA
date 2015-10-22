@@ -146,6 +146,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="LabelSliderStyle" TargetType="Slider">
         <Setter Property="Background" Value="{ThemeResource SystemControlForegroundBaseMediumLowBrush}"/>
         <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}"/>
