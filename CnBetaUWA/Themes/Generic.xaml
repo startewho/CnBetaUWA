@@ -722,41 +722,33 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:SwipeableControl">
-                    <Grid  x:Name="contentGrid"
+                    <Grid  x:Name="contentGrid" 
                         Width="{TemplateBinding Width}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                         Margin="{TemplateBinding Margin}"
-                        ManipulationCompleted="CommentGridManipulationCompleted" 
-                        ManipulationDelta="CommentGridManipulationDelta" 
-                        ManipulationMode="TranslateX">
-                        <Grid.Resources>
+                         >
+                      <Grid.Resources>
                             <Storyboard x:Name="OpenContent">
-                                <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ManipulationLayout" >
-                                    <DoubleAnimation.EasingFunction>
-                                        <ExponentialEase EasingMode="EaseIn" />
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                                <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="commentGrid">
+                               <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="contentGrid">
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase EasingMode="EaseIn" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
                             </Storyboard>
                             <Storyboard x:Name="CloseContent">
-                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="ManipulationLayout">
-                                    <DoubleAnimation.EasingFunction>
-                                        <ExponentialEase EasingMode="EaseOut" />
-                                    </DoubleAnimation.EasingFunction>
-                                </DoubleAnimation>
-                                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="commentGrid">
+                               <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="contentGrid">
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
                             </Storyboard>
                         </Grid.Resources>
+                        <Grid.RenderTransform>
+                            <CompositeTransform/>
+                        </Grid.RenderTransform>
                         <ContentPresenter x:Name="ContentControl" 
                                           Content="{TemplateBinding Content}" 
                                           HorizontalContentAlignment="Stretch" 

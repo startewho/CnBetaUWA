@@ -24,10 +24,18 @@ namespace CnBetaUWA.Controls
     {
         public SwipeableControl()
         {
-            this.DefaultStyleKey = typeof(SwipeableControl);
-            this.ManipulationCompleted += CommentGridManipulationCompleted;
-            this.ManipulationDelta += CommentGridManipulationDelta;
-            this.ManipulationMode=ManipulationModes.TranslateX;
+            DefaultStyleKey = typeof(SwipeableControl);
+            this.Unloaded += SwipeableControl_Unloaded;
+        }
+
+        private void SwipeableControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (contentGrid != null)
+            {
+              
+                contentGrid.ManipulationDelta -= CommentGridManipulationDelta;
+                contentGrid.ManipulationCompleted -= CommentGridManipulationCompleted;
+            }
         }
 
         private ContentPresenter contentControl;
@@ -41,7 +49,12 @@ namespace CnBetaUWA.Controls
             contentControl = GetTemplateChild("ContentControl") as ContentPresenter;
             CloseStoryboard = GetTemplateChild("CloseContent") as Storyboard;
             OpenStoryboard = GetTemplateChild("OpenContent") as Storyboard;
-
+            if (contentGrid != null)
+            {
+                contentGrid.ManipulationMode=ManipulationModes.TranslateX;
+                contentGrid.ManipulationDelta += CommentGridManipulationDelta;
+                contentGrid.ManipulationCompleted += CommentGridManipulationCompleted;
+            }
         }
 
 
@@ -82,7 +95,8 @@ namespace CnBetaUWA.Controls
             }
             else if (x > -0.1 && x < 0.1)
             {
-                if (Math.Abs((contentGrid.RenderTransform as CompositeTransform).TranslateX) > 150)
+                var transform = contentGrid.RenderTransform as CompositeTransform;
+                if (transform != null && Math.Abs(transform.TranslateX) > 150)
                 {
                     OpenCommentGrid();
                 }
@@ -90,7 +104,6 @@ namespace CnBetaUWA.Controls
                 {
                     CloseCommentGrid();
                 }
-
             }
             else
             {
@@ -100,16 +113,16 @@ namespace CnBetaUWA.Controls
 
         private void CommentGridManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
-
-            var x = (contentGrid.RenderTransform as CompositeTransform).TranslateX + e.Delta.Translation.X;
-            if (x < -300)
+            var compositeTransform = contentGrid.RenderTransform as CompositeTransform;
+            if (compositeTransform != null)
             {
-                x = -300;
+                var x = compositeTransform.TranslateX + e.Delta.Translation.X;
+                if (x < -300)
+                {
+                    x = -300;
+                }
+                compositeTransform.TranslateX = x;
             }
-           (contentGrid.RenderTransform as CompositeTransform).TranslateX = x;
-           
         }
-
-      
     }
 }
