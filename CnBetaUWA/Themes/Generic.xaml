@@ -722,24 +722,28 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:SwipeableControl">
-                    <Grid  x:Name="contentGrid" 
-                        Width="{TemplateBinding Width}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                        Margin="{TemplateBinding Margin}"
-                         >
-                      <Grid.Resources>
+                    <Grid x:Name="contentGrid"
+                          Width="{TemplateBinding Width}"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                          Margin="{TemplateBinding Margin}">
+                        <Grid.Resources>
                             <Storyboard x:Name="OpenContent">
-                               <DoubleAnimation Duration="0:0:0.2" To="-300" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="contentGrid">
+                                <DoubleAnimation Duration="0:0:0.2"
+                                                 To="{Binding PanAreaInitialTranslateX, RelativeSource={RelativeSource TemplatedParent}}"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                                                 Storyboard.TargetName="contentGrid">
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase EasingMode="EaseIn" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
                             </Storyboard>
                             <Storyboard x:Name="CloseContent">
-                               <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="contentGrid">
+                                <DoubleAnimation Duration="0:0:0.2" To="0"
+                                                 Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
+                                                 Storyboard.TargetName="contentGrid">
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
@@ -747,12 +751,12 @@
                             </Storyboard>
                         </Grid.Resources>
                         <Grid.RenderTransform>
-                            <CompositeTransform/>
+                            <CompositeTransform />
                         </Grid.RenderTransform>
-                        <ContentPresenter x:Name="ContentControl" 
-                                          Content="{TemplateBinding Content}" 
-                                          HorizontalContentAlignment="Stretch" 
-                                          VerticalContentAlignment="Stretch"/>
+                        <ContentPresenter x:Name="contentControl"
+                                          Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Stretch"
+                                          VerticalContentAlignment="Stretch" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

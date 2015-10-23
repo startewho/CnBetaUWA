@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel.Store;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
@@ -16,7 +10,7 @@ using Windows.UI.Xaml.Media.Animation;
 namespace CnBetaUWA.Controls
 {
 
-    [TemplatePart(Name = "ContentControl", Type = typeof(ContentPresenter))]
+    [TemplatePart(Name = "contentControl", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "contentGrid", Type = typeof(Grid))]
     [TemplatePart(Name = "OpenContent", Type = typeof(Storyboard))]
     [TemplatePart(Name = "CloseContent", Type = typeof(Storyboard))]
@@ -32,9 +26,8 @@ namespace CnBetaUWA.Controls
         {
             if (contentGrid != null)
             {
-              
-                contentGrid.ManipulationDelta -= CommentGridManipulationDelta;
-                contentGrid.ManipulationCompleted -= CommentGridManipulationCompleted;
+                contentGrid.ManipulationDelta -= ContentGridManipulationDelta;
+                contentGrid.ManipulationCompleted -= ContentGridManipulationCompleted;
             }
         }
 
@@ -46,17 +39,50 @@ namespace CnBetaUWA.Controls
         {
             base.OnApplyTemplate();
             contentGrid = GetTemplateChild("contentGrid") as Grid;
-            contentControl = GetTemplateChild("ContentControl") as ContentPresenter;
+            contentControl = GetTemplateChild("contentControl") as ContentPresenter;
             CloseStoryboard = GetTemplateChild("CloseContent") as Storyboard;
             OpenStoryboard = GetTemplateChild("OpenContent") as Storyboard;
             if (contentGrid != null)
             {
                 contentGrid.ManipulationMode=ManipulationModes.TranslateX;
-                contentGrid.ManipulationDelta += CommentGridManipulationDelta;
-                contentGrid.ManipulationCompleted += CommentGridManipulationCompleted;
+                contentGrid.ManipulationDelta += ContentGridManipulationDelta;
+                contentGrid.ManipulationCompleted += ContentGridManipulationCompleted;
             }
         }
 
+
+        public bool IsSwipeablePaneOpen
+        {
+            get { return (bool)GetValue(IsSwipeablePaneOpenProperty); }
+            set { SetValue(IsSwipeablePaneOpenProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsSwipeablePaneOpenProperty =
+            DependencyProperty.Register("IsSwipeablePaneOpen", typeof(bool), typeof(SwipeableControl), new PropertyMetadata(false, OnIsSwipeablePaneOpenChanged));
+
+        private static void OnIsSwipeablePaneOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var swipeableControl = (SwipeableControl)d;
+            var isPaneOpen = (bool) e.NewValue;
+            if (isPaneOpen)
+            {
+                swipeableControl.OpenContentGrid();
+            }
+            else
+            {
+                swipeableControl.CloseContentGrid();
+            }
+        }
+
+
+        public double PanAreaInitialTranslateX
+        {
+            get { return (double)GetValue(PanAreaInitialTranslateXProperty); }
+            set { SetValue(PanAreaInitialTranslateXProperty, value); }
+        }
+
+        public static readonly DependencyProperty PanAreaInitialTranslateXProperty =
+            DependencyProperty.Register("PanAreaInitialTranslateX", typeof(double), typeof(SwipeableControl), new PropertyMetadata(0d));
 
 
 
@@ -71,47 +97,44 @@ namespace CnBetaUWA.Controls
         public static readonly DependencyProperty ContentProperty =
             DependencyProperty.Register("Content", typeof(Control), typeof(SwipeableControl), new PropertyMetadata(0));
 
-
-
-        private void CloseCommentGrid()
+        private  void CloseContentGrid()
         {
             CloseStoryboard.Begin();
-            
-            
+          
         }
 
-        private void OpenCommentGrid()
+        private  void OpenContentGrid()
         {
             OpenStoryboard.Begin();
             //RefreshComment(this, EventArgs.Empty);
            
         }
-        private void CommentGridManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        private void ContentGridManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
             var x = e.Velocities.Linear.X;
             if (x <= -0.1)
             {
-                OpenCommentGrid();
+                OpenContentGrid();
             }
             else if (x > -0.1 && x < 0.1)
             {
                 var transform = contentGrid.RenderTransform as CompositeTransform;
                 if (transform != null && Math.Abs(transform.TranslateX) > 150)
                 {
-                    OpenCommentGrid();
+                    OpenContentGrid();
                 }
                 else
                 {
-                    CloseCommentGrid();
+                    CloseContentGrid();
                 }
             }
             else
             {
-                CloseCommentGrid();
+                CloseContentGrid();
             }
         }
 
-        private void CommentGridManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        private void ContentGridManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             var compositeTransform = contentGrid.RenderTransform as CompositeTransform;
             if (compositeTransform != null)

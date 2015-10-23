@@ -118,11 +118,11 @@ namespace CnBetaUWA.Extensions
             string url;
             if (path.StartsWith("/LocalCache/HtmlCache/"))
             {
-                if (path.StartsWith("/LocalCache/HtmlCache/article/"))
+                if (path.Contains("article"))
                 {
                     //缓存图片
                     path = path.Replace("/LocalCache/HtmlCache/", "");
-                    path = string.Format("http://static.cnbetacdn.com/thumb/{0}", path);
+                    path = string.Format("http://static.cnbetacdn.com/{0}", path);
                     var webfile = await WebDataCache.GetAsync(new Uri(path));
                     return await webfile.OpenAsync(FileAccessMode.Read);
                 }

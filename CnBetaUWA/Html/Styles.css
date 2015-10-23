@@ -5,19 +5,12 @@ body {
 
 }
 
-.title {
-	font-size:18pt;
-	color:#1473af;
-	padding-top:5pt;
-	padding-bottom:5pt;
-}
 
 .from {
 	font-size:10pt;
 	padding-top:4pt;
 }
 #introduce {
-	background: #fbfbfb none repeat scroll 0 0;
     border-color: #e5e5e5;
     border-width: 1px;
    
@@ -102,23 +95,6 @@ ol,ul,li {
 a {
 	text-decoration:none;
 	color:#2f7cad;
-}
-
-#content blockquote {
-	background-color:#F1F1F1;
-	color:#444;
-	quotes:"\201C""\201D""\2018""\2019";
-	margin:0;
-	padding:13pt 5pt 8pt;
-}
-
-#content blockquote:before {
-	color:#CCC;
-	content:open-quote;
-	font-size:4em;
-	line-height:.01em;
-	margin-left:.1em;
-	vertical-align:-.4em;
 }
 
 .clear {

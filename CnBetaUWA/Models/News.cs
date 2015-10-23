@@ -46,8 +46,19 @@ namespace CnBetaUWA.Models
         static Func<NewsContent> _NewsContentDefaultValueFactory = () => default(NewsContent);
         #endregion
 
-      
 
-        public List<NewsComment> NewsComments { get; set; }
+        [JsonProperty]
+        public List<NewsComment> NewsComments
+        {
+            get { return _NewsCommentsLocator(this).Value; }
+            set { _NewsCommentsLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property List<NewsComment> NewsComments Setup        
+        protected Property<List<NewsComment>> _NewsComments = new Property<List<NewsComment>> { LocatorFunc = _NewsCommentsLocator };
+        static Func<BindableBase, ValueContainer<List<NewsComment>>> _NewsCommentsLocator = RegisterContainerLocator<List<NewsComment>>("NewsComments", model => model.Initialize("NewsComments", ref model._NewsComments, ref _NewsCommentsLocator, _NewsCommentsDefaultValueFactory));
+        static Func<List<NewsComment>> _NewsCommentsDefaultValueFactory = () => default(List<NewsComment>);
+        #endregion
+
+       
     }
 }

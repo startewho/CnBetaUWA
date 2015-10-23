@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Helper;
 using CnBetaUWA.Startups;
 using ImageLib;
 using ImageLib.Cache.Memory.CacheImpl;
@@ -23,7 +24,7 @@ using ImageLib.Cache.Storage;
 using ImageLib.Cache.Storage.CacheImpl;
 using ImageLib.Gif;
 using Q42.WinRT.Data;
-
+using Q42.WinRT.Storage;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -49,8 +50,22 @@ namespace CnBetaUWA
 			StartupFunctions.RunAllConfig();
             InitImagLab();
             InitQ42();
+            InitAppSetting();
         }
 
+        private static void InitAppSetting()
+        {
+            if (!SettingsHelper.Contains(CnBetaHelper.SettingNightMode))
+            {
+                SettingsHelper.Set(CnBetaHelper.SettingNightMode, false);
+            }
+
+            if (!SettingsHelper.Contains(CnBetaHelper.SettingImageMode))
+            {
+                SettingsHelper.Set(CnBetaHelper.SettingImageMode, true);
+            }
+
+        }
         private  static void InitImagLab()
         {
          

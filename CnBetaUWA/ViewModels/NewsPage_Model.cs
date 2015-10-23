@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.Serialization;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -41,7 +42,7 @@ namespace CnBetaUWA.ViewModels
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
                 html = html.Replace("HomeText", Vm.NewsContent.HomeText);
                 html = html.Replace("BodyText", Vm.NewsContent.BodyText);
-                html = html.Replace("http://static.cnbetacdn.com/thumb/", "");
+                html = html.Replace("http://static.cnbetacdn.com/", "");
                 TotalContent = html;
                 await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
                 ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
@@ -86,6 +87,19 @@ namespace CnBetaUWA.ViewModels
         protected Property<string> _TotalContent = new Property<string> { LocatorFunc = _TotalContentLocator };
         static Func<BindableBase, ValueContainer<string>> _TotalContentLocator = RegisterContainerLocator("TotalContent", model => model.Initialize("TotalContent", ref model._TotalContent, ref _TotalContentLocator, _TotalContentDefaultValueFactory));
         static Func<string> _TotalContentDefaultValueFactory = () => default(string);
+        #endregion
+
+
+
+        public bool IsCommentPanelOpen
+        {
+            get { return _IsCommentPanelOpenLocator(this).Value; }
+            set { _IsCommentPanelOpenLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property bool IsCommentPanelOpen Setup        
+        protected Property<bool> _IsCommentPanelOpen = new Property<bool> { LocatorFunc = _IsCommentPanelOpenLocator };
+        static Func<BindableBase, ValueContainer<bool>> _IsCommentPanelOpenLocator = RegisterContainerLocator<bool>("IsCommentPanelOpen", model => model.Initialize("IsCommentPanelOpen", ref model._IsCommentPanelOpen, ref _IsCommentPanelOpenLocator, _IsCommentPanelOpenDefaultValueFactory));
+        static Func<bool> _IsCommentPanelOpenDefaultValueFactory = () => default(bool);
         #endregion
 
 
@@ -302,8 +316,10 @@ namespace CnBetaUWA.ViewModels
                         vm,
                         async e =>
                         {
+                            vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
                             var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
-                            await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
+                            vm.Vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
+                            //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();
                         })
