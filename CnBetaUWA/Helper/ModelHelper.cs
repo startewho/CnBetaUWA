@@ -29,7 +29,7 @@ namespace CnBetaUWA.Helper
 
         public static IEnumerable<NewsComment> JsonToNewsComments(string jsontext)
         {
-
+           
             JObject postlist = JObject.Parse(jsontext);
             var selectToken = postlist.SelectToken("result");
             var list =selectToken.Select(item=> new NewsComment

@@ -18,7 +18,7 @@
         <vm:MainPage_Model x:Key="DesignVM"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        <SplitView x:Name="SplitView" DisplayMode="CompactOverlay">
+        <SplitView x:Name="SplitView" DisplayMode="CompactOverlay" >
             <SplitView.Pane>
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
@@ -35,8 +35,5 @@
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </SplitView.Content>
         </SplitView>
-
-   
-
     </Grid>
 </mvvm:MVVMPage>
