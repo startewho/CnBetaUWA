@@ -1417,9 +1417,7 @@
                                 Width="1"
                                 HorizontalAlignment="Right" />
                         </Grid>
-                        <Grid x:Name="BottomPane" Grid.Row="1" Grid.ColumnSpan="2" Visibility="Collapsed">
-                            <ContentPresenter Content="{TemplateBinding BottomGrid}" />
-                        </Grid>
+                        <ContentPresenter x:Name="BottomPane" Content="{TemplateBinding BottomPane}" Grid.Row="1" Grid.ColumnSpan="2" Visibility="Collapsed"/>
 
                     </Grid>
                 </ControlTemplate>

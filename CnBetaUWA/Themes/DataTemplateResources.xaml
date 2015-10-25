@@ -6,7 +6,7 @@
     xmlns:imglibcontrol="using:ImageLib.Controls"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     <DataTemplate x:Key="NewsItemDataTemplate">
-        <Border>
+        <Border Margin="0,2,2,0">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
                     <core:InvokeCommandAction Command="{Binding DataContext.CommandNaviToDetailContentPage,ElementName=rootGrid}" CommandParameter="{Binding}"/>
@@ -14,14 +14,18 @@
             </interactivity:Interaction.Behaviors>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
-                <StackPanel Orientation="Vertical" Height="100" Margin="0,2,0,2" Grid.Column="1">
-             <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}"/>
-           <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}" Margin="{StaticResource AutoSuggestListMargin}" />
-           </StackPanel>
+                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0" />
+                <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
+                    <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                </StackPanel>
             </Grid>
         </Border>
     </DataTemplate>

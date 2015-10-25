@@ -110,7 +110,7 @@ namespace CnBetaUWA.Controls
                     
                     if (_extendSplitView != null)
                     {
-                        _extendSplitView.BottomGrid.Visibility = Visibility.Collapsed;
+                        _extendSplitView.IsOpenBottomPane = false;
                     }
                 }
                 else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
@@ -120,7 +120,7 @@ namespace CnBetaUWA.Controls
                    
                     if (_extendSplitView != null)
                     {
-                        _extendSplitView.BottomGrid.Visibility = Visibility.Visible;
+                        _extendSplitView.IsOpenBottomPane = true;
                     }
                 }
 
@@ -197,7 +197,7 @@ namespace CnBetaUWA.Controls
                         IsMasterHidden = true;
                         if (_extendSplitView != null)
                         {
-                            _extendSplitView.BottomGrid.Visibility = Visibility.Collapsed;
+                            _extendSplitView.IsOpenBottomPane = false;
                         }
                     }
                 }

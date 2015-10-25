@@ -34,9 +34,8 @@
             <controls:ExtendSplitView.Content>
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </controls:ExtendSplitView.Content>
-            <controls:ExtendSplitView.BottomGrid>
-                <Grid>
-                    <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" SizeChanged="FrameworkElement_OnSizeChanged">
+            <controls:ExtendSplitView.BottomPane>
+               <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" SizeChanged="FrameworkElement_OnSizeChanged">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ItemsWrapGrid  Orientation="Horizontal"/>
@@ -51,8 +50,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </Grid>
-            </controls:ExtendSplitView.BottomGrid>
+               
+            </controls:ExtendSplitView.BottomPane>
         </controls:ExtendSplitView>
     </Grid>
 </mvvm:MVVMPage>

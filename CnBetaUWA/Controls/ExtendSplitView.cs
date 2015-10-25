@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 
 // The Templated Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234235
 
@@ -18,8 +10,8 @@ namespace CnBetaUWA.Controls
     {
         public ExtendSplitView()
         {
-            this.DefaultStyleKey = typeof(ExtendSplitView);
-            this.SizeChanged += ExtendSplitView_SizeChanged;
+            DefaultStyleKey = typeof(ExtendSplitView);
+            SizeChanged += ExtendSplitView_SizeChanged;
         }
 
         private void ExtendSplitView_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -40,17 +32,41 @@ namespace CnBetaUWA.Controls
         // Using a DependencyProperty as the backing store for MinBottomWidth.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MinBottomWidthProperty =
             DependencyProperty.Register("MinBottomWidth", typeof(double), typeof(ExtendSplitView), new PropertyMetadata(0));
-
         
-        public Grid BottomGrid
+
+        public bool IsOpenBottomPane
         {
-            get { return (Grid)GetValue(BottomGridProperty); }
-            set { SetValue(BottomGridProperty, value); }
+            get { return (bool)GetValue(IsOpenBottomPaneProperty); }
+            set { SetValue(IsOpenBottomPaneProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for BottomGrid.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty BottomGridProperty =
-            DependencyProperty.Register("BottomGrid", typeof(Grid), typeof(ExtendSplitView), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for IsOpenBottomPane.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsOpenBottomPaneProperty =
+            DependencyProperty.Register("IsOpenBottomPane", typeof(bool), typeof(ExtendSplitView), new PropertyMetadata(true,IsOpenBottomPanePropertyChanged));
+
+        private static void IsOpenBottomPanePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var extendSplitViwer = d as ExtendSplitView;
+            var isopen = (bool) e.NewValue;
+            extendSplitViwer?.OpenBottomPane(isopen);
+        }
+
+
+        private void OpenBottomPane(bool isopen)
+        {
+            BottomPane.Visibility = isopen ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public FrameworkElement BottomPane
+        {
+            get { return (FrameworkElement)GetValue(BottomPaneProperty); }
+            set { SetValue(BottomPaneProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BottomPane.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BottomPaneProperty =
+            DependencyProperty.Register("BottomPane", typeof(FrameworkElement), typeof(ExtendSplitView), new PropertyMetadata(0));
+
 
 
         protected override void OnApplyTemplate()
@@ -59,6 +75,6 @@ namespace CnBetaUWA.Controls
             VisualStateManager.GoToState(this, "Closed", true);
         }
 
-
+       
     }
 }
