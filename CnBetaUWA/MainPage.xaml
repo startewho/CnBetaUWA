@@ -18,8 +18,8 @@
         <vm:MainPage_Model x:Key="DesignVM"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        <SplitView x:Name="SplitView" DisplayMode="CompactOverlay" >
-            <SplitView.Pane>
+        <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="700"  >
+            <controls:ExtendSplitView.Pane>
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:DataType="models:MenuItem">
@@ -30,10 +30,29 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </SplitView.Pane>
-            <SplitView.Content>
+            </controls:ExtendSplitView.Pane>
+            <controls:ExtendSplitView.Content>
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
-            </SplitView.Content>
-        </SplitView>
+            </controls:ExtendSplitView.Content>
+            <controls:ExtendSplitView.BottomGrid>
+                <Grid>
+                    <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" SizeChanged="FrameworkElement_OnSizeChanged">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid  Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                           </ListView.ItemsPanel>
+                      <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:MenuItem">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
+                                    <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </controls:ExtendSplitView.BottomGrid>
+        </controls:ExtendSplitView>
     </Grid>
 </mvvm:MVVMPage>

@@ -1,8 +1,12 @@
+html {
+	overflow: hidden;
+}
+
 body {
 	font-family: "Microsoft YaHei";
 	font-size:14pt;
 	touch-action: pan-y;
-
+	overflow: hidden;
 }
 
 
@@ -87,7 +91,7 @@ ol,ul,li {
 }
 
 #content img {
-	min-width: 700px;
+	max-width:100%;
 	display:block;
 	margin:0 auto;
 }

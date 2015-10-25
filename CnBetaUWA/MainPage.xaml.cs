@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Controls;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -73,10 +75,24 @@ namespace CnBetaUWA
         }
 
 
-        private void VMFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        
+
+        private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-          //  RequestedTheme = AppSettings.Instance.CurrentTheme;
+            var listview = sender as ListView;
+            if (listview == null) return;
+
+            var panel = (ItemsWrapGrid)(listview.ItemsPanelRoot);
+
+            if (panel == null) throw new ArgumentNullException(nameof(panel));
+
+            var width = e.NewSize.Width;
+            
+            panel.ItemWidth = width/4;
+           
+
         }
 
+       
     }
 }

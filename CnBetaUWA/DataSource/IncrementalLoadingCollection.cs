@@ -128,8 +128,7 @@ namespace CnBetaUWA.DataSource
 
             var items = newItems as IList<I> ?? newItems.ToList();
             _source.InitSouce(this);
-            Clear();
-            foreach (I item in items.Reverse())
+           foreach (I item in items.Reverse())
                 Insert(0, item);
             return items.Count;
         }

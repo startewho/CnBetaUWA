@@ -8,14 +8,7 @@
     NavigationCacheMode="Disabled"
     mc:Ignorable="d">
     <Border Background="LightBlue">
-        <controls:ExtendSplitView DisplayMode="CompactOverlay">
-            <SplitView.Pane>
-                <Button Content="Text"/>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Frame x:Name="VMFrame1" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
-            </SplitView.Content>
-        </controls:ExtendSplitView>
+      
     </Border>
     </Page>
     

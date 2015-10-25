@@ -18,7 +18,7 @@ namespace CnBetaUWA.Controls
     [TemplatePart(Name = "RightTicksCanvas", Type = typeof(Canvas))]
     public class LabelSlider : Slider
     {
-        public double TickFrequency { get; set; }
+      
 
 
 

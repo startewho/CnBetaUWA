@@ -3,8 +3,10 @@ using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Extensions;
 
 namespace CnBetaUWA.Controls
 {
@@ -21,6 +23,8 @@ namespace CnBetaUWA.Controls
         private bool IsMasterHidden;
         private const string NarrowState = "NarrowState";
         private static Frame DetailFrame;
+
+        private ExtendSplitView _extendSplitView;
 
         private bool _firestLoad;
 
@@ -77,6 +81,9 @@ namespace CnBetaUWA.Controls
             {
                 DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
             }
+
+            _extendSplitView= this.GetFirstAncestorOfType<ExtendSplitView>();
+
         }
 
         #endregion
@@ -95,16 +102,29 @@ namespace CnBetaUWA.Controls
 
             if (CurrentState == MasterDetailState.Narrow && IsAnimated)
             {
+               
                 if (e.NavigationMode == NavigationMode.New && DetailFrame.BackStackDepth == 1)
                 {
                     IsMasterHidden = true;
                     SetAnimation();
+                    
+                    if (_extendSplitView != null)
+                    {
+                        _extendSplitView.BottomGrid.Visibility = Visibility.Collapsed;
+                    }
                 }
                 else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
                 {
                     IsMasterHidden = false;
                     SetAnimation();
+                   
+                    if (_extendSplitView != null)
+                    {
+                        _extendSplitView.BottomGrid.Visibility = Visibility.Visible;
+                    }
                 }
+
+              
             }
 
             SetBackButtonVisibility();
@@ -113,7 +133,8 @@ namespace CnBetaUWA.Controls
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
                 _firestLoad = true;
             }
-           
+
+          
         }
 
 
@@ -171,14 +192,20 @@ namespace CnBetaUWA.Controls
                 {
                     if (DetailFrame.CurrentSourcePageType != null)
                     {
+
                         DetailPresenter.Visibility = Visibility.Visible;
                         IsMasterHidden = true;
+                        if (_extendSplitView != null)
+                        {
+                            _extendSplitView.BottomGrid.Visibility = Visibility.Collapsed;
+                        }
                     }
                 }
                 else
                 {
                     DetailPresenter.Visibility = Visibility.Collapsed;
                 }
+              
             }
           
 

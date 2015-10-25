@@ -35,6 +35,9 @@ namespace CnBetaUWA.ViewModels
 
             MenuItems.Add(new MenuItem { Icon = "\uE10F", Title = "主页", PageType = typeof(LatestNewsPage) });
             MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(BlankPage) });
+            MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(BlankPage) });
+            MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(BlankPage) });
+          
             //MenuItems.Add(new MenuItem { Icon = "\uE779", Title = "专栏", PageType = typeof(LatestNewsPage) });
             //MenuItems.Add(new MenuItem { Icon = "\uE713", Title = "设置", PageType = typeof(LatestNewsPage) });
             SelectedMenuItem = MenuItems.First(item => item.Title == "主页");

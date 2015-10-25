@@ -36,7 +36,7 @@
             <TextBlock Text="{Binding Vm.Title}" Grid.Column="0"/>
             <StackPanel Orientation="Horizontal" Grid.Column="1">
             <Button Style="{StaticResource CommandButtonStyle}" Tag="Back" Content="&#xE0A6;" Command="{Binding CommandDetailBack}" CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}"/>
-                <ToggleButton Style="{StaticResource CommandButtonStyle}" Tag="NightMode" Content="&#xE708;" Command="{Binding CommandChangeWebViewNightMode}"  CommandParameter="{Binding IsChecked,RelativeSource={RelativeSource Self}}"/>
+            <ToggleButton Style="{StaticResource CommandButtonStyle}" Tag="NightMode" Content="&#xE708;" Command="{Binding CommandChangeWebViewNightMode}"  CommandParameter="{Binding IsChecked,RelativeSource={RelativeSource Self}}"/>
             <Button Style="{StaticResource CommandButtonStyle}" Tag="FontSize" Content="&#xE185;">
                 <Button.Flyout>
                     <Flyout>

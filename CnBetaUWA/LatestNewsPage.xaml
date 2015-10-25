@@ -27,7 +27,7 @@
                         Height="{ThemeResource AppBarThemeCompactHeight}" RequestedTheme="Dark">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Title}"  VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" />
-                        <Button Content="Refresh" Command="{Binding CommandRereshDataSourceCollection}" />
+                        <Button Content="&#xE117;" Style="{StaticResource IconButtonStyle}" Foreground="GhostWhite" Command="{Binding CommandRereshDataSourceCollection}" />
                     </StackPanel>
                    
                 </Border>

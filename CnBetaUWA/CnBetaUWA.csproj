@@ -114,6 +114,7 @@
     <Compile Include="DataSource\IncrementalLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalPageLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalNewsSource.cs" />
+    <Compile Include="Extensions\ListViewExtensioncs.cs" />
     <Compile Include="Extensions\WebViewExtensions.cs" />
     <Compile Include="Helper\AppViewHelper.cs" />
     <Compile Include="Helper\CnBetaHelper.cs" />

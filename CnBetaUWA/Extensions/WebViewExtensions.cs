@@ -31,7 +31,7 @@ namespace CnBetaUWA.Extensions
             "UriSource", typeof(string), typeof(WebViewExtensions),
             new PropertyMetadata(null, OnUriSourcePropertyChanged));
 
-        private static async void OnUriSourcePropertyChanged(DependencyObject sender,
+        private static  void OnUriSourcePropertyChanged(DependencyObject sender,
             DependencyPropertyChangedEventArgs e)
         {
             var webView = sender as WebView;
@@ -115,7 +115,7 @@ namespace CnBetaUWA.Extensions
         // 根据 uri 返回对应的内容流
         private static async Task<IInputStream> GetContent(string path)
         {
-            string url;
+          
             if (path.StartsWith("/LocalCache/HtmlCache/"))
             {
                 if (path.Contains("article"))

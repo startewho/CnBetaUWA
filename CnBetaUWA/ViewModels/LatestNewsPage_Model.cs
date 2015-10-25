@@ -13,7 +13,9 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 using CnBetaUWA.DataSource;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using ImageLib.Helpers;
@@ -210,8 +212,10 @@ namespace CnBetaUWA.ViewModels
                         vm,
                         async e =>
                         {
-                            
+                            var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
+                            var scrooviewer = view.GetFirstDescendantOfType<ListView>();
                             vm.Reresh();
+                            await scrooviewer.ScrollToIndex(0);
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
