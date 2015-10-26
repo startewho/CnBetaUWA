@@ -44,5 +44,33 @@ namespace CnBetaUWA.Helper
 
             return list;
         }
+
+
+        public static IEnumerable<News> JsonToNewses(string jsontext)
+        {
+
+            JObject postlist = JObject.Parse(jsontext);
+            var jsonList = postlist.SelectToken("result");
+
+            if (jsonList.Any())
+            {
+                var list = jsonList?.Select(item => new News()
+                {
+                    Sid = (int)item["sid"],
+                    TopicId = (int)item["topic"],
+                    Title = (string)item["title"],
+                    CreatTime = (string)item["pubtime"],
+                    Summary = (string)item["summary"],
+                    ThumbPicture = (string)item["thumb"],
+                    TopictLogoPicture = (string)item["topic_logo"]
+                }).ToList();
+
+                return list;
+            }
+
+            return null;
+
+
+        }
     }
 }

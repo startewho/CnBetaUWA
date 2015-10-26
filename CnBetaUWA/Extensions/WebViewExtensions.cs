@@ -118,7 +118,7 @@ namespace CnBetaUWA.Extensions
           
             if (path.StartsWith("/LocalCache/HtmlCache/"))
             {
-                if (path.Contains("article"))
+                if (path.Contains("article")||path.Contains("topics"))
                 {
                     //缓存图片
                     path = path.Replace("/LocalCache/HtmlCache/", "");

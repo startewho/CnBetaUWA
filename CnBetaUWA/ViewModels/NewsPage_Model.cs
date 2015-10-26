@@ -40,6 +40,9 @@ namespace CnBetaUWA.ViewModels
 
                 Vm.NewsContent = ModelHelper.JsonToNewsContent(content);
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
+                html = html.Replace("#Date", Vm.CreatTime);
+                html = html.Replace("#Source", Vm.NewsContent.Source);
+                html = html.Replace("#Topic", Vm.TopictLogoPicture);
                 html = html.Replace("HomeText", Vm.NewsContent.HomeText);
                 html = html.Replace("BodyText", Vm.NewsContent.BodyText);
                 html = html.Replace("http://static.cnbetacdn.com/", "");
@@ -317,8 +320,11 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
+                            vm.IsUIBusy = true;
                             var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
+                           
                             vm.Vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
+                            vm.IsUIBusy = false;
                             //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();

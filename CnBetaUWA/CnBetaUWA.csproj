@@ -139,6 +139,14 @@
     <Compile Include="Startups\CommentsPage.cs" />
     <Compile Include="Startups\LatestNewsPage.cs" />
     <Compile Include="Startups\NewsPage.cs" />
+    <Compile Include="Startups\TodayRankPage.cs" />
+    <Compile Include="Startups\Top10Page.cs" />
+    <Compile Include="TodayRankPage.xaml.cs">
+      <DependentUpon>TodayRankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Top10Page.xaml.cs">
+      <DependentUpon>Top10Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\CommentsPage_Model.cs" />
     <Compile Include="ViewModels\LatestNewsPage_Model.cs" />
     <Compile Include="ViewModels\MainPage_Model.cs" />
@@ -151,6 +159,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\NewsPage_Model.cs" />
+    <Compile Include="ViewModels\TodayRankPage_Model.cs" />
+    <Compile Include="ViewModels\Top10Page_Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -209,6 +219,14 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TodayRankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Top10Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
