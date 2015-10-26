@@ -18,13 +18,23 @@
                     <ColumnDefinition Width="100" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0" />
+                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
                 <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
                     <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding Summary, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                        <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                        <TextBlock Text="&#xE206;" Style="{StaticResource SmallTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                        <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    </StackPanel>
+
+                    <TextBlock Text="{Binding Summary, Mode=OneWay}" TextTrimming="CharacterEllipsis" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
             </Grid>
@@ -57,14 +67,18 @@
         </Border>
     </DataTemplate>
     <DataTemplate x:Key="CommentItemDataTemplate">
-        <Grid BorderBrush="CornflowerBlue" Width="300" BorderThickness="0,0,0,1">
+        <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="24" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="24" />
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Margin="0,2,0,2" Grid.Row="0">
+                <TextBlock Text="&#xE2AF;" Style="{StaticResource SmallTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding UserName, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
@@ -72,9 +86,15 @@
             <TextBlock Text="{Binding Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                        Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="1" />
             <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <TextBlock Text="&#xE19F;" Style="{StaticResource SmallTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="支持" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding Support, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <TextBlock Width="24" Style="{StaticResource MenuTitleTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <TextBlock Text="&#xE19E;" Style="{StaticResource SmallTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="反对" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />

@@ -79,7 +79,7 @@ namespace CnBetaUWA.Controls
         {
             TextBlock txt = new TextBlock();
             txt.Text = text;
-            txt.FontSize = 12*Convert.ToInt32(text);
+            txt.FontSize = 5*Convert.ToInt32(text);
             //txt.SetValue(Canvas.TopProperty, top);
             //txt.SetValue(Canvas.LeftProperty, left - txt.ActualWidth / 2);
             txt.SetValue(Canvas.TopProperty, top - txt.ActualHeight/2);

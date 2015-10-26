@@ -54,6 +54,15 @@
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
 
+
+    <Style x:Key="SmallTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Width" Value="12" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+    </Style>
     <Style x:Key="MenuTitleTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
@@ -293,9 +302,9 @@
     <Style x:Key="SwipableControlStyle" TargetType="controls:SwipeableControl">
         <Setter Property="Background" Value="{ThemeResource AppBarBackgroundThemeBrush}"/>
         <Setter Property="BorderThickness" Value="1,0,0,0"/>
-        <Setter Property="Margin" Value="0,0,-149,0"/>
-        <Setter Property="Width" Value="300"/>
-        <Setter Property="PanAreaInitialTranslateX" Value="-300"/>
+        <Setter Property="Margin" Value="0,0,-159,0"/>
+        <Setter Property="Width" Value="320"/>
+        <Setter Property="PanAreaInitialTranslateX" Value="-320"/>
       </Style>
 
 </ResourceDictionary>
