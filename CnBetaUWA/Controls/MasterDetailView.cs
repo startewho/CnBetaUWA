@@ -215,10 +215,11 @@ namespace CnBetaUWA.Controls
 
         public void DetailFrameNavigateTo(Type pagType, object param,bool clearFrame)
         {
-            if (clearFrame)
+            DetailFrame.Navigate(pagType, param);
+
+            if (clearFrame&&DetailFrame.BackStackDepth>1)
             {
-                DetailFrame.Navigate(pagType, param);
-                DetailFrame.BackStack.RemoveAt(1);
+              DetailFrame.BackStack.RemoveAt(1);
             }
            
         }

@@ -42,6 +42,7 @@ namespace CnBetaUWA.ViewModels
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
                 html = html.Replace("#Date", Vm.CreatTime);
                 html = html.Replace("#Source", Vm.NewsContent.Source);
+                html = html.Replace("#Author", Vm.NewsContent.Author);
                 html = html.Replace("#Topic", Vm.TopictLogoPicture);
                 html = html.Replace("HomeText", Vm.NewsContent.HomeText);
                 html = html.Replace("BodyText", Vm.NewsContent.BodyText);
@@ -92,8 +93,7 @@ namespace CnBetaUWA.ViewModels
         static Func<string> _TotalContentDefaultValueFactory = () => default(string);
         #endregion
 
-
-
+        
         public bool IsCommentPanelOpen
         {
             get { return _IsCommentPanelOpenLocator(this).Value; }
@@ -322,9 +322,9 @@ namespace CnBetaUWA.ViewModels
                             vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
                             vm.IsUIBusy = true;
                             var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
-                           
                             vm.Vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
                             vm.IsUIBusy = false;
+                        
                             //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();

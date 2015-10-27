@@ -52,6 +52,10 @@ namespace CnBetaUWA.ViewModels
             {
                 Top10NewsCollection = new ObservableCollection<News>();
                 Top10NewsCollection.AddRange(lists);
+                for (int i = 0; i < Top10NewsCollection.Count; i++)
+                {
+                    Top10NewsCollection[i].Index = i + 1;
+                }
             }
         }
 

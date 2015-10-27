@@ -40,6 +40,9 @@ namespace CnBetaUWA.Models
             get { return _NewsContentLocator(this).Value; }
             set { _NewsContentLocator(this).SetValueAndTryNotify(value); }
         }
+        [JsonProperty]
+        public int Index { get; set; }
+
         #region Property NewsContent NewsContent Setup        
         protected Property<NewsContent> _NewsContent = new Property<NewsContent> { LocatorFunc = _NewsContentLocator };
         static Func<BindableBase, ValueContainer<NewsContent>> _NewsContentLocator = RegisterContainerLocator<NewsContent>("NewsContent", model => model.Initialize("NewsContent", ref model._NewsContent, ref _NewsContentLocator, _NewsContentDefaultValueFactory));

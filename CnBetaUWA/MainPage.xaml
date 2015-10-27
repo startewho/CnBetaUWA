@@ -10,7 +10,6 @@
     xmlns:vm="using:CnBetaUWA.ViewModels"
     xmlns:models="using:CnBetaUWA.Models"
     NavigationCacheMode="Required"
-    
     mc:Ignorable="d">
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->

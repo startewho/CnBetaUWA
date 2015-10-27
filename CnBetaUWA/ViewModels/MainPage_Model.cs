@@ -12,7 +12,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using CnBetaUWA.Controls;
 using CnBetaUWA.DataSource;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using MVVMSidekick.EventRouting;
@@ -66,20 +70,40 @@ namespace CnBetaUWA.ViewModels
                     async e =>
                     {
                         await TaskExHelper.Yield();
-                        var value = e.EventData as News;
-                        if (value != null)
+                        var pageviewer = e.Sender as FrameworkElement;
+                        var masterdetail = pageviewer.GetFirstAncestorOfType<MasterDetailView>();
+                        var news = e.EventData as News;
+                        if (news != null)
                         {
-                            var view = StageManager.CurrentBindingView;
+                            masterdetail?.DetailFrameNavigateTo(typeof (NewsPage), new NewsPage_Model(news), true);
                             // var item=new NewsPage_Model(value);
                             //await StageManager.DefaultStage.Show(item);
-
                             //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
                         }
 
                     }
                 ).DisposeWith(this);
 
+            EventRouter.Instance.GetEventChannel<Object>()
+              .Where(x => x.EventName == "SupportCommentByEventRouter")
+              .Subscribe(
+                  async e =>
+                  {
+                      await TaskExHelper.Yield();
 
+                  }
+              ).DisposeWith(this);
+
+
+            EventRouter.Instance.GetEventChannel<Object>()
+             .Where(x => x.EventName == "AgainstCommentByEventRouter")
+             .Subscribe(
+                 async e =>
+                 {
+                     await TaskExHelper.Yield();
+
+                 }
+             ).DisposeWith(this);
 
             //EventRouter.Instance.GetEventChannel<Object>()
             //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CnBetaUWA.Models;
 using Newtonsoft.Json.Linq;
 
@@ -17,6 +14,7 @@ namespace CnBetaUWA.Helper
             var newscotent = new NewsContent
             {
                 Sid =(int)selectToken["sid"],
+                Author =(string)selectToken["aid"],
                 InputTime = (string)selectToken["inputtime"],
                 CommentCount = (int)selectToken["comments"],
                 BodyText = (string)selectToken["bodytext"],
@@ -59,6 +57,8 @@ namespace CnBetaUWA.Helper
                     Sid = (int)item["sid"],
                     TopicId = (int)item["topic"],
                     Title = (string)item["title"],
+                    CommentsCount =(int)item["comments"],
+                    ViewCount = (int)item["counter"],
                     CreatTime = (string)item["pubtime"],
                     Summary = (string)item["summary"],
                     ThumbPicture = (string)item["thumb"],

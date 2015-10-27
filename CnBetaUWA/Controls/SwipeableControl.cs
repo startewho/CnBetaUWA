@@ -20,6 +20,14 @@ namespace CnBetaUWA.Controls
         {
             DefaultStyleKey = typeof(SwipeableControl);
             this.Unloaded += SwipeableControl_Unloaded;
+            textBlock = new TextBlock
+            {
+                Text = "正在加载...",
+                Name = "textblock",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+
         }
 
         private void SwipeableControl_Unloaded(object sender, RoutedEventArgs e)
@@ -35,6 +43,7 @@ namespace CnBetaUWA.Controls
         private Grid contentGrid;
         private Storyboard OpenStoryboard;
         private Storyboard CloseStoryboard;
+        private TextBlock textBlock;
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -42,11 +51,43 @@ namespace CnBetaUWA.Controls
             contentControl = GetTemplateChild("contentControl") as ContentPresenter;
             CloseStoryboard = GetTemplateChild("CloseContent") as Storyboard;
             OpenStoryboard = GetTemplateChild("OpenContent") as Storyboard;
+          
             if (contentGrid != null)
             {
                 contentGrid.ManipulationMode=ManipulationModes.TranslateX;
                 contentGrid.ManipulationDelta += ContentGridManipulationDelta;
                 contentGrid.ManipulationCompleted += ContentGridManipulationCompleted;
+            }
+        }
+
+
+
+        public bool IsLoading
+        {
+            get { return (bool)GetValue(IsLoadingProperty); }
+            set { SetValue(IsLoadingProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsLoading.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsLoadingProperty =
+            DependencyProperty.Register("IsLoading", typeof(bool), typeof(SwipeableControl), new PropertyMetadata(default(bool),IsLoadingPropertyChanged));
+
+        private static void IsLoadingPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+           var swipeableControl = (SwipeableControl)d;
+          
+            var isloading = (bool) e.NewValue;
+            if (isloading)
+            {
+                swipeableControl.contentControl.Visibility=Visibility.Collapsed;
+                swipeableControl.contentGrid.Children.Add(swipeableControl.textBlock);
+            }
+            else
+            {
+                swipeableControl.contentGrid.Children.Remove(swipeableControl.textBlock);
+                swipeableControl.contentControl.Visibility = Visibility.Visible;
+               
+              
             }
         }
 

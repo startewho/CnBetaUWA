@@ -37,7 +37,7 @@
                     </StackPanel>
 
                 </Border>
-                <ListView ItemsSource="{Binding Top10NewsCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>
+                <ListView ItemsSource="{Binding Top10NewsCollection}"   ItemContainerStyle="{StaticResource StretchListVierItem }" ItemTemplate="{StaticResource Top10NewsItemDataTemplate}"  Grid.Row="1"/>
               
             </Grid>
         </controls:MasterDetailView>

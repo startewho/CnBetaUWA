@@ -7,65 +7,73 @@
     xmlns:models="using:CnBetaUWA.Models"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     <DataTemplate x:Key="NewsItemDataTemplate">
-        <Border Margin="0,2,2,0">
+      <Grid>
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
-                    <core:InvokeCommandAction Command="{Binding DataContext.CommandNaviToDetailContentPage,ElementName=rootGrid}" CommandParameter="{Binding}"/>
+                    <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
-                <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
-                    <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
+            <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
+                <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
 
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                        <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                        <TextBlock Text="&#xE206;" Style="{StaticResource SmallTextBlockStyle}"
+                    <TextBlock Text="&#xE890;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                        <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{Binding ViewCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    </StackPanel>
-
-                    <TextBlock Text="{Binding Summary, Mode=OneWay}" TextTrimming="CharacterEllipsis" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="&#xE91C;"  Style="{StaticResource SmallTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
-            </Grid>
-        </Border>
-    </DataTemplate>
 
+                <TextBlock Text="{Binding Summary, Mode=OneWay}" TextTrimming="CharacterEllipsis" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
 
     <DataTemplate x:Key="Top10NewsItemDataTemplate">
-        <Border Margin="0,2,2,0">
+        <Grid HorizontalAlignment="Stretch">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
-                    <core:InvokeCommandAction Command="{Binding DataContext.CommandNaviToDetailContentPage,ElementName=rootGrid}" CommandParameter="{Binding}"/>
+                    <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0" />
-                <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
-                    <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+            <Grid.ColumnDefinitions>
+            
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Index}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.Column="0"/>
+          <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1" VerticalAlignment="Bottom">
+                <TextBlock Text="{Binding Title, Mode=OneWay}" FontSize="20" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,12,0">
+                    <TextBlock Text="&#xE890;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding Summary, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{Binding ViewCount, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    <TextBlock Text="&#xE91C;"  Style="{StaticResource SmallTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" />
+                    <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
-            </Grid>
-        </Border>
+
+            </StackPanel>
+        </Grid>
     </DataTemplate>
+
     <DataTemplate x:Key="CommentItemDataTemplate">
         <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,1">
             <Grid.RowDefinitions>
@@ -76,7 +84,8 @@
             <StackPanel Orientation="Horizontal" Margin="0,2,0,2" Grid.Row="0">
                 <TextBlock Text="&#xE2AF;" Style="{StaticResource SmallTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="{Binding UserName, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{Binding UserName, Mode=OneWay}" Padding="0,0,24,0"
+                           Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
@@ -86,20 +95,47 @@
             <TextBlock Text="{Binding Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                        Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="1" />
             <StackPanel Orientation="Horizontal" Grid.Row="2">
-                <TextBlock Text="&#xE19F;" Style="{StaticResource SmallTextBlockStyle}"
-                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <Button Content="&#xE19F;" Style="{StaticResource CommandButtonStyle}"
+                        Margin="{StaticResource AutoSuggestListMargin}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Tapped">
+                            <behaviors:SendToEventRouterAction EventRoutingName="SupportCommentByEventRouter"
+                                                               IsEventFiringToAllBaseClassesChannels="True"
+                                                               EventData="{Binding}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
                 <TextBlock Text="支持" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding Support, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Width="24" Style="{StaticResource MenuTitleTextBlockStyle}"
-                           Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="&#xE19E;" Style="{StaticResource SmallTextBlockStyle}"
-                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <Button Content="&#xE19E;" Padding="24,0,0,0" Style="{StaticResource CommandButtonStyle}"
+                        Margin="{StaticResource AutoSuggestListMargin}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Tapped">
+                            <behaviors:SendToEventRouterAction EventRoutingName="AgainstCommentByEventRouter"
+                                                               IsEventFiringToAllBaseClassesChannels="True"
+                                                               EventData="{Binding}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
                 <TextBlock Text="反对" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding Against, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
+                <Button Content="&#xE91C;" Padding="24,0,0,0" Style="{StaticResource CommandButtonStyle}"
+                        Margin="{StaticResource AutoSuggestListMargin}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Tapped">
+                            <behaviors:SendToEventRouterAction EventRoutingName="ReplyCommentByEventRouter"
+                                                               IsEventFiringToAllBaseClassesChannels="True"
+                                                               EventData="{Binding}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </Button>
+                <TextBlock Text="回复" Style="{StaticResource MenuTitleTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
+
             </StackPanel>
         </Grid>
     </DataTemplate>
