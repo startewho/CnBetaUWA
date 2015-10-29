@@ -24,8 +24,9 @@ namespace CnBetaUWA.Helper
         {
             httpClient?.Dispose();
             httpClient = new HttpClient();
-           
-            httpClient.DefaultRequestHeaders.UserAgent.Add(new HttpProductInfoHeaderValue("ie", UerAgent));
+            httpClient.DefaultRequestHeaders.Add("UserAgent", UerAgent);
+            httpClient.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
+            // httpClient.DefaultRequestHeaders.UserAgent.Add(new HttpProductInfoHeaderValue("",UerAgent));
         }
       
         public static async Task<string> PostAsync(string posturi, string poststr,
