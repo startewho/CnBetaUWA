@@ -12,13 +12,13 @@ namespace CnBetaUWA.Helper
 {
     public   class CnBetaHelper
     {
-        public static String TypeAll = "Article.Lists";
-        public static String TypeRecommend = "Article.TodayRank";
-        public static String TypeTop10 = "Article.Top10";
-        public static String TypeHotComment = "Article.RecommendComment";
-        public static String TypeNewsContent = "Article.NewsContent";
-        public static String TypeNewsComment = "Article.Comment";
-        public static String TypeNewsCommentAction = "Article.DoCmt";
+        public static string TypeAll = "Article.Lists";
+        public static string TypeRecommend = "Article.TodayRank";
+        public static string TypeTop10 = "Article.Top10";
+        public static string TypeHotComment = "Article.RecommendComment";
+        public static string TypeNewsContent = "Article.NewsContent";
+        public static string TypeNewsComment = "Article.Comment";
+        public static string TypeNewsCommentAction = "Article.DoCmt";
         public static string TypeRealtime = "realtime";
         
         public static string ApiUrl { get; } = "http://api.cnbeta.com/capi?";
@@ -146,7 +146,7 @@ namespace CnBetaUWA.Helper
 
         public static async Task<string> GetCommentAction(int sid,int tid,string opertor)
         {
-            var query = "app_key=10000&format=json&method=" + TypeNewsComment+"&op="+opertor
+            var query = "app_key=10000&format=json&method=" + TypeNewsCommentAction+"&op="+opertor
                 + "&sid=" + sid+"&tid="+tid + "&timestamp=" + HttpHelper.NowToTimestamp();
             query += "&v=1.0";
             query += "&mpuffgvbvbttn3Rc";

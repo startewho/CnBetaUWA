@@ -113,7 +113,7 @@ namespace CnBetaUWA.ViewModels
                      
                       if (comment != null && comment.IsSupported != true)
                       {
-                          var result = await CnBetaHelper.GetCommentAction(Vm.Sid, comment.Tid, "support");
+                          var result = await CnBetaHelper.GetCommentAction(comment.Tid, 1, "support");
                           var susses = ModelHelper.JsonToCommentAction(result);
                           if (susses)
                           {
