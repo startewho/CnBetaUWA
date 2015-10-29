@@ -40,18 +40,7 @@ namespace CnBetaUWA.Helper
                 Tid = (int)item["tid"],
                 UserName = (string)item["username"],
               }).ToList();
-            foreach (var comment in list)
-            {
-                if (comment.IsShow)
-                {
-                    var parrentcomment = new NewsComment
-                    {
-                        UserName = list.First((item) => item.Tid == comment.Pid).UserName,
-                        Content = list.First((item) => item.Tid == comment.Pid).Content
-                    };
-                    comment.PidComment = parrentcomment;
-                }
-            }
+           
             return list;
         }
 
@@ -83,6 +72,14 @@ namespace CnBetaUWA.Helper
             return null;
 
 
+        }
+
+
+        public static bool JsonToCommentAction(string jsontext)
+        {
+            var postlist = JObject.Parse(jsontext);
+            var result =(string)postlist["status"];
+            return result=="success";
         }
     }
 }

@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Runtime.Serialization;
+using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using CnBetaUWA.Controls;
+using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
+using MVVMSidekick.EventRouting;
 using MVVMSidekick.Reactive;
 using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
+using MVVMSidekick.Views;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -23,16 +30,41 @@ namespace CnBetaUWA.ViewModels
         public NewsPage_Model()
         {
             
+          
+
         }
         public NewsPage_Model(News model)
         {
             Vm = model;
-            GetContent(model.Sid);
+          
         }
 
         public News Vm { get; set; }
 
+        private void InitComentsData()
+        {
+            CommentsSource = new IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource, NewsComment>(Vm.Sid.ToString(), 1, 10);
+            CommentsSource.OnLoadMoreCompleted += CommentsSource_OnLoadMoreCompleted;
+          
+        }
 
+        private void CommentsSource_OnLoadMoreCompleted(int count)
+        {
+            var list = CommentsSource;
+            if (CommentsSource != null)
+            {
+                foreach (var comment in list)
+                {
+                    if (!comment.IsShow) continue;
+                    var parrentcomment = new NewsComment
+                    {
+                        UserName = list.First((item) => item.Tid == comment.Pid).UserName,
+                        Content = list.First((item) => item.Tid == comment.Pid).Content
+                    };
+                    comment.PidComment = parrentcomment;
+                }
+            }
+        }
 
         private async void GetContent(int sid)
         {
@@ -57,11 +89,90 @@ namespace CnBetaUWA.ViewModels
 
 
         }
+        protected override Task OnBindedViewLoad(IView view)
+        {
+            GetContent(Vm.Sid);
+            SubscribeCommand();
+            return base.OnBindedViewLoad(view);
+        }
+
+
+        private void SubscribeCommand()
+        {
+           
+
+
+            EventRouter.Instance.GetEventChannel<Object>()
+              .Where(x => x.EventName == "SupportCommentByEventRouter")
+              .Subscribe(
+                  async e =>
+                  {
+                      var comment = e.EventData as NewsComment;
+                     
+                      if (comment != null && comment.IsSupported != true)
+                      {
+                          var result = await CnBetaHelper.GetCommentAction(Vm.Sid, comment.Tid, "support");
+                          var susses = ModelHelper.JsonToCommentAction(result);
+                          if (susses)
+                          {
+                              comment.Support += 1;
+                              comment.IsSupported = true;
+                          }
+                         
+                      }
+
+                      await TaskExHelper.Yield();
+
+                  }
+              ).DisposeWith(this);
+
+
+            EventRouter.Instance.GetEventChannel<Object>()
+             .Where(x => x.EventName == "AgainstCommentByEventRouter")
+             .Subscribe(
+                 async e =>
+                 {
+                     var comment = e.EventData as NewsComment;
+                     if (comment != null && comment.IsAgainsted !=true)
+                     {
+                         var result = await CnBetaHelper.GetCommentAction(Vm.Sid, comment.Tid, "against");
+                         var susses = ModelHelper.JsonToCommentAction(result);
+                         if (susses)
+                         {
+                             comment.Against += 1;
+                             comment.IsAgainsted = true;
+                         }
+                     }
+                      
+                     await TaskExHelper.Yield();
+                  
+
+                 }
+             ).DisposeWith(this);
+
+            //EventRouter.Instance.GetEventChannel<Object>()
+            //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")
+            //      .Subscribe(
+            //          async e =>
+            //          {
+            //              await TaskExHelper.Yield();
+            //              var item = e.EventData as Author;
+            //              if (item != null)
+            //              {
+            //                  item.AuthorPostList = new IncrementalLoadingCollection<AuthorPostSource, PostDetail>(item.Id.ToString(), AppStrings.PageSize);
+            //                  await StageManager.DefaultStage.Show(new AuthorPage_Model(item));
+
+            //                //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
+            //            }
+
+            //          }
+            //      ).DisposeWith(this);
+
+
+        }
 
 
 
-
-       
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -84,6 +195,21 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, ValueContainer<List<NewsComment>>> _NewsCommentsLocator = RegisterContainerLocator<List<NewsComment>>("NewsComments", model => model.Initialize("NewsComments", ref model._NewsComments, ref _NewsCommentsLocator, _NewsCommentsDefaultValueFactory));
         static Func<List<NewsComment>> _NewsCommentsDefaultValueFactory = () =>  default(List<NewsComment>);
         #endregion
+
+
+
+
+        public IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment> CommentsSource
+        {
+            get { return _CommentsSourceLocator(this).Value; }
+            set { _CommentsSourceLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment> CommentsSource Setup        
+        protected Property<IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>> _CommentsSource = new Property<IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>> { LocatorFunc = _CommentsSourceLocator };
+        static Func<BindableBase, ValueContainer<IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>>> _CommentsSourceLocator = RegisterContainerLocator<IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>>("CommentsSource", model => model.Initialize("CommentsSource", ref model._CommentsSource, ref _CommentsSourceLocator, _CommentsSourceDefaultValueFactory));
+        static Func<IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>> _CommentsSourceDefaultValueFactory = () => default(IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment>);
+        #endregion
+
 
 
         public string ContentPath
@@ -350,10 +476,8 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
-                         
-                            var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
-                            vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
-                         
+
+                            vm.InitComentsData();
                             //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();

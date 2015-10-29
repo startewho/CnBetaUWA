@@ -113,6 +113,7 @@
     <Compile Include="Converters\ObjectToMenuItemConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="DataSource\IncrementalLoadingCollection.cs" />
+    <Compile Include="DataSource\IncrementalNewsCommentPageSource.cs" />
     <Compile Include="DataSource\IncrementalPageLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalNewsSource.cs" />
     <Compile Include="Extensions\ListViewExtensioncs.cs" />

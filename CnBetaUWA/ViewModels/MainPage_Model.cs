@@ -1,23 +1,14 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
+﻿using System.Reactive.Linq;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
-using MVVMSidekick.Reactive;
-using MVVMSidekick.Services;
-using MVVMSidekick.Commands;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using CnBetaUWA.Controls;
-using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
-using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using MVVMSidekick.EventRouting;
 using MVVMSidekick.Utilities;
@@ -84,27 +75,7 @@ namespace CnBetaUWA.ViewModels
                     }
                 ).DisposeWith(this);
 
-            EventRouter.Instance.GetEventChannel<Object>()
-              .Where(x => x.EventName == "SupportCommentByEventRouter")
-              .Subscribe(
-                  async e =>
-                  {
-                      await TaskExHelper.Yield();
-
-                  }
-              ).DisposeWith(this);
-
-
-            EventRouter.Instance.GetEventChannel<Object>()
-             .Where(x => x.EventName == "AgainstCommentByEventRouter")
-             .Subscribe(
-                 async e =>
-                 {
-                     await TaskExHelper.Yield();
-
-                 }
-             ).DisposeWith(this);
-
+         
             //EventRouter.Instance.GetEventChannel<Object>()
             //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")
             //      .Subscribe(

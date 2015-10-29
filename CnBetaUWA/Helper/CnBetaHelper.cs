@@ -18,6 +18,7 @@ namespace CnBetaUWA.Helper
         public static String TypeHotComment = "Article.RecommendComment";
         public static String TypeNewsContent = "Article.NewsContent";
         public static String TypeNewsComment = "Article.Comment";
+        public static String TypeNewsCommentAction = "Article.DoCmt";
         public static string TypeRealtime = "realtime";
         
         public static string ApiUrl { get; } = "http://api.cnbeta.com/capi?";
@@ -133,15 +134,28 @@ namespace CnBetaUWA.Helper
             return contentjson;
         }
 
-        public static async Task<string> GetNewsComment(int sid)
+        public static async Task<string> GetNewsComment(int sid,int pageIndex,int pageSize)
         {
-            var query = "app_key=10000&format=json&method=" + TypeNewsComment
+            var query = "app_key=10000&format=json&method=" + TypeNewsComment+"&page="+pageIndex+"&pageSize="+pageSize
                 + "&sid=" + sid + "&timestamp=" + HttpHelper.NowToTimestamp();
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
             return contentjson;
         }
+
+        public static async Task<string> GetCommentAction(int sid,int tid,string opertor)
+        {
+            var query = "app_key=10000&format=json&method=" + TypeNewsComment+"&op="+opertor
+                + "&sid=" + sid+"&tid="+tid + "&timestamp=" + HttpHelper.NowToTimestamp();
+            query += "&v=1.0";
+            query += "&mpuffgvbvbttn3Rc";
+            query += "&sign=" + ComputeMd5(query );
+            var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
+            return contentjson;
+        }
+
+
 
         public static string ComputeMd5(string str)
         {
