@@ -5,6 +5,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Windows.Web;
 using Windows.Web.Http;
 using CnBetaUWA.Helper;
@@ -45,13 +46,14 @@ namespace CnBetaUWA.Extensions
                
                 Uri url = webView.BuildLocalStreamUri("NewsContent", e.NewValue.ToString());
 
-              
                 webView.NavigateToLocalStreamUri(url,new StreamUriWinRtResolver());
                
                 
             }
 
         }
+
+       
 
         #endregion
 

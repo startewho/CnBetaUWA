@@ -11,7 +11,8 @@
     xmlns:extension="using:CnBetaUWA.Extensions"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-    mc:Ignorable="d">
+    NavigationCacheMode="Disabled"
+    mc:Ignorable="d" Unloaded="NewsPage_OnUnloaded">
 
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
@@ -67,7 +68,7 @@
         <!--<tookit:ScrollableHtmlView Html="{Binding TotalContent}" Grid.Row="1" />-->
         <controls:SwipeableControl Style="{StaticResource SwipableControlStyle}" IsLoading="{Binding IsUIBusy}"  IsSwipeablePaneOpen="{Binding IsCommentPanelOpen,Mode=TwoWay}" HorizontalAlignment="Right"  Grid.Row="1" >
             <controls:SwipeableControl.Content>
-                <ListView ItemsSource="{Binding Vm.NewsComments}" ItemTemplate="{StaticResource CommentItemDataTemplate}" />
+                <ListView ItemsSource="{Binding NewsComments}" ItemTemplate="{StaticResource CommentItemDataTemplate}" />
             </controls:SwipeableControl.Content>
         </controls:SwipeableControl>
     </Grid>

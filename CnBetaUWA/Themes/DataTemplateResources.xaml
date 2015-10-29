@@ -77,13 +77,14 @@
     <DataTemplate x:Key="CommentItemDataTemplate">
         <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="24" />
+               <RowDefinition Height="24" />
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="24" />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Margin="0,2,0,2" Grid.Row="0">
-                <TextBlock Text="&#xE2AF;" Style="{StaticResource SmallTextBlockStyle}"
-                           Margin="{StaticResource AutoSuggestListMargin}" />
+          
+            <StackPanel Orientation="Horizontal"  Grid.Row="0">
+                <TextBlock Text="&#xE2AF;" Style="{StaticResource SmallTextBlockStyle}"/>
                 <TextBlock Text="{Binding UserName, Mode=OneWay}" Padding="0,0,24,0"
                            Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
@@ -92,10 +93,17 @@
                 <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
             </StackPanel>
+            <StackPanel Grid.Row="1"  Background="{StaticResource CommentBgColorBrush}" BorderThickness="1,1,1,1" BorderBrush="{StaticResource CommentBorderColorBrush}" Visibility="{Binding IsShow ,Converter={StaticResource BoolToVisibilityConverter}}">
+                <TextBlock Text="{Binding PidComment.UserName, Mode=OneWay}" Padding="0,0,24,0"
+                           Style="{StaticResource MenuTitleTextBlockStyle}"
+                           Margin="{StaticResource AutoSuggestListMargin}" />
+                <TextBlock Text="{Binding PidComment.Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                       Margin="{StaticResource AutoSuggestListMargin}" />
+            </StackPanel>
             <TextBlock Text="{Binding Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
-                       Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="1" />
-            <StackPanel Orientation="Horizontal" Grid.Row="2">
-                <Button Content="&#xE19F;" Style="{StaticResource CommandButtonStyle}"
+                         Grid.Row="2" />
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Button Content="&#xE19F;" Style="{StaticResource CommentButtonStyle}"
                         Margin="{StaticResource AutoSuggestListMargin}">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Tapped">
@@ -109,8 +117,8 @@
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding Support, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <Button Content="&#xE19E;" Padding="24,0,0,0" Style="{StaticResource CommandButtonStyle}"
-                        Margin="{StaticResource AutoSuggestListMargin}">
+                <Button Content="&#xE19E;" Margin="24,0,0,0" Style="{StaticResource CommentButtonStyle}"
+                      >
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Tapped">
                             <behaviors:SendToEventRouterAction EventRoutingName="AgainstCommentByEventRouter"
@@ -123,8 +131,8 @@
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="{Binding Against, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <Button Content="&#xE91C;" Padding="24,0,0,0" Style="{StaticResource CommandButtonStyle}"
-                        Margin="{StaticResource AutoSuggestListMargin}">
+                <Button Content="&#xE91C;" Margin="24,0,0,0" Style="{StaticResource CommentButtonStyle}"
+                       >
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Tapped">
                             <behaviors:SendToEventRouterAction EventRoutingName="ReplyCommentByEventRouter"
@@ -139,4 +147,6 @@
             </StackPanel>
         </Grid>
     </DataTemplate>
+    
+   
 </ResourceDictionary>

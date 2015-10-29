@@ -9,7 +9,7 @@ namespace CnBetaUWA.Helper
     {
         public static NewsContent JsonToNewsContent(string jsontext)
         {
-            JObject postlist = JObject.Parse(jsontext);
+            var postlist = JObject.Parse(jsontext);
             var selectToken = postlist.SelectToken("result");
             var newscotent = new NewsContent
             {
@@ -28,18 +28,30 @@ namespace CnBetaUWA.Helper
         public static IEnumerable<NewsComment> JsonToNewsComments(string jsontext)
         {
            
-            JObject postlist = JObject.Parse(jsontext);
+            var postlist = JObject.Parse(jsontext);
             var selectToken = postlist.SelectToken("result");
             var list =selectToken.Select(item=> new NewsComment
             {
                 Against = (int)item["against"],
                 Support = (int)item["support"],
+                Pid = (int)item["pid"],
                 Content = (string)item["content"],
                 CreatTime = (string)item["created_time"],
                 Tid = (int)item["tid"],
                 UserName = (string)item["username"],
-              });
-
+              }).ToList();
+            foreach (var comment in list)
+            {
+                if (comment.IsShow)
+                {
+                    var parrentcomment = new NewsComment
+                    {
+                        UserName = list.First((item) => item.Tid == comment.Pid).UserName,
+                        Content = list.First((item) => item.Tid == comment.Pid).Content
+                    };
+                    comment.PidComment = parrentcomment;
+                }
+            }
             return list;
         }
 
@@ -47,7 +59,7 @@ namespace CnBetaUWA.Helper
         public static IEnumerable<News> JsonToNewses(string jsontext)
         {
 
-            JObject postlist = JObject.Parse(jsontext);
+            var postlist = JObject.Parse(jsontext);
             var jsonList = postlist.SelectToken("result");
 
             if (jsonList.Any())

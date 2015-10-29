@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using Windows.UI.Xaml.Controls;
@@ -32,26 +33,29 @@ namespace CnBetaUWA.ViewModels
         public News Vm { get; set; }
 
 
+
         private async void GetContent(int sid)
         {
             var content = await CnBetaHelper.GetNewsContent(sid);
             if (content != null)
             {
 
-                Vm.NewsContent = ModelHelper.JsonToNewsContent(content);
+                NewsContent = ModelHelper.JsonToNewsContent(content);
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
                 html = html.Replace("#Date", Vm.CreatTime);
-                html = html.Replace("#Source", Vm.NewsContent.Source);
-                html = html.Replace("#Author", Vm.NewsContent.Author);
+                html = html.Replace("#Source", NewsContent.Source);
+                html = html.Replace("#Author", NewsContent.Author);
                 html = html.Replace("#Topic", Vm.TopictLogoPicture);
-                html = html.Replace("HomeText", Vm.NewsContent.HomeText);
-                html = html.Replace("BodyText", Vm.NewsContent.BodyText);
+                html = html.Replace("HomeText", NewsContent.HomeText);
+                html = html.Replace("BodyText", NewsContent.BodyText);
                 html = html.Replace("http://static.cnbetacdn.com/", "");
                 TotalContent = html;
                 await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
                 ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
             }
             
+
+
         }
 
 
@@ -69,6 +73,17 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+       
+        public List<NewsComment> NewsComments
+        {
+            get { return _NewsCommentsLocator(this).Value; }
+            set { _NewsCommentsLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property List<NewsComment> NewsComments Setup        
+        protected Property<List<NewsComment>> _NewsComments = new Property<List<NewsComment>> { LocatorFunc = _NewsCommentsLocator };
+        static Func<BindableBase, ValueContainer<List<NewsComment>>> _NewsCommentsLocator = RegisterContainerLocator<List<NewsComment>>("NewsComments", model => model.Initialize("NewsComments", ref model._NewsComments, ref _NewsCommentsLocator, _NewsCommentsDefaultValueFactory));
+        static Func<List<NewsComment>> _NewsCommentsDefaultValueFactory = () =>  default(List<NewsComment>);
+        #endregion
 
 
         public string ContentPath
@@ -81,6 +96,21 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, ValueContainer<string>> _ContentPathLocator = RegisterContainerLocator<string>("ContentPath", model => model.Initialize("ContentPath", ref model._ContentPath, ref _ContentPathLocator, _ContentPathDefaultValueFactory));
         static Func<string> _ContentPathDefaultValueFactory = () => default(string);
         #endregion
+
+
+        public NewsContent NewsContent
+        {
+            get { return _NewsContentLocator(this).Value; }
+            set { _NewsContentLocator(this).SetValueAndTryNotify(value); }
+        }
+
+
+        #region Property NewsContent NewsContent Setup        
+        protected Property<NewsContent> _NewsContent = new Property<NewsContent> { LocatorFunc = _NewsContentLocator };
+        static Func<BindableBase, ValueContainer<NewsContent>> _NewsContentLocator = RegisterContainerLocator<NewsContent>("NewsContent", model => model.Initialize("NewsContent", ref model._NewsContent, ref _NewsContentLocator, _NewsContentDefaultValueFactory));
+        static Func<NewsContent> _NewsContentDefaultValueFactory = () => new NewsContent();
+        #endregion
+
 
         public string TotalContent
         {
@@ -320,11 +350,10 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
-                            vm.IsUIBusy = true;
+                         
                             var commentsjson = await CnBetaHelper.GetNewsComment(vm.Vm.Sid);
-                            vm.Vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
-                            vm.IsUIBusy = false;
-                        
+                            vm.NewsComments = ModelHelper.JsonToNewsComments(commentsjson).ToList();
+                         
                             //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();

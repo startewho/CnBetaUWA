@@ -55,5 +55,9 @@ namespace CnBetaUWA
             base.OnNavigatedFrom(e);
         }
 
+        private void NewsPage_OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            StrongTypeViewModel = null;
+        }
     }
 }
