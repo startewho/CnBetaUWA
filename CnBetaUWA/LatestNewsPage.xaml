@@ -32,8 +32,7 @@
                    
                 </Border>
                 <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>
-                <controls:NotificationBar Message="{Binding Message}"  Grid.Row="0"/>
-            </Grid>
+              </Grid>
         </controls:MasterDetailView>
     </Grid>
 </mvvm:MVVMPage>

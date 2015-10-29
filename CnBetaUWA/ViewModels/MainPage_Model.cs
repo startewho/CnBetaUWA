@@ -40,6 +40,18 @@ namespace CnBetaUWA.ViewModels
         }
 
 
+        public string Message
+        {
+            get { return _MessageLocator(this).Value; }
+            set { _MessageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property string Message Setup        
+        protected Property<string> _Message = new Property<string> { LocatorFunc = _MessageLocator };
+        static Func<BindableBase, ValueContainer<string>> _MessageLocator = RegisterContainerLocator<string>("Message", model => model.Initialize("Message", ref model._Message, ref _MessageLocator, _MessageDefaultValueFactory));
+        static Func<string> _MessageDefaultValueFactory = () => default(string);
+        #endregion
+
+
 
         private bool _isLoaded;
 
@@ -75,7 +87,26 @@ namespace CnBetaUWA.ViewModels
                     }
                 ).DisposeWith(this);
 
-         
+
+            EventRouter.Instance.GetEventChannel<Object>()
+               .Where(x => x.EventName == "ToastMessageByEventRouter")
+               .Subscribe(
+                   async e =>
+                   {
+                       var message = e.EventData as string;
+                       var mainpage = this.StageManager.CurrentBindingView as MainPage;
+                       var notifbar = mainpage.GetFirstDescendantOfType<NotificationBar>();
+                       notifbar.ShowMessage(message);
+                       if (message!=string.Empty)
+                       {
+                           Message = message;
+                       }
+                       await TaskExHelper.Yield();
+                     
+
+                   }
+               ).DisposeWith(this);
+
             //EventRouter.Instance.GetEventChannel<Object>()
             //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")
             //      .Subscribe(

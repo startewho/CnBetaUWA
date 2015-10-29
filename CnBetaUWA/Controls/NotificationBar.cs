@@ -37,7 +37,7 @@ namespace CnBetaUWA.Controls
         }
 
 
-        private static void ShowMessage(string message)
+        public  void ShowMessage(string message)
         {
             if (notifyTextblock == null || storyBoard == null) return;
             notifyTextblock.Text = message;
@@ -60,12 +60,12 @@ namespace CnBetaUWA.Controls
 
         private static void  OnMessageChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            var notifybar = d as NotificationBar;
             var message = e.NewValue as string;
-           
-            if (message!=string.Empty)
-            {
-              ShowMessage(message);
-            }
+            if (message == string.Empty) return;
+            notifybar?.ShowMessage(message);
         }
+
+      
     }
 }

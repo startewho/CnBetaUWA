@@ -6,17 +6,19 @@
     xmlns:imglibcontrol="using:ImageLib.Controls"
     xmlns:models="using:CnBetaUWA.Models"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
+    
     <DataTemplate x:Key="NewsItemDataTemplate">
       <Grid>
+           
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
             <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
             <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
                 <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
@@ -51,7 +53,6 @@
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
             <Grid.ColumnDefinitions>
-            
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>

@@ -50,6 +50,8 @@ namespace CnBetaUWA.ViewModels
 
         private void CommentsSource_OnLoadMoreCompleted(int count)
         {
+            string message = string.Format("已经加载了{0}条评论", count);
+            EventRouter.Instance.GetEventChannel(typeof(string)).RaiseEvent(this, "ToastMessageByEventRouter", message, true,true);
             var list = CommentsSource;
             if (CommentsSource != null)
             {
@@ -476,8 +478,11 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             vm.IsCommentPanelOpen = !vm.IsCommentPanelOpen;
-
-                            vm.InitComentsData();
+                            if (vm.IsCommentPanelOpen)
+                            {
+                                vm.InitComentsData();
+                            }
+                            
                             //await vm.StageManager.DefaultStage.Show(new CommentsPage_Model());
                             //Todo: Add NaviToCommentsPage logic here, or
                             await TaskExHelper.Yield();

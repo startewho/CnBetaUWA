@@ -8,7 +8,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MVVM-Sidekick": "1.6.6",
     "Newtonsoft.Json": "8.0.1-beta1",
-    "Q42.WinRT": "1.4.2.42",
+    "Q42.WinRT": "1.5.0.42",
     "Rx-Core": "2.2.5",
     "Rx-Interfaces": "2.2.5",
     "Rx-Linq": "2.2.5",

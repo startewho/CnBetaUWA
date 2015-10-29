@@ -92,23 +92,14 @@ namespace CnBetaUWA.ViewModels
         private async  void Reresh()
         {
             var addedcount=await NewsSourceCollection.AttachToEnd();
-            Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
+            //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
 
 
 
       
 
-        public string Message
-        {
-            get { return _MessageLocator(this).Value; }
-            set { _MessageLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property string Message Setup        
-        protected Property<string> _Message = new Property<string> { LocatorFunc = _MessageLocator };
-        static Func<BindableBase, ValueContainer<string>> _MessageLocator = RegisterContainerLocator<string>("Message", model => model.Initialize("Message", ref model._Message, ref _MessageLocator, _MessageDefaultValueFactory));
-        static Func<string> _MessageDefaultValueFactory = () => default(string);
-        #endregion
+        
 
 
         private void DataSourceCollection_OnLoadMoreStarted(uint count)

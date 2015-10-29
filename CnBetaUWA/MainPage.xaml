@@ -17,7 +17,9 @@
         <vm:MainPage_Model x:Key="DesignVM"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
-        <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="700"  >
+       
+     
+        <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="700" >
             <controls:ExtendSplitView.Pane>
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
@@ -52,5 +54,6 @@
                
             </controls:ExtendSplitView.BottomPane>
         </controls:ExtendSplitView>
+        <controls:NotificationBar Message="{Binding Message}"  MinHeight="40"  Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#E9967A"/>
     </Grid>
 </mvvm:MVVMPage>
