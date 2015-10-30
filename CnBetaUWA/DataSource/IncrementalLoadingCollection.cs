@@ -20,7 +20,7 @@ namespace CnBetaUWA.DataSource
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetPagedItems(string query);
+        Task<IEnumerable<T>> GetPagedItems(string query,string query2);
 
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CnBetaUWA.DataSource
         /// </summary>
         /// <param name="query">查询语句</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetLastestItems(string query);
+        Task<IEnumerable<T>> GetLastestItems(string query,string querytype);
 
         void InitSouce( IEnumerable<T> caches);
 
@@ -42,6 +42,7 @@ namespace CnBetaUWA.DataSource
        // private int _pageSize;
         private bool _hasMoreItems;
         private string _query;
+        private string _querytype;
        // private IEnumerable<I> _caches;
 
         #region 注册通知机制
@@ -64,8 +65,24 @@ namespace CnBetaUWA.DataSource
            
             _hasMoreItems = true;
             this._query = query;
-            
+          
         }
+
+
+        public IncrementalLoadingCollection(string query,string querytype ,int startindex, int endindex, IEnumerable<I> caches)
+        {
+            _source = new T();
+            if (caches != null)
+            {
+                _source.InitSouce(caches);
+            }
+
+            _hasMoreItems = true;
+            this._query = query;
+            this._querytype = querytype;
+
+        }
+
 
         public bool HasMoreItems
         {
@@ -86,7 +103,7 @@ namespace CnBetaUWA.DataSource
 
                 uint resultCount = 0;
 
-                var result = await _source.GetPagedItems(_query);
+                var result = await _source.GetPagedItems(_query,_querytype);
 
                 if (result != null &&  result.Any())
                 {
@@ -122,7 +139,7 @@ namespace CnBetaUWA.DataSource
 
         public async Task<int> AttachToEnd()
         {
-            var newItems = await _source.GetLastestItems(_query);
+            var newItems = await _source.GetLastestItems(_query,_querytype);
           
             if (newItems == null) return 0;
 

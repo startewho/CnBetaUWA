@@ -28,25 +28,25 @@ namespace CnBetaUWA.DataSource
             _cacheNewes = caches.ToList();
         }
 
-        public async Task<IEnumerable<News>> GetPagedItems(string query)
+        public async Task<IEnumerable<News>> GetPagedItems(string query,string querytype)
         {
             //没有缓存时,直接加载
             if (_cacheNewes == null)
             {
-                var reuslt = await GetDownNewsFromNet(query, null, _endSid);
+                var reuslt = await GetDownNewsFromNet(query, querytype, _endSid);
                 _endSid = reuslt.Last().Sid;
                 return reuslt;
             }
 
             //加载刷新+缓存数据
-            _latestNewses = await GetLastestItems(query); //更改_endSid
+            _latestNewses = await GetLastestItems(query, querytype); //更改_endSid
 
             var distance = _endSid - _cacheNewes.First().Sid;
 
             //有新数据
             if (distance > 0)
             {
-                var result = await GetCaches(query, distance);
+                var result = await GetCaches(query, querytype, distance);
                 return result;
             }
 
@@ -58,7 +58,7 @@ namespace CnBetaUWA.DataSource
         }
 
 
-        private async Task<IEnumerable<News>> GetCaches(string query, int distance)
+        private async Task<IEnumerable<News>> GetCaches(string query,string querytype, int distance)
         {
             var list = new List<News>();
             var latestpage = distance/pageSids;
@@ -72,7 +72,7 @@ namespace CnBetaUWA.DataSource
             //不多于一页
             if (latestpage == 0)
             {
-                var reuslt = await GetDownNewsFromNet(query, null, _endSid);
+                var reuslt = await GetDownNewsFromNet(query, querytype,_endSid);
                 list.AddRange(reuslt.Take(distance/sidSpace - 1));
                 list.AddRange(_cacheNewes);
                 _endSid = list.Last().Sid;
@@ -81,15 +81,15 @@ namespace CnBetaUWA.DataSource
             }
 
             //不小于1页
-            var downnewses = await GetDownNewsFromNet(query, null, _endSid);
+            var downnewses = await GetDownNewsFromNet(query, querytype, _endSid);
             list.AddRange(downnewses);
             return list;
         }
 
 
-        private async Task<IEnumerable<News>> GetDownNewsFromNet(string query, Type type, int endsid)
+        private async Task<IEnumerable<News>> GetDownNewsFromNet(string query ,string querytype, int endsid)
         {
-            var jsontext = await CnBetaHelper.GetNews(query, null, endsid);
+            var jsontext = await CnBetaHelper.GetNews(query, querytype, endsid);
 
             if (jsontext == null) return null;
 
@@ -109,11 +109,11 @@ namespace CnBetaUWA.DataSource
         /// <param name="query"></param>
         /// <param name="startttindex"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<News>> GetLastestItems(string query)
+        public async Task<IEnumerable<News>> GetLastestItems(string query,string querytype)
         {
             if (_firstLoad == false)
             {
-                var jsontext = await CnBetaHelper.GetLastestNews(query, null, _startSid, 0);
+                var jsontext = await CnBetaHelper.GetLastestNews(query,querytype, _startSid, 0);
 
                 var list = ModelHelper.JsonToNewses(jsontext);
                 if (list != null)

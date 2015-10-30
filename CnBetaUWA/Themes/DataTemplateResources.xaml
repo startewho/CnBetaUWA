@@ -148,6 +148,19 @@
             </StackPanel>
         </Grid>
     </DataTemplate>
-    
+
+    <DataTemplate x:Key="TopicTypeItemDateTemplate">
+        <TextBlock Text="{Binding CurrentTopicType.Name}"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TopicPivotItemHeaderDateTemplate">
+        <TextBlock Text="{Binding CurrentTopicType.Name}"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TopicPivotItemDateTemplate">
+        <ListView ItemsSource="{Binding NewsSourceCollection}"  ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+    </DataTemplate>
+
    
+
 </ResourceDictionary>

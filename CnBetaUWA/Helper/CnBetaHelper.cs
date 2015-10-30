@@ -30,7 +30,7 @@ namespace CnBetaUWA.Helper
         public static string SettingNightMode = nameof(SettingNightMode);
         public static string SettingImageMode = nameof(SettingImageMode);
         public static string SettingFontSize = nameof(SettingFontSize);
-
+        public static string SettingSelectedTotics = nameof(SettingSelectedTotics);
         public static string GetRealTimeNewsUri()
         {
             var url = ApiUrl + "jsoncallback=jQuery18008753548712314047_" + HttpHelper.ToTimestamp(DateTime.Now)
@@ -38,7 +38,7 @@ namespace CnBetaUWA.Helper
             return url;
         }
 
-        public static async Task<string> GetNews(string type,Artiletype? todaytype ,int endSid)
+        public static async Task<string> GetNews(string type,string querytype ,int endSid)
         {
             var query = "app_key=10000";
 
@@ -50,9 +50,12 @@ namespace CnBetaUWA.Helper
             query += "&format=json&method=" + type;
             
             query += "&timestamp="+ HttpHelper.ToTimestamp(DateTime.Now);
-            if (todaytype != null)
+            
+            if (querytype != null)
             {
-                query += "&type=" + todaytype;
+                int index;
+                query += int.TryParse(querytype, out index) ? "&topicid=" + index : "&type=" + querytype;
+
             }
 
             query += "&v=1.0";
@@ -70,7 +73,7 @@ namespace CnBetaUWA.Helper
         /// <param name="startSid"></param>
         /// <param name="endSid"></param>
         /// <returns></returns>
-        public static async Task<string> GetLastestNews(string type, Artiletype? todaytype, int startSid, int endSid)
+        public static async Task<string> GetLastestNews(string type, string querytype, int startSid, int endSid)
         {
             var query = "app_key=10000";
 
@@ -82,9 +85,11 @@ namespace CnBetaUWA.Helper
                 query += "&end_sid=" + endSid;
 
             query += "&timestamp=" + HttpHelper.ToTimestamp(DateTime.Now);
-            if (todaytype != null)
+
+            if (querytype != null)
             {
-                query += "&type=" + todaytype;
+                int index;
+                query += int.TryParse(querytype, out index) ? "&topicid=" + index : "&type=" + querytype;
             }
 
             query += "&v=1.0";
@@ -173,10 +178,11 @@ namespace CnBetaUWA.Helper
       
     }
 
+    [Flags]
     public  enum Artiletype
     {
-       comments,
-       dig,
-       counter
+       Comments=10000,
+       Dig=20000,
+       Counter=30000,
     } 
 }

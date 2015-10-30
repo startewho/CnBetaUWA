@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -17,7 +18,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Helper;
-using CnBetaUWA.Startups;
+using CnBetaUWA.Models;
+using MVVMSidekick.Startups;
 using ImageLib;
 using ImageLib.Cache.Memory.CacheImpl;
 using ImageLib.Cache.Storage;
@@ -63,6 +65,32 @@ namespace CnBetaUWA
             if (!SettingsHelper.Contains(CnBetaHelper.SettingImageMode))
             {
                 SettingsHelper.Set(CnBetaHelper.SettingImageMode, true);
+            }
+
+            if (!SettingsHelper.Contains(CnBetaHelper.SettingSelectedTotics))
+            {
+                var topics = new List<TopicType>
+                {
+                    new TopicType
+                    {
+                        Id = 9,
+                        IsSelected = true,
+                        Name = "Apple",
+                        
+                        LogoUrl = "http://static.cnbetacdn.com/topics/apple.png"
+                    },
+                    new TopicType
+                    {
+                        Id = 52,
+                        IsSelected = true,
+                        Name = "Google",
+                        
+                        LogoUrl = "http://static.cnbetacdn.com/topics/850a52010eb551a.png"
+                    }
+                };
+               
+                var jsontopics = SerializerHelper.ToJson(topics);
+                SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, jsontopics);
             }
 
         }

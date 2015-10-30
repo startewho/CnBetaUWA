@@ -132,6 +132,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Topic.cs" />
+    <Compile Include="Models\TopicType.cs" />
     <Compile Include="Models\NewsComment.cs" />
     <Compile Include="Models\NewsContent.cs" />
     <Compile Include="Models\News.cs" />
@@ -143,11 +144,15 @@
     <Compile Include="Startups\NewsPage.cs" />
     <Compile Include="Startups\TodayRankPage.cs" />
     <Compile Include="Startups\Top10Page.cs" />
+    <Compile Include="Startups\TopicsPage.cs" />
     <Compile Include="TodayRankPage.xaml.cs">
       <DependentUpon>TodayRankPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Top10Page.xaml.cs">
       <DependentUpon>Top10Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopicsPage.xaml.cs">
+      <DependentUpon>TopicsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CommentsPage_Model.cs" />
     <Compile Include="ViewModels\LatestNewsPage_Model.cs" />
@@ -163,6 +168,7 @@
     <Compile Include="ViewModels\NewsPage_Model.cs" />
     <Compile Include="ViewModels\TodayRankPage_Model.cs" />
     <Compile Include="ViewModels\Top10Page_Model.cs" />
+    <Compile Include="ViewModels\TopicsPage_Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -231,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Top10Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopicsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

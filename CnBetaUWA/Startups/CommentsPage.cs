@@ -1,9 +1,10 @@
 ﻿using System;
+using CnBetaUWA;
 using CnBetaUWA.ViewModels;
 using MVVMSidekick.Views;
 
 
-namespace CnBetaUWA.Startups
+namespace MVVMSidekick.Startups
 {
     internal static partial class StartupFunctions
     {

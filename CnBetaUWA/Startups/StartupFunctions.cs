@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CnBetaUWA.Startups
+namespace MVVMSidekick.Startups
 {
     internal static partial class StartupFunctions
     {
