@@ -1,21 +1,14 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
-using MVVMSidekick.ViewModels;
+﻿using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MVVMSidekick.Reactive;
-using MVVMSidekick.Services;
-using MVVMSidekick.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
-using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-using ImageLib.Helpers;
 using Q42.WinRT.Storage;
 
 namespace CnBetaUWA.ViewModels
@@ -39,7 +32,23 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
-        protected  override Task OnBindedViewLoad(IView view)
+
+        private void PropScribe()
+        {
+            //当SelectedTopic变化时,缓存当前页面数据,并加载新页面
+            GetValueContainer(vm => vm.SelectedTopic).GetEventObservable().Subscribe(e =>
+            {
+                var oldtopic = e.EventArgs.OldValue;
+                var newtopic = e.EventArgs.NewValue;
+                SaveAction(oldtopic);
+                oldtopic.IsSelected = false;
+                newtopic.IsSelected = true;
+                LoadAction(newtopic);
+            }).DisposeWith(this);
+
+        }
+
+        protected override Task OnBindedViewLoad(IView view)
         {
 
             TopicColletion = new ObservableCollection<Topic>();
@@ -57,17 +66,16 @@ namespace CnBetaUWA.ViewModels
 
                 SelectedTopic = TopicColletion[0];
                 SelectedTopic.IsSelected = true;
-                LoadAction();
-               // SelectedTopic.InitNewsSourceColletion();
-                //  SelectedCollection.AddRange(topics);
+                LoadAction(SelectedTopic);
+             
             }
-          
+            PropScribe();
             return base.OnBindedViewLoad(view);
         }
 
         protected override Task OnBindedViewUnload(IView view)
         {
-            SaveAction();
+            SaveAction(SelectedTopic);
             return base.OnBindedViewUnload(view);
 
         }
@@ -92,11 +100,8 @@ namespace CnBetaUWA.ViewModels
             get { return _SelectedTopicLocator(this).Value; }
             set
             {
-               
-                _SelectedTopicLocator(this).SetValueAndTryNotify(value);
-                value.IsSelected = true;
-                LoadAction();
-            }
+               _SelectedTopicLocator(this).SetValueAndTryNotify(value);
+             }
         }
         #region Property Topic SelectedTopic Setup        
         protected Property<Topic> _SelectedTopic = new Property<Topic> { LocatorFunc = _SelectedTopicLocator };
@@ -104,27 +109,28 @@ namespace CnBetaUWA.ViewModels
         static Func<Topic> _SelectedTopicDefaultValueFactory = () => default(Topic);
         #endregion
 
-        private async void SaveAction()
+        private async void SaveAction(Topic selectTopic)
         {
-            await _storageHelper.SaveAsync(SelectedTopic.NewsSourceCollection.Take(100), SelectedTopic.CurrentTopicType.Id.ToString());
-            SelectedTopic.NewsSourceCollection.OnLoadMoreStarted -= NewsSourceCollection_OnLoadMoreStarted;
+            await _storageHelper.SaveAsync(selectTopic.NewsSourceCollection.Take(100), selectTopic.CurrentTopicType.Id.ToString());
+            selectTopic.NewsSourceCollection.OnLoadMoreStarted -= NewsSourceCollection_OnLoadMoreStarted;
         }
 
 
-        private async void LoadAction()
+        private async void LoadAction(Topic selectTopic)
         {
-            var cachenews = await _storageHelper.LoadAsync(SelectedTopic.CurrentTopicType.Id.ToString());
+            var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.Id.ToString());
             if (cachenews != null && cachenews.Any())
             {
-              SelectedTopic.InitNewsSourceColletion(cachenews.First().Sid, cachenews.Last().Sid, cachenews);
+                selectTopic.InitNewsSourceColletion(cachenews.First().Sid, cachenews.Last().Sid, cachenews);
               
             }
             else
             {
-                SelectedTopic.InitNewsSourceColletion( 0, 0, cachenews);
+                selectTopic.InitNewsSourceColletion( 0, 0, cachenews);
             }
 
-            SelectedTopic.NewsSourceCollection.OnLoadMoreStarted += NewsSourceCollection_OnLoadMoreStarted;
+            selectTopic.NewsSourceCollection.OnLoadMoreStarted += NewsSourceCollection_OnLoadMoreStarted;
+            
         }
 
         private void NewsSourceCollection_OnLoadMoreStarted(uint count)

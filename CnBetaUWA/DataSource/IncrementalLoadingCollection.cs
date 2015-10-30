@@ -72,7 +72,7 @@ namespace CnBetaUWA.DataSource
         public IncrementalLoadingCollection(string query,string querytype ,int startindex, int endindex, IEnumerable<I> caches)
         {
             _source = new T();
-            if (caches != null)
+            if (caches != null&&caches.Any())
             {
                 _source.InitSouce(caches);
             }

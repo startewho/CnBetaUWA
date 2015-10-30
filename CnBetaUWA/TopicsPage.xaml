@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
+    xmlns:controls="using:CnBetaUWA.Controls"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -22,8 +23,23 @@
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
+        <controls:MasterDetailView x:Name="MasterDetail" x:FieldModifier="public">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="18,2,12,0"
+                        Height="{ThemeResource AppBarThemeCompactHeight}" RequestedTheme="Dark">
+                    <StackPanel Orientation="Horizontal">
+                       <Button Content="&#xE117;" Style="{StaticResource IconButtonStyle}" Foreground="GhostWhite" Command="{Binding CommandRereshDataSourceCollection}" />
+                    </StackPanel>
 
-          <Pivot ItemsSource="{Binding TopicColletion}"  ItemTemplate="{StaticResource TopicPivotItemDateTemplate}"  HeaderTemplate="{StaticResource TopicPivotItemHeaderDateTemplate}" SelectedItem="{Binding SelectedTopic,Mode=TwoWay}"/>
+                </Border>
+                <Pivot ItemsSource="{Binding TopicColletion}"  ItemTemplate="{StaticResource TopicPivotItemDateTemplate}"  HeaderTemplate="{StaticResource TopicPivotItemHeaderDateTemplate}" SelectedItem="{Binding SelectedTopic,Mode=TwoWay}" Grid.Row="1"/>
+            </Grid>
+        </controls:MasterDetailView>
+     
   
     </Grid>
 </mvvm:MVVMPage>

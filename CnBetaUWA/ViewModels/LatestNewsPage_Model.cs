@@ -1,24 +1,16 @@
-﻿using System.Reactive;
-using System.Reactive.Linq;
-using MVVMSidekick.ViewModels;
+﻿using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MVVMSidekick.Reactive;
-using MVVMSidekick.Services;
-using MVVMSidekick.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
-using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-using ImageLib.Helpers;
 using Q42.WinRT.Storage;
 namespace CnBetaUWA.ViewModels
 {
@@ -42,8 +34,7 @@ namespace CnBetaUWA.ViewModels
         protected override Task OnBindedViewLoad(IView view)
         {
             if (_isLoaded) return base.OnBindedViewLoad(view);
-
-             LoadAction();
+            LoadAction();
             _isLoaded = true;
             return base.OnBindedViewLoad(view);
         }
