@@ -554,7 +554,7 @@
 
 
                         </Grid.Resources>
-                        <TextBlock  x:Name="notifyTextblock"/>
+                        <TextBlock  x:Name="notifyTextblock" FontSize="24" Height="40"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

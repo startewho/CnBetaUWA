@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using Q42.WinRT.Storage;
@@ -109,6 +112,48 @@ namespace CnBetaUWA.ViewModels
         static Func<Topic> _SelectedTopicDefaultValueFactory = () => default(Topic);
         #endregion
 
+        public CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection
+        {
+            get { return _CommandRereshDataSourceCollectionLocator(this).Value; }
+            set { _CommandRereshDataSourceCollectionLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollection = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandRereshDataSourceCollectionLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandRereshDataSourceCollectionLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandRereshDataSourceCollection", model => model.Initialize("CommandRereshDataSourceCollection", ref model._CommandRereshDataSourceCollection, ref _CommandRereshDataSourceCollectionLocator, _CommandRereshDataSourceCollectionDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollectionDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandRereshDataSourceCollection";           // Command resource  
+                var commandId = "CommandRereshDataSourceCollection";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as TopicsPage;
+                            var scrooviewer = view.GetDescendantsOfType<ListView>().First(item=>item.Visibility==Visibility.Visible&&item.ItemsSource!=null);
+                            vm.Reresh();
+                            await scrooviewer.ScrollToIndex(0);
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+
         private async void SaveAction(Topic selectTopic)
         {
             await _storageHelper.SaveAsync(selectTopic.NewsSourceCollection.Take(100), selectTopic.CurrentTopicType.Id.ToString());
@@ -121,16 +166,22 @@ namespace CnBetaUWA.ViewModels
             var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.Id.ToString());
             if (cachenews != null && cachenews.Any())
             {
-                selectTopic.InitNewsSourceColletion(cachenews.First().Sid, cachenews.Last().Sid, cachenews);
+                selectTopic.InitNewsSourceColletion( cachenews);
               
             }
             else
             {
-                selectTopic.InitNewsSourceColletion( 0, 0, cachenews);
+                selectTopic.InitNewsSourceColletion( cachenews);
             }
 
             selectTopic.NewsSourceCollection.OnLoadMoreStarted += NewsSourceCollection_OnLoadMoreStarted;
             
+        }
+
+        private async void Reresh()
+        {
+            var addedcount = await SelectedTopic.NewsSourceCollection.AttachToEnd();
+            //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
 
         private void NewsSourceCollection_OnLoadMoreStarted(uint count)

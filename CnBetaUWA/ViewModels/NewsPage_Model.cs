@@ -4,10 +4,8 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using CnBetaUWA.Controls;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
@@ -51,7 +49,8 @@ namespace CnBetaUWA.ViewModels
         private void CommentsSource_OnLoadMoreCompleted(int count)
         {
             string message = string.Format("已经加载了{0}条评论", count);
-            EventRouter.Instance.GetEventChannel(typeof(string)).RaiseEvent(this, "ToastMessageByEventRouter", message, true,true);
+            MessageHelper.ShowMessage(this,message);
+
             var list = CommentsSource;
             if (CommentsSource != null)
             {

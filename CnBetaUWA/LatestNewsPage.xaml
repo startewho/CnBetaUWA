@@ -23,12 +23,12 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="18,2,12,0"
-                        Height="{ThemeResource AppBarThemeCompactHeight}" RequestedTheme="Dark">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Title}"  VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" />
-                        <Button Content="&#xE117;" Style="{StaticResource IconButtonStyle}" Foreground="GhostWhite" Command="{Binding CommandRereshDataSourceCollection}" />
-                    </StackPanel>
+                <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="18,0,0,0"
+                        >
+                    <Grid>
+                        <TextBlock Text="{Binding Title}"  HorizontalAlignment="Center" Style="{ThemeResource TitleTextBlockStyle}" />
+                        <Button Content="&#xE117;" Style="{StaticResource CommandButtonStyle}" HorizontalAlignment="Right"  Command="{Binding CommandRereshDataSourceCollection}" />
+                    </Grid>
                    
                 </Border>
                 <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>

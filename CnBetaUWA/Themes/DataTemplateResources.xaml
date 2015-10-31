@@ -158,9 +158,12 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TopicPivotItemDateTemplate">
-        <ListView ItemsSource="{Binding NewsSourceCollection}"  ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
 
+    <DataTemplate x:Key="TodayRankTopicPivotItemDateTemplate">
+        <ListView ItemsSource="{Binding StaticNewesCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+    </DataTemplate>
    
 
 </ResourceDictionary>

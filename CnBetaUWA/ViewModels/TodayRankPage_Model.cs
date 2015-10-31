@@ -12,6 +12,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using CnBetaUWA.Extensions;
+using CnBetaUWA.Helper;
+using CnBetaUWA.Models;
+using ImageLib.Helpers;
+using Q42.WinRT.Storage;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -19,9 +26,7 @@ namespace CnBetaUWA.ViewModels
     [DataContract]
     public class TodayRankPage_Model : ViewModelBase<TodayRankPage_Model>
     {
-        // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
-        // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
-
+        private StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(StorageType.Local);
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -34,67 +39,169 @@ namespace CnBetaUWA.ViewModels
         #endregion
 
 
+        private void PropScribe()
+        {
+            //当SelectedTopic变化时,缓存当前页面数据,并加载新页面
+            GetValueContainer(vm => vm.SelectedTopic).GetEventObservable().Subscribe(e =>
+            {
+                var oldtopic = e.EventArgs.OldValue;
+                var newtopic = e.EventArgs.NewValue;
+                SaveAction(oldtopic);
+                oldtopic.IsSelected = false;
+                newtopic.IsSelected = true;
+                LoadAction(newtopic);
+            }).DisposeWith(this);
 
-        #region Life Time Event Handling
+        }
 
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
+        protected override Task OnBindedViewLoad(IView view)
+        {
 
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
+            TopicColletion = new ObservableCollection<Topic>();
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
+            var topics = new List<TopicType>
+                {
+                    new TopicType
+                    {
+                       
+                        Name = "comments",
+                        
+                    },
+                    new TopicType
+                    {
+                        Name = "dig",
+                    }
+                    ,new TopicType
+                    {
+                        Name = "counter",
+                    }
+                };
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
+            foreach (var topicType in topics)
+            {
+                TopicColletion.Add(new Topic(topicType));
+            }
+                
+            SelectedTopic = TopicColletion[0];
+            SelectedTopic.IsSelected = true;
+            LoadAction(SelectedTopic);
+            PropScribe();
+            return base.OnBindedViewLoad(view);
+        }
 
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
+        protected override Task OnBindedViewUnload(IView view)
+        {
+            SaveAction(SelectedTopic);
+            return base.OnBindedViewUnload(view);
+
+        }
+
+        
+
+        public ObservableCollection<Topic> TopicColletion
+        {
+            get { return _TopicColletionLocator(this).Value; }
+            set { _TopicColletionLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property ObservableCollection<Topic> TopicColletion Setup        
+        protected Property<ObservableCollection<Topic>> _TopicColletion = new Property<ObservableCollection<Topic>> { LocatorFunc = _TopicColletionLocator };
+        static Func<BindableBase, ValueContainer<ObservableCollection<Topic>>> _TopicColletionLocator = RegisterContainerLocator<ObservableCollection<Topic>>("TopicColletion", model => model.Initialize("TopicColletion", ref model._TopicColletion, ref _TopicColletionLocator, _TopicColletionDefaultValueFactory));
+        static Func<ObservableCollection<Topic>> _TopicColletionDefaultValueFactory = () => default(ObservableCollection<Topic>);
+        #endregion
+
+
+        public Topic SelectedTopic
+        {
+            get { return _SelectedTopicLocator(this).Value; }
+            set
+            {
+                _SelectedTopicLocator(this).SetValueAndTryNotify(value);
+            }
+        }
+        #region Property Topic SelectedTopic Setup        
+        protected Property<Topic> _SelectedTopic = new Property<Topic> { LocatorFunc = _SelectedTopicLocator };
+        static Func<BindableBase, ValueContainer<Topic>> _SelectedTopicLocator = RegisterContainerLocator<Topic>("SelectedTopic", model => model.Initialize("SelectedTopic", ref model._SelectedTopic, ref _SelectedTopicLocator, _SelectedTopicDefaultValueFactory));
+        static Func<Topic> _SelectedTopicDefaultValueFactory = () => default(Topic);
+        #endregion
+
+        public CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection
+        {
+            get { return _CommandRereshDataSourceCollectionLocator(this).Value; }
+            set { _CommandRereshDataSourceCollectionLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollection = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandRereshDataSourceCollectionLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandRereshDataSourceCollectionLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandRereshDataSourceCollection", model => model.Initialize("CommandRereshDataSourceCollection", ref model._CommandRereshDataSourceCollection, ref _CommandRereshDataSourceCollectionLocator, _CommandRereshDataSourceCollectionDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollectionDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandRereshDataSourceCollection";           // Command resource  
+                var commandId = "CommandRereshDataSourceCollection";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as TodayRankPage;
+                            var scrooviewer = view.GetDescendantsOfType<ListView>().First(item => item.Visibility == Visibility.Visible && item.ItemsSource != null);
+                            vm.Reresh();
+                            await scrooviewer.ScrollToIndex(0);
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
 
         #endregion
 
 
+        private async void SaveAction(Topic selectTopic)
+        {
+            await _storageHelper.SaveAsync(selectTopic.StaticNewesCollection.Take(100), selectTopic.CurrentTopicType.Name);
+            
+        }
 
+
+        private async void LoadAction(Topic selectTopic)
+        {
+            var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.Name);
+           
+            selectTopic.InitTodayRankNewsSourceColletion(cachenews);
+            if (selectTopic.StaticNewesCollection.Count==0)
+            {
+                Reresh();
+            }
+
+
+        }
+
+        private async void Reresh()
+        {
+            var jsonttext =
+                await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.Name);
+           var listnewses= ModelHelper.JsonToNewses(jsonttext);
+            if (listnewses != null&& SelectedTopic.StaticNewesCollection.Count>0 &&  SelectedTopic.StaticNewesCollection.First().Sid >= listnewses.First().Sid) return;
+            SelectedTopic.StaticNewesCollection.Clear();
+            SelectedTopic.StaticNewesCollection.AddRange(listnewses);
+
+            //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
+        }
+
+        private void NewsSourceCollection_OnLoadMoreStarted(uint count)
+        {
+            // throw new NotImplementedException();
+        }
 
     }
 

@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using ImageLib.Helpers;
@@ -40,6 +43,7 @@ namespace CnBetaUWA.ViewModels
 
         protected  override Task OnBindedViewLoad(IView view)
         {
+            Title = "Top10";
             InitData();
             return base.OnBindedViewLoad(view);
         }
@@ -57,6 +61,8 @@ namespace CnBetaUWA.ViewModels
                     Top10NewsCollection[i].Index = i + 1;
                 }
             }
+
+            
         }
 
 
@@ -71,6 +77,49 @@ namespace CnBetaUWA.ViewModels
         static Func<ObservableCollection<News>> _Top10NewsCollectionDefaultValueFactory = () => default(ObservableCollection<News>);
         #endregion
 
+
+        public CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection
+        {
+            get { return _CommandRereshDataSourceCollectionLocator(this).Value; }
+            set { _CommandRereshDataSourceCollectionLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection Setup        
+
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollection = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandRereshDataSourceCollectionLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandRereshDataSourceCollectionLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandRereshDataSourceCollection", model => model.Initialize("CommandRereshDataSourceCollection", ref model._CommandRereshDataSourceCollection, ref _CommandRereshDataSourceCollectionLocator, _CommandRereshDataSourceCollectionDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandRereshDataSourceCollectionDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandRereshDataSourceCollection";           // Command resource  
+                var commandId = "CommandRereshDataSourceCollection";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
+
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
+                            var view = vm.StageManager.CurrentBindingView as Top10Page;
+                            var scrooviewer = view.GetFirstDescendantOfType<ListView>();
+                            vm.InitData();
+                            await scrooviewer.ScrollToIndex(0);
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
+
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
+
+        #endregion
+
+      
 
     }
 

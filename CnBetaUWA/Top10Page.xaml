@@ -13,8 +13,7 @@
 
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">My Application</x:String>
-        <vm:Top10Page_Model x:Key="DesignVM"/>
+      <vm:Top10Page_Model x:Key="DesignVM"/>
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
@@ -29,12 +28,12 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="18,2,12,0"
-                        Height="{ThemeResource AppBarThemeCompactHeight}" RequestedTheme="Dark">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Title}"  VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" />
-                        <Button Content="&#xE117;" Style="{StaticResource IconButtonStyle}" Foreground="GhostWhite" Command="{Binding CommandRereshDataSourceCollection}" />
-                    </StackPanel>
+                <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}" Padding="18,0,0,0"
+                       >
+                    <Grid>
+                        <TextBlock Text="{Binding Title}"   HorizontalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"/>
+                        <Button Content="&#xE117;" Style="{StaticResource CommandButtonStyle}" HorizontalAlignment="Right"  Command="{Binding CommandRereshDataSourceCollection}" />
+                    </Grid>
 
                 </Border>
                 <ListView ItemsSource="{Binding Top10NewsCollection}"   ItemContainerStyle="{StaticResource StretchListVierItem }" ItemTemplate="{StaticResource Top10NewsItemDataTemplate}"  Grid.Row="1"/>

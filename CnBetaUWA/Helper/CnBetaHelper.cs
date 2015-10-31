@@ -13,7 +13,7 @@ namespace CnBetaUWA.Helper
     public   class CnBetaHelper
     {
         public static string TypeAll = "Article.Lists";
-        public static string TypeRecommend = "Article.TodayRank";
+        public static string TypeTodayRank = "Article.TodayRank";
         public static string TypeTop10 = "Article.Top10";
         public static string TypeHotComment = "Article.RecommendComment";
         public static string TypeNewsContent = "Article.NewsContent";
@@ -36,6 +36,19 @@ namespace CnBetaUWA.Helper
             var url = ApiUrl + "jsoncallback=jQuery18008753548712314047_" + HttpHelper.ToTimestamp(DateTime.Now)
                          + "s&type=" + TypeRealtime + "&&_=" + (HttpHelper.ToTimestamp(DateTime.Now) + 1);
             return url;
+        }
+
+        public static async Task<string> GetTodayRankNews(string type, string querytype)
+        {
+            var query = "app_key=10000";
+            query += "&format=json&method=" + type;
+            query += "&timestamp=" + HttpHelper.ToTimestamp(DateTime.Now);
+            query +="&type=" + querytype;
+            query += "&v=1.0";
+            query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
+            var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
+            return contentjson;
+
         }
 
         public static async Task<string> GetNews(string type,string querytype ,int endSid)

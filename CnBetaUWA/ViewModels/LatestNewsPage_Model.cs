@@ -59,13 +59,13 @@ namespace CnBetaUWA.ViewModels
             if (cachenews != null&&cachenews.Any())
             {
                
-                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews.First().Sid,cachenews.Last().Sid, cachenews);
+                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews);
                 //NewsSourceCollection.AddRange(cachenews);
                 //Reresh();
             }
             else
             {
-                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, 0,0, cachenews);
+                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews);
                 
             }
             NewsSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;

@@ -20,7 +20,7 @@ namespace CnBetaUWA.DataSource
         /// <param name="pageIndex">页面索引</param>
         /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
-        Task<IEnumerable<T>> GetPagedItems(string query,string query2);
+        Task<IEnumerable<T>> GetPagedItems(string query,string querytype);
 
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace CnBetaUWA.DataSource
 
 
 
-        public IncrementalLoadingCollection(string query,int startindex,int endindex, IEnumerable<I> caches)
+        public IncrementalLoadingCollection(string query, IEnumerable<I> caches)
         {
             _source = new T();
             if (caches!=null)
@@ -69,7 +69,7 @@ namespace CnBetaUWA.DataSource
         }
 
 
-        public IncrementalLoadingCollection(string query,string querytype ,int startindex, int endindex, IEnumerable<I> caches)
+        public IncrementalLoadingCollection(string query,string querytype , IEnumerable<I> caches)
         {
             _source = new T();
             if (caches != null&&caches.Any())

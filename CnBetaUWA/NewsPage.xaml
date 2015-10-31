@@ -29,12 +29,12 @@
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0"  Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Vm.Title}" Grid.Column="0"/>
+            <TextBlock Text="{Binding Vm.Title}" Grid.Column="0" FontSize="24" VerticalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Grid.Column="1">
             <Button Style="{StaticResource CommandButtonStyle}" Tag="Back" Content="&#xE0A6;" Command="{Binding CommandDetailBack}" CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}"/>
             <ToggleButton Style="{StaticResource CommandButtonStyle}" Tag="NightMode" Content="&#xE708;" Command="{Binding CommandChangeWebViewNightMode}"  CommandParameter="{Binding IsChecked,RelativeSource={RelativeSource Self}}"/>
