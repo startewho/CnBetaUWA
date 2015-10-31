@@ -24,7 +24,7 @@
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:DataType="models:MenuItem">
-                            <StackPanel Orientation="Horizontal" Height="48">
+                            <StackPanel Orientation="Horizontal" Height="40">
                                 <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
                                 <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
                             </StackPanel>
