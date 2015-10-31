@@ -7,8 +7,8 @@
     xmlns:controls="using:CnBetaUWA.Controls"
     NavigationCacheMode="Disabled"
     mc:Ignorable="d">
-    <Border Background="LightBlue">
-      
+    <Border>
+    <Image Source="Assets/cnbetaLogo.png"></Image>
     </Border>
     </Page>
     

@@ -4,15 +4,13 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:imglibcontrol="using:ImageLib.Controls"
-    xmlns:models="using:CnBetaUWA.Models"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     
     <DataTemplate x:Key="NewsItemDataTemplate">
-      <Grid>
-           
-            <Grid.ColumnDefinitions>
+        <Grid Height="100" Margin="{StaticResource AutoSuggestListMargin}" >
+          <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
@@ -20,11 +18,16 @@
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
             <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
-            <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1">
-                <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
+            <Grid Margin="12,2,0,2" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Title, Mode=OneWay}" TextTrimming="Clip" Style="{StaticResource TitleTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="0"/>
 
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
@@ -39,9 +42,9 @@
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
 
-                <TextBlock Text="{Binding Summary, Mode=OneWay}" TextTrimming="CharacterEllipsis" Style="{StaticResource MenuTitleTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
-            </StackPanel>
+                <TextBlock Text="{Binding Summary, Mode=OneWay}"  Style="{StaticResource ParagraphTextBlockStyle}"
+                               Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="2"/>
+            </Grid>
         </Grid>
     </DataTemplate>
 
