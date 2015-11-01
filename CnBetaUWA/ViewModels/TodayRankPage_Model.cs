@@ -64,16 +64,19 @@ namespace CnBetaUWA.ViewModels
                     new TopicType
                     {
                        
-                        Name = "comments",
+                        Name="评论最多",
+                        NamePre = "comments",
                         
                     },
                     new TopicType
                     {
-                        Name = "dig",
+                        Name="支持最多",
+                        NamePre = "dig",
                     }
                     ,new TopicType
                     {
-                        Name = "counter",
+                        Name="阅读最多",
+                        NamePre = "counter",
                     }
                 };
 
@@ -168,14 +171,14 @@ namespace CnBetaUWA.ViewModels
 
         private async void SaveAction(Topic selectTopic)
         {
-            await _storageHelper.SaveAsync(selectTopic.StaticNewesCollection.Take(100), selectTopic.CurrentTopicType.Name);
+            await _storageHelper.SaveAsync(selectTopic.StaticNewesCollection.Take(100), selectTopic.CurrentTopicType.NamePre);
             
         }
 
 
         private async void LoadAction(Topic selectTopic)
         {
-            var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.Name);
+            var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.NamePre);
            
             selectTopic.InitTodayRankNewsSourceColletion(cachenews);
             if (selectTopic.StaticNewesCollection.Count==0)
@@ -189,7 +192,7 @@ namespace CnBetaUWA.ViewModels
         private async void Reresh()
         {
             var jsonttext =
-                await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.Name);
+                await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.NamePre);
            var listnewses= ModelHelper.JsonToNewses(jsonttext);
             if (listnewses != null&& SelectedTopic.StaticNewesCollection.Count>0 &&  SelectedTopic.StaticNewesCollection.First().Sid >= listnewses.First().Sid) return;
             SelectedTopic.StaticNewesCollection.Clear();

@@ -24,7 +24,7 @@
 
     <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource TitleTextBlockStyle}">
        <Setter Property="FontSize" Value="18" />
-        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="ParagraphTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
@@ -178,6 +178,15 @@
         </Setter>
     </Style>
 
+    <Style x:Key="BottomListVierItem" TargetType="ListViewItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListViewItem">
+                    <ListViewItemPresenter Margin="0,0,0,0" HorizontalAlignment="Stretch" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="SwipableControlStyle" TargetType="controls:SwipeableControl">
         <Setter Property="Background" Value="{ThemeResource AppBarBackgroundThemeBrush}"/>

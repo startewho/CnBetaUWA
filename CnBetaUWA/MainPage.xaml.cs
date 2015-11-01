@@ -88,7 +88,7 @@ namespace CnBetaUWA
 
             var width = e.NewSize.Width;
             
-            panel.ItemWidth = width/4;
+            panel.ItemWidth = width/5;
            
 
         }

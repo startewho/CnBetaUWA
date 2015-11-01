@@ -8,12 +8,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
+    xmlns:controls="using:CnBetaUWA.Controls"
     mc:Ignorable="d">
 
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
-        <x:String x:Key="AppName">My Application</x:String>
-        <vm:SettingPage_Model x:Key="DesignVM"/>
+              <vm:SettingPage_Model x:Key="DesignVM"/>
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
@@ -23,8 +23,10 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-            <TextBlock x:Name="pageTitle" Text="{Binding Title}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
-  
+        <controls:MasterDetailView x:Name="MasterDetail" x:FieldModifier="public">
+            <Grid>
+                <Pivot ItemsSource="{Binding TopicColletion}"   Style="{StaticResource PivotStyle}" ItemTemplate="{StaticResource TopicPivotItemDateTemplate}"  HeaderTemplate="{StaticResource TopicPivotItemHeaderDateTemplate}" SelectedItem="{Binding SelectedTopic,Mode=TwoWay}" />
+            </Grid>
+        </controls:MasterDetailView>
     </Grid>
 </mvvm:MVVMPage>

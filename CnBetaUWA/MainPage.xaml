@@ -36,7 +36,7 @@
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </controls:ExtendSplitView.Content>
             <controls:ExtendSplitView.BottomPane>
-               <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" SizeChanged="FrameworkElement_OnSizeChanged">
+                <ListView ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}"  ItemContainerStyle="{StaticResource BottomListVierItem}" SizeChanged="FrameworkElement_OnSizeChanged">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ItemsWrapGrid  Orientation="Horizontal"/>
@@ -44,9 +44,9 @@
                            </ListView.ItemsPanel>
                       <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
-                                    <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource SmallTextBlockStyle}" />
+                                <TextBlock Text="{Binding Title, Mode=OneWay}" HorizontalAlignment="Center" Style="{ThemeResource MenuTitleTextBlockStyle}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

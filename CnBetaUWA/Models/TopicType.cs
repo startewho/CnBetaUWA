@@ -5,7 +5,7 @@ namespace CnBetaUWA.Models
     public   class TopicType
     {
         [JsonProperty]
-        private string NamePre { get; set; }
+        public string NamePre { get; set; }
 
         [JsonProperty]
         public string Name { get; set; }

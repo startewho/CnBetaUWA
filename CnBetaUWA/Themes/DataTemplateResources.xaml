@@ -157,7 +157,14 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TopicPivotItemHeaderDateTemplate">
-        <TextBlock Text="{Binding CurrentTopicType.Name}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="7" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding CurrentTopicType.Name}" Grid.Row="0"/>
+            <Grid Background="Red" Margin="0,4,0,0" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}" Grid.Row="1"/>
+        </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="TopicPivotItemDateTemplate">

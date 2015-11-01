@@ -123,7 +123,7 @@ namespace CnBetaUWA.DataSource
                 }
 
                 // 加载完成事件
-                OnLoadMoreStarted?.Invoke(resultCount);
+                OnLoadMoreCompleted?.Invoke((int)resultCount);
                 Debug.WriteLine("Already Loading count{0},Everytime loading count:{1}", Items.Count, count);
 
                 return new LoadMoreItemsResult { Count = resultCount };
