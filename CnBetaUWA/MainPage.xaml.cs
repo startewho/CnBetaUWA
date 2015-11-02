@@ -79,17 +79,23 @@ namespace CnBetaUWA
 
         private void FrameworkElement_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var listview = sender as ListView;
+            var listview = sender as ListBox;
             if (listview == null) return;
 
-            var panel = (ItemsWrapGrid)(listview.ItemsPanelRoot);
+            var panel = (VirtualizingStackPanel)(listview.ItemsPanelRoot);
 
             if (panel == null) throw new ArgumentNullException(nameof(panel));
 
             var width = e.NewSize.Width;
-            
-            panel.ItemWidth = width/5;
-           
+
+            var items = panel.Children;
+            foreach (var item in  items)
+            {
+                var listBoxItem = item as ListBoxItem;
+                if (listBoxItem != null) listBoxItem.Width = width/items.Count;
+            }
+            //panel.it = width/5;
+
 
         }
 

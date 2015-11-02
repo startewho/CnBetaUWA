@@ -81,10 +81,11 @@ namespace CnBetaUWA.ViewModels
                 html = html.Replace("#Topic", Vm.TopictLogoPicture);
                 html = html.Replace("HomeText", NewsContent.HomeText);
                 html = html.Replace("BodyText", NewsContent.BodyText);
-                html = html.Replace("http://static.cnbetacdn.com/", "");
+                // html = html.Replace("http://static.cnbetacdn.com/", "");
                 TotalContent = html;
-                await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
-                ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
+               // await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
+               // ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
+
             }
             
 

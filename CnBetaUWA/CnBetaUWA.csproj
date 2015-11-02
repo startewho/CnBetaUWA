@@ -101,6 +101,9 @@
       <DependentUpon>CommentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ExtendSplitView.cs" />
+    <Compile Include="Controls\HtmlControl\CacheImageGenerator.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlControl.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlViewHelper.cs" />
     <Compile Include="Controls\MasterDetailView.cs" />
     <Compile Include="Controls\NotificationBar.cs" />
     <Compile Include="Controls\LabelSlider.cs" />
