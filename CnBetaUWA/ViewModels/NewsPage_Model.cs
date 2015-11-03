@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reactive.Linq;
 using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Controls;
@@ -78,12 +79,15 @@ namespace CnBetaUWA.ViewModels
 
                 NewsContent = ModelHelper.JsonToNewsContent(content);
                 var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
+
                 html = html.Replace("#Date", Vm.CreatTime);
+             
                 html = html.Replace("#Source", NewsContent.Source);
                 html = html.Replace("#Author", NewsContent.Author);
                 html = html.Replace("#Topic", Vm.TopictLogoPicture);
                 html = html.Replace("HomeText", NewsContent.HomeText);
                 html = html.Replace("BodyText", NewsContent.BodyText);
+                html = Regex.Replace(html, "(<a[^>]+>)(<img[^>]+>)(</a>)", "$2");
                 // html = html.Replace("http://static.cnbetacdn.com/", "");
                 TotalContent = html;
                // await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
