@@ -44,7 +44,7 @@ namespace MyToolkit.Controls.Html
             list.Add("em", new EmGenerator());
             list.Add("i", list["em"]);
             list.Add("a", new LinkGenerator());
-            list.Add("img", new ImageGenerator());
+            list.Add("img", new CacheImageGenerator());
             list.Add("ul", new UlGenerator());
             list.Add("script", new EmptyGenerator());
 

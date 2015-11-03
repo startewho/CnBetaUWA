@@ -60,7 +60,7 @@
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </WebView>-->
-        <tookit:HtmlControl  x:Name="webview"  Html="{Binding TotalContent}" FontSize="20" Background="Bisque" Grid.Row="1" Grid.RowSpan="2"/>
+        <tookit:HtmlControl  x:Name="webview"  Html="{Binding TotalContent}" FontFamily="Microsoft YaHei" FontSize="16" Background="Bisque" Grid.Row="1" Grid.RowSpan="2"/>
         <controls:SwipeableControl Style="{StaticResource SwipableControlStyle}" IsLoading="{Binding IsUIBusy}"  IsSwipeablePaneOpen="{Binding IsCommentPanelOpen,Mode=TwoWay}" HorizontalAlignment="Right"  Grid.Row="1" >
             <controls:SwipeableControl.Content>
                 <ListView ItemsSource="{Binding CommentsSource}" ItemTemplate="{StaticResource CommentItemDataTemplate}" />

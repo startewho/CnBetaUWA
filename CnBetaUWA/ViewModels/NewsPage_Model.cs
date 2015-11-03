@@ -84,7 +84,7 @@ namespace CnBetaUWA.ViewModels
              
                 html = html.Replace("#Source", NewsContent.Source);
                 html = html.Replace("#Author", NewsContent.Author);
-                html = html.Replace("#Topic", Vm.TopictLogoPicture);
+               //  html = html.Replace("#Topic", Vm.TopictLogoPicture);
                 html = html.Replace("HomeText", NewsContent.HomeText);
                 html = html.Replace("BodyText", NewsContent.BodyText);
                 html = Regex.Replace(html, "(<a[^>]+>)(<img[^>]+>)(</a>)", "$2");
