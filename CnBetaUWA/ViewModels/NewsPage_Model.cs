@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
@@ -15,6 +16,8 @@ using MVVMSidekick.Reactive;
 using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
+using MyToolkit.Controls;
+using MyToolkit.Messaging;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -98,13 +101,16 @@ namespace CnBetaUWA.ViewModels
             return base.OnBindedViewLoad(view);
         }
 
+        protected override Task OnBindedViewUnload(IView view)
+        {
+           // CommentsSource.OnLoadMoreCompleted -= CommentsSource_OnLoadMoreCompleted;
+            return base.OnBindedViewUnload(view);
+        }
 
         private void SubscribeCommand()
         {
-           
 
-
-            EventRouter.Instance.GetEventChannel<Object>()
+            LocalEventRouter.GetEventChannel<Object>()
               .Where(x => x.EventName == "SupportCommentByEventRouter")
               .Subscribe(
                   async e =>
@@ -129,7 +135,7 @@ namespace CnBetaUWA.ViewModels
               ).DisposeWith(this);
 
 
-            EventRouter.Instance.GetEventChannel<Object>()
+            LocalEventRouter.GetEventChannel<Object>()
              .Where(x => x.EventName == "AgainstCommentByEventRouter")
              .Subscribe(
                  async e =>
@@ -172,34 +178,6 @@ namespace CnBetaUWA.ViewModels
 
 
         }
-
-
-
-        public String Title
-        {
-            get { return _TitleLocator(this).Value; }
-            set { _TitleLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property String Title Setup
-        protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
-        #endregion
-
-       
-        public List<NewsComment> NewsComments
-        {
-            get { return _NewsCommentsLocator(this).Value; }
-            set { _NewsCommentsLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property List<NewsComment> NewsComments Setup        
-        protected Property<List<NewsComment>> _NewsComments = new Property<List<NewsComment>> { LocatorFunc = _NewsCommentsLocator };
-        static Func<BindableBase, ValueContainer<List<NewsComment>>> _NewsCommentsLocator = RegisterContainerLocator<List<NewsComment>>("NewsComments", model => model.Initialize("NewsComments", ref model._NewsComments, ref _NewsCommentsLocator, _NewsCommentsDefaultValueFactory));
-        static Func<List<NewsComment>> _NewsCommentsDefaultValueFactory = () =>  default(List<NewsComment>);
-        #endregion
-
-
-
 
         public IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment> CommentsSource
         {
@@ -286,16 +264,28 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             var view = vm.StageManager.CurrentBindingView as NewsPage;
-                            var webview = view.GetFirstDescendantOfType<WebView>();
-                            var isnightmode = e.EventArgs.Parameter is bool && (bool) e.EventArgs.Parameter;
+                            var htmlcontrol= view.GetFirstDescendantOfType<HtmlControl>();
+                            var isnightmode = e.EventArgs.Parameter is bool && (bool)e.EventArgs.Parameter;
                             if (isnightmode)
-                            {
-                                await webview.InvokeScriptAsync("changeNigthMode", new[] { "true" });
+                            { 
+                                htmlcontrol.Background=new SolidColorBrush() {Color =Colors.AntiqueWhite};
                             }
+
                             else
                             {
-                                await webview.InvokeScriptAsync("changeNigthMode", new[] { "" });
+                                htmlcontrol.Background = new SolidColorBrush() { Color = Colors.WhiteSmoke };
                             }
+
+                            //var webview = view.GetFirstDescendantOfType<WebView>();
+                            //var isnightmode = e.EventArgs.Parameter is bool && (bool) e.EventArgs.Parameter;
+                            //if (isnightmode)
+                            //{
+                            //    await webview.InvokeScriptAsync("changeNigthMode", new[] { "true" });
+                            //}
+                            //else
+                            //{
+                            //    await webview.InvokeScriptAsync("changeNigthMode", new[] { "" });
+                            //}
                             //Todo: Add ChangeWebViewNightMode logic here, or
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                         })
@@ -336,15 +326,17 @@ namespace CnBetaUWA.ViewModels
                         async e =>
                         {
                             var view = vm.StageManager.CurrentBindingView as NewsPage;
-                            var webview = view.GetFirstDescendantOfType<WebView>();
+                            var webview = view.GetFirstDescendantOfType<HtmlControl>();
+
                             var args = e.EventArgs.Parameter as RangeBaseValueChangedEventArgs;
                             if (args!=null)
                             {
-                                await webview.InvokeScriptAsync("changeFontSize", new[] { string.Format("{0:0%}", args.NewValue * 0.5) });
+                                //await webview.InvokeScriptAsync("changeFontSize", new[] { string.Format("{0:0%}", args.NewValue * 0.5) });
+                                webview.FontSize = 16*args.NewValue*0.5;
                             }
                             
                             //Todo: Add ChangeWebViewFontSize logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                            await TaskExHelper.Yield();
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
                     .Subscribe()

@@ -46,7 +46,7 @@ namespace CnBetaUWA
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             StrongTypeViewModel= e.Parameter as NewsPage_Model;
-            this.DataContext=StrongTypeViewModel;
+            DataContext=StrongTypeViewModel;
             base.OnNavigatedTo(e);
         }
 
@@ -55,9 +55,6 @@ namespace CnBetaUWA
             base.OnNavigatedFrom(e);
         }
 
-        private void NewsPage_OnUnloaded(object sender, RoutedEventArgs e)
-        {
-            StrongTypeViewModel = null;
-        }
+      
     }
 }

@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:CnBetaUWA.Controls">
+    xmlns:controls="using:CnBetaUWA.Controls"
+    xmlns:tookit="using:MyToolkit.Controls">
 
    
     <Style TargetType="controls:SwipeableSplitView">
@@ -1413,4 +1414,25 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <Style TargetType="tookit:ScrollableItemsControl">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel VirtualizationMode="Standard" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ItemsControl">
+                    <ScrollViewer x:Name="ScrollViewer" Background="{TemplateBinding Background}" ZoomMode="Disabled">
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

@@ -113,6 +113,8 @@
                         <core:EventTriggerBehavior EventName="Tapped">
                             <behaviors:SendToEventRouterAction EventRoutingName="SupportCommentByEventRouter"
                                                                IsEventFiringToAllBaseClassesChannels="True"
+                                                               IsEventFiringToAllImplementedInterfacesChannels="True"
+                                                               EventRouter="{Binding DataContext.LocalEventRouter ,ElementName=RootGrid}"
                                                                EventData="{Binding}" />
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
@@ -127,6 +129,8 @@
                         <core:EventTriggerBehavior EventName="Tapped">
                             <behaviors:SendToEventRouterAction EventRoutingName="AgainstCommentByEventRouter"
                                                                IsEventFiringToAllBaseClassesChannels="True"
+                                                               IsEventFiringToAllImplementedInterfacesChannels="True"
+                                                               EventRouter="{Binding DataContext.LocalEventRouter ,ElementName=RootGrid}"
                                                                EventData="{Binding}" />
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>

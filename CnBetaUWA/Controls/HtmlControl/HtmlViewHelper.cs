@@ -6,7 +6,6 @@
 // <author>Rico Suter, mail@rsuter.com</author>
 //-----------------------------------------------------------------------
 
-#if !WPF
 
 using System;
 using System.Collections.Generic;
@@ -45,7 +44,7 @@ namespace MyToolkit.Controls.Html
             list.Add("em", new EmGenerator());
             list.Add("i", list["em"]);
             list.Add("a", new LinkGenerator());
-            list.Add("img", new CacheImageGenerator());
+            list.Add("img", new ImageGenerator());
             list.Add("ul", new UlGenerator());
             list.Add("script", new EmptyGenerator());
 
@@ -60,9 +59,14 @@ namespace MyToolkit.Controls.Html
             if (string.IsNullOrEmpty(html))
                 itemsControl.Items.Clear();
 
+
             htmlView.SizeDependentControls.Clear();
 
+            
+
             var scrollableHtmlView = htmlView as HtmlControl;
+
+         
             if (scrollableHtmlView != null)
                 scrollableHtmlView.UpdateHeader();
 
@@ -80,11 +84,9 @@ namespace MyToolkit.Controls.Html
             }
 
             HtmlNode node = null;
-#if WP7
-            await Task.Factory.StartNew(() =>
-#else
+
             await Task.Run(() =>
-#endif
+
             {
                 try
                 {
@@ -124,11 +126,13 @@ namespace MyToolkit.Controls.Html
 
                 if (htmlView is HtmlControl)
                     ((HtmlControl)htmlView).OnHtmlLoaded();
-                
-                  //  ((HtmlView)htmlView).OnHtmlLoaded();
+
+                if (scrollableHtmlView.Background != null)
+                {
+                    scrollableHtmlView.ScrollViewer.Background = scrollableHtmlView.Background;
+                }
+                  //((HtmlView)htmlView).OnHtmlLoaded();
             }
         }
     }
 }
-
-#endif
