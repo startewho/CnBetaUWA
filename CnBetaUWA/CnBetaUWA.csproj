@@ -266,7 +266,12 @@
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HtmlToXaml\HtmlToXaml.csproj">
+      <Project>{6075c9bb-dd8b-4521-b4ed-7c68744a4d2d}</Project>
+      <Name>HtmlToXaml</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
