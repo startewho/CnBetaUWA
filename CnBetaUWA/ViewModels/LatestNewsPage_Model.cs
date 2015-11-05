@@ -124,54 +124,7 @@ namespace CnBetaUWA.ViewModels
         static Func<IncrementalLoadingCollection<IncrementalNewsSource,News>> _NewsSourceCollectionDefaultValueFactory = () => default(IncrementalLoadingCollection<IncrementalNewsSource,News>);
         #endregion
 
-
-
-
-        public CommandModel<ReactiveCommand, String> CommandNaviToDetailContentPage
-        {
-            get { return _CommandNaviToDetailContentPageLocator(this).Value; }
-            set { _CommandNaviToDetailContentPageLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandNaviToDetailContentPage Setup        
-
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandNaviToDetailContentPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNaviToDetailContentPageLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNaviToDetailContentPageLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandNaviToDetailContentPage", model => model.Initialize("CommandNaviToDetailContentPage", ref model._CommandNaviToDetailContentPage, ref _CommandNaviToDetailContentPageLocator, _CommandNaviToDetailContentPageDefaultValueFactory));
-        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandNaviToDetailContentPageDefaultValueFactory =
-            model =>
-            {
-                var resource = "CommandNaviToDetailContentPage";           // Command resource  
-                var commandId = "CommandNaviToDetailContentPage";
-                var vm = CastToCurrentType(model);
-                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
-
-                cmd.DoExecuteUIBusyTask(
-                        vm,
-                        async e =>
-                        {
-                            var news = e.EventArgs.Parameter as News;
-                            if (news!=null)
-                            {
-                                var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
-                                view?.MasterDetail.DetailFrameNavigateTo(typeof (NewsPage),new NewsPage_Model(news),true);
-                            }
-                            //Todo: Add NaviToDetailContentPage logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                        })
-                    .DoNotifyDefaultEventRouter(vm, commandId)
-                    .Subscribe()
-                    .DisposeWith(vm);
-
-                var cmdmdl = cmd.CreateCommandModel(resource);
-
-                cmdmdl.ListenToIsUIBusy(
-                    model: vm,
-                    canExecuteWhenBusy: false);
-                return cmdmdl;
-            };
-
-        #endregion
-
-
+        
 
         public CommandModel<ReactiveCommand, String> CommandRereshDataSourceCollection
         {

@@ -29,11 +29,10 @@ namespace CnBetaUWA.ViewModels
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
 
+        private bool _isLoaded;
         public NewsPage_Model()
         {
-            
-          
-
+       
         }
         public NewsPage_Model(News model)
         {
@@ -100,13 +99,19 @@ namespace CnBetaUWA.ViewModels
         }
         protected override Task OnBindedViewLoad(IView view)
         {
+            if (_isLoaded) return base.OnBindedViewLoad(view);
             GetContent(Vm.Sid);
             SubscribeCommand();
+            _isLoaded = true;
             return base.OnBindedViewLoad(view);
+          
         }
 
         protected override Task OnBindedViewUnload(IView view)
         {
+             Vm = null;
+             TotalContent = null;
+            LocalEventRouter = null;
            // CommentsSource.OnLoadMoreCompleted -= CommentsSource_OnLoadMoreCompleted;
             return base.OnBindedViewUnload(view);
         }
@@ -196,18 +201,6 @@ namespace CnBetaUWA.ViewModels
 
 
 
-        public string ContentPath
-        {
-            get { return _ContentPathLocator(this).Value; }
-            set { _ContentPathLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property string ContentPath Setup        
-        protected Property<string> _ContentPath = new Property<string> { LocatorFunc = _ContentPathLocator };
-        static Func<BindableBase, ValueContainer<string>> _ContentPathLocator = RegisterContainerLocator<string>("ContentPath", model => model.Initialize("ContentPath", ref model._ContentPath, ref _ContentPathLocator, _ContentPathDefaultValueFactory));
-        static Func<string> _ContentPathDefaultValueFactory = () => default(string);
-        #endregion
-
-
         public NewsContent NewsContent
         {
             get { return _NewsContentLocator(this).Value; }
@@ -218,7 +211,7 @@ namespace CnBetaUWA.ViewModels
         #region Property NewsContent NewsContent Setup        
         protected Property<NewsContent> _NewsContent = new Property<NewsContent> { LocatorFunc = _NewsContentLocator };
         static Func<BindableBase, ValueContainer<NewsContent>> _NewsContentLocator = RegisterContainerLocator<NewsContent>("NewsContent", model => model.Initialize("NewsContent", ref model._NewsContent, ref _NewsContentLocator, _NewsContentDefaultValueFactory));
-        static Func<NewsContent> _NewsContentDefaultValueFactory = () => new NewsContent();
+        static Func<NewsContent> _NewsContentDefaultValueFactory = () => default(NewsContent);
         #endregion
 
 
@@ -356,56 +349,6 @@ namespace CnBetaUWA.ViewModels
 
         #endregion
 
-
-        public CommandModel<ReactiveCommand, String> CommandChangeWebViewSettings
-        {
-            get { return _CommandChangeWebViewSettingsLocator(this).Value; }
-            set { _CommandChangeWebViewSettingsLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandChangeWebViewSettings Setup        
-
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeWebViewSettings = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeWebViewSettingsLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeWebViewSettingsLocator = RegisterContainerLocator("CommandChangeWebViewSettings", model => model.Initialize("CommandChangeWebViewSettings", ref model._CommandChangeWebViewSettings, ref _CommandChangeWebViewSettingsLocator, _CommandChangeWebViewSettingsDefaultValueFactory));
-        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandChangeWebViewSettingsDefaultValueFactory =
-            model =>
-            {
-                var resource = "CommandChangeWebViewSettings";           // Command resource  
-                var commandId = "CommandChangeWebViewSettings";
-                var vm = CastToCurrentType(model);
-                var cmd = new ReactiveCommand(true) { ViewModel = model }; //New Command Core
-
-                cmd.DoExecuteUIBusyTask(
-                        vm,
-                        async e =>
-                        {
-                            var view = vm.StageManager.CurrentBindingView as NewsPage;
-                            var webview = view.GetFirstDescendantOfType<WebView>();
-                            var tag = e.EventArgs.Parameter as string;
-                            switch (tag)
-                            {
-                                case "NightMode":
-                                    await webview.InvokeScriptAsync("changeColor", new[] { "arg1", "arg2" });
-                                    break;
-                                case "FontSize":
-                                    await webview.InvokeScriptAsync("changeFontSize", new[] { "120%" });
-                                    break;
-                                default:
-                                    break;
-                            }
-                            //Todo: Add ChangeWebViewSettings logic here, or
-                            await TaskExHelper.Yield();
-                        })
-                    .DoNotifyDefaultEventRouter(vm, commandId)
-                    .Subscribe()
-                    .DisposeWith(vm);
-
-                var cmdmdl = cmd.CreateCommandModel(resource);
-
-                cmdmdl.ListenToIsUIBusy(vm, false);
-                return cmdmdl;
-            };
-
-        #endregion
 
 
         public CommandModel<ReactiveCommand, String> CommandDetailBack
