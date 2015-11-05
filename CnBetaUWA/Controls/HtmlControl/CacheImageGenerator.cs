@@ -42,12 +42,9 @@ namespace MyToolkit.Controls.Html.Generators
                 if (height == 1 && width == 1)
                     return null;
 
-                var image = new ImageView();
-              
-                image.UriSource=new Uri(imageUri);
+                var image = new ImageView {UriSource = new Uri(imageUri)};
 
-              
-
+                
                 var imageBlock = new ImageBlock
                 {
                   
@@ -56,7 +53,7 @@ namespace MyToolkit.Controls.Html.Generators
                     Image = image,
                 };
 
-                image.LoadingCompleted += delegate { imageBlock.Update(htmlView.ActualWidth); };
+               // image.LoadingCompleted += delegate { imageBlock.Update(htmlView.ActualWidth); };
 
                 image.HorizontalAlignment = HorizontalAlignment.Left;
                 image.Margin = new Thickness(0, htmlView.ParagraphMargin, 0, htmlView.ParagraphMargin);

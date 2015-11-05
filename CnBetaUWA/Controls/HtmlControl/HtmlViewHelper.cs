@@ -7,18 +7,15 @@
 //-----------------------------------------------------------------------
 
 
-using System;
 using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
 using System.Threading.Tasks;
-using Windows.Data.Xml.Dom;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Markup;
-using MyToolkit.Controls;
-using MyToolkit.Controls.Html;
 using MyToolkit.Controls.Html.Generators;
-using HtmlToXaml;
+using MyToolkit.Html;
+
+
 namespace MyToolkit.Controls.Html
 {
     /// <summary>Common HTML view helper methods.</summary>
@@ -46,16 +43,17 @@ namespace MyToolkit.Controls.Html
             list.Add("i", list["em"]);
             list.Add("a", new LinkGenerator());
             list.Add("img", new CacheImageGenerator());
+            //list.Add("img", new ImageGenerator());
             list.Add("ul", new UlGenerator());
             list.Add("script", new EmptyGenerator());
 
             return list;
         }
 
-        internal async static void Generate(this IHtmlView htmlView)
+        internal static async void Generate(this IHtmlView htmlView)
         {
             var html = htmlView.Html;
-            var itemsControl = (ItemsControl)htmlView;
+            var itemsControl = (ItemsControl) htmlView;
 
             if (string.IsNullOrEmpty(html))
                 itemsControl.Items.Clear();
@@ -63,11 +61,11 @@ namespace MyToolkit.Controls.Html
 
             htmlView.SizeDependentControls.Clear();
 
-            
+
 
             var scrollableHtmlView = htmlView as HtmlControl;
 
-         
+
             if (scrollableHtmlView != null)
                 scrollableHtmlView.UpdateHeader();
 
@@ -77,24 +75,64 @@ namespace MyToolkit.Controls.Html
                     scrollableHtmlView.UpdateFooter();
 
                 if (htmlView is HtmlControl)
-                    ((HtmlControl)htmlView).OnHtmlLoaded();
-             
-                   // ((HtmlView)htmlView).OnHtmlLoaded();
+                    ((HtmlControl) htmlView).OnHtmlLoaded();
+
+                // ((HtmlView)htmlView).OnHtmlLoaded();
 
                 return;
             }
 
-            XmlElement htmlElement=null;
+            HtmlNode node = null;
             await Task.Run(() =>
 
             {
-                htmlElement = HtmlParser.ParseHtml(html);
+                try
+                {
+                    var parser = new HtmlParser();
+                    node = parser.Parse(html);
+                }
+                catch
+                {
+                }
             });
 
-            foreach (var element in htmlElement.ChildNodes)
+            if (html == htmlView.Html)
             {
-                var xamlstring = HtmlToXamlConverter.ConvertHtmlToXaml(element.GetXml(), false);
-                var richtextblock = (RichTextBlock) XamlReader.Load(xamlstring);
+                if (node != null)
+                {
+                    try
+                    {
+                        itemsControl.Items.Clear();
+
+                        if (scrollableHtmlView != null)
+                            scrollableHtmlView.UpdateHeader();
+
+                        var listcontrols = node.GetControls(htmlView).ToList();
+                        foreach (var control in listcontrols)
+                        {
+                            if (scrollableHtmlView != null && scrollableHtmlView.InnerMaxWidth != 0)
+                                ((FrameworkElement) control).MaxWidth = scrollableHtmlView.InnerMaxWidth;
+
+                            itemsControl.Items.Add(control);
+                        }
+
+                        if (scrollableHtmlView != null)
+                            scrollableHtmlView.UpdateFooter();
+                    }
+                    catch
+                    {
+
+                    }
+
+                    if (htmlView is HtmlControl)
+                        ((HtmlControl) htmlView).OnHtmlLoaded();
+
+                    if (scrollableHtmlView.Background != null)
+                    {
+                        scrollableHtmlView.ScrollViewer.Background = scrollableHtmlView.Background;
+                    }
+                    //((HtmlView)htmlView).OnHtmlLoaded();
+                }
             }
         }
     }
