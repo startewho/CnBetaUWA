@@ -103,7 +103,7 @@
     <Compile Include="Controls\ExtendSplitView.cs" />
     <Compile Include="Controls\HtmlControl\CacheImageGenerator.cs" />
     <Compile Include="Controls\HtmlControl\HtmlControl.cs" />
-    <Compile Include="Controls\HtmlControl\HtmlViewHelper.cs" />
+    <Compile Include="Controls\HtmlControl\HtmlControlHelper.cs" />
     <Compile Include="Controls\MasterDetailView.cs" />
     <Compile Include="Controls\NotificationBar.cs" />
     <Compile Include="Controls\LabelSlider.cs" />
@@ -265,24 +265,6 @@
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HtmlToXaml\HtmlToXaml.csproj">
-      <Project>{6075c9bb-dd8b-4521-b4ed-7c68744a4d2d}</Project>
-      <Name>HtmlToXaml</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\packages\ImageLib.Controls\ImageLib.Controls.csproj">
-      <Project>{f1a4bb2f-dcd6-46d7-bd10-0d29ac41a810}</Project>
-      <Name>ImageLib.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\packages\ImageLib.Gif\ImageLib.Gif.csproj">
-      <Project>{248a9a1c-18a7-4101-9ebf-cfe1fc23a1b0}</Project>
-      <Name>ImageLib.Gif</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\packages\ImageLib\ImageLib.csproj">
-      <Project>{13258fbc-ed4a-476c-a0f3-bccf82177476}</Project>
-      <Name>ImageLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

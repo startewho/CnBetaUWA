@@ -24,7 +24,7 @@ namespace MyToolkit.Controls
         /// <summary>Initializes a new instance of the <see cref="ScrollableHtmlView"/> class. </summary>
         public HtmlControl()
         {
-            _generators = HtmlViewHelper.GetDefaultGenerators(this);
+            _generators = HtmlControlHelper.GetDefaultGenerators(this);
 
             Update = UpdateFrameWork;
 
@@ -36,7 +36,7 @@ namespace MyToolkit.Controls
 
             SizeChanged += OnSizeChanged;
             SizeDependentControls = new List<ISizeDependentControl>();
-          //  Unloaded += HtmlControl_Unloaded;
+            Unloaded += HtmlControl_Unloaded;
 
             DependencyPropertyChangedEvent.Register(this, FontSizeProperty, Update);
             DependencyPropertyChangedEvent.Register(this, FontFamilyProperty, Update);
@@ -50,14 +50,14 @@ namespace MyToolkit.Controls
         {
             this.Generate();
         }
-        //private void HtmlControl_Unloaded(object sender, RoutedEventArgs e)
-        //{
-        //    DependencyPropertyChangedEvent.Deregister(this, FontSizeProperty, Update);
-        //    DependencyPropertyChangedEvent.Deregister(this, FontFamilyProperty, Update);
-        //    DependencyPropertyChangedEvent.Deregister(this, ForegroundProperty, Update);
-        //    DependencyPropertyChangedEvent.Deregister(this, BackgroundProperty, Update);
-        //    DependencyPropertyChangedEvent.Deregister(this, InnerMaxWidthProperty, Update);
-        //}
+        private void HtmlControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            DependencyPropertyChangedEvent.Deregister(this, FontSizeProperty, Update);
+            DependencyPropertyChangedEvent.Deregister(this, FontFamilyProperty, Update);
+            DependencyPropertyChangedEvent.Deregister(this, ForegroundProperty, Update);
+            DependencyPropertyChangedEvent.Deregister(this, BackgroundProperty, Update);
+            DependencyPropertyChangedEvent.Deregister(this, InnerMaxWidthProperty, Update);
+        }
 
         /// <summary>Gets the list of HTML element generators. </summary>
         public IDictionary<string, IControlGenerator> Generators

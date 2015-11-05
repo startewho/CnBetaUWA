@@ -19,7 +19,7 @@ using MyToolkit.Html;
 namespace MyToolkit.Controls.Html
 {
     /// <summary>Common HTML view helper methods.</summary>
-    public static class HtmlViewHelper
+    public static class HtmlControlHelper
     {
         /// <summary>Creates the default UI element generators.</summary>
         /// <param name="view">The view.</param>
