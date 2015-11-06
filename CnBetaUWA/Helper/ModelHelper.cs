@@ -44,6 +44,7 @@ namespace CnBetaUWA.Helper
             return list;
         }
 
+       
 
         public static IEnumerable<News> JsonToNewses(string jsontext)
         {
@@ -80,6 +81,22 @@ namespace CnBetaUWA.Helper
             var postlist = JObject.Parse(jsontext);
             var result =(string)postlist["status"];
             return result=="success";
+        }
+
+        public static IEnumerable<TopicType> JsonToTopicTypes(string jsontext)
+        {
+            var topictypes = JToken.Parse(jsontext);
+
+            var list = topictypes?.Select(item => new TopicType
+            {
+                NamePre = (string)item["NameIndex"],
+                Name = (string)item["Name"],
+                Id = (int)item["Index"],
+                LogoUrl = (string)item["LogoUrl"],
+                IsSelected = false
+              
+            }).ToList();
+            return list;
         }
     }
 }

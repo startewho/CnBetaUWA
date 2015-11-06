@@ -53,7 +53,7 @@ namespace MyToolkit.Controls.Html.Generators
                     Image = image,
                 };
 
-               // image.LoadingCompleted += delegate { imageBlock.Update(htmlView.ActualWidth); };
+               image.LoadingCompleted += delegate { imageBlock.Update(htmlView.ActualWidth); };
 
                 image.HorizontalAlignment = HorizontalAlignment.Left;
                 image.Margin = new Thickness(0, htmlView.ParagraphMargin, 0, htmlView.ParagraphMargin);
@@ -80,14 +80,10 @@ namespace MyToolkit.Controls.Html.Generators
 
             public int UserHeight { get; set; }
 
-            public BitmapImage Source { get; set; }
-
+        
             public void Update(double actualWidth)
             {
-                if (Image.Width > 0 && actualWidth > 24)
-                {
-                    var width = actualWidth;
-
+                 Image.Width = actualWidth;
                     //if (Image.Width < width)
                     //    width = Source.PixelWidth;
 
@@ -99,6 +95,6 @@ namespace MyToolkit.Controls.Html.Generators
                 }
             }
         }
-    }
+    
 }
 

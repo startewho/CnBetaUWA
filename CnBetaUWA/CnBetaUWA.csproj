@@ -90,6 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Data\CnbetaAllTopics.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <Compile Include="Startups\TodayRankPage.cs" />
     <Compile Include="Startups\Top10Page.cs" />
     <Compile Include="Startups\TopicsPage.cs" />
+    <Compile Include="Startups\TopicTypesMangePage.cs" />
     <Compile Include="TodayRankPage.xaml.cs">
       <DependentUpon>TodayRankPage.xaml</DependentUpon>
     </Compile>
@@ -161,6 +163,9 @@
     </Compile>
     <Compile Include="TopicsPage.xaml.cs">
       <DependentUpon>TopicsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TopicTypesMangePage.xaml.cs">
+      <DependentUpon>TopicTypesMangePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CommentsPage_Model.cs" />
     <Compile Include="ViewModels\LatestNewsPage_Model.cs" />
@@ -178,6 +183,7 @@
     <Compile Include="ViewModels\TodayRankPage_Model.cs" />
     <Compile Include="ViewModels\Top10Page_Model.cs" />
     <Compile Include="ViewModels\TopicsPage_Model.cs" />
+    <Compile Include="ViewModels\TopicTypesMangePage_Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -257,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TopicsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TopicTypesMangePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

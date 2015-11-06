@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using CnBetaUWA.Controls;
+using CnBetaUWA.Extensions;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -35,61 +38,60 @@ namespace CnBetaUWA.ViewModels
 
 
 
-        #region Life Time Event Handling
+        public CommandModel<ReactiveCommand, String> CommandNavigateToDetailSettingPage
+        {
+            get { return _CommandNavigateToDetailSettingPageLocator(this).Value; }
+            set { _CommandNavigateToDetailSettingPageLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property CommandModel<ReactiveCommand, String> CommandNavigateToDetailSettingPage Setup        
 
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
+        protected Property<CommandModel<ReactiveCommand, String>> _CommandNavigateToDetailSettingPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNavigateToDetailSettingPageLocator };
+        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNavigateToDetailSettingPageLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandNavigateToDetailSettingPage", model => model.Initialize("CommandNavigateToDetailSettingPage", ref model._CommandNavigateToDetailSettingPage, ref _CommandNavigateToDetailSettingPageLocator, _CommandNavigateToDetailSettingPageDefaultValueFactory));
+        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandNavigateToDetailSettingPageDefaultValueFactory =
+            model =>
+            {
+                var resource = "CommandNavigateToDetailSettingPage";           // Command resource  
+                var commandId = "CommandNavigateToDetailSettingPage";
+                var vm = CastToCurrentType(model);
+                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
 
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
+                cmd.DoExecuteUIBusyTask(
+                        vm,
+                        async e =>
+                        {
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
 
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
+                           
+                            var pageviewer = vm.StageManager.CurrentBindingView as SettingPage;
+                            var masterdetail = pageviewer.GetFirstDescendantOfType<MasterDetailView>();
+                            var tag =Convert.ToInt32(e.EventArgs.Parameter);
+                            switch (tag)
+                            {
+                                case 1:
+                                    masterdetail?.DetailFrameNavigateTo(typeof (TopicTypesMangePage),
+                                        new TopicTypesMangePage_Model(), true);
+                                    break;
+                                case 2:
+                                    masterdetail?.DetailFrameNavigateTo(typeof (TopicTypesMangePage),
+                                        new TopicTypesMangePage_Model(), true);
+                                    break;
+                                default:
+                                    break;
+                            }
+                            //Todo: Add NavigateToDetailSettingPage logic here, or
+                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
+                        })
+                    .DoNotifyDefaultEventRouter(vm, commandId)
+                    .Subscribe()
+                    .DisposeWith(vm);
 
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
+                var cmdmdl = cmd.CreateCommandModel(resource);
+
+                cmdmdl.ListenToIsUIBusy(
+                    model: vm,
+                    canExecuteWhenBusy: false);
+                return cmdmdl;
+            };
 
         #endregion
 
