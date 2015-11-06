@@ -77,10 +77,10 @@ namespace CnBetaUWA.Controls
             {
                 DetailFrame.Navigate(BlankPageType);
             }
-            else
-            {
-                DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
-            }
+            //else
+            //{
+            //    DetailFrame.BackStack.Insert(0, new PageStackEntry(BlankPageType, null, null));
+            //}
 
             _extendSplitView= this.GetFirstAncestorOfType<ExtendSplitView>();
 
@@ -95,19 +95,15 @@ namespace CnBetaUWA.Controls
             {
                 DetailPresenter.Visibility = Visibility.Collapsed;
             }
-            else
-            {
-                DetailPresenter.Visibility = Visibility.Visible;
-            }
 
             if (CurrentState == MasterDetailState.Narrow && IsAnimated)
             {
                
                 if (e.NavigationMode == NavigationMode.New && DetailFrame.BackStackDepth == 1)
                 {
-                    IsMasterHidden = true;
+                    IsMasterHidden = false;
+                    MasterPresenterVisibility(IsMasterHidden);
                     SetAnimation();
-                    
                     if (_extendSplitView != null)
                     {
                         _extendSplitView.IsOpenBottomPane = false;
@@ -115,7 +111,8 @@ namespace CnBetaUWA.Controls
                 }
                 else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
                 {
-                    IsMasterHidden = false;
+                    IsMasterHidden = true;
+                    MasterPresenterVisibility(IsMasterHidden);
                     SetAnimation();
                    
                     if (_extendSplitView != null)
@@ -128,6 +125,7 @@ namespace CnBetaUWA.Controls
             }
 
             SetBackButtonVisibility();
+
             if (!_firestLoad)
             {
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
@@ -140,15 +138,15 @@ namespace CnBetaUWA.Controls
 
         private void SetAnimation()
         {
-            var anim = new DrillInThemeAnimation
-            {
-                EntranceTarget = DetailPresenter,
-                ExitTarget = new Border()
-            };
+            //var anim = new DrillInThemeAnimation
+            //{
+            //    EntranceTarget = DetailPresenter,
+            //    ExitTarget = new Border()
+            //};
 
-            var board = new Storyboard();
-            board.Children.Add(anim);
-            board.Begin();
+            //var board = new Storyboard();
+            //board.Children.Add(anim);
+            //board.Begin();
         }
         private void SetBackButtonVisibility()
         {
@@ -178,7 +176,7 @@ namespace CnBetaUWA.Controls
         {
             ViewStateChanged?.Invoke(this, EventArgs.Empty);
 
-            if (CurrentState == MasterDetailState.Filled && (IsAnimated || IsMasterHidden))
+            if (CurrentState == MasterDetailState.Filled)
             {
                 IsMasterHidden = false;
                 DetailPresenter.Visibility = Visibility.Visible;
@@ -188,23 +186,27 @@ namespace CnBetaUWA.Controls
 
             if (CurrentState==MasterDetailState.Narrow)
             {
+                if (_extendSplitView != null)
+                {
+                    _extendSplitView.IsOpenBottomPane = true;
+                }
+
                 if (DetailFrame.CurrentSourcePageType != BlankPageType)
                 {
-                    if (DetailFrame.CurrentSourcePageType != null)
-                    {
-
-                        DetailPresenter.Visibility = Visibility.Visible;
-                        IsMasterHidden = true;
-                        if (_extendSplitView != null)
-                        {
-                            _extendSplitView.IsOpenBottomPane = false;
-                        }
-                    }
+                 
+                    DetailPresenter.Visibility = Visibility.Visible;
+                    IsMasterHidden = true;
+                    MasterPresenter.Visibility=Visibility.Collapsed;
+                   
                 }
                 else
                 {
                     DetailPresenter.Visibility = Visibility.Collapsed;
+                    IsMasterHidden = false;
+                    MasterPresenter.Visibility = Visibility.Visible;
                 }
+               
+
               
             }
           
@@ -212,6 +214,15 @@ namespace CnBetaUWA.Controls
             SetBackButtonVisibility();
         }
 
+        private void MasterPresenterVisibility(bool visible)
+        {
+            MasterPresenter.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void DetailPresenterVisibility(bool visible)
+        {
+            DetailPresenter.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
+        }
 
         public void DetailFrameNavigateTo(Type pagType, object param,bool clearFrame)
         {

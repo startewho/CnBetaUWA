@@ -19,7 +19,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">
        
      
-        <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="700" >
+        <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="699" >
             <controls:ExtendSplitView.Pane>
                 <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
