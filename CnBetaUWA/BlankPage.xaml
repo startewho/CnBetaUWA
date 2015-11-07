@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationCacheMode="Required"
     mc:Ignorable="d">
-    <Border>
+    <Border Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Image Source="Assets/cnbetaLogo.png"></Image>
     </Border>
     </Page>

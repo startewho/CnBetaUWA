@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MVVMSidekick.ViewModels;
+﻿using MVVMSidekick.ViewModels;
 using Newtonsoft.Json;
 
 namespace CnBetaUWA.Models

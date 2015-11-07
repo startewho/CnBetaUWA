@@ -30,7 +30,7 @@ namespace CnBetaUWA.ViewModels
         }
 
         private bool _isLoaded;
-        private StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(StorageType.Local);
+        private readonly StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(Windows.Storage.ApplicationData.Current.LocalFolder);
         protected override Task OnBindedViewLoad(IView view)
         {
             if (_isLoaded) return base.OnBindedViewLoad(view);

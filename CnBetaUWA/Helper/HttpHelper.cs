@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.Networking;
-using Windows.UI.Popups;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
-using Windows.Web.Http.Headers;
 
 namespace CnBetaUWA.Helper
 {

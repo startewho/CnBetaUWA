@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using MyToolkit.Controls.Html;
-using MyToolkit.Mvvm;
 using MyToolkit.Utilities;
 using MyToolkit.UI;
 using Windows.UI.Xaml;

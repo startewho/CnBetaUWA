@@ -3,7 +3,6 @@ using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Extensions;
@@ -50,7 +49,7 @@ namespace CnBetaUWA.Controls
 
         private void OnAcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs args)
         {
-            if ((args.EventType == CoreAcceleratorKeyEventType.SystemKeyDown || args.EventType == CoreAcceleratorKeyEventType.KeyDown) && (args.VirtualKey == VirtualKey.Escape))
+            if ((args.EventType == CoreAcceleratorKeyEventType.SystemKeyDown || args.EventType == CoreAcceleratorKeyEventType.KeyDown) && (args.VirtualKey == VirtualKey.Escape||args.VirtualKey==VirtualKey.Back))
             {
                 if (!DetailFrame.CanGoBack || CurrentState != MasterDetailState.Narrow) return;
                 DetailFrame.GoBack();
@@ -163,15 +162,15 @@ namespace CnBetaUWA.Controls
 
         private void SetAnimation()
         {
-            //var anim = new DrillInThemeAnimation
-            //{
-            //    EntranceTarget = DetailPresenter,
-            //    ExitTarget = new Border()
-            //};
+            var anim = new DrillInThemeAnimation
+            {
+                EntranceTarget = DetailPresenter,
+                ExitTarget = new Border()
+            };
 
-            //var board = new Storyboard();
-            //board.Children.Add(anim);
-            //board.Begin();
+            var board = new Storyboard();
+            board.Children.Add(anim);
+            board.Begin();
         }
 
         private void SetBackButtonVisibility()

@@ -5,20 +5,17 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-using MVVMSidekick.EventRouting;
 using MVVMSidekick.Reactive;
 using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MyToolkit.Controls;
-using MyToolkit.Messaging;
 
 namespace CnBetaUWA.ViewModels
 {

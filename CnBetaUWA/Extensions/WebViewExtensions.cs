@@ -5,10 +5,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
 using Windows.Web;
-using Windows.Web.Http;
-using CnBetaUWA.Helper;
 using Q42.WinRT.Data;
 namespace CnBetaUWA.Extensions
 {
