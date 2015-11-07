@@ -32,7 +32,6 @@ namespace CnBetaUWA.ViewModels
         {
           
             GetData();
-           
             return base.OnBindedViewLoad(view);
 
         }
