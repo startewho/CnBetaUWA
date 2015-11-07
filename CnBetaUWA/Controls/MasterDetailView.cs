@@ -91,37 +91,64 @@ namespace CnBetaUWA.Controls
 
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
-            if (CurrentState == MasterDetailState.Narrow && e.SourcePageType == BlankPageType)
-            {
-                DetailPresenter.Visibility = Visibility.Collapsed;
-            }
+           
 
-            if (CurrentState == MasterDetailState.Narrow && IsAnimated)
+            switch (CurrentState)
             {
-               
-                if (e.NavigationMode == NavigationMode.New && DetailFrame.BackStackDepth == 1)
-                {
+                case MasterDetailState.Narrow:
+                    if (e.SourcePageType != BlankPageType)
+                    {
+                        switch (e.NavigationMode)
+                        {
+                            case NavigationMode.New:
+                                IsMasterHidden = false;
+                                MasterPresenterVisibility(IsMasterHidden);
+                                DetailPresenterVisibility(!IsMasterHidden);
+                                SetAnimation();
+                                if (_extendSplitView != null)
+                                {
+                                    _extendSplitView.IsOpenBottomPane = false;
+                                }
+                                break;
+                            case NavigationMode.Back:
+                                IsMasterHidden = false;
+                                DetailPresenterVisibility(true);
+                                MasterPresenterVisibility(false);
+                                SetAnimation();
+                                break;
+                            case NavigationMode.Forward:
+                                break;
+                            case NavigationMode.Refresh:
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
+                    }
+                    else
+                    {
+                        IsMasterHidden = true;
+                        MasterPresenterVisibility(IsMasterHidden);
+                        DetailPresenterVisibility(!IsMasterHidden);
+                        switch (DetailFrame.BackStackDepth)
+                        {
+                            case 0:
+                                if (_extendSplitView != null)
+                                {
+                                    _extendSplitView.IsOpenBottomPane = true;
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
+
+                case MasterDetailState.Filled:
+
                     IsMasterHidden = false;
-                    MasterPresenterVisibility(IsMasterHidden);
+                    MasterPresenterVisibility(true);
+                    DetailPresenterVisibility(true);
                     SetAnimation();
-                    if (_extendSplitView != null)
-                    {
-                        _extendSplitView.IsOpenBottomPane = false;
-                    }
-                }
-                else if (e.NavigationMode == NavigationMode.Back && DetailFrame.BackStackDepth == 0)
-                {
-                    IsMasterHidden = true;
-                    MasterPresenterVisibility(IsMasterHidden);
-                    SetAnimation();
-                   
-                    if (_extendSplitView != null)
-                    {
-                        _extendSplitView.IsOpenBottomPane = true;
-                    }
-                }
-
-              
+                    break;
             }
 
             SetBackButtonVisibility();
@@ -131,8 +158,6 @@ namespace CnBetaUWA.Controls
                 SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
                 _firestLoad = true;
             }
-
-          
         }
 
 
@@ -148,14 +173,11 @@ namespace CnBetaUWA.Controls
             //board.Children.Add(anim);
             //board.Begin();
         }
+
         private void SetBackButtonVisibility()
         {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
-                DetailFrame.CanGoBack && CurrentState == MasterDetailState.Narrow
-                ? AppViewBackButtonVisibility.Visible
-                : AppViewBackButtonVisibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = DetailFrame.CanGoBack && CurrentState == MasterDetailState.Narrow ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
         }
-
 
 
         private void OnBackRequested(object sender, BackRequestedEventArgs e)
@@ -167,49 +189,44 @@ namespace CnBetaUWA.Controls
             }
             if (IsMasterHidden)
             {
-                MasterPresenter.Visibility=Visibility.Visible;
+                MasterPresenter.Visibility = Visibility.Visible;
             }
         }
-    
+
 
         private void OnCurrentStateChanged(object sender, VisualStateChangedEventArgs e)
         {
             ViewStateChanged?.Invoke(this, EventArgs.Empty);
-
-            if (CurrentState == MasterDetailState.Filled)
+            
+            switch (CurrentState)
             {
-                IsMasterHidden = false;
-                DetailPresenter.Visibility = Visibility.Visible;
-                MasterPresenter.Visibility=Visibility.Visible;
-                SetAnimation();
-            }
-
-            if (CurrentState==MasterDetailState.Narrow)
-            {
-                if (_extendSplitView != null)
-                {
-                    _extendSplitView.IsOpenBottomPane = true;
-                }
-
-                if (DetailFrame.CurrentSourcePageType != BlankPageType)
-                {
-                 
-                    DetailPresenter.Visibility = Visibility.Visible;
-                    IsMasterHidden = true;
-                    MasterPresenter.Visibility=Visibility.Collapsed;
-                   
-                }
-                else
-                {
-                    DetailPresenter.Visibility = Visibility.Collapsed;
+                case MasterDetailState.Narrow:
+                  
+                    if (DetailFrame.CurrentSourcePageType != BlankPageType)
+                    {
+                        DetailPresenter.Visibility = Visibility.Visible;
+                        IsMasterHidden = true;
+                        MasterPresenter.Visibility = Visibility.Collapsed;
+                        _extendSplitView.IsOpenBottomPane = false;
+                    }
+                    else
+                    {
+                        DetailPresenter.Visibility = Visibility.Collapsed;
+                        IsMasterHidden = false;
+                        MasterPresenter.Visibility = Visibility.Visible;
+                        _extendSplitView.IsOpenBottomPane = true;
+                    }
+                    break;
+                case MasterDetailState.Filled:
                     IsMasterHidden = false;
-                    MasterPresenter.Visibility = Visibility.Visible;
-                }
-               
-
-              
+                    MasterPresenterVisibility(true);
+                    DetailPresenterVisibility(true);
+                    SetAnimation();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-          
+
 
             SetBackButtonVisibility();
         }
@@ -224,95 +241,89 @@ namespace CnBetaUWA.Controls
             DetailPresenter.Visibility = visible ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        public void DetailFrameNavigateTo(Type pagType, object param,bool clearFrame)
+        public void DetailFrameNavigateTo(Type pagType, object param, bool clearFrame)
         {
             DetailFrame.Navigate(pagType, param);
 
-            if (clearFrame&&DetailFrame.BackStackDepth>1)
+            if (clearFrame && DetailFrame.BackStackDepth > 1)
             {
-              DetailFrame.BackStack.RemoveAt(1);
+                DetailFrame.BackStack.RemoveAt(1);
             }
-           
         }
+
         public MasterDetailState CurrentState
         {
-            get
-            {
-                return AdaptiveStates.CurrentState?.Name == NarrowState ? MasterDetailState.Narrow : MasterDetailState.Filled;
-            }
+            get { return AdaptiveStates.CurrentState?.Name == NarrowState ? MasterDetailState.Narrow : MasterDetailState.Filled; }
         }
 
         public event EventHandler ViewStateChanged;
-
 
 
         public Type PageType
         {
             get
             {
-                if (PageTypeProperty!=null)
+                if (PageTypeProperty != null)
                 {
-                    return (Type)GetValue(PageTypeProperty);
+                    return (Type) GetValue(PageTypeProperty);
                 }
                 return null;
             }
             set
             {
-                if (value!=null)
+                if (value != null)
                 {
                     SetValue(PageTypeProperty, value);
                 }
-              
             }
         }
 
         // Using a DependencyProperty as the backing store for PageType.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PageTypeProperty =
-            DependencyProperty.Register("PageType", typeof(Type), typeof(Page), new PropertyMetadata(null,OnPageTypeChanged));
+        public static readonly DependencyProperty PageTypeProperty = DependencyProperty.Register("PageType", typeof (Type), typeof (Page), new PropertyMetadata(null, OnPageTypeChanged));
 
         private static void OnPageTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var pagetype = e.NewValue as Type;
-            if (pagetype!=null&&DetailFrame!=null)
+            if (pagetype != null && DetailFrame != null)
             {
                 DetailFrame.SourcePageType = pagetype;
             }
-           
         }
 
-
-
         #region BlankType
+
         public Type BlankPageType
         {
-            get { return (Type)GetValue(BlankPageTypeProperty); }
+            get { return (Type) GetValue(BlankPageTypeProperty); }
             set { SetValue(BlankPageTypeProperty, value); }
         }
 
-        public static readonly DependencyProperty BlankPageTypeProperty =
-            DependencyProperty.Register("BlankPageType", typeof(Type), typeof(MasterDetailView), new PropertyMetadata(typeof(BlankPage)));
+        public static readonly DependencyProperty BlankPageTypeProperty = DependencyProperty.Register("BlankPageType", typeof (Type), typeof (MasterDetailView), new PropertyMetadata(typeof (BlankPage)));
+
         #endregion
 
         #region StrokeThickness
+
         public double StrokeThickness
         {
-            get { return (double)GetValue(StrokeThicknessProperty); }
+            get { return (double) GetValue(StrokeThicknessProperty); }
             set { SetValue(StrokeThicknessProperty, value); }
         }
 
-        public static readonly DependencyProperty StrokeThicknessProperty =
-            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(MasterDetailView), new PropertyMetadata(1d));
+        public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register("StrokeThickness", typeof (double), typeof (MasterDetailView), new PropertyMetadata(1d));
+
         #endregion
 
         #region IsAnimated
+
         public bool IsAnimated
         {
-            get { return (bool)GetValue(IsAnimatedProperty); }
+            get { return (bool) GetValue(IsAnimatedProperty); }
             set { SetValue(IsAnimatedProperty, value); }
         }
 
-        public static readonly DependencyProperty IsAnimatedProperty =
-            DependencyProperty.Register("IsAnimated", typeof(bool), typeof(MasterDetailView), new PropertyMetadata(true));
+        public static readonly DependencyProperty IsAnimatedProperty = DependencyProperty.Register("IsAnimated", typeof (bool), typeof (MasterDetailView), new PropertyMetadata(true));
+
         #endregion
     }
 
