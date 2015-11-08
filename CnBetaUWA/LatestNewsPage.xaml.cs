@@ -2,6 +2,7 @@
 using CnBetaUWA.ViewModels;
 using MVVMSidekick.Views;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -83,5 +84,18 @@ namespace CnBetaUWA
         {
            
         }
+
+        //private void ListViewBase_OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        //{
+        //    var itemcount = sender.Items.Count;
+        //    for (int i = itemcount-1; i > 0; i--)
+        //    {
+        //        var container = sender.ContainerFromIndex(i);
+        //        if (container != null)
+        //        {
+        //            var listviewitem = sender.ContainerFromIndex(i+1);
+        //        }
+        //    }
+        //}
     }
 }

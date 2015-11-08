@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MyToolkit.Controls;
-
+using System.Text;
 namespace CnBetaUWA.ViewModels
 {
 
@@ -29,12 +30,17 @@ namespace CnBetaUWA.ViewModels
         private bool _isLoaded;
         public NewsPage_Model()
         {
-       
+
+    
+
+
+
         }
         public NewsPage_Model(News model)
         {
             Vm = model;
-          
+      
+
         }
 
         public News Vm { get; set; }
@@ -74,7 +80,7 @@ namespace CnBetaUWA.ViewModels
             {
 
                 NewsContent = ModelHelper.JsonToNewsContent(content);
-                var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Html/ContentTemplate.html"));
+                var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/ContentTemplate.html"));
 
                 html = html.Replace("#Date", Vm.CreatTime);
              

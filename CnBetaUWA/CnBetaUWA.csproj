@@ -90,7 +90,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="Data\CnbetaAllTopics.json" />
+    <Content Include="AppData\CnbetaAllTopics.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +116,8 @@
     <Compile Include="Converters\ListViewItemStyleSelector.cs" />
     <Compile Include="Converters\ObjectToMenuItemConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="DataBase\DataBase.cs" />
+    <Compile Include="DataBase\NewsDataTable.cs" />
     <Compile Include="DataSource\IncrementalLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalNewsCommentPageSource.cs" />
     <Compile Include="DataSource\IncrementalPageLoadingCollection.cs" />
@@ -200,10 +202,10 @@
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="Assets\Square71x71Logo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Html\ContentTemplate_Bak.html" />
-    <Content Include="Html\jquery.min.js" />
-    <Content Include="Html\ContentTemplate.html" />
-    <Content Include="Html\Styles.css" />
+    <Content Include="AppData\ContentTemplate_Bak.html" />
+    <Content Include="AppData\jquery.min.js" />
+    <Content Include="AppData\ContentTemplate.html" />
+    <Content Include="AppData\Styles.css" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
@@ -274,6 +276,12 @@
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UAP.2015, Version=3.9.2">
+      <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
