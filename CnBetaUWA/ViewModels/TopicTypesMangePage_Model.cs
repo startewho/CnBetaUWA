@@ -8,7 +8,8 @@ using System.Runtime.Serialization;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-
+using Q42.WinRT.Storage;
+using CnBetaUWA.Extensions;
 namespace CnBetaUWA.ViewModels
 {
 
@@ -31,13 +32,46 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewLoad(IView view)
         {
-          TopicTypes=new IncrementalPageLoadingCollection<IncrementalTopicTypePageSource, TopicType>("",0,20);
-           
+            if (!_isLoaded)
+            {
+                TopicTypes = new IncrementalPageLoadingCollection<IncrementalTopicTypePageSource, TopicType>("", 0, 20);
+                _isLoaded = true;
+            }
+          
             return base.OnBindedViewLoad(view);
         }
 
+        private bool _isLoaded;
+        protected override Task OnBindedViewUnload(IView view)
+        {
+            var lists = new List<TopicType>();
+            var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics, null);
+            var settingtopics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
+            settingtopics.AddRange(TopicTypes.Where(item => item.IsSelected));
+            foreach (var settingtopic in settingtopics)
+            {
+                foreach (var topicType in TopicTypes)
+                {
+                    if (settingtopic.Id==topicType.Id)
+                    {
+                        settingtopic.IsSelected = topicType.IsSelected;
+                    }
+                   
+                }
+                if (settingtopic.IsSelected)
+                {
+                    lists.Add(settingtopic);
+                }
+            }
 
 
+            
+       
+            var newjsontopics = SerializerHelper.ToJson(lists.Distinct(item=>item.Id).Take(5));
+            SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, newjsontopics);
+            
+            return base.OnBindedViewUnload(view);
+        }
 
 
         public IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType> TopicTypes

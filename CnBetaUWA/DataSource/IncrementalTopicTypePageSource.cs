@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-using ImageLib.Helpers;
+using Q42.WinRT.Storage;
 
 namespace CnBetaUWA.DataSource
 {
@@ -16,11 +15,24 @@ namespace CnBetaUWA.DataSource
         private async Task<IEnumerable<TopicType>> GetData()
         {
             var jsontext = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/CnbetaAllTopics.json"));
-
-           return ModelHelper.JsonToTopicTypes(jsontext);
+            var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics);
+            var settingtopics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
+            var alltopics= ModelHelper.JsonToTopicTypes(jsontext).ToList();
+            foreach (var settingtopicType in settingtopics)
+            {
+                foreach (var topictype in alltopics)
+                {
+                    if (settingtopicType.Id==topictype.Id)
+                    {
+                        topictype.IsSelected = settingtopicType.IsSelected;
+                    }
+                }
+                
+            }
+            return alltopics;
         }
 
-        private List<TopicType> _sourceCollection; 
+        private static List<TopicType> _sourceCollection; 
 
         public Task<IEnumerable<TopicType>> GetLastestItems(string query)
         {

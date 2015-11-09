@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using CnBetaUWA.DataSource;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using ImageLib.Helpers;
 using MVVMSidekick.ViewModels;

@@ -182,9 +182,10 @@
                <ColumnDefinition Width="*" />
                <ColumnDefinition Width="50" />
            </Grid.ColumnDefinitions>
-            <imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
+            <!--<imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
+            <Image Source="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
             <TextBlock Text="{Binding Name}" Grid.Column="1" VerticalAlignment="Center"/>
-            <CheckBox IsChecked="{Binding IsSelected}" Grid.Column="2" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Grid.Column="2" VerticalAlignment="Center"/>
        </Grid>
    </DataTemplate>
 

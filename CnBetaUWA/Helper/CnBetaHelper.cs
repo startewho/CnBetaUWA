@@ -22,12 +22,15 @@ namespace CnBetaUWA.Helper
         public static string HtmlPath = "/LocalCache/HtmlCache/{0}.html";
         public static string HtmlFolder = "HtmlCache/";
 
+        
 
 
         public static string SettingNightMode = nameof(SettingNightMode);
         public static string SettingImageMode = nameof(SettingImageMode);
         public static string SettingFontSize = nameof(SettingFontSize);
         public static string SettingSelectedTotics = nameof(SettingSelectedTotics);
+
+        
         public static string GetRealTimeNewsUri()
         {
             var url = ApiUrl + "jsoncallback=jQuery18008753548712314047_" + HttpHelper.ToTimestamp(DateTime.Now)

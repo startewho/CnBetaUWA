@@ -86,15 +86,14 @@ namespace CnBetaUWA
         }
         private  static void InitImagLab()
         {
-         
-            ImageConfig.Initialize(new ImageConfig.Builder()
+
+            ImageLoader.Initialize(new ImageConfig.Builder()
             {
                 CacheMode = ImageLib.Cache.CacheMode.MemoryAndStorageCache,
-                IsLogEnabled = true,
-                MemoryCacheImpl = new WeakMemoryCache<string, IRandomAccessStream>(),
+                MemoryCacheImpl = new LRUCache<string, IRandomAccessStream>(),
                 StorageCacheImpl = new LimitedStorageCache(ApplicationData.Current.LocalCacheFolder,
-              "ImagLabCache", new SHA1CacheGenerator(), 1024 * 1024 * 1024)
-            }.AddDecoder<GifDecoder>().Build());
+                 "ImageCache", new SHA1CacheGenerator(), 1024 * 1024 * 1024)
+            }.AddDecoder<GifDecoder>().Build(), false);
         }
 
         private async static void InitQ42()

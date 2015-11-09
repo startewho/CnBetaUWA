@@ -123,6 +123,7 @@
     <Compile Include="DataSource\IncrementalNewsCommentPageSource.cs" />
     <Compile Include="DataSource\IncrementalPageLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalNewsSource.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\ListViewExtensioncs.cs" />
     <Compile Include="Extensions\WebViewExtensions.cs" />
     <Compile Include="Helper\AppViewHelper.cs" />

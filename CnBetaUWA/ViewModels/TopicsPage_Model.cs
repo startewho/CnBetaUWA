@@ -43,10 +43,10 @@ namespace CnBetaUWA.ViewModels
             {
                 var oldtopic = e.EventArgs.OldValue;
                 var newtopic = e.EventArgs.NewValue;
-                SaveAction(oldtopic);
+              //  SaveAction(oldtopic);
                 oldtopic.IsSelected = false;
                 newtopic.IsSelected = true;
-                LoadAction(newtopic);
+               LoadAction(newtopic);
             }).DisposeWith(this);
 
         }
