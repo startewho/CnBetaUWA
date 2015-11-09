@@ -1,391 +1,2271 @@
-[{"NameIndex":"A","Index":3,"Name":"ATI","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 9-18-16 AM.gif"},
-{"NameIndex":"A","Index":9,"Name":"Apple 苹果","LogoUrl":"http://static.cnbetacdn.com/topics/9316c1276dda58a.png"},
-{"NameIndex":"A","Index":13,"Name":"Adobe","LogoUrl":"http://static.cnbetacdn.com/topics/adobe.gif"},
-{"NameIndex":"A","Index":42,"Name":"AMD","LogoUrl":"http://static.cnbetacdn.com/topics/amdcn.gif"},
-{"NameIndex":"A","Index":49,"Name":"AOL / AIM","LogoUrl":"http://static.cnbetacdn.com/topics/aol.gif"},
-{"NameIndex":"A","Index":50,"Name":"Apple QuickTime","LogoUrl":"http://static.cnbetacdn.com/topics/quicktimex.gif"},
-{"NameIndex":"A","Index":53,"Name":"ACDSee","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 11-41-41.gif"},
-{"NameIndex":"A","Index":59,"Name":"Apache OpenOffice","LogoUrl":"http://static.cnbetacdn.com/topics/1386209213.gif"},
-{"NameIndex":"A","Index":66,"Name":"Apple iTunes / App Store","LogoUrl":"http://static.cnbetacdn.com/topics/d7a79f321c9aa99.png"},
-{"NameIndex":"A","Index":79,"Name":"Apple Mac OS X","LogoUrl":"http://static.cnbetacdn.com/topics/osx.gif"},
-{"NameIndex":"A","Index":93,"Name":"ASUS 华硕","LogoUrl":"http://static.cnbetacdn.com/topics/asus.gif"},
-{"NameIndex":"A","Index":118,"Name":"Alcohol","LogoUrl":"http://static.cnbetacdn.com/topics/118_alcohol.gif"},
-{"NameIndex":"A","Index":158,"Name":"Apple Safari","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 1-48-20 AM.gif"},
-{"NameIndex":"A","Index":169,"Name":"AnyDVD","LogoUrl":"http://static.cnbetacdn.com/topics/anydvd.gif"},
-{"NameIndex":"A","Index":183,"Name":"AutoDesk","LogoUrl":"http://static.cnbetacdn.com/topics/183_autodesk.gif"},
-{"NameIndex":"A","Index":188,"Name":"Avant Browser","LogoUrl":"http://static.cnbetacdn.com/topics/188_avant.gif"},
-{"NameIndex":"A","Index":325,"Name":"ARSwp Windows 清理助手","LogoUrl":"http://static.cnbetacdn.com/topics/logo_14.gif"},
-{"NameIndex":"A","Index":343,"Name":"Apple iPod","LogoUrl":"http://static.cnbetacdn.com/topics/12-09-13 08-16-08.gif"},
-{"NameIndex":"A","Index":346,"Name":"avast! Antivirus","LogoUrl":"http://static.cnbetacdn.com/topics/avastav.gif"},
-{"NameIndex":"A","Index":356,"Name":"Ashampoo","LogoUrl":"http://static.cnbetacdn.com/topics/Ashampoo.gif"},
-{"NameIndex":"A","Index":364,"Name":"Avira AntiVir","LogoUrl":"http://static.cnbetacdn.com/topics/avira.gif"},
-{"NameIndex":"A","Index":370,"Name":"AVG Antivirus","LogoUrl":"http://static.cnbetacdn.com/topics/avg.gif"},
-{"NameIndex":"A","Index":379,"Name":"Apple iPhone","LogoUrl":"http://static.cnbetacdn.com/topics/1410918123.png"},
-{"NameIndex":"A","Index":464,"Name":"Apple iPad","LogoUrl":"http://static.cnbetacdn.com/topics/1410918153.png"},
-{"NameIndex":"A","Index":535,"Name":"Apple Watch","LogoUrl":"http://static.cnbetacdn.com/topics/0b0d9526b3a0ab9.png"},
-{"NameIndex":"B","Index":77,"Name":"BitTorrent","LogoUrl":"http://static.cnbetacdn.com/topics/bittorrent.gif"},
-{"NameIndex":"B","Index":200,"Name":"BitSpirit 比特精灵","LogoUrl":"http://static.cnbetacdn.com/topics/200_bitspirit.gif"},
-{"NameIndex":"B","Index":209,"Name":"BitComet","LogoUrl":"http://static.cnbetacdn.com/topics/bitcomet1.gif"},
-{"NameIndex":"B","Index":232,"Name":"BlackIce","LogoUrl":"http://static.cnbetacdn.com/topics/232_blackice.gif"},
-{"NameIndex":"B","Index":261,"Name":"Baidu 百度","LogoUrl":"http://static.cnbetacdn.com/topics/aada0e439b8da89.png"},
-{"NameIndex":"B","Index":376,"Name":"Bluetooth 蓝牙","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 2-11-24 AM.gif"},
-{"NameIndex":"B","Index":377,"Name":"Blu-Ray Disc 蓝光","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 2-16-36 AM.gif"},
-{"NameIndex":"B","Index":400,"Name":"Blog 博客","LogoUrl":"http://static.cnbetacdn.com/topics/blog.gif"},
-{"NameIndex":"B","Index":411,"Name":"BlackBerry 黑莓","LogoUrl":"http://static.cnbetacdn.com/topics/blackberry.gif"},
-{"NameIndex":"B","Index":414,"Name":"BitDefender","LogoUrl":"http://static.cnbetacdn.com/topics/2011-9-20 11-28-03.gif"},
-{"NameIndex":"B","Index":419,"Name":"Blizzard 暴雪","LogoUrl":"http://static.cnbetacdn.com/topics/blizzard.gif"},
-{"NameIndex":"C","Index":8,"Name":"cnBeta 软件新闻","LogoUrl":"http://static.cnbetacdn.com/topics/1386207221.gif"},
-{"NameIndex":"C","Index":70,"Name":"cnBeta 硬件新闻","LogoUrl":"http://static.cnbetacdn.com/topics/hardware.gif"},
-{"NameIndex":"C","Index":105,"Name":"CA technologies","LogoUrl":"http://static.cnbetacdn.com/topics/2010-5-18 8-10-56.gif"},
-{"NameIndex":"C","Index":125,"Name":"cnBeta 原创独家","LogoUrl":"http://static.cnbetacdn.com/topics/original.gif"},
-{"NameIndex":"C","Index":135,"Name":"cnBeta 人物 - Bill Gates","LogoUrl":"http://static.cnbetacdn.com/topics/6289ff1e0f2de7f.png"},
-{"NameIndex":"C","Index":165,"Name":"cnBeta 七日谈","LogoUrl":"http://static.cnbetacdn.com/topics/0834692ea183f84.png"},
-{"NameIndex":"C","Index":186,"Name":"CloneCD / CloneDVD","LogoUrl":"http://static.cnbetacdn.com/topics/clonecd.gif"},
-{"NameIndex":"C","Index":219,"Name":"Counter-Strike 反恐精英 / 半条命","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 2-22-09 AM.gif"},
-{"NameIndex":"C","Index":228,"Name":"Cisco 思科","LogoUrl":"http://static.cnbetacdn.com/topics/228_cisco.gif"},
-{"NameIndex":"C","Index":243,"Name":"Cellphones 手机","LogoUrl":"http://static.cnbetacdn.com/topics/cell.gif"},
-{"NameIndex":"C","Index":245,"Name":"cnBeta 精品软件","LogoUrl":"http://static.cnbetacdn.com/topics/cbsoft.gif"},
-{"NameIndex":"C","Index":246,"Name":"cnBeta 精品驱动","LogoUrl":"http://static.cnbetacdn.com/topics/drivers.gif"},
-{"NameIndex":"C","Index":260,"Name":"cnBeta 最新消息","LogoUrl":"http://static.cnbetacdn.com/topics/8e366435864b910.png"},
-{"NameIndex":"C","Index":291,"Name":"cnBeta 团队新闻","LogoUrl":"http://static.cnbetacdn.com/topics/9cf4a8edf8d0f3c.png"},
-{"NameIndex":"C","Index":293,"Name":"cnBeta 网站推介","LogoUrl":"http://static.cnbetacdn.com/topics/7196181f9e9a3de.png"},
-{"NameIndex":"C","Index":294,"Name":"CuteFTP","LogoUrl":"http://static.cnbetacdn.com/topics/294_cuteftp.gif"},
-{"NameIndex":"C","Index":305,"Name":"cnBeta 视点观察","LogoUrl":"http://static.cnbetacdn.com/topics/201fc12d7e546a0.png"},
-{"NameIndex":"C","Index":306,"Name":"cnBeta 访客互动","LogoUrl":"http://static.cnbetacdn.com/topics/ea7b1eb14c6d020.png"},
-{"NameIndex":"C","Index":311,"Name":"cnBeta 博客文摘","LogoUrl":"http://static.cnbetacdn.com/topics/aef6d47889f95b7.png"},
-{"NameIndex":"C","Index":316,"Name":"China Telecom 中国电信","LogoUrl":"http://static.cnbetacdn.com/topics/b221d21ee42e75d.png"},
-{"NameIndex":"C","Index":348,"Name":"China Mobile 中国移动","LogoUrl":"http://static.cnbetacdn.com/topics/d1727b9ae21e1e3.png"},
-{"NameIndex":"C","Index":350,"Name":"CCleaner","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-28 04-14-52.gif"},
-{"NameIndex":"C","Index":357,"Name":"CyberLink PowerDVD","LogoUrl":"http://static.cnbetacdn.com/topics/powerdvd.gif"},
-{"NameIndex":"C","Index":358,"Name":"China Mobile Fetion 飞信","LogoUrl":"http://static.cnbetacdn.com/topics/ec6b83eca06d85e.png"},
-{"NameIndex":"C","Index":369,"Name":"cnBeta 人物 - Steve Jobs","LogoUrl":"http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg"},
-{"NameIndex":"C","Index":375,"Name":"cnBeta 人物 - Steve Ballmer","LogoUrl":"http://static.cnbetacdn.com/topics/d6c66b3becf1a4c.jpg"},
-{"NameIndex":"C","Index":391,"Name":"China Unicom 中国联通","LogoUrl":"http://static.cnbetacdn.com/topics/884bc7f6b70e428.png"},
-{"NameIndex":"C","Index":420,"Name":"comsenz 康盛创想 / Discuz!","LogoUrl":"http://static.cnbetacdn.com/topics/comsenz.gif"},
-{"NameIndex":"C","Index":424,"Name":"CHINA 中国","LogoUrl":"http://static.cnbetacdn.com/topics/china.gif"},
-{"NameIndex":"C","Index":425,"Name":"cFos Software","LogoUrl":"http://static.cnbetacdn.com/topics/cfos.gif"},
-{"NameIndex":"C","Index":428,"Name":"cnBeta 人物 - 马云","LogoUrl":"http://static.cnbetacdn.com/topics/0638f8cec914846.jpg"},
-{"NameIndex":"C","Index":430,"Name":"cnBeta 现场报道","LogoUrl":"http://static.cnbetacdn.com/topics/445d09e1000e41b.png"},
-{"NameIndex":"C","Index":432,"Name":"Creative 创新","LogoUrl":"http://static.cnbetacdn.com/topics/creative.gif"},
-{"NameIndex":"C","Index":448,"Name":"cnBeta 科学探索","LogoUrl":"http://static.cnbetacdn.com/topics/79d0969d43aab92.png"},
-{"NameIndex":"C","Index":451,"Name":"cnBeta 硬件 - 摄影器材","LogoUrl":"http://static.cnbetacdn.com/topics/1ce83500eac07e2.png"},
-{"NameIndex":"C","Index":453,"Name":"cnBeta 人物","LogoUrl":"http://static.cnbetacdn.com/topics/97823206d522f55.jpg"},
-{"NameIndex":"C","Index":466,"Name":"cnBeta 专栏","LogoUrl":"http://static.cnbetacdn.com/topics/49180707755b808.jpg"},
-{"NameIndex":"C","Index":479,"Name":"cnBeta 评测室","LogoUrl":"http://static.cnbetacdn.com/topics/1ac594fa2d6ecb0.png"},
-{"NameIndex":"C","Index":488,"Name":"cnBeta 人物 - Tim Cook","LogoUrl":"http://static.cnbetacdn.com/topics/be31c649af25b9f.png"},
-{"NameIndex":"C","Index":491,"Name":"Chubao 触宝输入法","LogoUrl":"http://static.cnbetacdn.com/topics/4d2a390409b3dc6.png"},
-{"NameIndex":"C","Index":495,"Name":"Camera 360","LogoUrl":"http://static.cnbetacdn.com/topics/3cd4fcc515a2020.png"},
-{"NameIndex":"C","Index":525,"Name":"Coocaa 创维酷开","LogoUrl":"http://static.cnbetacdn.com/topics/5c0065f3b50f107.png"},
-{"NameIndex":"D","Index":82,"Name":"DELL 戴尔","LogoUrl":"http://static.cnbetacdn.com/topics/dell.gif"},
-{"NameIndex":"D","Index":121,"Name":"DVD","LogoUrl":"http://static.cnbetacdn.com/topics/121_dvd.gif"},
-{"NameIndex":"D","Index":191,"Name":"DAEMON Tools","LogoUrl":"http://static.cnbetacdn.com/topics/daemon.gif"},
-{"NameIndex":"D","Index":218,"Name":"DreamMail 梦幻快车","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-53-08.gif"},
-{"NameIndex":"D","Index":253,"Name":"DivX Codec","LogoUrl":"http://static.cnbetacdn.com/topics/divx.gif"},
-{"NameIndex":"D","Index":256,"Name":"电子商务 - C2C","LogoUrl":"http://static.cnbetacdn.com/topics/09afef83c4df10b.png"},
-{"NameIndex":"D","Index":281,"Name":"电子商务 - 支付平台","LogoUrl":"http://static.cnbetacdn.com/topics/20f9edcfe5778b0.png"},
-{"NameIndex":"D","Index":353,"Name":"电子商务 - B2C / B2B","LogoUrl":"http://static.cnbetacdn.com/topics/4fe416f1fb73112.png"},
-{"NameIndex":"D","Index":431,"Name":"Debian GNU/Linux","LogoUrl":"http://static.cnbetacdn.com/topics/debian.gif"},
-{"NameIndex":"D","Index":502,"Name":"Duzhe 读者手机","LogoUrl":"http://static.cnbetacdn.com/topics/7ed2e10fff7b92a.png"},
-{"NameIndex":"E","Index":54,"Name":"eMule","LogoUrl":"http://static.cnbetacdn.com/topics/054_172_emule.gif"},
-{"NameIndex":"E","Index":171,"Name":"emEditor","LogoUrl":"http://static.cnbetacdn.com/topics/171_emeditor.gif"},
-{"NameIndex":"E","Index":194,"Name":"email 电子邮件","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-48-36.gif"},
-{"NameIndex":"E","Index":229,"Name":"Edit+","LogoUrl":"http://static.cnbetacdn.com/topics/229_edit+.gif"},
-{"NameIndex":"E","Index":449,"Name":"EA Games","LogoUrl":"http://static.cnbetacdn.com/topics/ea.gif"},
-{"NameIndex":"F","Index":36,"Name":"FTPRush","LogoUrl":"http://static.cnbetacdn.com/topics/036_ftprush.gif"},
-{"NameIndex":"F","Index":72,"Name":"FlashFXP","LogoUrl":"http://static.cnbetacdn.com/topics/072_flashfxp.gif"},
-{"NameIndex":"F","Index":104,"Name":"FreeBSD","LogoUrl":"http://static.cnbetacdn.com/topics/freebsd.gif"},
-{"NameIndex":"F","Index":108,"Name":"foobar2000","LogoUrl":"http://static.cnbetacdn.com/topics/foobar2000.gif"},
-{"NameIndex":"F","Index":166,"Name":"Flashget 快车","LogoUrl":"http://static.cnbetacdn.com/topics/flashget.gif"},
-{"NameIndex":"F","Index":189,"Name":"FileZilla","LogoUrl":"http://static.cnbetacdn.com/topics/filezilla.gif"},
-{"NameIndex":"F","Index":262,"Name":"FlashBT","LogoUrl":"http://static.cnbetacdn.com/topics/262_flashbt.gif"},
-{"NameIndex":"F","Index":277,"Name":"Foxit Reader 福昕阅读器","LogoUrl":"http://static.cnbetacdn.com/topics/2013-04-18_08-29-22.gif"},
-{"NameIndex":"F","Index":280,"Name":"FeedDemon","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-57-06.gif"},
-{"NameIndex":"F","Index":363,"Name":"FastStone","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-55-30.gif"},
-{"NameIndex":"F","Index":435,"Name":"Flock","LogoUrl":"http://static.cnbetacdn.com/topics/flock.gif"},
-{"NameIndex":"F","Index":470,"Name":"Foxconn 富士康","LogoUrl":"http://static.cnbetacdn.com/topics/2010-5-21 11-56-16.gif"},
-{"NameIndex":"G","Index":52,"Name":"Google / 谷歌","LogoUrl":"http://static.cnbetacdn.com/topics/850a52010eb551a.png"},
-{"NameIndex":"G","Index":101,"Name":"GNOME","LogoUrl":"http://static.cnbetacdn.com/topics/101_gnome.gif"},
-{"NameIndex":"G","Index":126,"Name":"GreenBrowser","LogoUrl":"http://static.cnbetacdn.com/topics/GreenBrowser.GIF"},
-{"NameIndex":"G","Index":142,"Name":"Google Buzz / Google Wave","LogoUrl":"http://static.cnbetacdn.com/topics/wavebuzz.gif"},
-{"NameIndex":"G","Index":192,"Name":"Google Toolbar","LogoUrl":"http://static.cnbetacdn.com/topics/192_gtool.gif"},
-{"NameIndex":"G","Index":215,"Name":"Google Gmail","LogoUrl":"http://static.cnbetacdn.com/topics/gmail.gif"},
-{"NameIndex":"G","Index":257,"Name":"Google Talk","LogoUrl":"http://static.cnbetacdn.com/topics/gtalk.gif"},
-{"NameIndex":"G","Index":275,"Name":"GoSURF","LogoUrl":"http://static.cnbetacdn.com/topics/275_gosurf.gif"},
-{"NameIndex":"G","Index":326,"Name":"Google GLASS","LogoUrl":"http://static.cnbetacdn.com/topics/google_glass.gif"},
-{"NameIndex":"G","Index":347,"Name":"Google Earth","LogoUrl":"http://static.cnbetacdn.com/topics/gearth.gif"},
-{"NameIndex":"G","Index":373,"Name":"Google YouTube","LogoUrl":"http://static.cnbetacdn.com/topics/youtube.gif"},
-{"NameIndex":"G","Index":443,"Name":"Google Chrome 谷歌浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/chrome1.gif"},
-{"NameIndex":"G","Index":444,"Name":"Google Android","LogoUrl":"http://static.cnbetacdn.com/topics/android.gif"},
-{"NameIndex":"G","Index":486,"Name":"Google Plus","LogoUrl":"http://static.cnbetacdn.com/topics/5f333930cf35e38.png"},
-{"NameIndex":"G","Index":493,"Name":"Google Drive","LogoUrl":"http://static.cnbetacdn.com/topics/421ad303daa6f12.png"},
-{"NameIndex":"H","Index":71,"Name":"Hasee 神舟","LogoUrl":"http://static.cnbetacdn.com/topics/1387602536.gif"},
-{"NameIndex":"H","Index":122,"Name":"HyperSnap","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-35-35.gif"},
-{"NameIndex":"H","Index":150,"Name":"Hewlett-Packard 惠普","LogoUrl":"http://static.cnbetacdn.com/topics/2009-7-25 21-49-25.gif"},
-{"NameIndex":"H","Index":331,"Name":"Huawei 华为","LogoUrl":"http://static.cnbetacdn.com/topics/huawei.gif"},
-{"NameIndex":"H","Index":439,"Name":"HTC","LogoUrl":"http://static.cnbetacdn.com/topics/htc.gif"},
-{"NameIndex":"I","Index":31,"Name":"Internet Explorer","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-26 21-26-48.gif"},
-{"NameIndex":"I","Index":32,"Name":"Intel 英特尔","LogoUrl":"http://static.cnbetacdn.com/topics/intel.gif"},
-{"NameIndex":"I","Index":58,"Name":"ICQ","LogoUrl":"http://static.cnbetacdn.com/topics/1386209086.gif"},
-{"NameIndex":"I","Index":87,"Name":"IBM","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-33-55.gif"},
-{"NameIndex":"I","Index":100,"Name":"intel Centrino 英特尔迅驰","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-31-57.gif"},
-{"NameIndex":"I","Index":159,"Name":"Intel Core 英特尔酷睿","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-29-36.gif"},
-{"NameIndex":"I","Index":175,"Name":"IT与体育","LogoUrl":"http://static.cnbetacdn.com/topics/175_sports.gif"},
-{"NameIndex":"I","Index":354,"Name":"Internet Download Manager","LogoUrl":"http://static.cnbetacdn.com/topics/1163781012_0.gif"},
-{"NameIndex":"I","Index":403,"Name":"IM 即时通信","LogoUrl":"http://static.cnbetacdn.com/topics/im.gif"},
-{"NameIndex":"I","Index":416,"Name":"InstallShield","LogoUrl":"http://static.cnbetacdn.com/topics/installshield.gif"},
-{"NameIndex":"I","Index":421,"Name":"IT与交通","LogoUrl":"http://static.cnbetacdn.com/topics/5cf96895bcff60f.png"},
-{"NameIndex":"I","Index":484,"Name":"iFly 讯飞","LogoUrl":"http://static.cnbetacdn.com/topics/3c4c7ccc6eb2223.jpeg"},
-{"NameIndex":"I","Index":511,"Name":"IUNI 智能手机","LogoUrl":"http://static.cnbetacdn.com/topics/c6e723a194d6639.png"},
-{"NameIndex":"J","Index":45,"Name":"警告!","LogoUrl":"http://static.cnbetacdn.com/topics/1386207671.gif"},
-{"NameIndex":"J","Index":537,"Name":"就医宝","LogoUrl":"http://static.cnbetacdn.com/topics/fa31f81617a8506.png"},
-{"NameIndex":"K","Index":89,"Name":"KDE","LogoUrl":"http://static.cnbetacdn.com/topics/kde.gif"},
-{"NameIndex":"K","Index":102,"Name":"Kingsoft 金山","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-21-37.gif"},
-{"NameIndex":"K","Index":133,"Name":"Kaspersky 卡巴斯基","LogoUrl":"http://static.cnbetacdn.com/topics/Kaspersky_logo.gif"},
-{"NameIndex":"K","Index":409,"Name":"KV 江民杀毒软件","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-04-56.gif"},
-{"NameIndex":"K","Index":415,"Name":"K-Meleon","LogoUrl":"http://static.cnbetacdn.com/topics/K-Meleon.gif"},
-{"NameIndex":"K","Index":426,"Name":"Kodak 柯达","LogoUrl":"http://static.cnbetacdn.com/topics/kodak.gif"},
-{"NameIndex":"K","Index":472,"Name":"Kingsoft Security 金山安全","LogoUrl":"http://static.cnbetacdn.com/topics/2010-12-2 13-37-48.gif"},
-{"NameIndex":"K","Index":476,"Name":"Kingsoft 金山快快","LogoUrl":"http://static.cnbetacdn.com/topics/2010-8-16 13-33-44.gif"},
-{"NameIndex":"K","Index":481,"Name":"Kanbox 酷盘","LogoUrl":"http://static.cnbetacdn.com/topics/bf26083a10990b6.png"},
-{"NameIndex":"K","Index":498,"Name":"Kingsoft 金山猎豹浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/33f619852580e9c.png"},
-{"NameIndex":"K","Index":513,"Name":"Kaiboer 开博尔","LogoUrl":"http://static.cnbetacdn.com/topics/b6905c33b1bcc07.png"},
-{"NameIndex":"L","Index":7,"Name":"历史 - Microsoft Office 2003","LogoUrl":"http://static.cnbetacdn.com/topics/mso2003.gif"},
-{"NameIndex":"L","Index":17,"Name":"历史 - Windows 2000","LogoUrl":"http://static.cnbetacdn.com/topics/Win2000.gif"},
-{"NameIndex":"L","Index":28,"Name":"历史 - Messenger Plus!","LogoUrl":"http://static.cnbetacdn.com/topics/028_msg_plus.gif"},
-{"NameIndex":"L","Index":40,"Name":"历史 - Macromedia","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-07-40.gif"},
-{"NameIndex":"L","Index":44,"Name":"历史 - Sun","LogoUrl":"http://static.cnbetacdn.com/topics/sun.gif"},
-{"NameIndex":"L","Index":83,"Name":"LG","LogoUrl":"http://static.cnbetacdn.com/topics/8b3ccc58abe35ea.png"},
-{"NameIndex":"L","Index":84,"Name":"历史 - Napster","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 16-09-04.gif"},
-{"NameIndex":"L","Index":95,"Name":"Linux","LogoUrl":"http://static.cnbetacdn.com/topics/linux.gif"},
-{"NameIndex":"L","Index":103,"Name":"Logitech 罗技","LogoUrl":"http://static.cnbetacdn.com/topics/logitech.gif"},
-{"NameIndex":"L","Index":114,"Name":"历史 - NetCaptor","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 16-17-32.gif"},
-{"NameIndex":"L","Index":120,"Name":"历史 - TGTSoft StyleXP","LogoUrl":"http://static.cnbetacdn.com/topics/stylexp.gif"},
-{"NameIndex":"L","Index":124,"Name":"历史 - AOL Netscape","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 15-47-55.gif"},
-{"NameIndex":"L","Index":181,"Name":"历史 - MSN Messenger","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 16-01-49.gif"},
-{"NameIndex":"L","Index":199,"Name":"历史 - Microsoft Encarta","LogoUrl":"http://static.cnbetacdn.com/topics/encarta.gif"},
-{"NameIndex":"L","Index":222,"Name":"Lycos 莱科斯","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-12-12.gif"},
-{"NameIndex":"L","Index":239,"Name":"Lenovo 联想","LogoUrl":"http://static.cnbetacdn.com/topics/lenovo.gif"},
-{"NameIndex":"L","Index":265,"Name":"历史 - Microsoft Office 2007","LogoUrl":"http://static.cnbetacdn.com/topics/mso2007.gif"},
-{"NameIndex":"L","Index":269,"Name":"历史 - Windows 桌面搜索","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-45-49.gif"},
-{"NameIndex":"L","Index":292,"Name":"历史 - 风雷软件","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 15-45-04.gif"},
-{"NameIndex":"L","Index":296,"Name":"历史 - Mess Patch","LogoUrl":"http://static.cnbetacdn.com/topics/296_mess.gif"},
-{"NameIndex":"L","Index":312,"Name":"历史 - Windows Live Spaces","LogoUrl":"http://static.cnbetacdn.com/topics/livespaces.png"},
-{"NameIndex":"L","Index":319,"Name":"Lingoes 灵格斯","LogoUrl":"http://static.cnbetacdn.com/topics/319_lingoes.gif"},
-{"NameIndex":"L","Index":362,"Name":"历史 - CNC 中国网通","LogoUrl":"http://static.cnbetacdn.com/topics/CNClogo.gif"},
-{"NameIndex":"L","Index":367,"Name":"历史 - Mozilla Sunbird","LogoUrl":"http://static.cnbetacdn.com/topics/sunbird.gif"},
-{"NameIndex":"L","Index":405,"Name":"历史 - CoralQQ 珊瑚虫","LogoUrl":"http://static.cnbetacdn.com/topics/coralqq.gif"},
-{"NameIndex":"L","Index":408,"Name":"历史 - HD-DVD / EVD","LogoUrl":"http://static.cnbetacdn.com/topics/hddvd.png"},
-{"NameIndex":"L","Index":434,"Name":"历史 - Sony-Ericsson 索尼爱立信","LogoUrl":"http://static.cnbetacdn.com/topics/sonyeric.gif"},
-{"NameIndex":"M","Index":2,"Name":"MSN","LogoUrl":"http://static.cnbetacdn.com/topics/msn.gif"},
-{"NameIndex":"M","Index":4,"Name":"Microsoft 微软","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-03-07.gif"},
-{"NameIndex":"M","Index":15,"Name":"Mozilla 谋智网络","LogoUrl":"http://static.cnbetacdn.com/topics/015_mozilla.gif"},
-{"NameIndex":"M","Index":27,"Name":"Microsoft Visual Studio","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-47-29.gif"},
-{"NameIndex":"M","Index":33,"Name":"Microsoft SQL Server","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 10-51-01.gif"},
-{"NameIndex":"M","Index":34,"Name":"Microsoft DirectX","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-11-43.gif"},
-{"NameIndex":"M","Index":43,"Name":"MySQL","LogoUrl":"http://static.cnbetacdn.com/topics/mysql.gif"},
-{"NameIndex":"M","Index":47,"Name":"Microsoft .NET","LogoUrl":"http://static.cnbetacdn.com/topics/msdotnet.png"},
-{"NameIndex":"M","Index":57,"Name":"Maxthon 傲游","LogoUrl":"http://static.cnbetacdn.com/topics/1386207765.gif"},
-{"NameIndex":"M","Index":61,"Name":"Microsoft Bing 必应","LogoUrl":"http://static.cnbetacdn.com/topics/1379404649.gif"},
-{"NameIndex":"M","Index":67,"Name":"mIRC","LogoUrl":"http://static.cnbetacdn.com/topics/mirc.gif"},
-{"NameIndex":"M","Index":73,"Name":"Mandriva Linux","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 9-00-24 AM.gif"},
-{"NameIndex":"M","Index":75,"Name":"McAfee","LogoUrl":"http://static.cnbetacdn.com/topics/mcafee.gif"},
-{"NameIndex":"M","Index":85,"Name":"Microsoft XBOX","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 10-44-13.gif"},
-{"NameIndex":"M","Index":86,"Name":"Microsoft Skype","LogoUrl":"http://static.cnbetacdn.com/topics/1384414426.gif"},
-{"NameIndex":"M","Index":153,"Name":"Microsoft 法律相关","LogoUrl":"http://static.cnbetacdn.com/topics/mslaw.gif"},
-{"NameIndex":"M","Index":155,"Name":"Microsoft 服务器相关","LogoUrl":"http://static.cnbetacdn.com/topics/msserver.gif"},
-{"NameIndex":"M","Index":163,"Name":"Mozilla FireFox","LogoUrl":"http://static.cnbetacdn.com/topics/firefox.gif"},
-{"NameIndex":"M","Index":177,"Name":"Microsoft TechNet / MSDN","LogoUrl":"http://static.cnbetacdn.com/topics/msdn-tn.gif"},
-{"NameIndex":"M","Index":179,"Name":"Microsoft Office for Mac","LogoUrl":"http://static.cnbetacdn.com/topics/officemac.gif"},
-{"NameIndex":"M","Index":187,"Name":"MindSoft","LogoUrl":"http://static.cnbetacdn.com/topics/MindSoft.gif"},
-{"NameIndex":"M","Index":207,"Name":"Microsoft 硬件","LogoUrl":"http://static.cnbetacdn.com/topics/ms_mouse.gif"},
-{"NameIndex":"M","Index":210,"Name":"MSN Shell","LogoUrl":"http://static.cnbetacdn.com/topics/210_msnshell.gif"},
-{"NameIndex":"M","Index":211,"Name":"Microsoft Office 2013","LogoUrl":"http://static.cnbetacdn.com/topics/7-18-2012 8-48-00 AM.gif"},
-{"NameIndex":"M","Index":214,"Name":"Mozilla ThunderBird","LogoUrl":"http://static.cnbetacdn.com/topics/thunderbird.gif"},
-{"NameIndex":"M","Index":223,"Name":"Microsoft Hyper-V Server","LogoUrl":"http://static.cnbetacdn.com/topics/hyperv.gif"},
-{"NameIndex":"M","Index":251,"Name":"Microsoft 会议","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-40-27.gif"},
-{"NameIndex":"M","Index":263,"Name":"Microsoft Office","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-15-44.gif"},
-{"NameIndex":"M","Index":308,"Name":"Microsoft Zune","LogoUrl":"http://static.cnbetacdn.com/topics/zune.gif"},
-{"NameIndex":"M","Index":329,"Name":"Microsoft Expression","LogoUrl":"http://static.cnbetacdn.com/topics/expression.gif"},
-{"NameIndex":"M","Index":359,"Name":"Microsoft Silverlight","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-32-07.gif"},
-{"NameIndex":"M","Index":361,"Name":"Microsoft Outlook / Hotmail","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-26 21-37-43.gif"},
-{"NameIndex":"M","Index":382,"Name":"Motorola 摩托罗拉","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 08-34-57.gif"},
-{"NameIndex":"M","Index":397,"Name":"Media 全球媒体","LogoUrl":"http://static.cnbetacdn.com/topics/090595492f3e4c2.png"},
-{"NameIndex":"M","Index":423,"Name":"Microsoft Error","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 10-58-13.gif"},
-{"NameIndex":"M","Index":429,"Name":"Microsoft Surface","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 11-25-08.gif"},
-{"NameIndex":"M","Index":436,"Name":"Meizu 魅族","LogoUrl":"http://static.cnbetacdn.com/topics/1378388808.gif"},
-{"NameIndex":"M","Index":438,"Name":"MicroPoint 微点","LogoUrl":"http://static.cnbetacdn.com/topics/13-05-22 11-01-45.gif"},
-{"NameIndex":"M","Index":456,"Name":"Microsoft Office 2010","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-20-36.gif"},
-{"NameIndex":"M","Index":462,"Name":"Microsoft Security Essentials","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-24 23-24-38.gif"},
-{"NameIndex":"M","Index":496,"Name":"MyMoney 金蝶随手记","LogoUrl":"http://static.cnbetacdn.com/topics/fba30e1089291e9.png"},
-{"NameIndex":"M","Index":509,"Name":"Mele 迈乐","LogoUrl":"http://static.cnbetacdn.com/topics/d41fe50220900ed.png"},
-{"NameIndex":"M","Index":533,"Name":"Microsoft Hololens","LogoUrl":"http://static.cnbetacdn.com/topics/f28444d27a59413.png"},
-{"NameIndex":"N","Index":23,"Name":"Nero","LogoUrl":"http://static.cnbetacdn.com/topics/nero.gif"},
-{"NameIndex":"N","Index":55,"Name":"NVIDIA","LogoUrl":"http://static.cnbetacdn.com/topics/nvidia.gif"},
-{"NameIndex":"N","Index":90,"Name":"Novell","LogoUrl":"http://static.cnbetacdn.com/topics/novell.gif"},
-{"NameIndex":"N","Index":123,"Name":"Net Transport 网络传送带","LogoUrl":"http://static.cnbetacdn.com/topics/123_transport.gif"},
-{"NameIndex":"N","Index":144,"Name":"Netbook 上网本 / 平板 / Ultrabook","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 08-41-43.gif"},
-{"NameIndex":"N","Index":147,"Name":"NOKIA 诺基亚","LogoUrl":"http://static.cnbetacdn.com/topics/nokiapure.gif"},
-{"NameIndex":"N","Index":182,"Name":"NVIDIA ForceWare","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-01-29.gif"},
-{"NameIndex":"N","Index":203,"Name":"Netease POPO 网易泡泡","LogoUrl":"http://static.cnbetacdn.com/topics/203_popo.gif"},
-{"NameIndex":"N","Index":276,"Name":"NetEase 网易","LogoUrl":"http://static.cnbetacdn.com/topics/netease.png"},
-{"NameIndex":"N","Index":330,"Name":"nod32 Antivirus","LogoUrl":"http://static.cnbetacdn.com/topics/330_nod32.gif"},
-{"NameIndex":"N","Index":360,"Name":"nLite / vLite","LogoUrl":"http://static.cnbetacdn.com/topics/nvlite.gif"},
-{"NameIndex":"N","Index":442,"Name":"Nikon 尼康","LogoUrl":"http://static.cnbetacdn.com/topics/nikon.gif"},
-{"NameIndex":"N","Index":459,"Name":"NetEase 网易有道","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 10-10-52.gif"},
-{"NameIndex":"N","Index":519,"Name":"nubia 努比亚","LogoUrl":"http://static.cnbetacdn.com/topics/ad795eb3c4727ec.png"},
-{"NameIndex":"O","Index":48,"Name":"Opera / 欧朋浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/2009-8-28 16-18-09.gif"},
-{"NameIndex":"O","Index":160,"Name":"Oracle Java","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 12-06-10.gif"},
-{"NameIndex":"O","Index":212,"Name":"Outpost Firewall","LogoUrl":"http://static.cnbetacdn.com/topics/outpost.gif"},
-{"NameIndex":"O","Index":244,"Name":"Oracle 甲骨文","LogoUrl":"http://static.cnbetacdn.com/topics/oracle.gif"},
-{"NameIndex":"O","Index":283,"Name":"Open Source 开源","LogoUrl":"http://static.cnbetacdn.com/topics/opensource2.png"},
-{"NameIndex":"O","Index":393,"Name":"OpenBSD","LogoUrl":"http://static.cnbetacdn.com/topics/openbsd.gif"},
-{"NameIndex":"O","Index":463,"Name":"oppo 欧珀","LogoUrl":"http://static.cnbetacdn.com/topics/1410403690.png"},
-{"NameIndex":"O","Index":478,"Name":"Oray 图度","LogoUrl":"http://static.cnbetacdn.com/topics/b11ea7bc582c4c4.png"},
-{"NameIndex":"O","Index":499,"Name":"OnekeyROM 甜椒","LogoUrl":"http://static.cnbetacdn.com/topics/eed566387e4092e.png"},
-{"NameIndex":"P","Index":21,"Name":"PHP","LogoUrl":"http://static.cnbetacdn.com/topics/021_php.gif"},
-{"NameIndex":"P","Index":107,"Name":"Palm","LogoUrl":"http://static.cnbetacdn.com/topics/palm.gif"},
-{"NameIndex":"P","Index":134,"Name":"Panda Software 熊猫反病毒","LogoUrl":"http://static.cnbetacdn.com/topics/pandasec.gif"},
-{"NameIndex":"P","Index":152,"Name":"PHILIPS 飞利浦","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-26-01.gif"},
-{"NameIndex":"P","Index":270,"Name":"Paint.NET","LogoUrl":"http://static.cnbetacdn.com/topics/paintnet.gif"},
-{"NameIndex":"P","Index":352,"Name":"PHPWind","LogoUrl":"http://static.cnbetacdn.com/topics/logo1.gif"},
-{"NameIndex":"P","Index":452,"Name":"Panasonic 松下电器","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 16-19-15.gif"},
-{"NameIndex":"Q","Index":208,"Name":"Qihoo 奇虎鲁大师 / Windows优化大师","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-48-39.gif"},
-{"NameIndex":"Q","Index":300,"Name":"Qihoo 奇虎 360 安全卫士","LogoUrl":"http://static.cnbetacdn.com/topics/2011-4-20 22-34-42.gif"},
-{"NameIndex":"Q","Index":489,"Name":"QY 群英 CC 企业通讯","LogoUrl":"http://static.cnbetacdn.com/topics/d3b847577abfd58.png"},
-{"NameIndex":"Q","Index":490,"Name":"QY 群英网络","LogoUrl":"http://static.cnbetacdn.com/topics/4be38b4d1e6dd8b.png"},
-{"NameIndex":"R","Index":37,"Name":"RedHat","LogoUrl":"http://static.cnbetacdn.com/topics/redhat.gif"},
-{"NameIndex":"R","Index":174,"Name":"Rising 瑞星","LogoUrl":"http://static.cnbetacdn.com/topics/174_rising.gif"},
-{"NameIndex":"R","Index":337,"Name":"Raxco PerfectDisk","LogoUrl":"http://static.cnbetacdn.com/topics/perfectdisk.gif"},
-{"NameIndex":"R","Index":368,"Name":"RedHat Fedora","LogoUrl":"http://static.cnbetacdn.com/topics/fedora.gif"},
-{"NameIndex":"R","Index":388,"Name":"RSS","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-52-53.gif"},
-{"NameIndex":"R","Index":412,"Name":"Returnil Virtual System","LogoUrl":"http://static.cnbetacdn.com/topics/returnil.gif"},
-{"NameIndex":"R","Index":467,"Name":"RockChip 瑞芯微电子","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-29-39.gif"},
-{"NameIndex":"R","Index":468,"Name":"RFID / 增强现实 / 物联网","LogoUrl":"http://static.cnbetacdn.com/topics/rfid.gif"},
-{"NameIndex":"R","Index":492,"Name":"Ramos 蓝魔","LogoUrl":"http://static.cnbetacdn.com/topics/2255c9250689e6f.png"},
-{"NameIndex":"S","Index":10,"Name":"视频网站 / 媒体播放器 - K-Lite (Mega)","LogoUrl":"http://static.cnbetacdn.com/topics/010_klite.gif"},
-{"NameIndex":"S","Index":19,"Name":"视频网站 / 媒体播放器","LogoUrl":"http://static.cnbetacdn.com/topics/13-04-26 16-30-11.gif"},
-{"NameIndex":"S","Index":20,"Name":"视频网站 / 媒体播放器 - AOL Winamp","LogoUrl":"http://static.cnbetacdn.com/topics/winamp1.gif"},
-{"NameIndex":"S","Index":25,"Name":"Symantec 赛门铁克","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 08-56-54.gif"},
-{"NameIndex":"S","Index":35,"Name":"视频网站 / 媒体播放器 - WinDVD","LogoUrl":"http://static.cnbetacdn.com/topics/2-6-2009 2-44-00 AM.gif"},
-{"NameIndex":"S","Index":46,"Name":"视频网站 / 媒体播放器 - MPC","LogoUrl":"http://static.cnbetacdn.com/topics/mpc.gif"},
-{"NameIndex":"S","Index":112,"Name":"SCO Unix","LogoUrl":"http://static.cnbetacdn.com/topics/sco.gif"},
-{"NameIndex":"S","Index":115,"Name":"Stardock","LogoUrl":"http://static.cnbetacdn.com/topics/stardock.gif"},
-{"NameIndex":"S","Index":132,"Name":"视频网站 / 媒体播放器 - JetAudio","LogoUrl":"http://static.cnbetacdn.com/topics/jetaudio.gif"},
-{"NameIndex":"S","Index":145,"Name":"视频网站 / 媒体播放器 - Real","LogoUrl":"http://static.cnbetacdn.com/topics/real.gif"},
-{"NameIndex":"S","Index":151,"Name":"SuSE Linux / OpenSuSE","LogoUrl":"http://static.cnbetacdn.com/topics/suse.gif"},
-{"NameIndex":"S","Index":176,"Name":"视频网站 / 媒体播放器 - VLC","LogoUrl":"http://static.cnbetacdn.com/topics/vlc.gif"},
-{"NameIndex":"S","Index":196,"Name":"视频网站 / 媒体播放器 - KazaA","LogoUrl":"http://static.cnbetacdn.com/topics/kazaa.gif"},
-{"NameIndex":"S","Index":197,"Name":"SONY 索尼","LogoUrl":"http://static.cnbetacdn.com/topics/0f3333ff586a53b.png"},
-{"NameIndex":"S","Index":217,"Name":"Super Rabbit 超级兔子","LogoUrl":"http://static.cnbetacdn.com/topics/srabbit.gif"},
-{"NameIndex":"S","Index":220,"Name":"Shanda 盛大网络","LogoUrl":"http://static.cnbetacdn.com/topics/shanda.gif"},
-{"NameIndex":"S","Index":221,"Name":"世界之窗浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/12-19-2008 7-45-07 PM.gif"},
-{"NameIndex":"S","Index":224,"Name":"视频网站 / 媒体播放器 - Monkey's Audio","LogoUrl":"http://static.cnbetacdn.com/topics/224_monkeyaud.gif"},
-{"NameIndex":"S","Index":226,"Name":"Seagate 希捷","LogoUrl":"http://static.cnbetacdn.com/topics/64c286d8c08ced6.png"},
-{"NameIndex":"S","Index":230,"Name":"Smartisan OS 锤子ROM","LogoUrl":"http://static.cnbetacdn.com/topics/13-04-07 18-01-29.gif"},
-{"NameIndex":"S","Index":267,"Name":"Serv-U","LogoUrl":"http://static.cnbetacdn.com/topics/servu_logo.gif"},
-{"NameIndex":"S","Index":282,"Name":"视频网站 / 媒体播放器 - 千千静听","LogoUrl":"http://static.cnbetacdn.com/topics/282_ttplayer.gif"},
-{"NameIndex":"S","Index":302,"Name":"视频网站 / 媒体播放器 - PPS","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-17-35.gif"},
-{"NameIndex":"S","Index":303,"Name":"视频网站 / 媒体播放器 - PPTV","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-12-30.gif"},
-{"NameIndex":"S","Index":315,"Name":"视频网站 / 媒体播放器 - KMPlayer","LogoUrl":"http://static.cnbetacdn.com/topics/kmp.gif"},
-{"NameIndex":"S","Index":322,"Name":"视频网站 / 媒体播放器 - ToToLook 偷偷看","LogoUrl":"http://static.cnbetacdn.com/topics/totolook.gif"},
-{"NameIndex":"S","Index":340,"Name":"视频网站 / 媒体播放器 - GOM Player","LogoUrl":"http://static.cnbetacdn.com/topics/340_gom.gif"},
-{"NameIndex":"S","Index":345,"Name":"视频网站 / 媒体播放器 - UUSEE 悠视","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-47-02.gif"},
-{"NameIndex":"S","Index":365,"Name":"视频网站 / 媒体播放器 - Lame","LogoUrl":"http://static.cnbetacdn.com/topics/lame.gif"},
-{"NameIndex":"S","Index":371,"Name":"Samsung 三星","LogoUrl":"http://static.cnbetacdn.com/topics/d807a9ee35b0a33.png"},
-{"NameIndex":"S","Index":385,"Name":"Sogou 搜狗","LogoUrl":"http://static.cnbetacdn.com/topics/sogou.gif"},
-{"NameIndex":"S","Index":394,"Name":"视频网站 / 媒体播放器 - KuGoo 酷狗","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 8-16-42.gif"},
-{"NameIndex":"S","Index":407,"Name":"视频网站 / 媒体播放器 - MPlayer","LogoUrl":"http://static.cnbetacdn.com/topics/mplayer.gif"},
-{"NameIndex":"S","Index":433,"Name":"视频网站 / 媒体播放器 - My Codec Pack","LogoUrl":"http://static.cnbetacdn.com/topics/mcp.gif"},
-{"NameIndex":"S","Index":457,"Name":"SHARP 夏普","LogoUrl":"http://static.cnbetacdn.com/topics/sharp.gif"},
-{"NameIndex":"S","Index":465,"Name":"Sogou 搜狗浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 11-52-49.gif"},
-{"NameIndex":"S","Index":494,"Name":"Shuame 刷机精灵","LogoUrl":"http://static.cnbetacdn.com/topics/a3c49c63c97cd63.png"},
-{"NameIndex":"S","Index":500,"Name":"Shendu 深度","LogoUrl":"http://static.cnbetacdn.com/topics/76f040e64ab3bcb.jpeg"},
-{"NameIndex":"T","Index":18,"Name":"Tencent 腾讯 QQ","LogoUrl":"http://static.cnbetacdn.com/topics/ac145a46763ca90.png"},
-{"NameIndex":"T","Index":138,"Name":"通信技术","LogoUrl":"http://static.cnbetacdn.com/topics/communication.png"},
-{"NameIndex":"T","Index":173,"Name":"Tencent 腾讯其他产品","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 12-06-35.gif"},
-{"NameIndex":"T","Index":204,"Name":"TuneUp Utilities","LogoUrl":"http://static.cnbetacdn.com/topics/tuneup.gif"},
-{"NameIndex":"T","Index":237,"Name":"Trend Micro 趋势科技","LogoUrl":"http://static.cnbetacdn.com/topics/237_trendm.gif"},
-{"NameIndex":"T","Index":274,"Name":"Tencent 腾讯","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-35-15.gif"},
-{"NameIndex":"T","Index":278,"Name":"TweakAssist 全能助手","LogoUrl":"http://static.cnbetacdn.com/topics/tweakassist.gif"},
-{"NameIndex":"T","Index":341,"Name":"TuoTu 脱兔","LogoUrl":"http://static.cnbetacdn.com/topics/tuotu.gif"},
-{"NameIndex":"T","Index":344,"Name":"Total Commander","LogoUrl":"http://static.cnbetacdn.com/topics/tc.gif"},
-{"NameIndex":"T","Index":372,"Name":"通信运营商","LogoUrl":"http://static.cnbetacdn.com/topics/carrier.gif"},
-{"NameIndex":"T","Index":422,"Name":"the United States 美国","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 08-53-40.gif"},
-{"NameIndex":"T","Index":437,"Name":"通信技术 - 4G/LTE","LogoUrl":"http://static.cnbetacdn.com/topics/ba60367cb0b82cf.png"},
-{"NameIndex":"T","Index":482,"Name":"Top10 十大","LogoUrl":"http://static.cnbetacdn.com/topics/9ab65630bf4ede1.png"},
-{"NameIndex":"T","Index":485,"Name":"Tongbu 同步助手","LogoUrl":"http://static.cnbetacdn.com/topics/ceaf1e31d2f1616.png"},
-{"NameIndex":"U","Index":68,"Name":"UltraEdit","LogoUrl":"http://static.cnbetacdn.com/topics/ue.gif"},
-{"NameIndex":"U","Index":225,"Name":"UltraISO","LogoUrl":"http://static.cnbetacdn.com/topics/ultraiso.gif"},
-{"NameIndex":"U","Index":317,"Name":"Ubuntu","LogoUrl":"http://static.cnbetacdn.com/topics/ubuntu.gif"},
-{"NameIndex":"U","Index":339,"Name":"uTorrent","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-52-08.gif"},
-{"NameIndex":"U","Index":446,"Name":"USB 通用串行总线","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-50-50.gif"},
-{"NameIndex":"U","Index":458,"Name":"UC 优视浏览器","LogoUrl":"http://static.cnbetacdn.com/topics/12-12-03 19-45-33.gif"},
-{"NameIndex":"U","Index":461,"Name":"Updrv 驱动人生","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-48-18.gif"},
-{"NameIndex":"U","Index":471,"Name":"UM 悠米视频聊天","LogoUrl":"http://static.cnbetacdn.com/topics/um_logo.png"},
-{"NameIndex":"U","Index":474,"Name":"unispim 紫光华宇拼音","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 09-30-02.gif"},
-{"NameIndex":"U","Index":510,"Name":"UMI 优米手机","LogoUrl":"http://static.cnbetacdn.com/topics/382ac8a6d95f5b2.png"},
-{"NameIndex":"V","Index":16,"Name":"VIA 威盛","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 9-55-41.gif"},
-{"NameIndex":"V","Index":60,"Name":"VMware","LogoUrl":"http://static.cnbetacdn.com/topics/vmware.gif"},
-{"NameIndex":"V","Index":231,"Name":"VBulletin","LogoUrl":"http://static.cnbetacdn.com/topics/0012.png"},
-{"NameIndex":"V","Index":410,"Name":"Vista优化大师","LogoUrl":"http://static.cnbetacdn.com/topics/vtweak.gif"},
-{"NameIndex":"W","Index":11,"Name":"Windows","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-26 21-30-16.gif"},
-{"NameIndex":"W","Index":12,"Name":"Windows XP","LogoUrl":"http://static.cnbetacdn.com/topics/fd78901a4aa9fd1.png"},
-{"NameIndex":"W","Index":14,"Name":"Windows Server 2003","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 15-18-07.gif"},
-{"NameIndex":"W","Index":29,"Name":"Windows Small Business","LogoUrl":"http://static.cnbetacdn.com/topics/1386207386.gif"},
-{"NameIndex":"W","Index":41,"Name":"Windows 次世代","LogoUrl":"http://static.cnbetacdn.com/topics/win7.gif"},
-{"NameIndex":"W","Index":69,"Name":"WinACE","LogoUrl":"http://static.cnbetacdn.com/topics/winace.gif"},
-{"NameIndex":"W","Index":76,"Name":"Windows 安全","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-58-56.gif"},
-{"NameIndex":"W","Index":92,"Name":"WiFi","LogoUrl":"http://static.cnbetacdn.com/topics/wifi.gif"},
-{"NameIndex":"W","Index":94,"Name":"Windows + IE","LogoUrl":"http://static.cnbetacdn.com/topics/WinIE.gif"},
-{"NameIndex":"W","Index":98,"Name":"WinRAR","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-15-00.gif"},
-{"NameIndex":"W","Index":128,"Name":"网络软件","LogoUrl":"http://static.cnbetacdn.com/topics/global.png"},
-{"NameIndex":"W","Index":129,"Name":"Windows 通信网络","LogoUrl":"http://static.cnbetacdn.com/topics/winnet.gif"},
-{"NameIndex":"W","Index":131,"Name":"Windows 存储","LogoUrl":"http://static.cnbetacdn.com/topics/winstore.gif"},
-{"NameIndex":"W","Index":139,"Name":"Windows Media Center","LogoUrl":"http://static.cnbetacdn.com/topics/139_ms_win_mce.gif"},
-{"NameIndex":"W","Index":146,"Name":"WinZip","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-01-21.gif"},
-{"NameIndex":"W","Index":180,"Name":"Windows Live Messenger","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-26 21-40-33.gif"},
-{"NameIndex":"W","Index":184,"Name":"Windows Phone","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-56-36.gif"},
-{"NameIndex":"W","Index":185,"Name":"Windows 个性化","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 15-31-05.gif"},
-{"NameIndex":"W","Index":190,"Name":"Windows X","LogoUrl":"http://static.cnbetacdn.com/topics/2010-4-9 7-56-01.gif"},
-{"NameIndex":"W","Index":227,"Name":"Windows Media","LogoUrl":"http://static.cnbetacdn.com/topics/wmplayer.png"},
-{"NameIndex":"W","Index":241,"Name":"Windows Server","LogoUrl":"http://static.cnbetacdn.com/topics/Windows-S8-Logo.png"},
-{"NameIndex":"W","Index":247,"Name":"Windows Update","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 11-02-35.gif"},
-{"NameIndex":"W","Index":248,"Name":"Windows Defender","LogoUrl":"http://static.cnbetacdn.com/topics/windef.gif"},
-{"NameIndex":"W","Index":254,"Name":"Windows Vista","LogoUrl":"http://static.cnbetacdn.com/topics/64e277ceeec131d.png"},
-{"NameIndex":"W","Index":259,"Name":"Windows Essentials","LogoUrl":"http://static.cnbetacdn.com/topics/12-08-26 21-42-14.gif"},
-{"NameIndex":"W","Index":264,"Name":"Windows Server 2008","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 15-21-36.gif"},
-{"NameIndex":"W","Index":266,"Name":"Wikipedia 维基百科","LogoUrl":"http://static.cnbetacdn.com/topics/2010-5-15 9-55-14.gif"},
-{"NameIndex":"W","Index":268,"Name":"Windows Live","LogoUrl":"http://static.cnbetacdn.com/topics/2009-3-23 12-34-39.gif"},
-{"NameIndex":"W","Index":285,"Name":"Widgets 小工具 / 侧边栏","LogoUrl":"http://static.cnbetacdn.com/topics/sidebar.png"},
-{"NameIndex":"W","Index":320,"Name":"Windows Virtual PC","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 11-01-21.gif"},
-{"NameIndex":"W","Index":332,"Name":"Windows 7","LogoUrl":"http://static.cnbetacdn.com/topics/5ac39790d90005f.png"},
-{"NameIndex":"W","Index":334,"Name":"Windows Home Server","LogoUrl":"http://static.cnbetacdn.com/topics/ws_HmSvr_v_c_100x67.gif"},
-{"NameIndex":"W","Index":335,"Name":"WineHQ","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-22-4.gif"},
-{"NameIndex":"W","Index":349,"Name":"WordPress","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 09-57-49.gif"},
-{"NameIndex":"W","Index":404,"Name":"WinPatrol 看门狗","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 10-11-29.gif"},
-{"NameIndex":"W","Index":406,"Name":"WinMount","LogoUrl":"http://static.cnbetacdn.com/topics/winmount.gif"},
-{"NameIndex":"W","Index":427,"Name":"Windows 画图","LogoUrl":"http://static.cnbetacdn.com/topics/a4873ca809c73da.png"},
-{"NameIndex":"W","Index":454,"Name":"Web2.0 - Microblogging 微博","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-14 08-11-26.gif"},
-{"NameIndex":"W","Index":455,"Name":"Web2.0 - SNS 社交网络","LogoUrl":"http://static.cnbetacdn.com/topics/51f49c3834029e0.png"},
-{"NameIndex":"W","Index":480,"Name":"Windows 8","LogoUrl":"http://static.cnbetacdn.com/topics/ae9e4662520d905.png"},
-{"NameIndex":"W","Index":506,"Name":"Windows 8.1","LogoUrl":"http://static.cnbetacdn.com/topics/9dda76c94727ce6.png"},
-{"NameIndex":"W","Index":527,"Name":"网络软件 - 飞兔云传","LogoUrl":"http://static.cnbetacdn.com/topics/07fe9b33c66a5d0.png"},
-{"NameIndex":"W","Index":531,"Name":"Windows 10","LogoUrl":"http://static.cnbetacdn.com/topics/c9300802dd8cde2.png"},
-{"NameIndex":"X","Index":56,"Name":"系统工具","LogoUrl":"http://static.cnbetacdn.com/topics/1386208204.gif"},
-{"NameIndex":"X","Index":157,"Name":"系统安全","LogoUrl":"http://static.cnbetacdn.com/topics/security.png"},
-{"NameIndex":"X","Index":168,"Name":"XnView","LogoUrl":"http://static.cnbetacdn.com/topics/xnview.gif"},
-{"NameIndex":"X","Index":318,"Name":"XunLei 迅雷","LogoUrl":"http://static.cnbetacdn.com/topics/xunleinew.gif"},
-{"NameIndex":"X","Index":487,"Name":"Xiaomi 小米科技","LogoUrl":"http://static.cnbetacdn.com/topics/milogo.gif"},
-{"NameIndex":"X","Index":507,"Name":"系统工具 - Magican Mac 优化","LogoUrl":"http://static.cnbetacdn.com/topics/72a51e7fb05edb4.png"},
-{"NameIndex":"Y","Index":39,"Name":"游戏","LogoUrl":"http://static.cnbetacdn.com/topics/game.png"},
-{"NameIndex":"Y","Index":91,"Name":"Yahoo! 雅虎","LogoUrl":"http://static.cnbetacdn.com/topics/1378386655.gif"},
-{"NameIndex":"Y","Index":473,"Name":"Yunduan 云端软件","LogoUrl":"http://static.cnbetacdn.com/topics/5611975784.gif"},
-{"NameIndex":"Y","Index":503,"Name":"应用 - PP助手","LogoUrl":"http://static.cnbetacdn.com/topics/c61db69798dd678.jpg"},
-{"NameIndex":"Y","Index":504,"Name":"应用 - Root 精灵","LogoUrl":"http://static.cnbetacdn.com/topics/3d6ebbae8fb93be.png"},
-{"NameIndex":"Y","Index":508,"Name":"应用 - 刷机大师","LogoUrl":"http://static.cnbetacdn.com/topics/fb24fe55f046a4c.png"},
-{"NameIndex":"Y","Index":515,"Name":"应用 - 卓大师 一键 Root","LogoUrl":"http://static.cnbetacdn.com/topics/9467c9a1ef6df79.png"},
-{"NameIndex":"Y","Index":523,"Name":"应用 - 卓大师 字体大师","LogoUrl":"http://static.cnbetacdn.com/topics/761733fdeaf2bc1.png"},
-{"NameIndex":"Y","Index":529,"Name":"硬件 - iMagic","LogoUrl":"http://static.cnbetacdn.com/topics/c40e6d898a8f2f4.png"},
-{"NameIndex":"Z","Index":74,"Name":"Zonealarm","LogoUrl":"http://static.cnbetacdn.com/topics/11-12-12 09-43-47.gif"},
-{"NameIndex":"Z","Index":517,"Name":"ZTE 中兴红牛V5手机","LogoUrl":"http://static.cnbetacdn.com/topics/8556f2c47051f75.png"},
-{"NameIndex":"Z","Index":521,"Name":"ZTE 中兴","LogoUrl":"http://static.cnbetacdn.com/topics/20b15bd69c6a6c6.png"}]
+
+[
+  {
+    "NameIndex": "A",
+    "Index": 3,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 9-18-16 AM.gif",
+    "Name": "ATI"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 9,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/9316c1276dda58a.png",
+    "Name": "Apple 苹果"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 13,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/adobe.gif",
+    "Name": "Adobe"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 42,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/amdcn.gif",
+    "Name": "AMD"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 49,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/aol.gif",
+    "Name": "AOL / AIM"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 50,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/6495bf355bf99e6.png",
+    "Name": "Apple QuickTime"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 53,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/13-05-22 11-41-41.gif",
+    "Name": "ACDSee"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 59,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386209213.gif",
+    "Name": "Apache OpenOffice"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 66,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c6a1bb311c37f2f.png",
+    "Name": "Apple iTunes / App Store"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 79,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a594cd7471505b2.png",
+    "Name": "Apple Mac OS X"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 93,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/asus.gif",
+    "Name": "ASUS 华硕"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 118,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/118_alcohol.gif",
+    "Name": "Alcohol"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 157,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/9fe92c20acbbcc7.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "A",
+    "Index": 158,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/e3c178b7817bbae.png",
+    "Name": "Apple Safari"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 169,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/anydvd.gif",
+    "Name": "AnyDVD"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 183,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/183_autodesk.gif",
+    "Name": "AutoDesk"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 188,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/188_avant.gif",
+    "Name": "Avant Browser"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 325,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/logo_14.gif",
+    "Name": "ARSwp Windows 清理助手"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 343,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/7014c55e2e68d85.png",
+    "Name": "Apple iPod"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 346,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/avastav.gif",
+    "Name": "avast! Antivirus"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 356,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/Ashampoo.gif",
+    "Name": "Ashampoo"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 364,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/avira.gif",
+    "Name": "Avira AntiVir"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 370,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/avg.gif",
+    "Name": "AVG Antivirus"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 379,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/10dcfbf69dba3ff.png",
+    "Name": "Apple iPhone"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 464,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/5559844cd9cc1a5.png",
+    "Name": "Apple iPad"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 535,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/287dd0bfd88c7ec.png",
+    "Name": "Apple Watch"
+  },
+  {
+    "NameIndex": "A",
+    "Index": 601,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d6ebb5ce78d149a.png",
+    "Name": "Aliyun 阿里云"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 77,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/bittorrent.gif",
+    "Name": "BitTorrent"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 200,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/200_bitspirit.gif",
+    "Name": "BitSpirit 比特精灵"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 209,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/bitcomet1.gif",
+    "Name": "BitComet"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 232,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/232_blackice.gif",
+    "Name": "BlackIce"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 261,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/aada0e439b8da89.png",
+    "Name": "Baidu 百度"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 282,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ec81a7fee1f1d1e.png",
+    "Name": "Baidu 百度音乐 / 千千静听"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 376,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 2-11-24 AM.gif",
+    "Name": "Bluetooth 蓝牙"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 377,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 2-16-36 AM.gif",
+    "Name": "Blu-Ray Disc 蓝光"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 400,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/51616fd9a715d3d.png",
+    "Name": "Blog 博客"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 411,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c1314e55457000a.png",
+    "Name": "BlackBerry 黑莓"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 414,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2011-9-20 11-28-03.gif",
+    "Name": "BitDefender"
+  },
+  {
+    "NameIndex": "B",
+    "Index": 419,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/blizzard.gif",
+    "Name": "Blizzard 暴雪"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 105,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-5-18 8-10-56.gif",
+    "Name": "CA technologies"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 125,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/original.gif",
+    "Name": "cnBeta 原创独家"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 135,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/6289ff1e0f2de7f.png",
+    "Name": "cnBeta 人物 - Bill Gates"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 165,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0834692ea183f84.png",
+    "Name": "cnBeta 七日谈"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 186,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/clonecd.gif",
+    "Name": "CloneCD / CloneDVD"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 219,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 2-22-09 AM.gif",
+    "Name": "Counter-Strike 反恐精英 / 半条命"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 228,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/228_cisco.gif",
+    "Name": "Cisco 思科"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 245,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/cbsoft.gif",
+    "Name": "cnBeta 精品软件"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 246,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/drivers.gif",
+    "Name": "cnBeta 精品驱动"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 260,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a1dd2d320ffd961.png",
+    "Name": "cnBeta 最新消息"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 291,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/9d3440caeef281a.png",
+    "Name": "cnBeta 团队新闻"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 293,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/7196181f9e9a3de.png",
+    "Name": "cnBeta 精品网站"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 294,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/294_cuteftp.gif",
+    "Name": "CuteFTP"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 306,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ce3e389c5ef8001.png",
+    "Name": "cnBeta 访客互动"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 311,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/aef6d47889f95b7.png",
+    "Name": "cnBeta 博客文摘"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 316,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b221d21ee42e75d.png",
+    "Name": "China Telecom 中国电信"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 348,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d1727b9ae21e1e3.png",
+    "Name": "China Mobile 中国移动"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 350,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/13-05-28 04-14-52.gif",
+    "Name": "CCleaner"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 357,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/powerdvd.gif",
+    "Name": "CyberLink PowerDVD"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 358,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ec6b83eca06d85e.png",
+    "Name": "China Mobile Fetion 飞信"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 391,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/884bc7f6b70e428.png",
+    "Name": "China Unicom 中国联通"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 420,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/comsenz.gif",
+    "Name": "comsenz 康盛创想 / Discuz!"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 424,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0c3756481140473.png",
+    "Name": "CHINA 中国"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 425,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/cfos.gif",
+    "Name": "cFos Software"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 430,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ce33a777f9c14b8.png",
+    "Name": "cnBeta 现场报道"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 432,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/creative.gif",
+    "Name": "Creative 创新"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 466,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d6a3e78fb2cb1a3.png",
+    "Name": "cnBeta 专栏"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 472,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/8a9c0ef2025ec3d.png",
+    "Name": "Cheetah 猎豹移动 / 金山安全"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 479,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/3c8fef75f312629.png",
+    "Name": "cnBeta 评测室"
+  },
+  {
+    "NameIndex": "C",
+    "Index": 525,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/535e0d212683847.png",
+    "Name": "Coocaa 创维酷开"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 82,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/dell.gif",
+    "Name": "DELL 戴尔"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 121,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/121_dvd.gif",
+    "Name": "DVD"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 191,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/daemon.gif",
+    "Name": "DAEMON Tools"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 218,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-53-08.gif",
+    "Name": "DreamMail 梦幻快车"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 253,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/divx.gif",
+    "Name": "DivX Codec"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 256,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/09afef83c4df10b.png",
+    "Name": "- C2C"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 281,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d433b95e12ee781.png",
+    "Name": "- 支付平台"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 353,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4fe416f1fb73112.png",
+    "Name": "- B2C / B2B"
+  },
+  {
+    "NameIndex": "D",
+    "Index": 431,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/debian.gif",
+    "Name": "Debian GNU/Linux"
+  },
+  {
+    "NameIndex": "E",
+    "Index": 54,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/054_172_emule.gif",
+    "Name": "eMule"
+  },
+  {
+    "NameIndex": "E",
+    "Index": 171,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/171_emeditor.gif",
+    "Name": "emEditor"
+  },
+  {
+    "NameIndex": "E",
+    "Index": 194,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-48-36.gif",
+    "Name": "email 电子邮件"
+  },
+  {
+    "NameIndex": "E",
+    "Index": 229,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/229_edit .gif",
+    "Name": "Edit"
+  },
+  {
+    "NameIndex": "E",
+    "Index": 449,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ea.gif",
+    "Name": "EA Games"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 36,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/036_ftprush.gif",
+    "Name": "FTPRush"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 72,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/072_flashfxp.gif",
+    "Name": "FlashFXP"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 104,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/freebsd.gif",
+    "Name": "FreeBSD"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 108,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/foobar2000.gif",
+    "Name": "foobar2000"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 166,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/flashget.gif",
+    "Name": "Flashget 快车"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 189,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/filezilla.gif",
+    "Name": "FileZilla"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 262,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/262_flashbt.gif",
+    "Name": "FlashBT"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 277,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2013-04-18_08-29-22.gif",
+    "Name": "Foxit Reader 福昕阅读器"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 280,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-57-06.gif",
+    "Name": "FeedDemon"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 363,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-55-30.gif",
+    "Name": "FastStone"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 435,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/flock.gif",
+    "Name": "Flock"
+  },
+  {
+    "NameIndex": "F",
+    "Index": 470,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-5-21 11-56-16.gif",
+    "Name": "Foxconn 富士康"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 52,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/5d57f064cd38d29.png",
+    "Name": "Google 谷歌"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 101,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/101_gnome.gif",
+    "Name": "GNOME"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 126,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/GreenBrowser.GIF",
+    "Name": "GreenBrowser"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 142,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/wavebuzz.gif",
+    "Name": "Google Buzz / Google Wave"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 192,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/192_gtool.gif",
+    "Name": "Google Toolbar"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 215,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/81f60548058a36e.png",
+    "Name": "Google Gmail"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 257,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/8b6945b079f0712.png",
+    "Name": "Google Hangouts / Talk"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 275,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/275_gosurf.gif",
+    "Name": "GoSURF"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 326,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/google_glass.gif",
+    "Name": "Google GLASS"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 347,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b4eed2604c676bf.png",
+    "Name": "Google Maps 地图 / Earth"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 373,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b364fab401cb162.png",
+    "Name": "Google YouTube"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 443,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/44095ac87755ff7.png",
+    "Name": "Google Chrome 谷歌浏览器"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 444,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fcb31c42f397c76.png",
+    "Name": "Google Android"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 486,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/5f333930cf35e38.png",
+    "Name": "Google Plus"
+  },
+  {
+    "NameIndex": "G",
+    "Index": 493,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/421ad303daa6f12.png",
+    "Name": "Google Drive"
+  },
+  {
+    "NameIndex": "H",
+    "Index": 71,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1387602536.gif",
+    "Name": "Hasee 神舟"
+  },
+  {
+    "NameIndex": "H",
+    "Index": 122,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-35-35.gif",
+    "Name": "HyperSnap"
+  },
+  {
+    "NameIndex": "H",
+    "Index": 150,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-7-25 21-49-25.gif",
+    "Name": "Hewlett-Packard 惠普"
+  },
+  {
+    "NameIndex": "H",
+    "Index": 331,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/huawei.gif",
+    "Name": "Huawei 华为"
+  },
+  {
+    "NameIndex": "H",
+    "Index": 439,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/htc.gif",
+    "Name": "HTC"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 32,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/18315c240ecef87.png",
+    "Name": "Intel 英特尔"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 58,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386209086.gif",
+    "Name": "ICQ"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 87,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-33-55.gif",
+    "Name": "IBM"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 100,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/f123324517eeaaf.png",
+    "Name": "Intel Atom"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 159,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/657f850ea9a33c2.png",
+    "Name": "Intel Core 英特尔酷睿"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 175,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/175_sports.gif",
+    "Name": "IT与体育"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 354,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1163781012_0.gif",
+    "Name": "Internet Download Manager"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 403,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/469d07f88e0e440.png",
+    "Name": "IM 即时通信"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 416,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/installshield.gif",
+    "Name": "InstallShield"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 421,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/6be8ef222437176.png",
+    "Name": "IT与交通"
+  },
+  {
+    "NameIndex": "I",
+    "Index": 484,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/3c4c7ccc6eb2223.jpeg",
+    "Name": "iFlyTek 科大讯飞"
+  },
+  {
+    "NameIndex": "J",
+    "Index": 45,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386207671.gif",
+    "Name": "!"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 89,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1a24fda81eaef5e.png",
+    "Name": "KDE Linux"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 102,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d27e576d0b2f9f6.png",
+    "Name": "Kingsoft 金山"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 133,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/Kaspersky_logo.gif",
+    "Name": "Kaspersky 卡巴斯基"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 409,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-04-56.gif",
+    "Name": "KV 江民杀毒软件"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 415,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/K-Meleon.gif",
+    "Name": "K-Meleon"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 426,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/kodak.gif",
+    "Name": "Kodak 柯达"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 448,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ea0c67da79b354a.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "K",
+    "Index": 476,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/75092a8421c47be.png",
+    "Name": "Kingsoft 金山快快"
+  },
+  {
+    "NameIndex": "K",
+    "Index": 481,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/bf26083a10990b6.png",
+    "Name": "Kanbox 酷盘"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 28,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/028_msg_plus.gif",
+    "Name": "- Messenger Plus!"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 40,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-07-40.gif",
+    "Name": "- Macromedia"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 44,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sun.gif",
+    "Name": "- Sun"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 83,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/8b3ccc58abe35ea.png",
+    "Name": "LG"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 84,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 16-09-04.gif",
+    "Name": "- Napster"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 95,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/linux.gif",
+    "Name": "Linux"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 103,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/logitech.gif",
+    "Name": "Logitech 罗技"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 114,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 16-17-32.gif",
+    "Name": "- NetCaptor"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 120,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/stylexp.gif",
+    "Name": "- TGTSoft StyleXP"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 124,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 15-47-55.gif",
+    "Name": "- AOL Netscape"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 181,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 16-01-49.gif",
+    "Name": "- MSN Messenger"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 199,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/encarta.gif",
+    "Name": "- Microsoft Encarta"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 222,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 8-12-12.gif",
+    "Name": "Lycos 莱科斯"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 239,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4b73d17b7ee12e2.png",
+    "Name": "Lenovo 联想"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 269,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-45-49.gif",
+    "Name": "- Windows 桌面搜索"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 292,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 15-45-04.gif",
+    "Name": "- 风雷软件"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 296,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/296_mess.gif",
+    "Name": "- Mess Patch"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 312,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/livespaces.png",
+    "Name": "- Windows Live Spaces"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 319,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/319_lingoes.gif",
+    "Name": "Lingoes 灵格斯"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 362,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/CNClogo.gif",
+    "Name": "- CNC 中国网通"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 367,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sunbird.gif",
+    "Name": "- Mozilla Sunbird"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 405,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/coralqq.gif",
+    "Name": "- CoralQQ 珊瑚虫"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 408,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/hddvd.png",
+    "Name": "- HD-DVD / EVD"
+  },
+  {
+    "NameIndex": "L",
+    "Index": 434,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sonyeric.gif",
+    "Name": "- Sony-Ericsson 索尼爱立信"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 2,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/msn.gif",
+    "Name": "MSN"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 4,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/370fc2611e10cd8.png",
+    "Name": "Microsoft 微软"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 7,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/010a860ddd55413.jpg",
+    "Name": "Microsoft Office 2003"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 15,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/015_mozilla.gif",
+    "Name": "Mozilla 谋智网络"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 19,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/5940d93f5d3d85e.png",
+    "Name": "/ 视频网站"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 20,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/winamp1.gif",
+    "Name": "- AOL Winamp"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 27,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-08-24 23-47-29.gif",
+    "Name": "Microsoft Visual Studio"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 31,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/08499fa2e4ee2ad.png",
+    "Name": "Microsoft Edge / IE"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 33,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/13-05-22 10-51-01.gif",
+    "Name": "Microsoft SQL Server"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 34,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-08-24 23-11-43.gif",
+    "Name": "Microsoft DirectX"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 43,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/mysql.gif",
+    "Name": "MySQL"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 47,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/msdotnet.png",
+    "Name": "Microsoft .NET"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 57,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386207765.gif",
+    "Name": "Maxthon 傲游"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 61,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1379404649.gif",
+    "Name": "Microsoft Bing 必应"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 67,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/mirc.gif",
+    "Name": "mIRC"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 73,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 9-00-24 AM.gif",
+    "Name": "Mandriva Linux"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 75,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/mcafee.gif",
+    "Name": "McAfee"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 85,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/13-05-22 10-44-13.gif",
+    "Name": "Microsoft XBOX"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 86,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1384414426.gif",
+    "Name": "Microsoft Skype"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 153,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/mslaw.gif",
+    "Name": "Microsoft 法律相关"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 155,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/msserver.gif",
+    "Name": "Microsoft 服务器相关"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 163,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/e6b3d039109d32f.png",
+    "Name": "Mozilla FireFox"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 177,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/msdn-tn.gif",
+    "Name": "Microsoft TechNet / MSDN"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 179,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ee892477caf2f2f.png",
+    "Name": "Microsoft Office for Mac"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 187,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/MindSoft.gif",
+    "Name": "MindSoft"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 207,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ms_mouse.gif",
+    "Name": "Microsoft 硬件"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 210,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/210_msnshell.gif",
+    "Name": "MSN Shell"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 211,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/bbbb9e5bf63ae71.jpg",
+    "Name": "Microsoft Office 2013"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 214,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/thunderbird.gif",
+    "Name": "Mozilla ThunderBird"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 223,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/hyperv.gif",
+    "Name": "Microsoft Hyper-V Server"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 227,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/181c4e13bc2c85c.png",
+    "Name": "Microsoft Groove / Win Media"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 251,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/e8c7a684ce54509.png",
+    "Name": "Microsoft 会议"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 263,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/df6099a3cc969f8.png",
+    "Name": "Microsoft Office"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 265,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/cd312419c970fa9.gif",
+    "Name": "Microsoft Office 2007"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 303,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b860f1ce06d8dac.png",
+    "Name": "- PPTV"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 308,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/81cbb57140b6c16.png",
+    "Name": "Microsoft Zune"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 315,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/kmp.gif",
+    "Name": "- KMPlayer"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 322,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/totolook.gif",
+    "Name": "- ToToLook 偷偷看"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 329,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/bd9db9c49cd6f8b.png",
+    "Name": "Microsoft Expression"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 340,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/340_gom.gif",
+    "Name": "- GOM Player"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 345,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-47-02.gif",
+    "Name": "- UUSEE 悠视"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 359,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/f4c6914dc94754b.png",
+    "Name": "Microsoft Silverlight"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 361,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d4ec24e5a8a94a1.png",
+    "Name": "Microsoft Outlook / Hotmail"
+  },
+  {
+    "NameIndex": "M",
+    "Index": 365,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/lame.gif",
+    "Name": "- Lame"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 23,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/nero.gif",
+    "Name": "Nero"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 55,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/nvidia.gif",
+    "Name": "NVIDIA"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 90,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/novell.gif",
+    "Name": "Novell"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 123,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/123_transport.gif",
+    "Name": "Net Transport 网络传送带"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 147,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/nokiapure.gif",
+    "Name": "NOKIA 诺基亚"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 182,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-01-29.gif",
+    "Name": "NVIDIA ForceWare"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 203,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/98a1f7bd911558a.png",
+    "Name": "Netease 网易即时通 / 易信 / 云信 / POPO"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 276,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c19d2f703d66854.png",
+    "Name": "NetEase 网易"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 330,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/330_nod32.gif",
+    "Name": "nod32 Antivirus"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 360,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/nvlite.gif",
+    "Name": "nLite / vLite"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 442,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/nikon.gif",
+    "Name": "Nikon 尼康"
+  },
+  {
+    "NameIndex": "N",
+    "Index": 459,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/f1f47d669a6d390.jpeg",
+    "Name": "NetEase 网易有道"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 48,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c058a10dee74529.png",
+    "Name": "Opera / 欧朋浏览器"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 160,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-14 12-06-10.gif",
+    "Name": "Oracle Java"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 212,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/outpost.gif",
+    "Name": "Outpost Firewall"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 244,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/oracle.gif",
+    "Name": "Oracle 甲骨文"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 283,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/opensource2.png",
+    "Name": "Open Source 开源"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 393,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/openbsd.gif",
+    "Name": "OpenBSD"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 463,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1410403690.png",
+    "Name": "oppo 欧珀"
+  },
+  {
+    "NameIndex": "O",
+    "Index": 478,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d528918b13e355c.png",
+    "Name": "Oray 花生壳"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 21,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/021_php.gif",
+    "Name": "PHP"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 107,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/palm.gif",
+    "Name": "Palm"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 134,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/pandasec.gif",
+    "Name": "Panda Software 熊猫反病毒"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 152,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-26-01.gif",
+    "Name": "PHILIPS 飞利浦"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 270,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/paintnet.gif",
+    "Name": "Paint.NET"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 352,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/logo1.gif",
+    "Name": "PHPWind"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 452,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/f0f20cf7abd905b.png",
+    "Name": "Panasonic 松下电器"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 208,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-48-39.gif",
+    "Name": "Qihoo 奇虎鲁大师 / Windows优化大师"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 300,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a3834d45b86d6bc.png",
+    "Name": "Qihoo 奇虎 360 安全卫士"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 489,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d3b847577abfd58.png",
+    "Name": "QY 群英 CC 企业通讯"
+  },
+  {
+    "NameIndex": "P",
+    "Index": 490,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4be38b4d1e6dd8b.png",
+    "Name": "QY 群英网络"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 8,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c223b7d11cb7d27.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "R",
+    "Index": 37,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/redhat.gif",
+    "Name": "RedHat"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 174,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/174_rising.gif",
+    "Name": "Rising 瑞星"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 337,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/perfectdisk.gif",
+    "Name": "Raxco PerfectDisk"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 368,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fedora.gif",
+    "Name": "RedHat Fedora"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 369,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/6b6702c2167e5a2.jpg",
+    "Name": "- Steve Jobs"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 375,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d6c66b3becf1a4c.jpg",
+    "Name": "- Steve Ballmer"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 388,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-52-53.gif",
+    "Name": "RSS"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 412,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/returnil.gif",
+    "Name": "Returnil Virtual System"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 428,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0638f8cec914846.jpg",
+    "Name": "- 马云"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 453,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b603e06ab9299d5.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "R",
+    "Index": 465,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-14 11-52-49.gif",
+    "Name": "- Sogou 搜狗浏览器"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 468,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/5bb053a252214b5.png",
+    "Name": "RFID / 增强现实 / 物联网"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 488,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/be31c649af25b9f.png",
+    "Name": "- Tim Cook"
+  },
+  {
+    "NameIndex": "R",
+    "Index": 498,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/33f619852580e9c.png",
+    "Name": "- Cheetah 猎豹浏览器"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 10,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/010_klite.gif",
+    "Name": "/ 媒体播放器 - K-Lite (Mega)"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 25,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-14 08-56-54.gif",
+    "Name": "Symantec 赛门铁克"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 35,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2-6-2009 2-44-00 AM.gif",
+    "Name": "/ 媒体播放器 - WinDVD"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 46,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/mpc.gif",
+    "Name": "/ 媒体播放器 - MPC"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 112,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sco.gif",
+    "Name": "SCO Unix"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 115,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/stardock.gif",
+    "Name": "Stardock"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 132,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/jetaudio.gif",
+    "Name": "/ 媒体播放器 - JetAudio"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 145,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b1bda11791dad5d.png",
+    "Name": "/ 媒体播放器 - Real"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 151,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/suse.gif",
+    "Name": "SuSE Linux / OpenSuSE"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 176,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/vlc.gif",
+    "Name": "/ 媒体播放器 - VLC"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 196,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/kazaa.gif",
+    "Name": "/ 媒体播放器 - KazaA"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 197,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0f3333ff586a53b.png",
+    "Name": "SONY 索尼"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 217,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/srabbit.gif",
+    "Name": "Super Rabbit 超级兔子"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 220,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/shanda.gif",
+    "Name": "Shanda 盛大网络"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 221,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-19-2008 7-45-07 PM.gif",
+    "Name": ""
+  },
+  {
+    "NameIndex": "S",
+    "Index": 224,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/224_monkeyaud.gif",
+    "Name": "/ 媒体播放器 - Monkey's Audio"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 226,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/64c286d8c08ced6.png",
+    "Name": "Seagate 希捷"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 230,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/05e753087a9720b.png",
+    "Name": "Smartisan 锤子科技"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 243,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fc2374718fcbb3b.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "S",
+    "Index": 267,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/servu_logo.gif",
+    "Name": "Serv-U"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 302,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-17-35.gif",
+    "Name": "/ 媒体播放器 - PPS"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 305,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0434e92805fc85d.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "S",
+    "Index": 371,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/d807a9ee35b0a33.png",
+    "Name": "Samsung 三星"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 385,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sogou.gif",
+    "Name": "Sogou 搜狗"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 455,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/aff5dfe89143f51.png",
+    "Name": "SNS 社交网络"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 457,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/9a5013f3da290e7.png",
+    "Name": "SHARP 夏普"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 502,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/7ed2e10fff7b92a.png",
+    "Name": "- 读者手机"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 510,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/382ac8a6d95f5b2.png",
+    "Name": "- UMI 优米"
+  },
+  {
+    "NameIndex": "S",
+    "Index": 511,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c6e723a194d6639.png",
+    "Name": "- IUNI"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 18,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ac145a46763ca90.png",
+    "Name": "Tencent 腾讯 QQ"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 138,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/communication.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "T",
+    "Index": 173,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 12-06-35.gif",
+    "Name": "Tencent 腾讯其他产品"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 204,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/tuneup.gif",
+    "Name": "TuneUp Utilities"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 237,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/237_trendm.gif",
+    "Name": "Trend Micro 趋势科技"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 274,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a96b14c1af76d84.png",
+    "Name": "Tencent 腾讯"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 278,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/tweakassist.gif",
+    "Name": "TweakAssist 全能助手"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 341,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/tuotu.gif",
+    "Name": "TuoTu 脱兔"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 344,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/tc.gif",
+    "Name": "Total Commander"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 372,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/f7253b1620d4228.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "T",
+    "Index": 422,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0f975693732be0a.png",
+    "Name": "the United States 美国"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 437,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/8ea35a0d30b126d.png",
+    "Name": "- 4G/LTE"
+  },
+  {
+    "NameIndex": "T",
+    "Index": 482,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/76cd1c2430462b6.png",
+    "Name": "Top10 十大"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 68,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ue.gif",
+    "Name": "UltraEdit"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 225,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ultraiso.gif",
+    "Name": "UltraISO"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 317,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/55009e39a340cfe.png",
+    "Name": "Ubuntu"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 339,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-52-08.gif",
+    "Name": "uTorrent"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 446,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12dfadf4598e2d1.png",
+    "Name": "USB 通用串行总线"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 458,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/679b45a6e61b775.png",
+    "Name": "UC 优视浏览器"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 461,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-48-18.gif",
+    "Name": "Updrv 驱动人生"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 471,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/um_logo.png",
+    "Name": "UM 悠米视频聊天"
+  },
+  {
+    "NameIndex": "U",
+    "Index": 474,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 09-30-02.gif",
+    "Name": "unispim 紫光华宇拼音"
+  },
+  {
+    "NameIndex": "V",
+    "Index": 16,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-55-41.gif",
+    "Name": "VIA 威盛"
+  },
+  {
+    "NameIndex": "V",
+    "Index": 60,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/vmware.gif",
+    "Name": "VMware"
+  },
+  {
+    "NameIndex": "V",
+    "Index": 231,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/0012.png",
+    "Name": "VBulletin"
+  },
+  {
+    "NameIndex": "V",
+    "Index": 410,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/vtweak.gif",
+    "Name": "Vista优化大师"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 11,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-08-26 21-30-16.gif",
+    "Name": "Windows"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 12,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fd78901a4aa9fd1.png",
+    "Name": "Windows XP"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 14,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 15-18-07.gif",
+    "Name": "Windows Server 2003"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 17,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/048880b05eff3fc.png",
+    "Name": "Windows 2000"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 29,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386207386.gif",
+    "Name": "Windows Small Business"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 41,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/win7.gif",
+    "Name": "Windows 次世代"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 69,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/winace.gif",
+    "Name": "WinACE"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 76,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/96db21ed1b37aed.png",
+    "Name": "Windows 安全"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 92,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/wifi.gif",
+    "Name": "WiFi"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 94,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/WinIE.gif",
+    "Name": "Windows   IE"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 98,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-15-00.gif",
+    "Name": "WinRAR"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 128,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/535dc7e24a347df.png",
+    "Name": "/ Web Apps"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 129,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/winnet.gif",
+    "Name": "Windows 通信网络"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 131,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/winstore.gif",
+    "Name": "Windows 存储"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 139,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/139_ms_win_mce.gif",
+    "Name": "Windows Media Center"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 146,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/994bfdcfa76fce1.png",
+    "Name": "WinZip"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 180,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-08-26 21-40-33.gif",
+    "Name": "Windows Live Messenger"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 184,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-56-36.gif",
+    "Name": "Windows Phone"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 185,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 15-31-05.gif",
+    "Name": "Windows 个性化"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 190,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 7-56-01.gif",
+    "Name": "Windows X"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 241,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2511262708109df.png",
+    "Name": "Windows Server"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 247,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 11-02-35.gif",
+    "Name": "Windows Update"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 248,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/windef.gif",
+    "Name": "Windows Defender"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 254,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/64e277ceeec131d.png",
+    "Name": "Windows Vista"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 259,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/12-08-26 21-42-14.gif",
+    "Name": "Windows Essentials"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 264,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 15-21-36.gif",
+    "Name": "Windows Server 2008"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 266,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-5-15 9-55-14.gif",
+    "Name": "Wikipedia 维基百科"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 268,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2009-3-23 12-34-39.gif",
+    "Name": "Windows Live"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 285,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/sidebar.png",
+    "Name": "Widgets 小工具 / 侧边栏"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 320,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 11-01-21.gif",
+    "Name": "Windows Virtual PC"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 332,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4a5a4649278a27e.png",
+    "Name": "Windows 7"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 334,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ws_HmSvr_v_c_100x67.gif",
+    "Name": "Windows Home Server"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 335,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-22-4.gif",
+    "Name": "WineHQ"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 349,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 09-57-49.gif",
+    "Name": "WordPress"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 404,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 10-11-29.gif",
+    "Name": "WinPatrol 看门狗"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 406,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/winmount.gif",
+    "Name": "WinMount"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 427,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1546d280ecd12e1.png",
+    "Name": "Windows 画图 / Fresh Paint"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 480,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1c86cc1294dcec3.gif",
+    "Name": "Windows 8"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 501,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4be1101c5300368.png",
+    "Name": "- 115"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 506,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/6264ac1ca0d7b4f.png",
+    "Name": "Windows 8.1"
+  },
+  {
+    "NameIndex": "W",
+    "Index": 531,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/85ea12841f407c4.png",
+    "Name": "Windows 10"
+  },
+  {
+    "NameIndex": "X",
+    "Index": 56,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/1386208204.gif",
+    "Name": ""
+  },
+  {
+    "NameIndex": "X",
+    "Index": 168,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/xnview.gif",
+    "Name": "XnView"
+  },
+  {
+    "NameIndex": "X",
+    "Index": 318,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/xunleinew.gif",
+    "Name": "XunLei 迅雷"
+  },
+  {
+    "NameIndex": "X",
+    "Index": 487,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/904fa65ea1b0b03.png",
+    "Name": "Xiaomi 小米科技"
+  },
+  {
+    "NameIndex": "X",
+    "Index": 507,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/72a51e7fb05edb4.png",
+    "Name": "- Magican Mac 优化"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 39,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/20d28c90c2805ca.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 70,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/327e9d7748ef1e7.png",
+    "Name": ""
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 91,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/62ab527428502f9.png",
+    "Name": "Yahoo! 雅虎"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 144,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a5827762efc38e9.png",
+    "Name": "- 上网本 / 平板电脑 / 超极本"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 451,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/40cb6a89640563b.png",
+    "Name": "- 摄影器材"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 467,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2010-4-9 9-29-39.gif",
+    "Name": "- RockChip 瑞芯微电子"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 473,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/79b60152e7fdaff.png",
+    "Name": "Yunduan 边锋云端"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 485,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ceaf1e31d2f1616.png",
+    "Name": "- Tongbu 同步助手"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 491,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/4d2a390409b3dc6.png",
+    "Name": "- TouchPal 触宝"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 492,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/2255c9250689e6f.png",
+    "Name": "- Ramos 蓝魔"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 494,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/a3c49c63c97cd63.png",
+    "Name": "- Shuame 刷机精灵"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 495,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/3cd4fcc515a2020.png",
+    "Name": "- Camera 360"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 496,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fba30e1089291e9.png",
+    "Name": "- MyMoney 金蝶随手记"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 499,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/eed566387e4092e.png",
+    "Name": "- OnekeyROM 甜椒"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 500,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/76f040e64ab3bcb.jpeg",
+    "Name": "- Shendu 深度"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 503,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c61db69798dd678.jpg",
+    "Name": "- PP助手"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 504,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b54839d09ec4175.png",
+    "Name": "- Shuame Root 精灵"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 508,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/fb24fe55f046a4c.png",
+    "Name": "- 刷机大师"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 513,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/b6905c33b1bcc07.png",
+    "Name": "- Kaiboer 开博尔"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 515,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/9467c9a1ef6df79.png",
+    "Name": "- 卓大师一键 Root"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 523,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/761733fdeaf2bc1.png",
+    "Name": "- 卓大师 字体大师"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 527,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/07fe9b33c66a5d0.png",
+    "Name": "- 飞兔云传"
+  },
+  {
+    "NameIndex": "Y",
+    "Index": 529,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/c40e6d898a8f2f4.png",
+    "Name": "- iMagic"
+  },
+  {
+    "NameIndex": "Z",
+    "Index": 74,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/11-12-12 09-43-47.gif",
+    "Name": "Zonealarm"
+  },
+  {
+    "NameIndex": "Z",
+    "Index": 517,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/8556f2c47051f75.png",
+    "Name": "ZTE 中兴红牛"
+  },
+  {
+    "NameIndex": "Z",
+    "Index": 519,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/ad795eb3c4727ec.png",
+    "Name": "ZTE nubia 努比亚"
+  },
+  {
+    "NameIndex": "Z",
+    "Index": 521,
+    "LogoUrl": "http://static.cnbetacdn.com/topics/20b15bd69c6a6c6.png",
+    "Name": "ZTE 中兴"
+  }
+  ]

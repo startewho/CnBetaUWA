@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using CnBetaUWA.DataSource;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 
@@ -30,31 +31,29 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewLoad(IView view)
         {
-          
-            GetData();
+          TopicTypes=new IncrementalPageLoadingCollection<IncrementalTopicTypePageSource, TopicType>("",0,20);
+           
             return base.OnBindedViewLoad(view);
-
         }
 
 
 
 
-        public List<TopicType> TopicTypes
+
+        public IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType> TopicTypes
         {
             get { return _TopicTypesLocator(this).Value; }
             set { _TopicTypesLocator(this).SetValueAndTryNotify(value); }
         }
-        #region Property List<TopicType> TopicTypes Setup        
-        protected Property<List<TopicType>> _TopicTypes = new Property<List<TopicType>> { LocatorFunc = _TopicTypesLocator };
-        static Func<BindableBase, ValueContainer<List<TopicType>>> _TopicTypesLocator = RegisterContainerLocator<List<TopicType>>("TopicTypes", model => model.Initialize("TopicTypes", ref model._TopicTypes, ref _TopicTypesLocator, _TopicTypesDefaultValueFactory));
-        static Func<List<TopicType>> _TopicTypesDefaultValueFactory = () => default(List<TopicType>);
+        #region Property IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType> TopicTypes Setup        
+        protected Property<IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>> _TopicTypes = new Property<IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>> { LocatorFunc = _TopicTypesLocator };
+        static Func<BindableBase, ValueContainer<IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>>> _TopicTypesLocator = RegisterContainerLocator<IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>>("TopicTypes", model => model.Initialize("TopicTypes", ref model._TopicTypes, ref _TopicTypesLocator, _TopicTypesDefaultValueFactory));
+        static Func<IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>> _TopicTypesDefaultValueFactory = () => default(IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType>);
         #endregion
 
-        private async void GetData()
-        {
-            var jsontext=await IOHelper.GetTextFromStorage(new Uri("ms-appx:///Data/CnbetaAllTopics.json"));
-            TopicTypes = ModelHelper.JsonToTopicTypes(jsontext).ToList();
-        }
+
+
+
 
     }
 

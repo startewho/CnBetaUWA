@@ -119,6 +119,7 @@
     <Compile Include="DataBase\DataBase.cs" />
     <Compile Include="DataBase\NewsDataTable.cs" />
     <Compile Include="DataSource\IncrementalLoadingCollection.cs" />
+    <Compile Include="DataSource\IncrementalTopicTypePageSource.cs" />
     <Compile Include="DataSource\IncrementalNewsCommentPageSource.cs" />
     <Compile Include="DataSource\IncrementalPageLoadingCollection.cs" />
     <Compile Include="DataSource\IncrementalNewsSource.cs" />
