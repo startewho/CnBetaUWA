@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="202194ad-7e15-47fe-b068-c664fb31e18b" Publisher="CN=cheng" Version="1.0.0.0" />
+  <Identity Name="14603HelyCheng.CnbetaUWA" Publisher="CN=D0E54D50-1682-4F26-A45E-F17A6B384D0B" Version="1.1.2.0" />
   <mp:PhoneIdentity PhoneProductId="202194ad-7e15-47fe-b068-c664fb31e18b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>CnBetaUWA</DisplayName>
-    <PublisherDisplayName>cheng</PublisherDisplayName>
+    <DisplayName>CnbetaUWA</DisplayName>
+    <PublisherDisplayName>HelyCheng</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,10 +15,12 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="CnBetaUWA.App">
-      <uap:VisualElements DisplayName="CnBetaUWA" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="CnBetaUWA" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="CnbetaUWA" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="CnBetaUWA" BackgroundColor="transparent">
         <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
           <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
             <uap:ShowOn Tile="square310x310Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>

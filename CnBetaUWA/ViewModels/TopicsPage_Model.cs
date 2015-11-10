@@ -66,10 +66,13 @@ namespace CnBetaUWA.ViewModels
                 {
                     TopicColletion.Add(new Topic(topicType));
                 }
-
-                SelectedTopic = TopicColletion[0];
-                SelectedTopic.IsSelected = true;
-                LoadAction(SelectedTopic);
+                if (TopicColletion.Any())
+                {
+                    SelectedTopic = TopicColletion[0];
+                    SelectedTopic.IsSelected = true;
+                    LoadAction(SelectedTopic);
+                }
+                
              
             }
             PropScribe();
@@ -78,7 +81,11 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewUnload(IView view)
         {
-            SaveAction(SelectedTopic);
+            if (SelectedTopic!=null)
+            {
+                SaveAction(SelectedTopic);
+            }
+        
             return base.OnBindedViewUnload(view);
 
         }
