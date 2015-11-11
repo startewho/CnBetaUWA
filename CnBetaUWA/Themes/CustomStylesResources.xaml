@@ -172,8 +172,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <ListViewItemPresenter HorizontalAlignment="Stretch" />
-                </ControlTemplate>
+                    <ListViewItemPresenter  HorizontalAlignment="Stretch" />
+                   </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>

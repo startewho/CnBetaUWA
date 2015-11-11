@@ -31,7 +31,7 @@
                     </Grid>
                    
                 </Border>
-                <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Grid.Row="1"/>
+                <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }" Grid.Row="1"/>
               </Grid>
         </controls:MasterDetailView>
     </Grid>

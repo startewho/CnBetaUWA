@@ -7,7 +7,7 @@
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     
     <DataTemplate x:Key="NewsItemDataTemplate">
-        <Grid Height="100" Margin="{StaticResource AutoSuggestListMargin}" >
+        <Grid Height="100" Margin="{StaticResource AutoSuggestListMargin}" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBarBackgroundThemeBrush}" >
           <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
@@ -17,7 +17,8 @@
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}" Grid.Column="0"/>
+          
+            <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}"  Grid.Column="0"/>
             <Grid Margin="12,2,0,2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -49,7 +50,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="Top10NewsItemDataTemplate">
-        <Grid HorizontalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBarBackgroundThemeBrush}">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
@@ -60,10 +61,14 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBlock Text="{Binding Index}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.Column="0"/>
-          <StackPanel Orientation="Vertical" Height="100" Margin="12,2,0,2" Grid.Column="1" VerticalAlignment="Bottom">
+          <Grid Height="100" Margin="12,2,0,2" Grid.Column="1">
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="4*"/>
+                  <RowDefinition Height="*"/>
+              </Grid.RowDefinitions>
                 <TextBlock Text="{Binding Title, Mode=OneWay}" FontSize="20" Style="{StaticResource MenuTitleTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,12,0">
+                               Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="0" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,12,0" Grid.Row="1">
                     <TextBlock Text="&#xE890;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="{Binding ViewCount, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
@@ -74,12 +79,12 @@
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
 
-            </StackPanel>
+            </Grid>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="CommentItemDataTemplate">
-        <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,1">
+        <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,2">
             <Grid.RowDefinitions>
                <RowDefinition Height="24" />
                 <RowDefinition Height="Auto"/>
@@ -168,7 +173,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TopicPivotItemDateTemplate">
-        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }"  Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TodayRankTopicPivotItemDateTemplate">
