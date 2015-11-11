@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CnBetaUWA.Helper;
@@ -19,9 +20,13 @@ namespace CnBetaUWA.DataSource
         public void InitSouce(IEnumerable<News> caches)
 
         {
-            _startSid = caches.First().Sid;
-            _endSid = caches.Last().Sid;
-            _cacheNewes = caches.ToList();
+           
+            if (caches.Any())
+            {
+                _startSid = caches.First().Sid;
+                _endSid = caches.Last().Sid;
+                _cacheNewes = caches.ToList();
+            }
         }
 
         public async Task<IEnumerable<News>> GetPagedItems(string query,string querytype)
