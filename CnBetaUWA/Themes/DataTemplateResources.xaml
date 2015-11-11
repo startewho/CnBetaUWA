@@ -184,9 +184,20 @@
            </Grid.ColumnDefinitions>
             <!--<imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
             <Image Source="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
-            <TextBlock Text="{Binding Name}" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding Name}" Margin="{StaticResource DefaultLeftMargin}" Grid.Column="1" VerticalAlignment="Center"/>
             <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Grid.Column="2" VerticalAlignment="Center"/>
        </Grid>
    </DataTemplate>
 
+    <DataTemplate x:Key="MenuItemListViewItem">
+        <StackPanel Orientation="Horizontal" Height="40">
+            <interactivity:Interaction.Behaviors>
+                <core:EventTriggerBehavior EventName="Tapped">
+                    <behaviors:SendToEventRouterAction EventRoutingName="NavToSettingDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
+                </core:EventTriggerBehavior>
+            </interactivity:Interaction.Behaviors>
+            <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
+            <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

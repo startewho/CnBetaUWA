@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
     xmlns:controls="using:CnBetaUWA.Controls"
+    xmlns:models="using:CnBetaUWA.Models"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -24,20 +25,7 @@
         </Grid.ChildrenTransitions>
 
         <controls:MasterDetailView x:Name="MasterDetail" x:FieldModifier="public">
-            <StackPanel HorizontalAlignment="Stretch">
-                <Button Content="主题设置" Tag="1" HorizontalAlignment="Stretch"
-                        Command="{Binding CommandNavigateToDetailSettingPage}"
-                        CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}" />
-                <Button Content="内容设置" Tag="2" HorizontalAlignment="Stretch"
-                        Command="{Binding CommandNavigateToDetailSettingPage}"
-                        CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}" />
-                <Button Content="收藏管理" Tag="3" HorizontalAlignment="Stretch"
-                        Command="{Binding CommandNavigateToDetailSettingPage}"
-                        CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}" />
-                <Button Content="主题管理" Tag="4" HorizontalAlignment="Stretch"
-                        Command="{Binding CommandNavigateToDetailSettingPage}"
-                        CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}" />
-            </StackPanel>
+         <ListView ItemsSource="{Binding MenuItems}" ItemTemplate="{StaticResource MenuItemListViewItem}"/>
         </controls:MasterDetailView>
     </Grid>
 </mvvm:MVVMPage>

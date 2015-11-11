@@ -59,31 +59,33 @@ namespace CnBetaUWA.Helper
 
         public static void SetAppView(Color fgColor)
         {
-            PropertyInfo titleBar;
+           
             try
             {
-                var v = ApplicationView.GetForCurrentView();
-                var allProperties = v.GetType().GetRuntimeProperties();
-                titleBar = allProperties.FirstOrDefault(x => x.Name == "TitleBar");
-                if (titleBar == null) return;
-                dynamic bb = titleBar.GetMethod.Invoke(v, null);
-                if (bb != null)
-                {
-                    var appViewProperties = bb.GetType().DeclaredProperties;
-                    bb.BackgroundColor = Color.FromArgb(0, 0, 0, 0);
-                    bb.ForegroundColor = fgColor;
-                    bb.ButtonForegroundColor = fgColor;
-                    bb.ButtonBackgroundColor = Color.FromArgb(0, 0, 0, 0);
+                var view = ApplicationView.GetForCurrentView();
+                var titlebar = view.TitleBar;
+                // active
+                titlebar.BackgroundColor = fgColor;
+                titlebar.ForegroundColor = Colors.White;
 
-                    if (DoesPropertyExist("InactiveBackgroundColor", appViewProperties))
-                        bb.InactiveBackgroundColor = Color.FromArgb(0, 0, 0, 0);
-                    if (DoesPropertyExist("ButtonInactiveForegroundColor", appViewProperties))
-                        bb.ButtonInactiveForegroundColor = bb.ButtonForegroundColor;
-                    if (DoesPropertyExist("InactiveForegroundColor", appViewProperties))
-                        bb.InactiveForegroundColor = bb.ButtonForegroundColor;
-                    if (DoesPropertyExist("ButtonInactiveBackgroundColor", appViewProperties))
-                        bb.ButtonInactiveBackgroundColor = bb.BackgroundColor;
-                }
+                // inactive
+                titlebar.InactiveBackgroundColor = Colors.DarkGray;
+                titlebar.InactiveForegroundColor = Colors.Gray;
+
+                // button
+                titlebar.ButtonBackgroundColor = fgColor;
+                titlebar.ButtonForegroundColor = Colors.White;
+
+                titlebar.ButtonHoverBackgroundColor = Colors.LightSkyBlue;
+                titlebar.ButtonHoverForegroundColor = Colors.White;
+
+                titlebar.ButtonPressedBackgroundColor = Color.FromArgb(255, 0, 0, 120);
+                titlebar.ButtonPressedForegroundColor = Colors.White;
+
+                titlebar.ButtonInactiveBackgroundColor = Colors.DarkGray;
+                titlebar.ButtonInactiveForegroundColor = Colors.Gray;
+
+            
             }
             catch (Exception)
             {

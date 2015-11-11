@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -17,7 +16,7 @@ using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MyToolkit.Controls;
-using System.Text;
+
 namespace CnBetaUWA.ViewModels
 {
 
@@ -32,8 +31,6 @@ namespace CnBetaUWA.ViewModels
         {
 
     
-
-
 
         }
         public NewsPage_Model(News model)
@@ -90,7 +87,7 @@ namespace CnBetaUWA.ViewModels
                 html = html.Replace("HomeText", NewsContent.HomeText);
                 html = html.Replace("BodyText", NewsContent.BodyText);
                 html= Regex.Replace(html, "(<a.+?)(<img[^>]+>)((</a>)+)", "$2");
-             // html = html.Replace("http://static.cnbetacdn.com/", "");
+               // html = html.Replace("http://static.cnbetacdn.com/", "");
                 TotalContent = html;
                // await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
                // ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);

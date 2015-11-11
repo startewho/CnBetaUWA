@@ -30,11 +30,13 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+     
         protected override Task OnBindedViewLoad(IView view)
         {
             if (!_isLoaded)
             {
                 TopicTypes = new IncrementalPageLoadingCollection<IncrementalTopicTypePageSource, TopicType>("", 0, 20);
+
                 _isLoaded = true;
             }
           
@@ -42,6 +44,7 @@ namespace CnBetaUWA.ViewModels
         }
 
         private bool _isLoaded;
+      
         protected override Task OnBindedViewUnload(IView view)
         {
             var lists = new List<TopicType>();
@@ -50,13 +53,9 @@ namespace CnBetaUWA.ViewModels
             settingtopics.AddRange(TopicTypes.Where(item => item.IsSelected));
             foreach (var settingtopic in settingtopics)
             {
-                foreach (var topicType in TopicTypes)
+                foreach (var topicType in TopicTypes.Where(topicType => settingtopic.Id==topicType.Id))
                 {
-                    if (settingtopic.Id==topicType.Id)
-                    {
-                        settingtopic.IsSelected = topicType.IsSelected;
-                    }
-                   
+                    settingtopic.IsSelected = topicType.IsSelected;
                 }
                 if (settingtopic.IsSelected)
                 {
@@ -65,8 +64,6 @@ namespace CnBetaUWA.ViewModels
             }
 
 
-            
-       
             var newjsontopics = SerializerHelper.ToJson(lists.Distinct(item=>item.Id).Take(5));
             SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, newjsontopics);
             

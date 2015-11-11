@@ -4,6 +4,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -145,6 +146,9 @@ namespace CnBetaUWA
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
                // rootFrame.Navigate(typeof(BlankPage), e.Arguments);
             }
+
+           
+            AppViewHelper.SetAppView(Colors.CornflowerBlue);
             // Ensure the current window is active
             Window.Current.Activate();
         }
