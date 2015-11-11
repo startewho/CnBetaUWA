@@ -29,13 +29,13 @@ namespace CnBetaUWA.ViewModels
             _isLoaded = false;
 
             MenuItems.Add(new MenuItem { Icon = "\uE10F", Title = "主页", PageType = typeof(LatestNewsPage) });
-            MenuItems.Add(new MenuItem { Icon = "\uE898", Title = "本月Top10", PageType = typeof(Top10Page) });
-            MenuItems.Add(new MenuItem { Icon = "\uE163", Title = "今日排行", PageType = typeof(TodayRankPage) });
+            MenuItems.Add(new MenuItem { Icon = "\uE163", Title = "本月", PageType = typeof(Top10Page) });
+            MenuItems.Add(new MenuItem { Icon = "\uE898", Title = "今日", PageType = typeof(TodayRankPage) });
             MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(TopicsPage) });
           
             //MenuItems.Add(new MenuItem { Icon = "\uE779", Title = "专栏", PageType = typeof(LatestNewsPage) });
             MenuItems.Add(new MenuItem { Icon = "\uE713", Title = "设置", PageType = typeof(SettingPage) });
-            SelectedMenuItem = MenuItems.First(item => item.Title == "本月Top10");
+            SelectedMenuItem = MenuItems.First(item => item.Title == "主页");
 
         }
 

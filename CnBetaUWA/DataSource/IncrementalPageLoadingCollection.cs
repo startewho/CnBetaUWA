@@ -115,17 +115,17 @@ namespace CnBetaUWA.DataSource
 
 
 
-        public async Task<int> AttachToEnd()
-        {
-            var newItems = await _source.GetLastestItems(_query);
+        //public async Task<int> AttachToEnd()
+        //{
+        //    var newItems = await _source.GetLastestItems(_query);
 
-            if (newItems == null) return 0;
+        //    if (newItems == null) return 0;
 
-            var items = newItems as IList<I> ?? newItems.ToList();
-            foreach (I item in items.Reverse())
-                Insert(0, item);
-            return items.Count();
-        }
+        //    var items = newItems as IList<I> ?? newItems.ToList();
+        //    foreach (I item in items.Reverse())
+        //        Insert(0, item);
+        //    return items.Count();
+        //}
 
     }
 }

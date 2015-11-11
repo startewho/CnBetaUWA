@@ -51,22 +51,22 @@ namespace CnBetaUWA.ViewModels
 
         private void CommentsSource_OnLoadMoreCompleted(int count)
         {
-            string message = string.Format("已经加载了{0}条评论", count);
-            MessageHelper.ShowMessage(this,message);
+            //string message = string.Format("已经加载了{0}条评论", count);
+            //MessageHelper.ShowMessage(this,message);
 
-            var list = CommentsSource;
-            if (CommentsSource != null)
+           // var list = CommentsSource;
+            if (CommentsSource == null || !CommentsSource.Any()) return;
+            foreach (var comment in CommentsSource)
             {
-                foreach (var comment in list)
+                if (!comment.IsShow) continue;
+                var corentitem = CommentsSource.FirstOrDefault(item => item.Tid == comment.Pid);
+                if (corentitem == null) continue;
+                var parrentcomment = new NewsComment
                 {
-                    if (!comment.IsShow) continue;
-                    var parrentcomment = new NewsComment
-                    {
-                        UserName = list.First((item) => item.Tid == comment.Pid).UserName,
-                        Content = list.First((item) => item.Tid == comment.Pid).Content
-                    };
-                    comment.PidComment = parrentcomment;
-                }
+                    UserName = corentitem.UserName,
+                    Content = corentitem.Content,
+                };
+                comment.PidComment = parrentcomment;
             }
         }
 
