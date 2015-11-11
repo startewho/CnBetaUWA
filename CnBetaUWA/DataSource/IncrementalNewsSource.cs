@@ -26,6 +26,7 @@ namespace CnBetaUWA.DataSource
                 _startSid = caches.First().Sid;
                 _endSid = caches.Last().Sid;
                 _cacheNewes = caches.ToList();
+                _firstLoad = false;
             }
         }
 
@@ -67,18 +68,28 @@ namespace CnBetaUWA.DataSource
             if (_latestNewses != null)
             {
                 list.AddRange(_latestNewses);
-                _latestNewses = null;
+                //_latestNewses = null;
             }
 
             //不多于一页
             if (latestpage == 0)
             {
-                var reuslt = await GetDownNewsFromNet(query, querytype,_endSid);
-                list.AddRange(reuslt.Take(distance/sidSpace - 1));
+                if (_firstLoad == false)
+                {
+                    list.AddRange(_cacheNewes);
+                    _endSid = list.Last().Sid;
+                    _cacheNewes = null;
+                    _latestNewses = null;
+                    _firstLoad = true;
+                    return list;
+                }
+
+                var reuslt = await GetDownNewsFromNet(query, querytype, _endSid);
+                list.AddRange(reuslt.Take(distance / sidSpace - 1));
                 list.AddRange(_cacheNewes);
                 _endSid = list.Last().Sid;
                 _cacheNewes = null;
-                return list;
+               return list;
             }
 
             //不小于1页
@@ -124,7 +135,7 @@ namespace CnBetaUWA.DataSource
                     _endSid = enumerable.Last().Sid;
                 }
 
-                _firstLoad = true;
+               // _firstLoad = true;
                 
                 return list;
             }

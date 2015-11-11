@@ -4,6 +4,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:imglibcontrol="using:ImageLib.Controls"
+    xmlns:q42="using:Q42.WinRT.Controls"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     
     <DataTemplate x:Key="NewsItemDataTemplate">
@@ -17,9 +18,9 @@
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-          
-            <imglibcontrol:ImageView UriSource="{Binding ThumbPicture}"  Grid.Column="0"/>
-            <Grid Margin="12,2,0,2" Grid.Column="1">
+            <Image q42:ImageExtensions.CacheUri="{Binding ThumbPicture}" Grid.Column="0"/>
+            <!--<imglibcontrol:ImageView UriSource="{Binding ThumbPicture}"  Grid.Column="0"/>-->
+          <Grid Margin="12,2,0,2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>

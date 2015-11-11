@@ -55,19 +55,14 @@ namespace CnBetaUWA.ViewModels
 
         private async void LoadAction()
         {
-            var cachenews=await _storageHelper.LoadAsync(nameof(NewsSourceCollection));
-            if (cachenews != null&&cachenews.Any())
-            {
-               
-                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews);
-                //NewsSourceCollection.AddRange(cachenews);
-                //Reresh();
-            }
-            else
-            {
-                NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll, cachenews);
-                
-            }
+            var cachenews = await _storageHelper.LoadAsync(nameof(NewsSourceCollection));
+
+
+            NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll,
+                cachenews);
+            //NewsSourceCollection.AddRange(cachenews);
+            //Reresh();
+
             NewsSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
         }
 
@@ -80,9 +75,14 @@ namespace CnBetaUWA.ViewModels
             //}).DisposeWith(this);
         }
 
-        private async  void Reresh()
+        private   void Reresh()
         {
-            var addedcount=await NewsSourceCollection.AttachToEnd();
+            var cachenews = NewsSourceCollection;
+            NewsSourceCollection.OnLoadMoreStarted -= DataSourceCollection_OnLoadMoreStarted;
+            NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll,
+              cachenews);
+            NewsSourceCollection.OnLoadMoreStarted += DataSourceCollection_OnLoadMoreStarted;
+            //var addedcount=await NewsSourceCollection.AttachToEnd();
             //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
 
@@ -147,10 +147,10 @@ namespace CnBetaUWA.ViewModels
                         vm,
                         async e =>
                         {
-                            var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
-                            var scrooviewer = view.GetFirstDescendantOfType<ListView>();
+                            //var view = vm.StageManager.CurrentBindingView as LatestNewsPage;
+                            //var scrooviewer = view.GetFirstDescendantOfType<ListView>();
                             vm.Reresh();
-                            await scrooviewer.ScrollToIndex(0);
+                            //await scrooviewer.ScrollToIndex(0);
                             await MVVMSidekick.Utilities.TaskExHelper.Yield();
                         })
                     .DoNotifyDefaultEventRouter(vm, commandId)
