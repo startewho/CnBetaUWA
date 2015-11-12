@@ -148,9 +148,10 @@ namespace CnBetaUWA
             }
 
            
-            AppViewHelper.SetAppView(Colors.CornflowerBlue);
+            
             // Ensure the current window is active
             Window.Current.Activate();
+            AppViewHelper.SetAppView(Colors.CornflowerBlue);
         }
 
         /// <summary>

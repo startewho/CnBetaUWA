@@ -25,7 +25,7 @@
         </Grid.ChildrenTransitions>
         <controls:MasterDetailView x:Name="MasterDetail" x:FieldModifier="public">
             <Grid>
-                <Pivot ItemsSource="{Binding TopicColletion}"   Style="{StaticResource PivotStyle}" ItemTemplate="{StaticResource TodayRankTopicPivotItemDateTemplate}"  HeaderTemplate="{StaticResource TopicPivotItemHeaderDateTemplate}" SelectedItem="{Binding SelectedTopic,Mode=TwoWay}" />
+                <Pivot ItemsSource="{x:Bind StrongTypeViewModel.TopicColletion}"   Style="{StaticResource PivotStyle}" ItemTemplate="{StaticResource TodayRankTopicPivotItemDateTemplate}"  HeaderTemplate="{StaticResource TopicPivotItemHeaderDateTemplate}" SelectedItem="{Binding SelectedTopic,Mode=TwoWay}" />
             </Grid>
         </controls:MasterDetailView>
     </Grid>

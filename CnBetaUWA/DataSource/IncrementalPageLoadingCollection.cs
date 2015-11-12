@@ -57,10 +57,10 @@ namespace CnBetaUWA.DataSource
         public IncrementalPageLoadingCollection(string query,int pageindex,int pageSize )
         {
             _source = new T();
-            this._pageSize = pageSize;
+            _pageSize = pageSize;
             _currentPage = pageindex;
             _hasMoreItems = true;
-            this._query = query;
+            _query = query;
         }
 
         public bool HasMoreItems
@@ -71,7 +71,7 @@ namespace CnBetaUWA.DataSource
       
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
-          return AsyncInfo.Run((c) => LoadMoreItemsAsync(c, count));
+          return AsyncInfo.Run(c => LoadMoreItemsAsync(c, count));
         }
 
         async Task<LoadMoreItemsResult> LoadMoreItemsAsync(CancellationToken c, uint count)

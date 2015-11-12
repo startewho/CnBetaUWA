@@ -1,13 +1,11 @@
-﻿using MVVMSidekick.ViewModels;
-using Newtonsoft.Json;
-
+﻿using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 namespace CnBetaUWA.Models
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class News:ViewModelBase<News>
+    public class News
     {
         [JsonProperty]
-
         public string Title { get; set; }
         [JsonProperty]
 
@@ -20,6 +18,10 @@ namespace CnBetaUWA.Models
         public string ThumbPicture { get; set; }
 
         [JsonProperty]
+        public string Content { get; set; }
+
+        [JsonProperty]
+        [PrimaryKey]
         public int Sid { get; set; }
         [JsonProperty]
         public int ViewCount { get; set; }

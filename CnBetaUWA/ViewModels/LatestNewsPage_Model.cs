@@ -77,7 +77,7 @@ namespace CnBetaUWA.ViewModels
 
         private   void Reresh()
         {
-            var cachenews = NewsSourceCollection;
+            var cachenews = NewsSourceCollection.ToList();
             NewsSourceCollection.OnLoadMoreStarted -= DataSourceCollection_OnLoadMoreStarted;
             NewsSourceCollection = new IncrementalLoadingCollection<IncrementalNewsSource, News>(CnBetaHelper.TypeAll,
               cachenews);

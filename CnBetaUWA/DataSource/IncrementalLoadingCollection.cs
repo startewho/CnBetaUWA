@@ -64,7 +64,7 @@ namespace CnBetaUWA.DataSource
             }
            
             _hasMoreItems = true;
-            this._query = query;
+            _query = query;
           
         }
 
@@ -78,8 +78,8 @@ namespace CnBetaUWA.DataSource
             }
 
             _hasMoreItems = true;
-            this._query = query;
-            this._querytype = querytype;
+            _query = query;
+            _querytype = querytype;
 
         }
 
@@ -92,7 +92,7 @@ namespace CnBetaUWA.DataSource
       
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
-          return AsyncInfo.Run((c) => LoadMoreItemsAsync(c, count));
+          return AsyncInfo.Run(c => LoadMoreItemsAsync(c, count));
         }
 
         async Task<LoadMoreItemsResult> LoadMoreItemsAsync(CancellationToken c, uint count)

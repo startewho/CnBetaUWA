@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CnBetaUWA"
+    xmlns:themes="using:CnBetaUWA.Themes"
     RequestedTheme="Light">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,7 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/FlatUIColorsResources.xaml" />
                 <ResourceDictionary Source="Themes/CustomStylesResources.xaml" />
-                <ResourceDictionary Source="Themes/DataTemplateResources.xaml" />
+                <themes:DataTemplaterResources/>
              </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         </Application.Resources>

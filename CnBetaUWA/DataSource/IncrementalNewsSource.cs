@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CnBetaUWA.Helper;
@@ -26,7 +25,7 @@ namespace CnBetaUWA.DataSource
                 _startSid = caches.First().Sid;
                 _endSid = caches.Last().Sid;
                 _cacheNewes = caches.ToList();
-                _firstLoad = false;
+                _firstLoad = true;
             }
         }
 
@@ -68,24 +67,18 @@ namespace CnBetaUWA.DataSource
             if (_latestNewses != null)
             {
                 list.AddRange(_latestNewses);
-                //_latestNewses = null;
+                _latestNewses = null;
             }
 
             //不多于一页
             if (latestpage == 0)
             {
-                if (_firstLoad == false)
+                var diffcount = distance/sidSpace - 1;
+                if (diffcount>0)
                 {
-                    list.AddRange(_cacheNewes);
-                    _endSid = list.Last().Sid;
-                    _cacheNewes = null;
-                    _latestNewses = null;
-                    _firstLoad = true;
-                    return list;
+                    var reuslt = await GetDownNewsFromNet(query, querytype, _endSid);
+                    list.AddRange(reuslt.Take(diffcount));
                 }
-
-                var reuslt = await GetDownNewsFromNet(query, querytype, _endSid);
-                list.AddRange(reuslt.Take(distance / sidSpace - 1));
                 list.AddRange(_cacheNewes);
                 _endSid = list.Last().Sid;
                 _cacheNewes = null;
@@ -123,7 +116,7 @@ namespace CnBetaUWA.DataSource
         /// <returns></returns>
         public async Task<IEnumerable<News>> GetLastestItems(string query,string querytype)
         {
-            if (_firstLoad == false)
+            if (_firstLoad)
             {
                 var jsontext = await CnBetaHelper.GetLastestNews(query,querytype, _startSid, 0);
 
@@ -135,7 +128,7 @@ namespace CnBetaUWA.DataSource
                     _endSid = enumerable.Last().Sid;
                 }
 
-               // _firstLoad = true;
+                _firstLoad = false;
                 
                 return list;
             }

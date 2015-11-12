@@ -22,6 +22,11 @@ namespace CnBetaUWA.ViewModels
     {
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
+        public TopicsPage_Model()
+        {
+            InitData();
+            PropScribe();
+        }
 
         private readonly StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(Windows.Storage.ApplicationData.Current.LocalFolder);
         public String Title
@@ -35,6 +40,31 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+        private void InitData()
+        {
+            TopicColletion = new ObservableCollection<Topic>();
+
+            var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics, null);
+
+            var topics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
+
+            if (topics != null)
+            {
+                foreach (var topicType in topics)
+                {
+                    TopicColletion.Add(new Topic(topicType));
+                }
+                if (TopicColletion.Any())
+                {
+                    SelectedTopic = TopicColletion[0];
+                    SelectedTopic.IsSelected = true;
+                    LoadAction(SelectedTopic);
+                }
+
+
+            }
+
+        }
 
         private void PropScribe()
         {
@@ -54,29 +84,7 @@ namespace CnBetaUWA.ViewModels
         protected override Task OnBindedViewLoad(IView view)
         {
 
-            TopicColletion = new ObservableCollection<Topic>();
-
-            var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics, null);
-
-            var topics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
-
-            if (topics!=null)
-            {
-                foreach (var topicType in topics)
-                {
-                    TopicColletion.Add(new Topic(topicType));
-                }
-                if (TopicColletion.Any())
-                {
-                    SelectedTopic = TopicColletion[0];
-                    SelectedTopic.IsSelected = true;
-                    LoadAction(SelectedTopic);
-                }
-                
-             
-            }
-            PropScribe();
-            return base.OnBindedViewLoad(view);
+           return base.OnBindedViewLoad(view);
         }
 
         protected override Task OnBindedViewUnload(IView view)
@@ -185,9 +193,12 @@ namespace CnBetaUWA.ViewModels
             
         }
 
-        private async void Reresh()
+        private  void Reresh()
         {
-            var addedcount = await SelectedTopic.NewsSourceCollection.AttachToEnd();
+            var cachenews = SelectedTopic.NewsSourceCollection;
+            SelectedTopic.NewsSourceCollection.OnLoadMoreStarted -= NewsSourceCollection_OnLoadMoreStarted;
+            SelectedTopic.InitNewsSourceColletion(cachenews);
+            SelectedTopic.NewsSourceCollection.OnLoadMoreStarted += NewsSourceCollection_OnLoadMoreStarted;
             //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }
 

@@ -25,7 +25,7 @@
         </Grid.ChildrenTransitions>
 
         <controls:MasterDetailView x:Name="MasterDetail" x:FieldModifier="public">
-         <ListView ItemsSource="{Binding MenuItems}" ItemContainerStyle="{StaticResource LeftListVierItem}" ItemTemplate="{StaticResource MenuItemListViewItem}"/>
+         <ListView ItemsSource="{x:Bind StrongTypeViewModel.MenuItems}" ItemContainerStyle="{StaticResource LeftListVierItem}" ItemTemplate="{StaticResource MenuItemListViewItem}"/>
         </controls:MasterDetailView>
     </Grid>
 </mvvm:MVVMPage>

@@ -21,12 +21,12 @@
      
         <controls:ExtendSplitView x:Name="SplitView" MinBottomWidth="699" >
             <controls:ExtendSplitView.Pane>
-                <ListBox ItemsSource="{Binding MenuItems}" SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
+                <ListBox ItemsSource="{x:Bind StrongTypeViewModel.MenuItems}" SelectedItem="{x:Bind StrongTypeViewModel.SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}" ItemContainerStyle="{StaticResource MenuListBoxItemStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:DataType="models:MenuItem">
                             <StackPanel Orientation="Horizontal" Height="40">
-                                <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
-                                <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -36,7 +36,7 @@
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </controls:ExtendSplitView.Content>
             <controls:ExtendSplitView.BottomPane>
-                <ListBox ItemsSource="{Binding MenuItems}"  SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}"  ItemContainerStyle="{StaticResource BottomListBoxItem}" SizeChanged="FrameworkElement_OnSizeChanged">
+                <ListBox ItemsSource="{x:Bind StrongTypeViewModel.MenuItems}"  SelectedItem="{x:Bind StrongTypeViewModel.SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}"  ItemContainerStyle="{StaticResource BottomListBoxItem}" SizeChanged="FrameworkElement_OnSizeChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel  Orientation="Horizontal"/>
@@ -45,8 +45,8 @@
                     <ListBox.ItemTemplate>
                             <DataTemplate x:DataType="models:MenuItem">
                                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40">
-                                <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource SmallTextBlockStyle}" FontSize="20" Width="20" />
-                                <TextBlock Text="{Binding Title, Mode=OneWay}" HorizontalAlignment="Center"  Style="{ThemeResource MenuTitleTextBlockStyle}" />
+                                <TextBlock Text="{x:Bind Icon, Mode=OneWay}" Style="{ThemeResource SmallTextBlockStyle}" FontSize="20" Width="20" />
+                                <TextBlock Text="{x:Bind Title, Mode=OneWay}" HorizontalAlignment="Center"  Style="{ThemeResource MenuTitleTextBlockStyle}" />
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

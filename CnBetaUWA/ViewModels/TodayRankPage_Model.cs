@@ -21,7 +21,17 @@ namespace CnBetaUWA.ViewModels
     [DataContract]
     public class TodayRankPage_Model : ViewModelBase<TodayRankPage_Model>
     {
+        public TodayRankPage_Model()
+        {
+            InitData();
+            SelectedTopic = TopicColletion[0];
+            SelectedTopic.IsSelected = true;
+            LoadAction(SelectedTopic);
+
+        }
         private readonly StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(Windows.Storage.ApplicationData.Current.LocalFolder);
+
+
         public String Title
         {
             get { return _TitleLocator(this).Value; }
@@ -33,6 +43,37 @@ namespace CnBetaUWA.ViewModels
         static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
         #endregion
 
+        private void InitData()
+        {
+            TopicColletion = new ObservableCollection<Topic>();
+
+            var topics = new List<TopicType>
+                {
+                    new TopicType
+                    {
+
+                        Name="评论最多",
+                        NamePre = "comments",
+
+                    },
+                    new TopicType
+                    {
+                        Name="支持最多",
+                        NamePre = "dig",
+                    }
+                    ,new TopicType
+                    {
+                        Name="阅读最多",
+                        NamePre = "counter",
+                    }
+                };
+
+            foreach (var topicType in topics)
+            {
+                TopicColletion.Add(new Topic(topicType));
+            }
+
+        }
 
         private void PropScribe()
         {
@@ -51,38 +92,7 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewLoad(IView view)
         {
-
-            TopicColletion = new ObservableCollection<Topic>();
-
-            var topics = new List<TopicType>
-                {
-                    new TopicType
-                    {
-                       
-                        Name="评论最多",
-                        NamePre = "comments",
-                        
-                    },
-                    new TopicType
-                    {
-                        Name="支持最多",
-                        NamePre = "dig",
-                    }
-                    ,new TopicType
-                    {
-                        Name="阅读最多",
-                        NamePre = "counter",
-                    }
-                };
-
-            foreach (var topicType in topics)
-            {
-                TopicColletion.Add(new Topic(topicType));
-            }
-                
-            SelectedTopic = TopicColletion[0];
-            SelectedTopic.IsSelected = true;
-            LoadAction(SelectedTopic);
+          
             PropScribe();
             return base.OnBindedViewLoad(view);
         }

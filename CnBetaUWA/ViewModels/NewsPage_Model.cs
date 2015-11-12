@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
+using CnBetaUWA.DataBase;
 using CnBetaUWA.DataSource;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
@@ -30,21 +31,18 @@ namespace CnBetaUWA.ViewModels
         public NewsPage_Model()
         {
 
-    
-
         }
         public NewsPage_Model(News model)
         {
-            Vm = model;
-      
-
+            NewsVm = model;
+         
         }
 
-        public News Vm { get; set; }
+        public News NewsVm { get; set; }
 
         private void InitComentsData()
         {
-            CommentsSource = new IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource, NewsComment>(Vm.Sid.ToString(), 1, 10);
+            CommentsSource = new IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource, NewsComment>(NewsVm.Sid.ToString(), 1, 10);
             CommentsSource.OnLoadMoreCompleted += CommentsSource_OnLoadMoreCompleted;
           
         }
@@ -72,35 +70,39 @@ namespace CnBetaUWA.ViewModels
 
         private async void GetContent(int sid)
         {
-            var content = await CnBetaHelper.GetNewsContent(sid);
-            if (content != null)
+            var querynews=NewsDataTable.Query(sid);
+            if (querynews!=null)
             {
-
-                NewsContent = ModelHelper.JsonToNewsContent(content);
-                var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/ContentTemplate.html"));
-
-                html = html.Replace("#Date", Vm.CreatTime);
-             
-                html = html.Replace("#Source", NewsContent.Source);
-                html = html.Replace("#Author", NewsContent.Author);
-               //  html = html.Replace("#Topic", Vm.TopictLogoPicture);
-                html = html.Replace("HomeText", NewsContent.HomeText);
-                html = html.Replace("BodyText", NewsContent.BodyText);
-                html= Regex.Replace(html, "(<a.+?)(<img[^>]+>)((</a>)+)", "$2");
-               // html = html.Replace("http://static.cnbetacdn.com/", "");
-                TotalContent = html;
-               // await IOHelper.WriteTextToLocalCacheStorageFile(CnBetaHelper.HtmlFolder,Vm.Sid+".html", TotalContent);
-               // ContentPath = string.Format(CnBetaHelper.HtmlPath, Vm.Sid);
-
+                TotalContent = querynews.Content;
             }
-            
 
-
+            else
+            {
+                var content = await CnBetaHelper.GetNewsContent(sid);
+                if (content != null)
+                {
+                    NewsContent = ModelHelper.JsonToNewsContent(content);
+                    var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/ContentTemplate.html"));
+                    html = html.Replace("#Date", NewsVm.CreatTime);
+                    html = html.Replace("#Source", NewsContent.Source);
+                    html = html.Replace("#Author", NewsContent.Author);
+                    //  html = html.Replace("#Topic", NewsVm.TopictLogoPicture);
+                    html = html.Replace("HomeText", NewsContent.HomeText);
+                    html = html.Replace("BodyText", NewsContent.BodyText);
+                    html = Regex.Replace(html, "(<a.+?)(<img[^>]+>)((</a>)+)", "$2");
+                    // html = html.Replace("http://static.cnbetacdn.com/", "");
+                    TotalContent = html;
+                    NewsVm.Content = html;
+                    NewsDataTable.Add(NewsVm);
+                
+                }
+            }
+    
         }
         protected override Task OnBindedViewLoad(IView view)
         {
             if (_isLoaded) return base.OnBindedViewLoad(view);
-            GetContent(Vm.Sid);
+            GetContent(NewsVm.Sid);
             SubscribeCommand();
             _isLoaded = true;
             return base.OnBindedViewLoad(view);
@@ -109,7 +111,7 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewUnload(IView view)
         {
-             Vm = null;
+             NewsVm = null;
              TotalContent = null;
             LocalEventRouter = null;
            // CommentsSource.OnLoadMoreCompleted -= CommentsSource_OnLoadMoreCompleted;
@@ -152,7 +154,7 @@ namespace CnBetaUWA.ViewModels
                      var comment = e.EventData as NewsComment;
                      if (comment != null && comment.IsAgainsted !=true)
                      {
-                         var result = await CnBetaHelper.GetCommentAction(Vm.Sid, comment.Tid, "against");
+                         var result = await CnBetaHelper.GetCommentAction(NewsVm.Sid, comment.Tid, "against");
                          var susses = ModelHelper.JsonToCommentAction(result);
                          if (susses)
                          {

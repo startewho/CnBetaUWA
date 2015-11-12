@@ -26,7 +26,7 @@
         </Grid.ChildrenTransitions>
 
         <Border Grid.Row="0" >
-        <TextBlock Text="{Binding Vm.Title}" FontSize="18" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" />
+            <TextBlock Text="{Binding NewsVm.Title}" FontSize="18" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" />
         </Border>
         <Border x:Name="MenuBar" Grid.Row="0" >
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" >

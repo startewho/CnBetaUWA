@@ -1,5 +1,4 @@
 ﻿using MVVMSidekick.ViewModels;
-using MVVMSidekick.Reactive;
 using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
@@ -45,63 +44,8 @@ namespace CnBetaUWA.ViewModels
         {
             get { return menuItems; }
         }
-        public CommandModel<ReactiveCommand, String> CommandNavigateToDetailSettingPage
-        {
-            get { return _CommandNavigateToDetailSettingPageLocator(this).Value; }
-            set { _CommandNavigateToDetailSettingPageLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandNavigateToDetailSettingPage Setup        
-
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandNavigateToDetailSettingPage = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandNavigateToDetailSettingPageLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandNavigateToDetailSettingPageLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandNavigateToDetailSettingPage", model => model.Initialize("CommandNavigateToDetailSettingPage", ref model._CommandNavigateToDetailSettingPage, ref _CommandNavigateToDetailSettingPageLocator, _CommandNavigateToDetailSettingPageDefaultValueFactory));
-        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandNavigateToDetailSettingPageDefaultValueFactory =
-            model =>
-            {
-                var resource = "CommandNavigateToDetailSettingPage";           // Command resource  
-                var commandId = "CommandNavigateToDetailSettingPage";
-                var vm = CastToCurrentType(model);
-                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
-
-                cmd.DoExecuteUIBusyTask(
-                        vm,
-                        async e =>
-                        {
-
-
-                           
-                            var pageviewer = vm.StageManager.CurrentBindingView as SettingPage;
-                            var masterdetail = pageviewer.GetFirstDescendantOfType<MasterDetailView>();
-                            var tag =Convert.ToInt32(e.EventArgs.Parameter);
-                            switch (tag)
-                            {
-                                case 1:
-                                    masterdetail?.DetailFrameNavigateTo(typeof (TopicTypesMangePage),
-                                        new TopicTypesMangePage_Model(), true);
-                                    break;
-                                case 2:
-                                    masterdetail?.DetailFrameNavigateTo(typeof (TopicTypesMangePage),
-                                        new TopicTypesMangePage_Model(), true);
-                                    break;
-                                default:
-                                    break;
-                            }
-                            //Todo: Add NavigateToDetailSettingPage logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                        })
-                    .DoNotifyDefaultEventRouter(vm, commandId)
-                    .Subscribe()
-                    .DisposeWith(vm);
-
-                var cmdmdl = cmd.CreateCommandModel(resource);
-
-                cmdmdl.ListenToIsUIBusy(
-                    model: vm,
-                    canExecuteWhenBusy: false);
-                return cmdmdl;
-            };
-
-        #endregion
-        private bool _isLoaded;
+    
+      private bool _isLoaded;
         protected override Task OnBindedViewLoad(IView view)
         {
             if (_isLoaded) return base.OnBindedViewLoad(view);

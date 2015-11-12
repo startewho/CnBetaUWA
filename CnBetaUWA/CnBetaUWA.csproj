@@ -18,7 +18,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>CnBetaUWA_StoreKey.pfx</PackageCertificateKeyFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
@@ -169,6 +169,7 @@
     <Compile Include="Startups\Top10Page.cs" />
     <Compile Include="Startups\TopicsPage.cs" />
     <Compile Include="Startups\TopicTypesMangePage.cs" />
+    <Compile Include="Themes\DataTemplaterResources.xaml.cs" />
     <Compile Include="TodayRankPage.xaml.cs">
       <DependentUpon>TodayRankPage.xaml</DependentUpon>
     </Compile>

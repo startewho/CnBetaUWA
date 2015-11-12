@@ -1,13 +1,15 @@
 ﻿<ResourceDictionary
+    x:Class="CnBetaUWA.Themes.DataTemplaterResources"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:imglibcontrol="using:ImageLib.Controls"
     xmlns:q42="using:Q42.WinRT.Controls"
+    xmlns:models="using:CnBetaUWA.Models"
     xmlns:behaviors="using:MVVMSidekick.Behaviors">
     
-    <DataTemplate x:Key="NewsItemDataTemplate">
+    <DataTemplate x:Key="NewsItemDataTemplate" x:DataType="models:News">
         <Grid Height="100" Margin="{StaticResource AutoSuggestListMargin}" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBarBackgroundThemeBrush}" >
           <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100" />
@@ -18,39 +20,39 @@
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <Image q42:ImageExtensions.CacheUri="{Binding ThumbPicture}" Grid.Column="0"/>
-            <!--<imglibcontrol:ImageView UriSource="{Binding ThumbPicture}"  Grid.Column="0"/>-->
+            <!--<Image q42:ImageExtensions.CacheUri="{x:Bind ThumbPicture}" Grid.Column="0"/>-->
+            <imglibcontrol:ImageView UriSource="{x:Bind ThumbPicture}"  Grid.Column="0"/>
           <Grid Margin="12,2,0,2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Title, Mode=OneWay}" TextTrimming="Clip" Style="{StaticResource TitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind Title, Mode=OneWay}" TextTrimming="Clip" Style="{StaticResource TitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="0"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{x:Bind CreatTime, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="&#xE890;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding ViewCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{x:Bind ViewCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="&#xE91C;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{x:Bind CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
 
-                <TextBlock Text="{Binding Summary, Mode=OneWay}"  Style="{StaticResource ParagraphTextBlockStyle}"
+                <TextBlock Text="{x:Bind Summary, Mode=OneWay}"  Style="{StaticResource ParagraphTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="2"/>
             </Grid>
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="Top10NewsItemDataTemplate">
+    <DataTemplate x:Key="Top10NewsItemDataTemplate" x:DataType="models:News">
         <Grid HorizontalAlignment="Stretch" BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBarBackgroundThemeBrush}">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
@@ -61,22 +63,22 @@
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Index}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.Column="0"/>
+            <TextBlock Text="{x:Bind Index}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Grid.Column="0"/>
           <Grid Height="100" Margin="12,2,0,2" Grid.Column="1">
               <Grid.RowDefinitions>
                   <RowDefinition Height="4*"/>
                   <RowDefinition Height="*"/>
               </Grid.RowDefinitions>
-                <TextBlock Text="{Binding Title, Mode=OneWay}" FontSize="20" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind Title, Mode=OneWay}" FontSize="20" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="0" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,12,0" Grid.Row="1">
                     <TextBlock Text="&#xE890;" Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding ViewCount, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{x:Bind ViewCount, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="&#xE91C;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
-                    <TextBlock Text="{Binding CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                    <TextBlock Text="{x:Bind CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                 </StackPanel>
 
@@ -84,7 +86,7 @@
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="CommentItemDataTemplate">
+    <DataTemplate x:Key="CommentItemDataTemplate" x:DataType="models:NewsComment">
         <Grid BorderBrush="CornflowerBlue" Width="300" Padding="0,12,10,12" BorderThickness="0,0,0,2">
             <Grid.RowDefinitions>
                <RowDefinition Height="24" />
@@ -95,22 +97,22 @@
           
             <StackPanel Orientation="Horizontal"  Grid.Row="0">
                 <TextBlock Text="&#xE2AF;" Style="{StaticResource SmallTextBlockStyle}"/>
-                <TextBlock Text="{Binding UserName, Mode=OneWay}" Padding="0,0,24,0"
+                <TextBlock Text="{x:Bind UserName, Mode=OneWay}" Padding="0,0,24,0"
                            Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="{Binding CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind CreatTime, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
             </StackPanel>
             <StackPanel Grid.Row="1"  Background="{StaticResource CommentBgColorBrush}" BorderThickness="1,1,1,1" BorderBrush="{StaticResource CommentBorderColorBrush}" Visibility="{Binding IsShow ,Converter={StaticResource BoolToVisibilityConverter}}">
-                <TextBlock Text="{Binding PidComment.UserName, Mode=OneWay}" Padding="0,0,24,0"
+                <TextBlock Text="{x:Bind PidComment.UserName, Mode=OneWay}" Padding="0,0,24,0"
                            Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="{Binding PidComment.Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind PidComment.Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                        Margin="{StaticResource AutoSuggestListMargin}" />
             </StackPanel>
-            <TextBlock Text="{Binding Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+            <TextBlock Text="{x:Bind Content, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                          Grid.Row="2" />
             <StackPanel Orientation="Horizontal" Grid.Row="3">
                 <Button Content="&#xE19F;" Style="{StaticResource CommentButtonStyle}"
@@ -127,7 +129,7 @@
                 </Button>
                 <TextBlock Text="支持" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="{Binding Support, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind Support, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <Button Content="&#xE19E;" Margin="24,0,0,0" Style="{StaticResource CommentButtonStyle}"
                       >
@@ -143,7 +145,7 @@
                 </Button>
                 <TextBlock Text="反对" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
-                <TextBlock Text="{Binding Against, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
+                <TextBlock Text="{x:Bind Against, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
                            Margin="{StaticResource AutoSuggestListMargin}" />
                 <Button Content="&#xE91C;" Margin="24,0,0,0" Style="{StaticResource CommentButtonStyle}"
                        >
@@ -162,26 +164,26 @@
         </Grid>
     </DataTemplate>
    
-    <DataTemplate x:Key="TopicPivotItemHeaderDateTemplate">
+    <DataTemplate x:Key="TopicPivotItemHeaderDateTemplate" x:DataType="models:Topic">
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="7" />
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding CurrentTopicType.Name}" Grid.Row="0" Margin="8,0,8,0" HorizontalAlignment="Center"/>
-            <Grid Background="Red" Margin="0,4,0,0" HorizontalAlignment="Stretch"  Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}" Grid.Row="1"/>
+            <TextBlock Text="{x:Bind CurrentTopicType.Name}" Grid.Row="0" Margin="8,0,8,0" HorizontalAlignment="Center"/>
+            <Grid Background="Red" Margin="0,4,0,0" HorizontalAlignment="Stretch"  Visibility="{x:Bind  IsSelected,Converter={StaticResource BoolToVisibilityConverter}}" Grid.Row="1"/>
         </Grid>
     </DataTemplate>
 
-    <DataTemplate x:Key="TopicPivotItemDateTemplate">
-        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }"  Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+    <DataTemplate x:Key="TopicPivotItemDateTemplate" x:DataType="models:Topic">
+        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }"  Visibility="{x:Bind  IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
 
-    <DataTemplate x:Key="TodayRankTopicPivotItemDateTemplate">
-        <ListView ItemsSource="{Binding StaticNewesCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+    <DataTemplate x:Key="TodayRankTopicPivotItemDateTemplate" x:DataType="models:Topic">
+        <ListView ItemsSource="{Binding StaticNewesCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{x:Bind IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
-   
-   <DataTemplate x:Key="TopicTypeItemDataTemplate">
+
+    <DataTemplate x:Key="TopicTypeItemDataTemplate"  x:DataType="models:TopicType">
        <Grid Height="50" HorizontalAlignment="Stretch" Margin="{StaticResource AutoSuggestListMargin}">
            <Grid.ColumnDefinitions>
                <ColumnDefinition Width="50" />
@@ -189,21 +191,21 @@
                <ColumnDefinition Width="50" />
            </Grid.ColumnDefinitions>
             <!--<imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
-            <Image Source="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
-            <TextBlock Text="{Binding Name}" Margin="{StaticResource DefaultLeftMargin}" Grid.Column="1" VerticalAlignment="Center"/>
+            <Image Source="{x:Bind LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
+            <TextBlock Text="{x:Bind Name}" Margin="{StaticResource DefaultLeftMargin}" Grid.Column="1" VerticalAlignment="Center"/>
             <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Grid.Column="2" VerticalAlignment="Center"/>
        </Grid>
    </DataTemplate>
 
-    <DataTemplate x:Key="MenuItemListViewItem">
+    <DataTemplate x:Key="MenuItemListViewItem" x:DataType="models:MenuItem">
         <StackPanel Orientation="Horizontal" Height="40">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="Tapped">
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToSettingDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <TextBlock Text="{Binding Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
-            <TextBlock Text="{Binding Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
+            <TextBlock Text="{x:Bind Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
+            <TextBlock Text="{x:Bind Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
         </StackPanel>
     </DataTemplate>
 </ResourceDictionary>
