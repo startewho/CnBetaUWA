@@ -17,6 +17,7 @@
     <Thickness x:Key="DefaultLeftMargin">12,0,0,0</Thickness>
     <Thickness x:Key="DefaultRightMargin">0,0,12,0</Thickness>
     <Thickness x:Key="DefaultLeftTopMargin">12,2,0,2</Thickness>
+    <Thickness x:Key="DefaultAllMargin">12,2,12,2</Thickness>
     <Style x:Key="AppTitleTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Margin" Value="12,6,0,6" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -733,7 +734,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <ItemsWrapGrid Orientation="Horizontal" ItemHeight="75"  ItemWidth="75" />
+                    <ItemsWrapGrid Orientation="Horizontal" Margin="{StaticResource DefaultLeftMargin}" ItemHeight="75"  ItemWidth="75" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>

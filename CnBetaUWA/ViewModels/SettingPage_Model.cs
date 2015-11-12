@@ -23,6 +23,7 @@ namespace CnBetaUWA.ViewModels
         {
             MenuItems.Add(new MenuItem { Icon = "\uE175", Title = "频道设置", PageType = typeof(SettingTopicTypesMangePage) });
             MenuItems.Add(new MenuItem { Icon = "\uE748", Title = "主题设置", PageType = typeof(SettingThemePage) });
+            MenuItems.Add(new MenuItem { Icon = "\uE730", Title = "关于软件", PageType = typeof(SettingAboutPage) });
         }
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
