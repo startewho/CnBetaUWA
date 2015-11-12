@@ -1,13 +1,14 @@
 ﻿{
   "dependencies": {
     "CommonServiceLocator": "1.3.0",
+    "Edi.UWP.Helpers": "1.0.4",
     "ImageLib.UWP": "4.7.0",
     "Microsoft.Bcl": "1.1.10",
     "Microsoft.Bcl.Async": "1.0.168",
     "Microsoft.Bcl.Build": "1.0.21",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MVVM-Sidekick": "1.6.6",
-    "MyToolkit": "2.5.3",
+    "MyToolkit": "2.5.4",
     "MyToolkit.Extended": "2.5.3",
     "Newtonsoft.Json": "8.0.1-beta1",
     "Q42.WinRT": "1.5.0.42",

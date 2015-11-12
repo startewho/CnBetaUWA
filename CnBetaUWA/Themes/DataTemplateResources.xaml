@@ -24,30 +24,25 @@
             <!--<imglibcontrol:ImageView UriSource="{x:Bind ThumbPicture}"  Grid.Column="0"/>-->
           <Grid Margin="12,2,0,2" Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="3*"/>
                     <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                 </Grid.RowDefinitions>
                 <TextBlock Text="{x:Bind Title, Mode=OneWay}" TextTrimming="Clip" Style="{StaticResource TitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="0"/>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center">
                     <TextBlock Text="&#xE823;" Style="{StaticResource SmallTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
+                               Margin="{StaticResource AutoSuggestListMargin}"/>
                     <TextBlock Text="{x:Bind CreatTime, Mode=OneWay}" Padding="0,0,24,0" Style="{StaticResource MenuTitleTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="&#xE890;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="{x:Bind ViewCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
+                               Margin="{StaticResource DefaultRightMargin}" />
                     <TextBlock Text="&#xE91C;"  Style="{StaticResource SmallTextBlockStyle}"
                                Margin="{StaticResource AutoSuggestListMargin}" />
                     <TextBlock Text="{x:Bind CommentsCount, Mode=OneWay}" Style="{StaticResource MenuTitleTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" />
+                               Margin="{StaticResource DefaultRightMargin}" />
                 </StackPanel>
-
-                <TextBlock Text="{x:Bind Summary, Mode=OneWay}"  Style="{StaticResource ParagraphTextBlockStyle}"
-                               Margin="{StaticResource AutoSuggestListMargin}" Grid.Row="2"/>
             </Grid>
         </Grid>
     </DataTemplate>
@@ -170,17 +165,17 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="7" />
             </Grid.RowDefinitions>
-            <TextBlock Text="{x:Bind CurrentTopicType.Name}" Grid.Row="0" Margin="8,0,8,0" HorizontalAlignment="Center"/>
-            <Grid Background="Red" Margin="0,4,0,0" HorizontalAlignment="Stretch"  Visibility="{x:Bind  IsSelected,Converter={StaticResource BoolToVisibilityConverter}}" Grid.Row="1"/>
+            <TextBlock Text="{x:Bind CurrentTopicType.Name}" Margin="8,0,8,0" HorizontalAlignment="Center"  Grid.Row="0"/>
+            <Grid Background="Red" Margin="0,4,0,0" HorizontalAlignment="Stretch"  Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter},Mode=TwoWay}" Grid.Row="1"/>
         </Grid>
     </DataTemplate>
 
     <DataTemplate x:Key="TopicPivotItemDateTemplate" x:DataType="models:Topic">
-        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }"  Visibility="{x:Bind  IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <ListView ItemsSource="{Binding NewsSourceCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem }"  Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TodayRankTopicPivotItemDateTemplate" x:DataType="models:Topic">
-        <ListView ItemsSource="{Binding StaticNewesCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{x:Bind IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <ListView ItemsSource="{Binding StaticNewesCollection}" ItemTemplate="{StaticResource NewsItemDataTemplate}" Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"/>
     </DataTemplate>
 
     <DataTemplate x:Key="TopicTypeItemDataTemplate"  x:DataType="models:TopicType">

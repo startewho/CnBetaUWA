@@ -20,6 +20,7 @@ namespace CnBetaUWA.ViewModels
     [DataContract]
     public class TopicsPage_Model : ViewModelBase<TopicsPage_Model>
     {
+        private readonly StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(Windows.Storage.ApplicationData.Current.LocalFolder);
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
         public TopicsPage_Model()
@@ -27,19 +28,7 @@ namespace CnBetaUWA.ViewModels
             InitData();
             PropScribe();
         }
-
-        private readonly StorageHelper<IEnumerable<News>> _storageHelper = new StorageHelper<IEnumerable<News>>(Windows.Storage.ApplicationData.Current.LocalFolder);
-        public String Title
-        {
-            get { return _TitleLocator(this).Value; }
-            set { _TitleLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property String Title Setup
-        protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
-        #endregion
-
+        
         private void InitData()
         {
             TopicColletion = new ObservableCollection<Topic>();
@@ -48,35 +37,29 @@ namespace CnBetaUWA.ViewModels
 
             var topics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
 
-            if (topics != null)
+            if (topics == null) return;
+            foreach (var topicType in topics)
             {
-                foreach (var topicType in topics)
-                {
-                    TopicColletion.Add(new Topic(topicType));
-                }
-                if (TopicColletion.Any())
-                {
-                    SelectedTopic = TopicColletion[0];
-                    SelectedTopic.IsSelected = true;
-                    LoadAction(SelectedTopic);
-                }
-
-
+                TopicColletion.Add(new Topic(topicType));
             }
 
+            if (!TopicColletion.Any()) return;
+            SelectedTopic = TopicColletion[0];
+            SelectedTopic.IsSelected = true;
+            LoadAction(SelectedTopic);
         }
 
         private void PropScribe()
         {
             //当SelectedTopic变化时,缓存当前页面数据,并加载新页面
-            GetValueContainer(vm => vm.SelectedTopic).GetEventObservable().Subscribe(e =>
+            GetValueContainer(vm => vm.SelectedTopic).GetEventObservable().Subscribe(  e =>
             {
                 var oldtopic = e.EventArgs.OldValue;
                 var newtopic = e.EventArgs.NewValue;
-              //  SaveAction(oldtopic);
+                 SaveAction(oldtopic);
                 oldtopic.IsSelected = false;
                 newtopic.IsSelected = true;
-               LoadAction(newtopic);
+                LoadAction(newtopic);
             }).DisposeWith(this);
 
         }
@@ -87,7 +70,7 @@ namespace CnBetaUWA.ViewModels
            return base.OnBindedViewLoad(view);
         }
 
-        protected override Task OnBindedViewUnload(IView view)
+        protected override  Task OnBindedViewUnload(IView view)
         {
             if (SelectedTopic!=null)
             {
@@ -171,24 +154,16 @@ namespace CnBetaUWA.ViewModels
 
         private async void SaveAction(Topic selectTopic)
         {
-            await _storageHelper.SaveAsync(selectTopic.NewsSourceCollection.Take(100), selectTopic.CurrentTopicType.Id.ToString());
             selectTopic.NewsSourceCollection.OnLoadMoreStarted -= NewsSourceCollection_OnLoadMoreStarted;
+            await _storageHelper.SaveAsync(selectTopic.NewsSourceCollection.Take(100), selectTopic.CurrentTopicType.Id.ToString());
+            
         }
 
 
         private async void LoadAction(Topic selectTopic)
         {
             var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.Id.ToString());
-            if (cachenews != null && cachenews.Any())
-            {
-                selectTopic.InitNewsSourceColletion( cachenews);
-              
-            }
-            else
-            {
-                selectTopic.InitNewsSourceColletion( cachenews);
-            }
-
+            selectTopic.InitNewsSourceColletion(cachenews);
             selectTopic.NewsSourceCollection.OnLoadMoreStarted += NewsSourceCollection_OnLoadMoreStarted;
             
         }

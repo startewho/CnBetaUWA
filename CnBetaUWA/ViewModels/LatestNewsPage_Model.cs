@@ -48,7 +48,8 @@ namespace CnBetaUWA.ViewModels
 
         private async void SaveAction()
         {
-          await _storageHelper.SaveAsync(NewsSourceCollection.Take(100), nameof(NewsSourceCollection));
+            NewsSourceCollection.OnLoadMoreStarted -= DataSourceCollection_OnLoadMoreStarted;
+            await _storageHelper.SaveAsync(NewsSourceCollection.Take(100), nameof(NewsSourceCollection));
          
        }
 
