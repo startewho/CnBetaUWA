@@ -8,6 +8,7 @@ using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
 using MVVMSidekick.Startups;
@@ -16,6 +17,7 @@ using ImageLib.Cache.Memory.CacheImpl;
 using ImageLib.Cache.Storage;
 using ImageLib.Cache.Storage.CacheImpl;
 using ImageLib.Gif;
+using MyToolkit.Converters;
 using Q42.WinRT.Data;
 using Q42.WinRT.Storage;
 
@@ -58,6 +60,11 @@ namespace CnBetaUWA
                 SettingsHelper.Set(CnBetaHelper.SettingImageMode, true);
             }
 
+            if (!SettingsHelper.Contains(CnBetaHelper.SettingAccentColor))
+            {
+                var colorstring = Color.FromArgb(255, 0xff, 0x88, 0x00).ToString();
+                SettingsHelper.Set(CnBetaHelper.SettingAccentColor, colorstring);
+            }
             if (!SettingsHelper.Contains(CnBetaHelper.SettingSelectedTotics))
             {
                 var topics = new List<TopicType>
@@ -82,6 +89,9 @@ namespace CnBetaUWA
                
                 var jsontopics = SerializerHelper.ToJson(topics);
                 SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, jsontopics);
+
+
+
             }
 
         }
@@ -151,7 +161,9 @@ namespace CnBetaUWA
             
             // Ensure the current window is active
             Window.Current.Activate();
-            AppViewHelper.SetAppView(Colors.CornflowerBlue);
+                
+            var colorstirng = SettingsHelper.Get<string>(CnBetaHelper.SettingAccentColor);
+            AppViewHelper.SetAppView(colorstirng.GetColorFromString());
         }
 
         /// <summary>

@@ -12,6 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI;
+using CnBetaUWA.Extensions;
+using CnBetaUWA.Helper;
+using Q42.WinRT.Storage;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -21,80 +25,83 @@ namespace CnBetaUWA.ViewModels
     {
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
-
-        public String Title
+        public SettingThemePage_Model()
         {
-            get { return _TitleLocator(this).Value; }
-            set { _TitleLocator(this).SetValueAndTryNotify(value); }
+            AccentColors = AccentColorsKeyNameDefault;
+            InitData();
+            PropScribe();
         }
-        #region Property String Title Setup
-        protected Property<String> _Title = new Property<String> { LocatorFunc = _TitleLocator };
-        static Func<BindableBase, ValueContainer<String>> _TitleLocator = RegisterContainerLocator<String>("Title", model => model.Initialize("Title", ref model._Title, ref _TitleLocator, _TitleDefaultValueFactory));
-        static Func<BindableBase, String> _TitleDefaultValueFactory = m => m.GetType().Name;
+
+
+        private void InitData()
+        {
+            var colorstirng = SettingsHelper.Get<string>(CnBetaHelper.SettingAccentColor);
+            AccentColor=colorstirng.GetColorFromString();
+        }
+
+        private void PropScribe()
+        {
+            GetValueContainer(vm => vm.AccentColor).GetNewValueObservable().Subscribe(e =>
+            {
+                var color = e.EventArgs;
+                AppViewHelper.SetAppView(color);
+                SettingsHelper.Set(CnBetaHelper.SettingAccentColor, color.ToString());
+            }).DisposeWith(this);
+        }
+
+        public List<Color> AccentColors
+        {
+            get { return _AccentColorsLocator(this).Value; }
+            set
+            {
+                _AccentColorsLocator(this).SetValueAndTryNotify(value);
+
+            }
+        }
+        #region Property List<Color> AccentColors Setup        
+        protected Property<List<Color>> _AccentColors = new Property<List<Color>> { LocatorFunc = _AccentColorsLocator };
+        static Func<BindableBase, ValueContainer<List<Color>>> _AccentColorsLocator = RegisterContainerLocator<List<Color>>("AccentColors", model => model.Initialize("AccentColors", ref model._AccentColors, ref _AccentColorsLocator, _AccentColorsDefaultValueFactory));
+        static Func<List<Color>> _AccentColorsDefaultValueFactory = () => default(List<Color>);
+        #endregion
+
+        public Color AccentColor
+        {
+            get { return _AccentColorLocator(this).Value; }
+            set
+            {
+                _AccentColorLocator(this).SetValueAndTryNotify(value);
+
+            }
+        }
+        #region Property Color AccentColor Setup        
+        protected Property<Color> _AccentColor = new Property<Color> { LocatorFunc = _AccentColorLocator };
+        static Func<BindableBase, ValueContainer<Color>> _AccentColorLocator = RegisterContainerLocator<Color>("AccentColor", model => model.Initialize("AccentColor", ref model._AccentColor, ref _AccentColorLocator, _AccentColorDefaultValueFactory));
+        static Func<Color> _AccentColorDefaultValueFactory = () => default(Color);
         #endregion
 
 
-
-        #region Life Time Event Handling
-
-        ///// <summary>
-        ///// This will be invoked by view when this viewmodel instance is set to view's ViewModel property. 
-        ///// </summary>
-        ///// <param name="view">Set target</param>
-        ///// <param name="oldValue">Value before set.</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedToView(MVVMSidekick.Views.IView view, IViewModel oldValue)
-        //{
-        //    return base.OnBindedToView(view, oldValue);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when this instance of viewmodel in ViewModel property is overwritten.
-        ///// </summary>
-        ///// <param name="view">Overwrite target view.</param>
-        ///// <param name="newValue">The value replacing </param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnUnbindedFromView(MVVMSidekick.Views.IView view, IViewModel newValue)
-        //{
-        //    return base.OnUnbindedFromView(view, newValue);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Load event and this viewmodel instance is already in view's ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Load event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewLoad(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewLoad(view);
-        //}
-
-        ///// <summary>
-        ///// This will be invoked by view when the view fires Unload event and this viewmodel instance is still in view's  ViewModel property
-        ///// </summary>
-        ///// <param name="view">View that firing Unload event</param>
-        ///// <returns>Task awaiter</returns>
-        //protected override Task OnBindedViewUnload(MVVMSidekick.Views.IView view)
-        //{
-        //    return base.OnBindedViewUnload(view);
-        //}
-
-        ///// <summary>
-        ///// <para>If dispose actions got exceptions, will handled here. </para>
-        ///// </summary>
-        ///// <param name="exceptions">
-        ///// <para>The exception and dispose infomation</para>
-        ///// </param>
-        //protected override async void OnDisposeExceptions(IList<DisposeInfo> exceptions)
-        //{
-        //    base.OnDisposeExceptions(exceptions);
-        //    await TaskExHelper.Yield();
-        //}
-
-        #endregion
-
-
-
+        private static readonly List<Color> AccentColorsKeyNameDefault = new List<Color>()
+                {
+                    Color.FromArgb(255, 0xff, 0x88, 0x00),
+                    Color.FromArgb(255, 241, 13, 162),
+                    Color.FromArgb(255, 240, 67, 98),
+                    Color.FromArgb(255, 239, 95, 65),
+                    Color.FromArgb(255, 46, 204, 113),
+                    Color.FromArgb(255, 52, 152, 219),
+                    Color.FromArgb(255, 155, 89, 182),
+                    Color.FromArgb(255, 52, 73, 94),
+                    Color.FromArgb(255, 22, 160, 133),
+                    Color.FromArgb(255, 39, 174, 96),
+                    Color.FromArgb(255, 41, 128, 185),
+                    Color.FromArgb(255, 142, 68, 173),
+                    Color.FromArgb(255, 44, 62, 80),
+                    Color.FromArgb(255, 241, 196, 15),
+                    Color.FromArgb(255, 230, 126, 34),
+                    Color.FromArgb(255, 231, 76, 60),
+                    Color.FromArgb(255, 243, 156, 18),
+                    Color.FromArgb(255, 211, 84, 0),
+                    Color.FromArgb(255, 192, 57, 43)
+                };
 
     }
 

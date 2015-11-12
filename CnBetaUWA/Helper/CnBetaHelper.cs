@@ -27,6 +27,8 @@ namespace CnBetaUWA.Helper
 
         public static string SettingNightMode = nameof(SettingNightMode);
         public static string SettingImageMode = nameof(SettingImageMode);
+        public static string SettingAccentColor = nameof(SettingAccentColor);
+
         public static string SettingFontSize = nameof(SettingFontSize);
         public static string SettingSelectedTotics = nameof(SettingSelectedTotics);
 

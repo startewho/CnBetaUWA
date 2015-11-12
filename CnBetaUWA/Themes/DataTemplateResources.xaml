@@ -184,7 +184,7 @@
     </DataTemplate>
 
     <DataTemplate x:Key="TopicTypeItemDataTemplate"  x:DataType="models:TopicType">
-       <Grid Height="50" HorizontalAlignment="Stretch" Margin="{StaticResource AutoSuggestListMargin}">
+        <Grid Height="50"  HorizontalAlignment="Stretch" Margin="{StaticResource DefaultLeftTopMargin}"  BorderThickness="0,0,0,1" BorderBrush="{ThemeResource AppBarBackgroundThemeBrush}">
            <Grid.ColumnDefinitions>
                <ColumnDefinition Width="50" />
                <ColumnDefinition Width="*" />
@@ -207,5 +207,14 @@
             <TextBlock Text="{x:Bind Icon, Mode=OneWay}" Style="{ThemeResource IconTextBlockStyle}" />
             <TextBlock Text="{x:Bind Title, Mode=OneWay}" Style="{ThemeResource MenuTitleTextBlockStyle}" />
         </StackPanel>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="GridViewSettingDatatemplate">
+        <Grid Height="75" Width="75">
+            <Grid.Background>
+                <SolidColorBrush Color="{Binding}" />
+            </Grid.Background>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

@@ -13,12 +13,12 @@ namespace MVVMSidekick.Startups
 
         public static void ConfigTopicTypesMangePage()
         {
-            ViewModelLocator<TopicTypesMangePage_Model>
+            ViewModelLocator<SettingTopicTypesMangePage_Model>
                 .Instance
                 .Register(context =>
-                    new TopicTypesMangePage_Model())
+                    new SettingTopicTypesMangePage_Model())
                 .GetViewMapper()
-                .MapToDefault<TopicTypesMangePage>();
+                .MapToDefault<SettingTopicTypesMangePage>();
 
         }
     }

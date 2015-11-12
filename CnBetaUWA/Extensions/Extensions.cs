@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Contracts;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources.Core;
@@ -18,6 +19,8 @@ using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using System.Linq;
+using Windows.UI;
+
 namespace CnBetaUWA.Extensions
 {
     /// <summary>
@@ -26,6 +29,40 @@ namespace CnBetaUWA.Extensions
     public static class Extensions
     {
 
+
+        public static Color GetColorFromString(this string color)
+        {
+            if (color == null)
+                throw new ArgumentNullException("color");
+
+            try
+            {
+                //去掉#
+                if (color.StartsWith("#"))
+                    color = color.Substring(1);
+
+                //将字符串解析成完整的int
+                byte a, r, g, b;
+                int integer = int.Parse(color, NumberStyles.HexNumber);
+
+                //判断或解析Alpha
+                if (color.Length == 6)
+                    a = 255;
+                else
+                    a = (byte)((integer >> 24) & 255);
+
+                //解析RGB
+                r = (byte)((integer >> 16) & 255);
+                g = (byte)((integer >> 8) & 255);
+                b = (byte)(integer & 255);
+
+                return ColorHelper.FromArgb(a, r, g, b);
+            }
+            catch (Exception ex)
+            {
+                throw new FormatException("无法解析的颜色", ex);
+            }
+        }
         /// <summary>
         /// Converts byte array to a new array where each value in the original array is represented 
         /// by a the specified number of bits.
@@ -342,4 +379,6 @@ namespace CnBetaUWA.Extensions
             return source.Distinct(new CommonEqualityComparer<T, V>(keySelector));
         }
     }
+
+   
 }

@@ -1,6 +1,6 @@
 ﻿<mvvm:MVVMPage 
     x:Name="pageRoot"
-    x:Class="CnBetaUWA.TopicTypesMangePage"
+    x:Class="CnBetaUWA.SettingTopicTypesMangePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mvvm="using:MVVMSidekick.Views"     
@@ -13,7 +13,7 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
-        <vm:TopicTypesMangePage_Model x:Key="DesignVM"/>
+        <vm:SettingTopicTypesMangePage_Model x:Key="DesignVM"/>
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  DataContext="{StaticResource DesignVM}">

@@ -11,34 +11,34 @@ namespace CnBetaUWA
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TopicTypesMangePage : MVVMPage
+    public sealed partial class SettingTopicTypesMangePage : MVVMPage
     {
 
-        public TopicTypesMangePage()
+        public SettingTopicTypesMangePage()
             : this(null)
         {
 
         }
-        public TopicTypesMangePage(TopicTypesMangePage_Model model)
+        public SettingTopicTypesMangePage(SettingTopicTypesMangePage_Model model)
             : base(model)
         {
             this.InitializeComponent();
             this.RegisterPropertyChangedCallback(ViewModelProperty, (_, __) =>
             {
-                StrongTypeViewModel = this.ViewModel as TopicTypesMangePage_Model;
+                StrongTypeViewModel = this.ViewModel as SettingTopicTypesMangePage_Model;
             });
-            StrongTypeViewModel = this.ViewModel as TopicTypesMangePage_Model;
+            StrongTypeViewModel = this.ViewModel as SettingTopicTypesMangePage_Model;
         }
 
 
-        public TopicTypesMangePage_Model StrongTypeViewModel
+        public SettingTopicTypesMangePage_Model StrongTypeViewModel
         {
-            get { return (TopicTypesMangePage_Model)GetValue(StrongTypeViewModelProperty); }
+            get { return (SettingTopicTypesMangePage_Model)GetValue(StrongTypeViewModelProperty); }
             set { SetValue(StrongTypeViewModelProperty, value); }
         }
 
         public static readonly DependencyProperty StrongTypeViewModelProperty =
-                    DependencyProperty.Register("StrongTypeViewModel", typeof(TopicTypesMangePage_Model), typeof(TopicTypesMangePage), new PropertyMetadata(null));
+                    DependencyProperty.Register("StrongTypeViewModel", typeof(SettingTopicTypesMangePage_Model), typeof(SettingTopicTypesMangePage), new PropertyMetadata(null));
 
 
 

@@ -14,7 +14,7 @@ namespace CnBetaUWA.ViewModels
 {
 
     [DataContract]
-    public class TopicTypesMangePage_Model : ViewModelBase<TopicTypesMangePage_Model>
+    public class SettingTopicTypesMangePage_Model : ViewModelBase<SettingTopicTypesMangePage_Model>
     {
         // If you have install the code sniplets, use "propvm + [tab] +[tab]" create a property。
         // 如果您已经安装了 MVVMSidekick 代码片段，请用 propvm +tab +tab 输入属性
