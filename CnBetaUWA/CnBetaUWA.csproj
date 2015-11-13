@@ -107,6 +107,7 @@
     <Compile Include="CommentsPage.xaml.cs">
       <DependentUpon>CommentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DelayLoadImage.cs" />
     <Compile Include="Controls\ExtendSplitView.cs" />
     <Compile Include="Controls\HtmlControl\CacheImageGenerator.cs" />
     <Compile Include="Controls\HtmlControl\HtmlControl.cs" />
@@ -214,6 +215,7 @@
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
     <Content Include="Assets\cnbetaLogo.png" />
+    <Content Include="Assets\cnbetaSmallLogo.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />

@@ -1416,6 +1416,36 @@
     </Style>
 
 
+    <Style TargetType="controls:DelayLoadImage">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DelayLoadImage">
+                    <Grid x:Name="PART_Root">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="STATE_Default">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:1" To="1" Storyboard.TargetName="PART_DefaultImage" Storyboard.TargetProperty="Opacity" />
+                                        <DoubleAnimation Duration="0:0:1" To="0" Storyboard.TargetName="PART_ActualImage" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="STATE_Actual">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:1" To="0" Storyboard.TargetName="PART_DefaultImage" Storyboard.TargetProperty="Opacity" />
+                                        <DoubleAnimation Duration="0:0:1" To="1" Storyboard.TargetName="PART_ActualImage" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Image Name="PART_DefaultImage" Opacity="1" Canvas.ZIndex="-1" />
+                        <Image Name="PART_ActualImage" Opacity="0" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
     <Style TargetType="tookit:ScrollableItemsControl">
         <Setter Property="ItemsPanel">
             <Setter.Value>
@@ -1434,5 +1464,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    
+    
 
 </ResourceDictionary>
