@@ -27,7 +27,7 @@ namespace MyToolkit.Controls
 
             Update = UpdateFrameWork;
 
-            InnerMargin = new Thickness(0, 0, 12, 0);
+            InnerMargin = new Thickness(12, 0, 12, 0);
 
             FontSize = (double)Resources["ControlContentThemeFontSize"];
             Foreground = (Brush)Resources["ApplicationForegroundThemeBrush"];

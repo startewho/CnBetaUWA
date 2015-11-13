@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using CnBetaUWA.Extensions;
 using CnBetaUWA.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -70,6 +71,13 @@ namespace CnBetaUWA
             var listview = sender as ListBox;
             if (listview == null) return;
 
+            var scrollviewr = listview.GetFirstDescendantOfType<ScrollViewer>();
+            if (scrollviewr!=null)
+            {
+                scrollviewr.HorizontalScrollMode = ScrollMode.Disabled;
+                scrollviewr.VerticalScrollMode = ScrollMode.Disabled;
+
+            }
             var panel = (VirtualizingStackPanel)(listview.ItemsPanelRoot);
 
             if (panel == null) throw new ArgumentNullException(nameof(panel));

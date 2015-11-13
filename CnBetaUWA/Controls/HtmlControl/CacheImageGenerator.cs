@@ -11,9 +11,9 @@
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 using MyToolkit.Html;
-using ImageLib.Controls;
-
+using Q42.WinRT.Controls;
 
 namespace MyToolkit.Controls.Html.Generators
 {
@@ -41,21 +41,22 @@ namespace MyToolkit.Controls.Html.Generators
                 if (height == 1 && width == 1)
                     return null;
 
-                var image = new ImageView {UriSource = new Uri(imageUri)};
-
-                
+                var image = new Image();
+                image.Width = 0;
+                image.Height = 0;
+              
+                ImageExtensions.SetCacheUri(image, new Uri(imageUri));
+               
                 var imageBlock = new ImageBlock
                 {
-                  
+                    Image = image,
                     UserHeight = height,
                     UserWidth = width,
-                    Image = image,
-                };
+                 };
 
-               image.LoadingCompleted += delegate { imageBlock.Update(htmlView.ActualWidth); };
-
+                image.ImageOpened += delegate { imageBlock.Update(htmlView.ActualWidth); };
                 image.HorizontalAlignment = HorizontalAlignment.Left;
-                image.Margin = new Thickness(0, htmlView.ParagraphMargin, 0, htmlView.ParagraphMargin);
+                image.Margin = new Thickness(0, htmlView.ParagraphMargin, 12, htmlView.ParagraphMargin);
 
                 if (width > 0)
                     image.Width = width;
@@ -63,7 +64,7 @@ namespace MyToolkit.Controls.Html.Generators
                     image.Height = height;
 
                 htmlView.SizeDependentControls.Add(imageBlock);
-                return new ContentPresenter { Content = image };
+                return new ContentPresenter {Content = image};
             }
             catch
             {
@@ -73,27 +74,32 @@ namespace MyToolkit.Controls.Html.Generators
 
         internal class ImageBlock : ISizeDependentControl
         {
-            public ImageView Image { get; set; }
+            public Image Image { get; set; }
 
             public int UserWidth { get; set; }
 
             public int UserHeight { get; set; }
-
-        
+            
             public void Update(double actualWidth)
             {
-                 Image.Width = actualWidth;
-                    //if (Image.Width < width)
-                    //    width = Source.PixelWidth;
+                var source =Image.Source as BitmapImage;
+                if (source.PixelWidth > 0 && actualWidth > 24)
+                {
+                    var width = actualWidth;
 
-                    //if (UserWidth < width && UserWidth != 0)
-                    //    width = UserWidth;
+                    if (source.PixelWidth < width)
+                        width = source.PixelWidth;
 
-                    //Image.Width = width;
-                    //Image.Height = Source.PixelHeight * width / Source.PixelWidth;
+                    if (UserWidth < width && UserWidth != 0)
+                        width = UserWidth;
+
+                    Image.Width = width;
+                    Image.Height = source.PixelHeight * width / source.PixelWidth;
+                 
                 }
             }
         }
-    
+
+    }
 }
 

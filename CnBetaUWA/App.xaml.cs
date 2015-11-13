@@ -11,13 +11,13 @@ using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
+using Edi.UWP.Helpers;
 using MVVMSidekick.Startups;
 using ImageLib;
 using ImageLib.Cache.Memory.CacheImpl;
 using ImageLib.Cache.Storage;
 using ImageLib.Cache.Storage.CacheImpl;
 using ImageLib.Gif;
-using MyToolkit.Converters;
 using Q42.WinRT.Data;
 using Q42.WinRT.Storage;
 
@@ -90,8 +90,7 @@ namespace CnBetaUWA
                 var jsontopics = SerializerHelper.ToJson(topics);
                 SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, jsontopics);
 
-
-
+             
             }
 
         }
@@ -109,7 +108,9 @@ namespace CnBetaUWA
 
         private async static void InitQ42()
         {
+          
             await WebDataCache.Init();
+            
         }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points

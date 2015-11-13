@@ -186,7 +186,7 @@
                <ColumnDefinition Width="50" />
            </Grid.ColumnDefinitions>
             <!--<imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
-            <Image Source="{x:Bind LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
+            <Image  q42:ImageExtensions.CacheUri="{x:Bind LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
             <TextBlock Text="{x:Bind Name}" Margin="{StaticResource DefaultLeftMargin}" Grid.Column="1" VerticalAlignment="Center"/>
             <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Grid.Column="2" VerticalAlignment="Center"/>
        </Grid>

@@ -13,7 +13,7 @@
     NavigationCacheMode="Disabled"
     mc:Ignorable="d">
   
-    <Grid Background="{StaticResource SystemControlBackgroundAccentBrush}" x:Name="RootGrid">
+    <Grid  x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -25,10 +25,10 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        <Border Grid.Row="0" >
-            <TextBlock Text="{Binding NewsVm.Title}" FontSize="18" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" />
+        <Border Background="{StaticResource SystemControlBackgroundAccentBrush}" Grid.Row="0" >
+            <TextBlock Text="{Binding NewsVm.Title}" FontSize="18" Margin="{StaticResource DefaultLeftMargin}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" />
         </Border>
-        <Border x:Name="MenuBar" Grid.Row="0" >
+        <Border x:Name="MenuBar" Background="{StaticResource SystemControlBackgroundAccentBrush}" Grid.Row="0" >
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" >
             <Button Style="{StaticResource CommandButtonStyle}" Tag="Back" Content="&#xE0A6;" Command="{Binding CommandDetailBack}" CommandParameter="{Binding Tag,RelativeSource={RelativeSource Self}}"/>
             <ToggleButton Style="{StaticResource CommandButtonStyle}" Tag="NightMode" Content="&#xE708;" Command="{Binding CommandChangeWebViewNightMode}"  CommandParameter="{Binding IsChecked,RelativeSource={RelativeSource Self}}"/>

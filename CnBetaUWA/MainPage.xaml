@@ -36,7 +36,7 @@
                 <Frame x:Name="VMFrame" SourcePageType="{Binding SelectedPageType, Mode=TwoWay}"/>
             </controls:ExtendSplitView.Content>
             <controls:ExtendSplitView.BottomPane>
-                <ListBox ItemsSource="{x:Bind StrongTypeViewModel.MenuItems}"  SelectedItem="{x:Bind StrongTypeViewModel.SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}"  ItemContainerStyle="{StaticResource BottomListBoxItem}" SizeChanged="FrameworkElement_OnSizeChanged">
+                <ListBox ItemsSource="{x:Bind StrongTypeViewModel.MenuItems}"   SelectedItem="{x:Bind StrongTypeViewModel.SelectedMenuItem, Mode=TwoWay, Converter={StaticResource ObjectToMenuItemConverter}}"  ItemContainerStyle="{StaticResource BottomListBoxItem}" SizeChanged="FrameworkElement_OnSizeChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel  Orientation="Horizontal"/>

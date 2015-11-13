@@ -10,6 +10,7 @@ using Windows.UI.Xaml;
 using CnBetaUWA.Controls;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Models;
+using Edi.UWP.Helpers;
 using MVVMSidekick.EventRouting;
 using MVVMSidekick.Utilities;
 
@@ -29,14 +30,14 @@ namespace CnBetaUWA.ViewModels
             _isLoaded = false;
 
             MenuItems.Add(new MenuItem { Icon = "\uE10F", Title = "主页", PageType = typeof(LatestNewsPage) });
-            MenuItems.Add(new MenuItem { Icon = "\uE163", Title = "本月", PageType = typeof(Top10Page) });
             MenuItems.Add(new MenuItem { Icon = "\uE898", Title = "今日", PageType = typeof(TodayRankPage) });
+            MenuItems.Add(new MenuItem { Icon = "\uE163", Title = "本月", PageType = typeof(Top10Page) });
             MenuItems.Add(new MenuItem { Icon = "\uE923", Title = "频道", PageType = typeof(TopicsPage) });
           
             //MenuItems.Add(new MenuItem { Icon = "\uE779", Title = "专栏", PageType = typeof(LatestNewsPage) });
             MenuItems.Add(new MenuItem { Icon = "\uE713", Title = "设置", PageType = typeof(SettingPage) });
             SelectedMenuItem = MenuItems.First(item => item.Title == "主页");
-
+            HideStatusBar();
         }
 
 
@@ -51,7 +52,10 @@ namespace CnBetaUWA.ViewModels
         static Func<string> _MessageDefaultValueFactory = () => default(string);
         #endregion
 
-
+        private async void HideStatusBar()
+        {
+            await Mobile.HideWindowsMobileStatusBar();
+        }
 
         private bool _isLoaded;
 
