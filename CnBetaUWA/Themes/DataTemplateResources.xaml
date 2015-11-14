@@ -21,7 +21,7 @@
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <controls:DelayLoadImage DefaultImageSource="../Assets/cnbetaSmallLogo.png" ActualImageSource="{x:Bind ThumbPicture}" Grid.Column="0"/>
+            <controls:DelayLoadImage DefaultImageSource="../Assets/cnbetaSmallLogo.png" Stretch="Fill" ActualImageSource="{x:Bind ThumbPicture}" Grid.Column="0"/>
             <!--<Image q42:ImageExtensions.CacheUri="{x:Bind ThumbPicture}" Grid.Column="0"/>-->
             <!--<imglibcontrol:ImageView UriSource="{x:Bind ThumbPicture}"  Grid.Column="0"/>-->
           <Grid Margin="12,2,0,2" Grid.Column="1">

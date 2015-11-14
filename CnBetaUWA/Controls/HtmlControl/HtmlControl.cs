@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Windows.UI;
 using MyToolkit.Controls.Html;
 using MyToolkit.Utilities;
 using MyToolkit.UI;
@@ -84,6 +85,22 @@ namespace MyToolkit.Controls
 
         public static readonly DependencyProperty ParagraphMarginProperty =
         DependencyProperty.Register("ParagraphMargin", typeof(int), typeof(HtmlControl), new PropertyMetadata(6));
+
+        public Color BackgroundColor
+        {
+            get { return (Color)GetValue(BackgroundColorProperty); }
+            set { SetValue(BackgroundColorProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for BackgroundColor.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty BackgroundColorProperty =
+            DependencyProperty.Register("BackgroundColor", typeof(Color), typeof(HtmlControl), new PropertyMetadata(0,BackgroundColorChanged));
+
+        private static void BackgroundColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var htmlcolor = d as HtmlControl;
+            if (htmlcolor != null) htmlcolor.Background= new SolidColorBrush((Color)e.NewValue);
+        }
 
 
         /// <summary>Gets or sets the margin for paragraphs (added at the bottom of the element). </summary>

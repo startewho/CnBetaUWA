@@ -31,10 +31,14 @@ namespace CnBetaUWA.Models
 
         [JsonProperty]
         public int TopicId { get; set; }
+
         [JsonProperty]
         public string TopictLogoPicture { get; set; }
 
 
+        [JsonProperty]
+        public bool IsBookmarketed { get; set; } = false;
+        
         [JsonProperty]
         public int Index { get; set; }
 

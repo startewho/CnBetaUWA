@@ -94,6 +94,11 @@ namespace CnBetaUWA.Helper
         }
 
 
+        public static void SetNightMode(bool nightmode)
+        {
+            
+        }
+
       public static void FrameFresh(Frame frame, ElementTheme currenttheme)
       {
           if (frame == null) throw new ArgumentNullException(nameof(frame));

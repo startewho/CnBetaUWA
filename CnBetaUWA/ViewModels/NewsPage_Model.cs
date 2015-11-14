@@ -17,6 +17,7 @@ using MVVMSidekick.Utilities;
 using MVVMSidekick.ViewModels;
 using MVVMSidekick.Views;
 using MyToolkit.Controls;
+using Q42.WinRT.Storage;
 
 namespace CnBetaUWA.ViewModels
 {
@@ -70,32 +71,36 @@ namespace CnBetaUWA.ViewModels
 
         private async void GetContent(int sid)
         {
+            var nightmode = SettingsHelper.Get<bool>(CnBetaHelper.SettingNightMode);
+
+            SetNightMode(nightmode);
+
             var querynews=NewsDataTable.Query(sid);
-            if (querynews!=null)
+            if (querynews?.Content != null)
             {
                 TotalContent = querynews.Content;
+                IsBookmarketed = querynews.IsBookmarketed;
             }
 
             else
             {
                 var content = await CnBetaHelper.GetNewsContent(sid);
-                if (content != null)
-                {
-                    NewsContent = ModelHelper.JsonToNewsContent(content);
-                    var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/ContentTemplate.html"));
-                    html = html.Replace("#Date", NewsVm.CreatTime);
-                    html = html.Replace("#Source", NewsContent.Source);
-                    html = html.Replace("#Author", NewsContent.Author);
-                    //  html = html.Replace("#Topic", NewsVm.TopictLogoPicture);
-                    html = html.Replace("HomeText", NewsContent.HomeText);
-                    html = html.Replace("BodyText", NewsContent.BodyText);
-                    html = Regex.Replace(html, "(<a.+?)(<img[^>]+>)((</a>)+)", "$2");
-                    // html = html.Replace("http://static.cnbetacdn.com/", "");
-                    TotalContent = html;
-                    NewsVm.Content = html;
-                    NewsDataTable.Add(NewsVm);
-                
-                }
+
+                if (content == null) return;
+                NewsContent = ModelHelper.JsonToNewsContent(content);
+                var html = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/ContentTemplate.html"));
+                html = html.Replace("#Date", NewsVm.CreatTime);
+                html = html.Replace("#Source", NewsContent.Source);
+                html = html.Replace("#Author", NewsContent.Author);
+                //  html = html.Replace("#Topic", NewsVm.TopictLogoPicture);
+                html = html.Replace("HomeText", NewsContent.HomeText);
+                html = html.Replace("BodyText", NewsContent.BodyText);
+                html = Regex.Replace(html, "(<a.+?)(<img[^>]+>)((</a>)+)", "$2");
+                // html = html.Replace("http://static.cnbetacdn.com/", "");
+                TotalContent = html;
+                NewsVm.Content = html;
+                IsBookmarketed = false;
+                NewsDataTable.Add(NewsVm);
             }
     
         }
@@ -111,8 +116,10 @@ namespace CnBetaUWA.ViewModels
 
         protected override Task OnBindedViewUnload(IView view)
         {
-             NewsVm = null;
-             TotalContent = null;
+            SettingsHelper.Set(CnBetaHelper.SettingNightMode, IsNightMode);
+            NewsDataTable.Add(NewsVm);
+            NewsVm = null;
+            TotalContent = null;
             LocalEventRouter = null;
            // CommentsSource.OnLoadMoreCompleted -= CommentsSource_OnLoadMoreCompleted;
             return base.OnBindedViewUnload(view);
@@ -241,67 +248,37 @@ namespace CnBetaUWA.ViewModels
         #endregion
 
 
-        public CommandModel<ReactiveCommand, String> CommandChangeWebViewNightMode
+        public bool IsBookmarketed
         {
-            get { return _CommandChangeWebViewNightModeLocator(this).Value; }
-            set { _CommandChangeWebViewNightModeLocator(this).SetValueAndTryNotify(value); }
-        }
-        #region Property CommandModel<ReactiveCommand, String> CommandChangeWebViewNightMode Setup        
-
-        protected Property<CommandModel<ReactiveCommand, String>> _CommandChangeWebViewNightMode = new Property<CommandModel<ReactiveCommand, String>> { LocatorFunc = _CommandChangeWebViewNightModeLocator };
-        static Func<BindableBase, ValueContainer<CommandModel<ReactiveCommand, String>>> _CommandChangeWebViewNightModeLocator = RegisterContainerLocator<CommandModel<ReactiveCommand, String>>("CommandChangeWebViewNightMode", model => model.Initialize("CommandChangeWebViewNightMode", ref model._CommandChangeWebViewNightMode, ref _CommandChangeWebViewNightModeLocator, _CommandChangeWebViewNightModeDefaultValueFactory));
-        static Func<BindableBase, CommandModel<ReactiveCommand, String>> _CommandChangeWebViewNightModeDefaultValueFactory =
-            model =>
+            get { return _IsBookmarketedLocator(this).Value; }
+            set
             {
-                var resource = "CommandChangeWebViewNightMode";           // Command resource  
-                var commandId = "CommandChangeWebViewNightMode";
-                var vm = CastToCurrentType(model);
-                var cmd = new ReactiveCommand(canExecute: true) { ViewModel = model }; //New Command Core
-
-                cmd.DoExecuteUIBusyTask(
-                        vm,
-                        async e =>
-                        {
-                            var view = vm.StageManager.CurrentBindingView as NewsPage;
-                            var htmlcontrol= view.GetFirstDescendantOfType<HtmlControl>();
-                            var isnightmode = e.EventArgs.Parameter is bool && (bool)e.EventArgs.Parameter;
-                            if (isnightmode)
-                            { 
-                                htmlcontrol.Background=new SolidColorBrush() {Color =Colors.AntiqueWhite};
-                            }
-
-                            else
-                            {
-                                htmlcontrol.Background = new SolidColorBrush() { Color = Colors.WhiteSmoke };
-                            }
-
-                            //var webview = view.GetFirstDescendantOfType<WebView>();
-                            //var isnightmode = e.EventArgs.Parameter is bool && (bool) e.EventArgs.Parameter;
-                            //if (isnightmode)
-                            //{
-                            //    await webview.InvokeScriptAsync("changeNigthMode", new[] { "true" });
-                            //}
-                            //else
-                            //{
-                            //    await webview.InvokeScriptAsync("changeNigthMode", new[] { "" });
-                            //}
-                            //Todo: Add ChangeWebViewNightMode logic here, or
-                            await MVVMSidekick.Utilities.TaskExHelper.Yield();
-                        })
-                    .DoNotifyDefaultEventRouter(vm, commandId)
-                    .Subscribe()
-                    .DisposeWith(vm);
-
-                var cmdmdl = cmd.CreateCommandModel(resource);
-
-                cmdmdl.ListenToIsUIBusy(
-                    model: vm,
-                    canExecuteWhenBusy: false);
-                return cmdmdl;
-            };
-
+                _IsBookmarketedLocator(this).SetValueAndTryNotify(value);
+                NewsVm.IsBookmarketed = value;
+            }
+        }
+        #region Property bool IsBookmarketed Setup        
+        protected Property<bool> _IsBookmarketed = new Property<bool> { LocatorFunc = _IsBookmarketedLocator };
+        static Func<BindableBase, ValueContainer<bool>> _IsBookmarketedLocator = RegisterContainerLocator<bool>("IsBookmarketed", model => model.Initialize("IsBookmarketed", ref model._IsBookmarketed, ref _IsBookmarketedLocator, _IsBookmarketedDefaultValueFactory));
+        static Func<bool> _IsBookmarketedDefaultValueFactory = () => default(bool);
         #endregion
 
+        
+        public bool IsNightMode
+        {
+            get { return _IsNightModeLocator(this).Value; }
+            set
+            {
+                _IsNightModeLocator(this).SetValueAndTryNotify(value);
+                BackGroundColor = value ? Colors.OldLace : Colors.WhiteSmoke;
+
+            }
+        }
+        #region Property bool IsNightMode Setup        
+        protected Property<bool> _IsNightMode = new Property<bool> { LocatorFunc = _IsNightModeLocator };
+        static Func<BindableBase, ValueContainer<bool>> _IsNightModeLocator = RegisterContainerLocator<bool>("IsNightMode", model => model.Initialize("IsNightMode", ref model._IsNightMode, ref _IsNightModeLocator, _IsNightModeDefaultValueFactory));
+        static Func<bool> _IsNightModeDefaultValueFactory = () => default(bool);
+        #endregion
 
         public CommandModel<ReactiveCommand, String> CommandChangeWebViewFontSize
         {
@@ -396,7 +373,6 @@ namespace CnBetaUWA.ViewModels
         #endregion
 
        
-
         public CommandModel<ReactiveCommand, String> CommandNaviToCommentsPage
         {
             get { return _CommandNaviToCommentsPageLocator(this).Value; }
@@ -480,6 +456,24 @@ namespace CnBetaUWA.ViewModels
         #endregion
 
 
+        private void SetNightMode(bool nightmode)
+        {
+            IsNightMode = nightmode;
+            BackGroundColor = nightmode ? Colors.OldLace: Colors.WhiteSmoke;
+         
+        }
+
+
+        public Color BackGroundColor
+        {
+            get { return _BackGroundColorLocator(this).Value; }
+            set { _BackGroundColorLocator(this).SetValueAndTryNotify(value); }
+        }
+        #region Property Color BackGroundColor Setup        
+        protected Property<Color> _BackGroundColor = new Property<Color> { LocatorFunc = _BackGroundColorLocator };
+        static Func<BindableBase, ValueContainer<Color>> _BackGroundColorLocator = RegisterContainerLocator<Color>("BackGroundColor", model => model.Initialize("BackGroundColor", ref model._BackGroundColor, ref _BackGroundColorLocator, _BackGroundColorDefaultValueFactory));
+        static Func<Color> _BackGroundColorDefaultValueFactory = () => default(Color);
+        #endregion
 
     }
 
