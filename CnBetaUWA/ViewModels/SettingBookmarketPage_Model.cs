@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Windows.UI.Xaml;
+using CnBetaUWA.Controls;
 using CnBetaUWA.DataBase;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
@@ -74,6 +76,29 @@ namespace CnBetaUWA.ViewModels
 
         private void SubscribeCommand()
         {
+            LocalEventRouter.GetEventChannel<Object>()
+             .Where(x => x.EventName == "MarketNaviToDetailPage")
+             .Subscribe(
+                 async e =>
+                 {
+                     var news = e.EventData as News;
+
+                     if (news != null)
+                     {
+                         var pageviewer = e.Sender as FrameworkElement;
+                         var masterdetail = pageviewer.GetFirstAncestorOfType<MasterDetailView>();
+                         masterdetail?.DetailFrameNavigateTo(typeof(NewsPage), new NewsPage_Model(news), false);
+                             // var item=new NewsPage_Model(value);
+                             //await StageManager.DefaultStage.Show(item);
+                             //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);
+                        
+                     }
+
+                     await TaskExHelper.Yield();
+
+                 }
+             ).DisposeWith(this);
+
 
             LocalEventRouter.GetEventChannel<Object>()
                 .Where(x => x.EventName == "DeleteSelectedItem")
@@ -92,10 +117,11 @@ namespace CnBetaUWA.ViewModels
                         await TaskExHelper.Yield();
 
                     }
-                ).DisposeWith(this);
+                ).DisposeWith(this); 
 
 
-           
+
+
         }
     }
 }

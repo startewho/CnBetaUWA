@@ -83,7 +83,7 @@ namespace MyToolkit.Controls.Html.Generators
             public void Update(double actualWidth)
             {
                 var source =Image.Source as BitmapImage;
-                if (source.PixelWidth > 0 && actualWidth > 24)
+                if (source != null && (source.PixelWidth > 0 && actualWidth > 24))
                 {
                     var width = actualWidth;
 

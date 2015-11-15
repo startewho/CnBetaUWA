@@ -68,7 +68,7 @@ namespace CnBetaUWA.ViewModels
                         var menuitem = e.EventData as MenuItem;
                         if (menuitem != null)
                         {
-                            masterdetail?.DetailFrameNavigateTo(menuitem.PageType, null, true);
+                            masterdetail?.DetailFrameNavigateTo(menuitem.PageType, null, false);
                             // var item=new NewsPage_Model(value);
                             //await StageManager.DefaultStage.Show(item);
                             //StageManager.DefaultStage.Frame.Navigate(typeof(PostDetailPage),item);

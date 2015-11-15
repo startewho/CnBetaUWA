@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
+using CnBetaUWA.Helper;
 
 namespace CnBetaUWA.DataSource
 {
@@ -99,6 +100,8 @@ namespace CnBetaUWA.DataSource
                 else
                 {
                     _hasMoreItems = false;
+                    MessageHelper.ShowMessage(null, "没有了");
+                    
                 }
 
                 // 加载完成事件
