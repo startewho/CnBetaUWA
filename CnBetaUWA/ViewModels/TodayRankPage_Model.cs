@@ -184,24 +184,24 @@ namespace CnBetaUWA.ViewModels
         private async void LoadAction(Topic selectTopic)
         {
             var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.NamePre);
-           
+
             selectTopic.InitTodayRankNewsSourceColletion(cachenews);
-            if (selectTopic.StaticNewesCollection.Count==0)
-            {
-                Reresh();
-            }
 
-
+            Reresh();
+           
         }
 
         private async void Reresh()
         {
             var jsonttext =
                 await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.NamePre);
-           var listnewses= ModelHelper.JsonToNewses(jsonttext);
-            if (listnewses != null&& SelectedTopic.StaticNewesCollection.Count>0 &&  SelectedTopic.StaticNewesCollection.First().Sid >= listnewses.First().Sid) return;
+            
+            var listnewses= ModelHelper.JsonToNewses(jsonttext);
+            if (listnewses==null) return;
+            if (SelectedTopic.StaticNewesCollection.Count > 0 && SelectedTopic.StaticNewesCollection.First().Sid >= listnewses.First().Sid) return;
             SelectedTopic.StaticNewesCollection.Clear();
             SelectedTopic.StaticNewesCollection.AddRange(listnewses);
+            
 
             //Message = addedcount == 0 ? DateTime.Now+"没有更新,等会再点吧" : DateTime.Now + "更新了" + addedcount;
         }

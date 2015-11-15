@@ -1,4 +1,5 @@
-﻿using SQLite.Net;
+﻿using System.Collections.Generic;
+using SQLite.Net;
 using SQLite.Net.Platform.WinRT;
 using CnBetaUWA.Models;
 namespace CnBetaUWA.DataBase
@@ -13,12 +14,19 @@ namespace CnBetaUWA.DataBase
             return connection;
         }
 
-        public static News Query(int sid)
+        public static News QueryBySid(int sid)
         {
             return (from t in CreateTableConnection().Table<News>()
                 where t.Sid == sid
                 select t).FirstOrDefault();
         }
+
+        public static IEnumerable<News> QueryBookmarketNewes(bool marketed)
+        {
+            return (from t in CreateTableConnection().Table<News>()
+                where t.IsBookmarketed == marketed
+                select t);
+        } 
 
         public static void Delete(News news)
         {

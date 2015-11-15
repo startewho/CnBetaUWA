@@ -1446,26 +1446,6 @@
     </Style>
 
 
-    <Style TargetType="tookit:ScrollableItemsControl">
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel VirtualizationMode="Standard" />
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ItemsControl">
-                    <ScrollViewer x:Name="ScrollViewer" Background="{TemplateBinding Background}" ZoomMode="Disabled">
-                        <ItemsPresenter />
-                    </ScrollViewer>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
-    
-    
+ 
 
 </ResourceDictionary>

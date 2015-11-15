@@ -75,7 +75,7 @@ namespace CnBetaUWA.ViewModels
 
             SetNightMode(nightmode);
 
-            var querynews=NewsDataTable.Query(sid);
+            var querynews=NewsDataTable.QueryBySid(sid);
             if (querynews?.Content != null)
             {
                 TotalContent = querynews.Content;
@@ -469,6 +469,7 @@ namespace CnBetaUWA.ViewModels
             get { return _BackGroundColorLocator(this).Value; }
             set { _BackGroundColorLocator(this).SetValueAndTryNotify(value); }
         }
+
         #region Property Color BackGroundColor Setup        
         protected Property<Color> _BackGroundColor = new Property<Color> { LocatorFunc = _BackGroundColorLocator };
         static Func<BindableBase, ValueContainer<Color>> _BackGroundColorLocator = RegisterContainerLocator<Color>("BackGroundColor", model => model.Initialize("BackGroundColor", ref model._BackGroundColor, ref _BackGroundColorLocator, _BackGroundColorDefaultValueFactory));

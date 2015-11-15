@@ -37,7 +37,6 @@ namespace MyToolkit.Controls
             SizeChanged += OnSizeChanged;
             SizeDependentControls = new List<ISizeDependentControl>();
             Unloaded += HtmlControl_Unloaded;
-
             DependencyPropertyChangedEvent.Register(this, FontSizeProperty, Update);
             DependencyPropertyChangedEvent.Register(this, FontFamilyProperty, Update);
             DependencyPropertyChangedEvent.Register(this, ForegroundProperty, Update);
@@ -94,12 +93,14 @@ namespace MyToolkit.Controls
 
         // Using a DependencyProperty as the backing store for BackgroundColor.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BackgroundColorProperty =
-            DependencyProperty.Register("BackgroundColor", typeof(Color), typeof(HtmlControl), new PropertyMetadata(0,BackgroundColorChanged));
+            DependencyProperty.Register("BackgroundColor", typeof(Color), typeof(HtmlControl), new PropertyMetadata(null,BackgroundColorChanged));
 
         private static void BackgroundColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var htmlcolor = d as HtmlControl;
-            if (htmlcolor != null) htmlcolor.Background= new SolidColorBrush((Color)e.NewValue);
+            var htmlControl = d as HtmlControl;
+            var backgroundcolor =(Color)e.NewValue;
+            if (backgroundcolor == default(Color)) return;
+            if (htmlControl != null) htmlControl.Background = new SolidColorBrush(backgroundcolor);
         }
 
 

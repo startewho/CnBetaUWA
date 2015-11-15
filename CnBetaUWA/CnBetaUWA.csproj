@@ -158,6 +158,9 @@
     <Compile Include="SettingAboutPage.xaml.cs">
       <DependentUpon>SettingAboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingBookmarketPage.xaml.cs">
+      <DependentUpon>SettingBookmarketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,7 @@
     <Compile Include="Startups\CommentsPage.cs" />
     <Compile Include="Startups\LatestNewsPage.cs" />
     <Compile Include="Startups\NewsPage.cs" />
+    <Compile Include="Startups\SettingBookmarketPage.cs" />
     <Compile Include="Startups\SettingPage.cs" />
     <Compile Include="Startups\SettingThemePage.cs" />
     <Compile Include="Startups\TodayRankPage.cs" />
@@ -198,6 +202,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\NewsPage_Model.cs" />
+    <Compile Include="ViewModels\SettingBookmarketPage_Model.cs" />
     <Compile Include="ViewModels\SettingPage_Model.cs" />
     <Compile Include="ViewModels\SettingThemePage_Model.cs" />
     <Compile Include="ViewModels\TodayRankPage_Model.cs" />
@@ -258,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingAboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingBookmarketPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
