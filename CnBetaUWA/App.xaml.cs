@@ -69,6 +69,13 @@ namespace CnBetaUWA
             {
                 var topics = new List<TopicType>
                 {
+                     new TopicType
+                    {
+                        Id = 4,
+                        IsSelected = true,
+                        Name = "Microsoft",
+                        LogoUrl = "http://static.cnbetacdn.com/topics/370fc2611e10cd8.png"
+                    },
                     new TopicType
                     {
                         Id = 9,
@@ -82,7 +89,6 @@ namespace CnBetaUWA
                         Id = 52,
                         IsSelected = true,
                         Name = "Google",
-                        
                         LogoUrl = "http://static.cnbetacdn.com/topics/850a52010eb551a.png"
                     }
                 };

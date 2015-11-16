@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="14603HelyCheng.CnbetaUWA" Publisher="CN=D0E54D50-1682-4F26-A45E-F17A6B384D0B" Version="1.1.7.0" />
+  <Identity Name="14603HelyCheng.CnbetaUWA" Publisher="CN=D0E54D50-1682-4F26-A45E-F17A6B384D0B" Version="1.1.8.0" />
   <mp:PhoneIdentity PhoneProductId="202194ad-7e15-47fe-b068-c664fb31e18b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>CnbetaUWA</DisplayName>

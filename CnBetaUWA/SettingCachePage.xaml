@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:CnBetaUWA.ViewModels"
+    NavigationCacheMode="Required"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -30,7 +31,7 @@
         <StackPanel Margin="{StaticResource DefaultLeftMargin}">
             <TextBlock Text="缓存占用:" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource DefaultTopMargin}"/>
             <TextBlock  Text="{Binding CacheSize,Converter={StaticResource StringFormatConverter},ConverterParameter='{}{0:N2}Mb'}" Style="{StaticResource TitleTextBlockStyle}" Margin="{StaticResource DefaultTopMargin}" />
-            <Button Content="" Margin="{StaticResource DefaultTopMargin}"/>
+            <Button Content="清除缓存" Command="{Binding CommandDeleteCache}" Margin="{StaticResource DefaultTopMargin}"/>
         </StackPanel>
       
   

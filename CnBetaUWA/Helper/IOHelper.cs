@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -58,6 +59,24 @@ namespace CnBetaUWA.Helper
             var folderSize = sizes.Sum(l => (long)l);
 
             return folderSize;
+        }
+
+        public static async Task<bool> DeleteFolder(StorageFolder folder)
+        {
+            var folders = await folder.GetItemsAsync();
+            for (int i = 0; i < folders.Count; i++)
+            {
+                 DeletItem(folders[i]);
+            }
+
+        
+            
+            return true;
+        }
+
+        public static async void DeletItem(IStorageItem item)
+        {
+            await item.DeleteAsync();
         }
 
     }
