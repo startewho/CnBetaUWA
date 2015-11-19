@@ -3,17 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Networking.Connectivity;
 using Windows.Web.Http;
 using Windows.Web.Http.Filters;
-
+using Edi.UWP.Helpers;
 namespace CnBetaUWA.Helper
 {
-    public class HttpHelper
+    public static class HttpHelper
     {
+        //static HttpHelper()
+        //{
+        //    HasInternetConnection();
+        //    NetworkInformation.NetworkStatusChanged += NetworkInformation_NetworkStatusChanged;
+        //}
+
         private static readonly string UerAgent =
             "Mozilla/5.0 (Linux; U; Android 4.2.2; en-cn; MEmu Build/JDQ39E) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30";
        // private static readonly string HostName="http://www.cnbeta.com/";
-
+       private static  bool isConnected = false;
         private static void CreateHttpClient(ref HttpClient httpClient)
         {
             httpClient?.Dispose();
@@ -22,19 +29,38 @@ namespace CnBetaUWA.Helper
             httpClient.DefaultRequestHeaders.Add("X-Requested-With", "XMLHttpRequest");
             // httpClient.DefaultRequestHeaders.UserAgent.Add(new HttpProductInfoHeaderValue("",UerAgent));
         }
-      
+
+        public static void HasInternetConnection()
+        {
+            
+            ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
+            var level = connections.GetNetworkConnectivityLevel();
+            bool internet = connections != null &&level == NetworkConnectivityLevel.InternetAccess;
+            isConnected = internet;
+        }
+
+        private static void NetworkInformation_NetworkStatusChanged(object sender)
+        {
+           
+        }
+
         public static async Task<string> PostAsync(string posturi, string poststr,
             IEnumerable<KeyValuePair<string, string>> body)
         {
             HttpClient httpClient = null;
             CreateHttpClient(ref httpClient);
             var postData = new HttpFormUrlEncodedContent(body);
-            string responseString;
-            using (var response = await httpClient.PostAsync(new Uri(posturi), postData))
+          
+            if (Utils.HasInternetConnection())
             {
-                responseString = await response.Content.ReadAsStringAsync();
+                string responseString;
+                using (var response = await httpClient.PostAsync(new Uri(posturi), postData))
+                {
+                    responseString = await response.Content.ReadAsStringAsync();
+                }
+                return responseString;
             }
-            return responseString;
+            return null;
         }
 
         public static async Task<string> GetAsyn(string posturl)
@@ -43,9 +69,14 @@ namespace CnBetaUWA.Helper
             CreateHttpClient(ref httpClient);
             var posturi=new Uri(posturl);
            // httpClient.DefaultRequestHeaders.Host =new HostName(posturi.Host);
-            var response = await httpClient.GetAsync(posturi);
-            string responseString = await response.Content.ReadAsStringAsync();
-            return responseString;
+            if (Utils.HasInternetConnection())
+            {
+                var response = await httpClient.GetAsync(posturi);
+                string responseString = await response.Content.ReadAsStringAsync();
+                return responseString;
+            }
+            return null;
+
         }
 
 

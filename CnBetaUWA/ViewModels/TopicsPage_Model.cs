@@ -168,7 +168,7 @@ namespace CnBetaUWA.ViewModels
             
         }
 
-        private  void Reresh()
+        public  void Reresh()
         {
             var cachenews = SelectedTopic.NewsSourceCollection;
             SelectedTopic.NewsSourceCollection.OnLoadMoreStarted -= NewsSourceCollection_OnLoadMoreStarted;

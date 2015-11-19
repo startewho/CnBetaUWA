@@ -11,7 +11,7 @@ namespace CnBetaUWA
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Top10Page : MVVMPage
+    public sealed partial class Top10Page : MVVMPage,IRefresh
     {
 
         public Top10Page()
@@ -53,5 +53,9 @@ namespace CnBetaUWA
             base.OnNavigatedFrom(e);
         }
 
+        public void Reresh()
+        {
+           StrongTypeViewModel.CommandRereshDataSourceCollection.Execute(null);
+        }
     }
 }

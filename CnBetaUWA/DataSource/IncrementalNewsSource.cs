@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CnBetaUWA.Helper;
@@ -35,6 +36,9 @@ namespace CnBetaUWA.DataSource
             if (_cacheNewes == null)
             {
                 var reuslt = await GetDownNewsFromNet(query, querytype, _endSid);
+
+                if (reuslt == null) return null;
+
                 _endSid = reuslt.Last().Sid;
                 return reuslt;
             }

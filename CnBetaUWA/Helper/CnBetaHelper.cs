@@ -22,10 +22,11 @@ namespace CnBetaUWA.Helper
         public static string HtmlPath = "/LocalCache/HtmlCache/{0}.html";
         public static string HtmlFolder = "HtmlCache/";
 
-        
+        public static string NotNullString ="{'status':'success', 'result':[]}";
 
 
-        public static string SettingNightMode = nameof(SettingNightMode);
+
+    public static string SettingNightMode = nameof(SettingNightMode);
         public static string SettingImageMode = nameof(SettingImageMode);
         public static string SettingAccentColor = nameof(SettingAccentColor);
 
@@ -38,6 +39,11 @@ namespace CnBetaUWA.Helper
             var url = ApiUrl + "jsoncallback=jQuery18008753548712314047_" + HttpHelper.ToTimestamp(DateTime.Now)
                          + "s&type=" + TypeRealtime + "&&_=" + (HttpHelper.ToTimestamp(DateTime.Now) + 1);
             return url;
+        }
+
+        private static string GetNotNullString(string str)
+        {
+            return str ?? NotNullString;
         }
 
         public static async Task<string> GetTodayRankNews(string type, string querytype)
@@ -76,7 +82,7 @@ namespace CnBetaUWA.Helper
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return  GetNotNullString(contentjson);
            
         }
 
@@ -110,7 +116,7 @@ namespace CnBetaUWA.Helper
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return GetNotNullString(contentjson);
 
         }
 
@@ -130,7 +136,7 @@ namespace CnBetaUWA.Helper
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return GetNotNullString(contentjson);
 
         }
 
@@ -151,7 +157,7 @@ namespace CnBetaUWA.Helper
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return GetNotNullString(contentjson);
         }
 
         public static async Task<string> GetNewsComment(int sid,int pageIndex,int pageSize)
@@ -161,7 +167,7 @@ namespace CnBetaUWA.Helper
             query += "&v=1.0";
             query += "&sign=" + ComputeMd5(query + "&mpuffgvbvbttn3Rc");
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return GetNotNullString(contentjson);
         }
 
         public static async Task<string> GetCommentAction(int sid,int tid,string opertor)
@@ -172,7 +178,7 @@ namespace CnBetaUWA.Helper
             query += "&mpuffgvbvbttn3Rc";
             query += "&sign=" + ComputeMd5(query );
             var contentjson = await HttpHelper.GetAsyn(ApiUrl + query);
-            return contentjson;
+            return GetNotNullString(contentjson);
         }
 
 

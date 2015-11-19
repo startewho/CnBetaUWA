@@ -177,8 +177,7 @@ namespace CnBetaUWA.ViewModels
         private async void SaveAction(Topic selectTopic)
         {
             await _storageHelper.SaveAsync(selectTopic.StaticNewesCollection.Take(100), selectTopic.CurrentTopicType.NamePre);
-            
-        }
+         }
 
 
         private async void LoadAction(Topic selectTopic)
@@ -186,16 +185,14 @@ namespace CnBetaUWA.ViewModels
             var cachenews = await _storageHelper.LoadAsync(selectTopic.CurrentTopicType.NamePre);
 
             selectTopic.InitTodayRankNewsSourceColletion(cachenews);
-
             Reresh();
            
         }
 
-        private async void Reresh()
+        public async void Reresh()
         {
-            var jsonttext =
-                await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.NamePre);
-            
+            var jsonttext =await CnBetaHelper.GetTodayRankNews(CnBetaHelper.TypeTodayRank, SelectedTopic.CurrentTopicType.NamePre);
+            if (jsonttext == null) return;
             var listnewses= ModelHelper.JsonToNewses(jsonttext);
             if (listnewses==null) return;
             if (SelectedTopic.StaticNewesCollection.Count > 0 && SelectedTopic.StaticNewesCollection.First().Sid >= listnewses.First().Sid) return;

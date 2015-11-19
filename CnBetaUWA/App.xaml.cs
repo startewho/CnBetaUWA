@@ -11,7 +11,6 @@ using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Extensions;
 using CnBetaUWA.Helper;
 using CnBetaUWA.Models;
-using Edi.UWP.Helpers;
 using MVVMSidekick.Startups;
 using ImageLib;
 using ImageLib.Cache.Memory.CacheImpl;
@@ -143,7 +142,7 @@ namespace CnBetaUWA
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
-
+                rootFrame.Name = "MainFrame";
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)

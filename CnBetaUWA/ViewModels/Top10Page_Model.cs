@@ -47,7 +47,7 @@ namespace CnBetaUWA.ViewModels
          private async void InitData()
         {
             var jsontext = await CnBetaHelper.GetNews(CnBetaHelper.TypeTop10, null, 0);
-            var lists = ModelHelper.JsonToNewses(jsontext).ToList();
+            var lists = ModelHelper.JsonToNewses(jsontext);
             if (lists != null)
             {
                 Top10NewsCollection = new ObservableCollection<News>();

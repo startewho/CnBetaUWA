@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using CnBetaUWA.DataBase;
@@ -195,6 +196,11 @@ namespace CnBetaUWA.ViewModels
             //      ).DisposeWith(this);
 
 
+        }
+
+        private void Image_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+           
         }
 
         public IncrementalPageLoadingCollection<IncrementalNewsCommentPageSource,NewsComment> CommentsSource

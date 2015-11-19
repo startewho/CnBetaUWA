@@ -10,6 +10,7 @@
     xmlns:tookit="using:MyToolkit.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:behaviors="using:MVVMSidekick.Behaviors"
     NavigationCacheMode="Disabled"
     mc:Ignorable="d">
   
@@ -28,7 +29,7 @@
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-
+      
         <Border Background="{StaticResource SystemControlBackgroundAccentBrush}" Grid.Row="0" Grid.Column="0">
         <TextBlock Text="{Binding NewsVm.Title}" FontSize="18" Margin="{StaticResource DefaultLeftMargin}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" />
         </Border>
@@ -56,12 +57,13 @@
             <Button Style="{StaticResource CommandButtonStyle}" Tag="Comments" Content="&#xE206;" Command="{Binding CommandNaviToCommentsPage}" CommandParameter="{Binding Vm.Sid}"/>
         </StackPanel>
         </Border>
-        <tookit:HtmlControl  x:Name="webview"  Html="{Binding TotalContent}" FontFamily="Microsoft YaHei" BackgroundColor="{Binding BackGroundColor}" FontSize="16"  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <tookit:HtmlControl  x:Name="webview"  Html="{Binding TotalContent}" FontFamily="Microsoft YaHei" BackgroundColor="{Binding BackGroundColor}" FontSize="16" HtmlLoaded="Webview_OnHtmlLoaded" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <controls:SwipeableControl Style="{StaticResource SwipableControlStyle}" IsLoading="{Binding IsUIBusy}"  IsSwipeablePaneOpen="{Binding IsCommentPanelOpen,Mode=TwoWay}" HorizontalAlignment="Right"  Grid.Row="1" Grid.ColumnSpan="2" >
             <controls:SwipeableControl.Content>
                 <ListView ItemsSource="{Binding CommentsSource}" ItemTemplate="{StaticResource CommentItemDataTemplate}" />
             </controls:SwipeableControl.Content>
         </controls:SwipeableControl>
+        <FlipView x:Name="flipView"  VerticalAlignment="Stretch" ItemContainerStyle="{StaticResource PicFlipViewItem}" HorizontalAlignment="Stretch" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Visibility="Collapsed" Tapped="FlipView_OnTapped"/>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
                 <VisualState x:Name="WideState">
@@ -85,5 +87,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
     </Grid>
 </mvvm:MVVMPage>

@@ -24,6 +24,7 @@ namespace MyToolkit.Controls.Html.Generators
         /// <param name="node">The node.</param>
         /// <param name="htmlView">The text block.</param>
         /// <returns>The UI element.</returns>
+        private  int tagindex = 0;
         public override DependencyObject CreateControl(HtmlNode node, IHtmlView htmlView)
         {
             try
@@ -41,10 +42,13 @@ namespace MyToolkit.Controls.Html.Generators
                 if (height == 1 && width == 1)
                     return null;
 
-                var image = new Image();
-                image.Width = 0;
-                image.Height = 0;
-              
+                var image = new Image
+                {
+                    Width = 0,
+                    Height = 0,
+                    Tag = tagindex,
+                };
+                tagindex++;
                 ImageExtensions.SetCacheUri(image, new Uri(imageUri));
                
                 var imageBlock = new ImageBlock

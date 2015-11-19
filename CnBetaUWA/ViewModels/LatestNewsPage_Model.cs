@@ -76,7 +76,7 @@ namespace CnBetaUWA.ViewModels
             //}).DisposeWith(this);
         }
 
-        private   void Reresh()
+        public void Reresh()
         {
             var cachenews = NewsSourceCollection.ToList();
             NewsSourceCollection.OnLoadMoreStarted -= DataSourceCollection_OnLoadMoreStarted;

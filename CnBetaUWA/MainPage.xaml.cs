@@ -2,6 +2,7 @@
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using CnBetaUWA.Extensions;
@@ -42,16 +43,6 @@ namespace CnBetaUWA
                     DependencyProperty.Register("StrongTypeViewModel", typeof(MainPage_Model), typeof(MainPage), new PropertyMetadata(null));
 
       
-
-
-
-        public Frame RootFrame
-        {
-            get
-            {
-                return VMFrame;
-            }
-        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -95,6 +86,11 @@ namespace CnBetaUWA
 
         }
 
-       
+
+        private void MenuItem_OnDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            var view = VMFrame.Content as IRefresh;
+            view?.Reresh();
+        }
     }
 }

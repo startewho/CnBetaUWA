@@ -17,7 +17,7 @@
         <StackPanel Margin="{StaticResource DefaultAllMargin}"  Grid.Row="2" >
             <TextBlock  Text="Cnbeta阅读是第三方软件"  FontSize="20"/>
             <TextBlock  Text="所有内容版权均归Cnbeta.com所有" FontSize="20"/>
-            <TextBlock  Text="版本:V1.7(20151115)" FontSize="20"/>
+            <TextBlock  Text="版本:V1.9(20151119)" FontSize="20"/>
         </StackPanel>
        
     </Grid>

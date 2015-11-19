@@ -111,6 +111,7 @@ namespace CnBetaUWA.ViewModels
                    }
                ).DisposeWith(this);
 
+            
             //EventRouter.Instance.GetEventChannel<Object>()
             //      .Where(x => x.EventName == "NavToAuthorDetailByEventRouter")
             //      .Subscribe(
