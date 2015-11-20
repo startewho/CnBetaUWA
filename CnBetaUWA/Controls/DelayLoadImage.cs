@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
+using CnBetaUWA.Helper;
 using Q42.WinRT.Data;
 
 namespace CnBetaUWA.Controls
@@ -102,17 +103,18 @@ namespace CnBetaUWA.Controls
 
             private async static void ActualImageSourceChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
             {
-                DelayLoadImage instance = o as DelayLoadImage;
+                var delayLoadImage = o as DelayLoadImage;
 
-                if (instance == null) return;
-                instance.imageLoaded = false;
+                if (delayLoadImage == null) return;
+                delayLoadImage.imageLoaded = false;
 
                 var newCacheUri = e.NewValue;
                 if (newCacheUri == null) return;
-
+                var requstable = await HttpHelper.IsRequestAble(newCacheUri.ToString());
+                if (!requstable) return;
                 var cacheUri =await WebDataCache.GetLocalUriAsync(new Uri(newCacheUri.ToString(), UriKind.RelativeOrAbsolute));
-                instance._image.UriSource = cacheUri;
-                VisualStateManager.GoToState(instance, STATE_DEFAULT_NAME, false);
+                delayLoadImage._image.UriSource = cacheUri;
+                VisualStateManager.GoToState(delayLoadImage, STATE_DEFAULT_NAME, false);
 
 
                 //这里引入Q42的缓存

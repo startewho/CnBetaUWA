@@ -47,13 +47,20 @@ namespace CnBetaUWA.ViewModels
       
         protected override Task OnBindedViewUnload(IView view)
         {
+
+            SaveSetting();
+            return base.OnBindedViewUnload(view);
+        }
+
+        private void SaveSetting()
+        {
             var lists = new List<TopicType>();
             var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics, null);
             var settingtopics = SerializerHelper.JsonDeserialize<List<TopicType>>(jsontopics);
             settingtopics.AddRange(TopicTypes.Where(item => item.IsSelected));
             foreach (var settingtopic in settingtopics)
             {
-                foreach (var topicType in TopicTypes.Where(topicType => settingtopic.Id==topicType.Id))
+                foreach (var topicType in TopicTypes.Where(topicType => settingtopic.Id == topicType.Id))
                 {
                     settingtopic.IsSelected = topicType.IsSelected;
                 }
@@ -64,12 +71,10 @@ namespace CnBetaUWA.ViewModels
             }
 
 
-            var newjsontopics = SerializerHelper.ToJson(lists.Distinct(item=>item.Id).Take(5));
+            var newjsontopics = SerializerHelper.ToJson(lists.Distinct(item => item.Id).Take(5));
             SettingsHelper.Set(CnBetaHelper.SettingSelectedTotics, newjsontopics);
-            
-            return base.OnBindedViewUnload(view);
-        }
 
+        }
 
         public IncrementalPageLoadingCollection<IncrementalTopicTypePageSource,TopicType> TopicTypes
         {
@@ -84,6 +89,22 @@ namespace CnBetaUWA.ViewModels
 
 
 
+        public string FliterText
+        {
+            get { return _FliterTextLocator(this).Value; }
+            set
+            {
+               _FliterTextLocator(this).SetValueAndTryNotify(value);
+                SaveSetting();
+                TopicTypes = new IncrementalPageLoadingCollection<IncrementalTopicTypePageSource, TopicType>(value, 0, 20);
+
+            }
+        }
+        #region Property string FliterText Setup        
+        protected Property<string> _FliterText = new Property<string> { LocatorFunc = _FliterTextLocator };
+        static Func<BindableBase, ValueContainer<string>> _FliterTextLocator = RegisterContainerLocator<string>("FliterText", model => model.Initialize("FliterText", ref model._FliterText, ref _FliterTextLocator, _FliterTextDefaultValueFactory));
+        static Func<string> _FliterTextDefaultValueFactory = () => "";
+        #endregion
 
 
     }

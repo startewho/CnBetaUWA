@@ -12,7 +12,7 @@ namespace CnBetaUWA.DataSource
     {
       
 
-        private async Task<IEnumerable<TopicType>> GetData()
+        private async Task<IEnumerable<TopicType>> GetData(string query)
         {
             var jsontext = await IOHelper.GetTextFromStorage(new Uri("ms-appx:///AppData/CnbetaAllTopics.json"));
             var jsontopics = SettingsHelper.Get<string>(CnBetaHelper.SettingSelectedTotics);
@@ -29,7 +29,8 @@ namespace CnBetaUWA.DataSource
                 }
                 
             }
-            return alltopics;
+            var querytopics = alltopics.Where(item => item.Name.Contains(query)).ToList();
+            return querytopics;
         }
 
         private static List<TopicType> _sourceCollection; 
@@ -41,11 +42,9 @@ namespace CnBetaUWA.DataSource
 
         public async Task<IEnumerable<TopicType>> GetPagedItems(string query, int pageIndex, int pageSize)
         {
-            if (_sourceCollection == null)
-            {
-                _sourceCollection = (List<TopicType>) await GetData();
-            }
-
+            
+                _sourceCollection = (List<TopicType>) await GetData(query);
+            
             var colltions = _sourceCollection.Skip(pageIndex*pageSize);
 
             return colltions.Take(pageSize);

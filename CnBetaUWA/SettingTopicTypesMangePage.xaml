@@ -26,6 +26,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
            </Grid.RowDefinitions>
+        <TextBox Text="{ Binding FliterText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" />
         <ListView ItemsSource="{Binding TopicTypes}"  ItemTemplate="{StaticResource TopicTypeItemDataTemplate}" ItemContainerStyle="{StaticResource StretchListVierItem}" Grid.Row="1"/>
        
     </Grid>

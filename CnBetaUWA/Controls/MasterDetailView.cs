@@ -49,7 +49,7 @@ namespace CnBetaUWA.Controls
 
         private void OnAcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs args)
         {
-            if ((args.EventType == CoreAcceleratorKeyEventType.SystemKeyDown || args.EventType == CoreAcceleratorKeyEventType.KeyDown) && (args.VirtualKey == VirtualKey.Escape||args.VirtualKey==VirtualKey.Back))
+            if ((args.EventType == CoreAcceleratorKeyEventType.SystemKeyDown || args.EventType == CoreAcceleratorKeyEventType.KeyDown) && (args.VirtualKey == VirtualKey.Escape))
             {
                 if (!DetailFrame.CanGoBack || CurrentState != MasterDetailState.Narrow) return;
                 DetailFrame.GoBack();

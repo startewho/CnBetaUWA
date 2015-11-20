@@ -39,6 +39,19 @@ namespace CnBetaUWA.Helper
             isConnected = internet;
         }
 
+        public static async  Task<bool> IsRequestAble(string url)
+        {
+            HttpClient httpClient = null;
+            CreateHttpClient(ref httpClient);
+            var request=new HttpRequestMessage(HttpMethod.Get, new Uri(url));
+            var response = await httpClient.SendRequestAsync(request);
+            if (response.StatusCode==HttpStatusCode.Ok)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private static void NetworkInformation_NetworkStatusChanged(object sender)
         {
            
