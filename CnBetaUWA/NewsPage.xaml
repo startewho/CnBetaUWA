@@ -54,7 +54,22 @@
                      </Flyout>
                 </Button.Flyout>
             </Button>
-            <Button Style="{StaticResource CommandButtonStyle}" Tag="Comments" Content="&#xE206;" Command="{Binding CommandNaviToCommentsPage}" CommandParameter="{Binding Vm.Sid}"/>
+                <Button  Tag="Comments" Background="{ThemeResource SystemControlBackgroundAccentBrush}" Foreground="GhostWhite"  Command="{Binding CommandNaviToCommentsPage}" CommandParameter="{Binding NewsVm.Sid}">
+                    <Grid>
+                        <TextBlock Text="&#xE206;" Style="{StaticResource IconTextBlockStyle}" 
+                                 />
+                        <TextBlock Text="{Binding NewsVm.CommentsCount}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="9"
+                                   
+                                   RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform Y="-2.5" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+                </Button>
         </StackPanel>
         </Border>
         <tookit:HtmlControl  x:Name="webview"  Html="{Binding TotalContent}" FontFamily="Microsoft YaHei" BackgroundColor="{Binding BackGroundColor}" FontSize="16" HtmlLoaded="Webview_OnHtmlLoaded" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>

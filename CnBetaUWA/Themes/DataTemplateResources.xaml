@@ -21,9 +21,9 @@
                     <behaviors:SendToEventRouterAction EventRoutingName="NavToNewsDetailByEventRouter"   IsEventFiringToAllBaseClassesChannels="True"  EventData="{Binding}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
-            <controls:DelayLoadImage DefaultImageSource="../Assets/cnbetaSmallLogo.png" Stretch="Fill" ActualImageSource="{x:Bind ThumbPicture}" Grid.Column="0"/>
+            <!--<controls:DelayLoadImage DefaultImageSource="../Assets/cnbetaSmallLogo.png" Stretch="Fill" ActualImageSource="{x:Bind ThumbPicture}" Grid.Column="0"/>-->
             <!--<Image q42:ImageExtensions.CacheUri="{x:Bind ThumbPicture}" Grid.Column="0"/>-->
-            <!--<imglibcontrol:ImageView UriSource="{x:Bind ThumbPicture}"  Grid.Column="0"/>-->
+            <imglibcontrol:ImageView UriSource="{x:Bind ThumbPicture}"  Grid.Column="0"/>
           <Grid Margin="12,2,0,2" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
@@ -187,8 +187,8 @@
                <ColumnDefinition Width="*" />
                <ColumnDefinition Width="50" />
            </Grid.ColumnDefinitions>
-            <!--<imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
-            <Image  q42:ImageExtensions.CacheUri="{x:Bind LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
+            <imglibcontrol:ImageView UriSource="{Binding LogoUrl}" Grid.Column="0" Stretch="Uniform"/>
+            <!--<Image  q42:ImageExtensions.CacheUri="{x:Bind LogoUrl}" Grid.Column="0" Stretch="Uniform"/>-->
             <TextBlock Text="{x:Bind Name}" Margin="{StaticResource DefaultLeftMargin}" Grid.Column="1" VerticalAlignment="Center"/>
             <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" Grid.Column="2" VerticalAlignment="Center"/>
        </Grid>
