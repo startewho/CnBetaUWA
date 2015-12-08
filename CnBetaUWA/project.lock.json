@@ -257,25 +257,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -377,17 +388,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -2077,25 +2077,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -2197,17 +2208,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -3933,25 +3933,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -4053,17 +4064,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -5794,25 +5794,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -5914,17 +5925,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -7650,25 +7650,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -7770,17 +7781,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -9511,25 +9511,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -9631,17 +9642,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -11367,25 +11367,36 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MVVM-Sidekick/1.6.6": {
+      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
+          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "MVVM-Sidekick/1.6.9": {
         "dependencies": {
           "CommonServiceLocator": "[1.3.0, 100.0.0)",
           "Microsoft.Bcl": "[1.1.10, 100.0.0)",
           "Microsoft.Bcl.Async": "[1.0.168, 100.0.0)",
           "Microsoft.Bcl.Build": "[1.0.21, 100.0.0)",
+          "Microsoft.NETCore.UniversalWindowsPlatform": "[5.0.0, 100.0.0)",
+          "Microsoft.Xaml.Behaviors.Uwp.Managed": "[1.0.3, 100.0.0)",
           "Rx-Core": "[2.2.5, 100.0.0)",
           "Rx-Interfaces": "[2.2.5, 100.0.0)",
           "Rx-Linq": "[2.2.5, 100.0.0)",
           "Rx-Main": "[2.2.5, 100.0.0)",
           "Rx-PlatformServices": "[2.2.5, 100.0.0)",
-          "Rx-Xaml": "[2.2.5, 100.0.0)",
           "Unity": "[3.5.1405, 100.0.0)"
         },
         "compile": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         },
         "runtime": {
-          "lib/win81/MVVMSidekick_Metro.dll": {}
+          "lib/uap10.0/MVVMSidekick_UAP10.dll": {}
         }
       },
       "MyToolkit/2.5.8": {
@@ -11487,17 +11498,6 @@
         },
         "runtime": {
           "lib/windows8/System.Reactive.PlatformServices.dll": {}
-        }
-      },
-      "Rx-Xaml/2.2.5": {
-        "dependencies": {
-          "Rx-Main": "[2.2.5, )"
-        },
-        "compile": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
-        },
-        "runtime": {
-          "lib/windows8/System.Reactive.Windows.Threading.dll": {}
         }
       },
       "SQLite.Net-PCL/3.1.1": {
@@ -13791,8 +13791,28 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "MVVM-Sidekick/1.6.6": {
-      "sha512": "S5YIw8NZ/YuI2YEdtAW8XfFHsiMkOS6aN2rm1NiBAAe7AaZfZ83loYraNUaSbnOOezMkbtYi32yklFcTwmtXiA==",
+    "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
+      "sha512": "N/HJa+ld/kKIKQaTTBY/ytLukfujKkBMww59p9qmPkEpyHZRMYB8FNalghu1rFMCXoSx9cWD8U4nt/r7qLQmVg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.dll",
+        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactions/Properties/Microsoft.Xaml.Interactions.rd.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity.xml",
+        "lib/uap10.0/Microsoft.Xaml.Interactivity/Properties/Microsoft.Xaml.Interactivity.rd.xml",
+        "Microsoft.Xaml.Behaviors.Uwp.Managed.nuspec",
+        "package/services/metadata/core-properties/3c85324cf8b64508a39f4ccba86cb561.psmdcp"
+      ]
+    },
+    "MVVM-Sidekick/1.6.9": {
+      "sha512": "ocoLEp9bc7VyHoV0vndO/WyxEEsAXbVZ5HoEty5HSqmvl7hYFZmMps6PIhSpG+H6mxDSE0vCyKXXZd+LZu0HiA==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -13807,16 +13827,15 @@
         "lib/sl50/MVVMSidekick_Sl.dll.config",
         "lib/sl50/MVVMSidekick_Sl.pdb",
         "lib/sl50/MVVMSidekick_Sl.XML",
+        "lib/uap10.0/MVVMSidekick_UAP10.dll",
+        "lib/uap10.0/MVVMSidekick_UAP10.pdb",
+        "lib/uap10.0/MVVMSidekick_UAP10.pri",
         "lib/win81/MVVMSidekick_Metro.dll",
-        "lib/win81/MVVMSidekick_Metro.dll.CodeAnalysisLog.xml",
-        "lib/win81/MVVMSidekick_Metro.dll.lastcodeanalysissucceeded",
         "lib/win81/MVVMSidekick_Metro.pdb",
         "lib/win81/MVVMSidekick_Metro.pri",
         "lib/win81/MVVMSidekick_Metro.XML",
         "lib/wp8/MVVMSidekick_Wp8.dll",
-        "lib/wp8/MVVMSidekick_Wp8.dll.CodeAnalysisLog.xml",
         "lib/wp8/MVVMSidekick_Wp8.dll.config",
-        "lib/wp8/MVVMSidekick_Wp8.dll.lastcodeanalysissucceeded",
         "lib/wp8/MVVMSidekick_Wp8.pdb",
         "lib/wp8/MVVMSidekick_Wp8.XML",
         "lib/wpa81/Microsoft.Practices.Unity.dll",
@@ -13825,7 +13844,7 @@
         "lib/wpa81/MVVMSidekick_Wpa81.pdb",
         "lib/wpa81/MVVMSidekick_Wpa81.pri",
         "MVVM-Sidekick.nuspec",
-        "package/services/metadata/core-properties/171c841d0b8b4326aff1d1d6d6252e17.psmdcp",
+        "package/services/metadata/core-properties/9ce68568f1474ac5b5c661d7da6d02b3.psmdcp",
         "tools/install.ps1",
         "tools/MVVM-Sidekick.snippet"
       ]
@@ -14061,30 +14080,6 @@
         "lib/windowsphone8/System.Reactive.PlatformServices.XML",
         "package/services/metadata/core-properties/5087526007294f7d8e78a6a4a61c494a.psmdcp",
         "Rx-PlatformServices.nuspec"
-      ]
-    },
-    "Rx-Xaml/2.2.5": {
-      "sha512": "RzA/HcKP1U44i7ZchRdR3v3GdepNmr/93ydyixV+LwZs++Yxo13fsODRTqGIyz11ERSIKgnnSs6tbJUys4qRSw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/net40/System.Reactive.Windows.Threading.dll",
-        "lib/net40/System.Reactive.Windows.Threading.XML",
-        "lib/net45/System.Reactive.Windows.Threading.dll",
-        "lib/net45/System.Reactive.Windows.Threading.XML",
-        "lib/portable-win81+wpa81/System.Reactive.Windows.Threading.dll",
-        "lib/portable-win81+wpa81/System.Reactive.Windows.Threading.XML",
-        "lib/sl5/System.Reactive.Windows.Threading.dll",
-        "lib/sl5/System.Reactive.Windows.Threading.XML",
-        "lib/windows8/System.Reactive.Windows.Threading.dll",
-        "lib/windows8/System.Reactive.Windows.Threading.XML",
-        "lib/windowsphone71/System.Reactive.Windows.Threading.dll",
-        "lib/windowsphone71/System.Reactive.Windows.Threading.XML",
-        "lib/windowsphone8/System.Reactive.Windows.Threading.dll",
-        "lib/windowsphone8/System.Reactive.Windows.Threading.XML",
-        "package/services/metadata/core-properties/b5441fe1cc3e4525b27d164c5a5518ce.psmdcp",
-        "Rx-XAML.nuspec"
       ]
     },
     "SQLite.Net-PCL/3.1.1": {
@@ -16883,7 +16878,8 @@
       "Microsoft.Bcl.Async >= 1.0.168",
       "Microsoft.Bcl.Build >= 1.0.21",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "MVVM-Sidekick >= 1.6.6",
+      "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.0.3",
+      "MVVM-Sidekick >= 1.6.9",
       "MyToolkit >= 2.5.8",
       "MyToolkit.Extended >= 2.5.8",
       "Newtonsoft.Json >= 8.0.1-beta3",
